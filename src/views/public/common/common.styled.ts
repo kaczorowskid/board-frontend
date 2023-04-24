@@ -2,13 +2,13 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
-  padding: 12px;
+  padding: ${({ theme }) => theme.gapp.small};
 `;
 
 export const Title = styled.h1`
   width: 100%;
   text-align: center;
-  color: #5d7df3;
+  color: ${({ theme }) => theme.color.blueberry};
 `;
 
 export const HintContainer = styled.div`
@@ -18,5 +18,5 @@ export const HintContainer = styled.div`
 `;
 
 export const StyledLink = styled(Link)`
-  color: #5d7df3;
+  color: ${({ theme }) => theme.color.blueberry};
 `;
