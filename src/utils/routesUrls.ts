@@ -3,6 +3,8 @@ export const routesUrls = {
   auth: {
     register: '/register',
     login: '/login',
-    resetPassword: '/reset-password'
+    resetPassword: '/reset-password',
+    setNewPassword: '/set-new-password',
+    confirmAccount: '/confirm-account'
   }
 };
