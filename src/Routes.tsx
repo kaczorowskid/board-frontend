@@ -2,6 +2,7 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import { PublicLayout } from 'layouts';
 import { routesUrls } from 'utils';
 import { ConfirmAccount, Login, Register, ResetPassword, SetNewPassword } from 'views';
+import { Drag } from 'Drag';
 
 export const Routes = () => {
   const router = createBrowserRouter(
@@ -14,6 +15,7 @@ export const Routes = () => {
           <Route path={routesUrls.auth.setNewPassword} element={<SetNewPassword />} />
           <Route path={routesUrls.auth.confirmAccount} element={<ConfirmAccount />} />
         </Route>
+        <Route path='/drag' element={<Drag />} />
       </Route>
     )
   );
