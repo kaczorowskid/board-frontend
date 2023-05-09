@@ -7,12 +7,12 @@ import { GlobalStyle, theme } from 'styles';
 import { ThemeProvider } from 'styled-components';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Routes />
-      </ThemeProvider>
-    </QueryClientProvider>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <QueryClientProvider client={queryClient}>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Routes />
+    </ThemeProvider>
+  </QueryClientProvider>
+  // </React.StrictMode>
 );
