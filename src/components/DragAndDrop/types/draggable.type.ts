@@ -1,7 +1,9 @@
 export interface Content {
   code: string;
-  name: string;
+  description: string;
   epics?: string[];
+  type: 'BUG' | 'STORY';
+  estimation: number | null;
 }
 
 export interface ColumnItem {
