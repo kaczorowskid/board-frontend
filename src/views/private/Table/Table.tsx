@@ -2,8 +2,8 @@ import { Column, DragAndDrop, ModalOptions, mockData } from 'components';
 import { useState } from 'react';
 import { DropResult } from 'react-beautiful-dnd';
 
-export const Drag = () => {
-  const [data, setData] = useState<Column[]>(mockData);
+export const Table = () => {
+  const [data, setData] = useState<Column[]>(mockData as Column[]);
   const [itemData, setItemData] = useState<string>('');
 
   const reorder = (list: Column[], result: DropResult) => {

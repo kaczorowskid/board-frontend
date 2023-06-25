@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
-import { Container, ContentContainer, MainContainer } from './Public.styled';
+import { Container, ContentContainer, MainContainer } from './Auth.styled';
 
-export const PublicLayout = () => (
+export const AuthLayout = () => (
   <>
     <MainContainer>
       <div></div>
