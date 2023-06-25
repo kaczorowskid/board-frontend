@@ -6,5 +6,8 @@ export const routesUrls = {
     resetPassword: '/reset-password',
     setNewPassword: '/set-new-password',
     confirmAccount: '/confirm-account'
+  },
+  app: {
+    table: '/table'
   }
 };
