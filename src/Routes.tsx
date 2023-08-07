@@ -1,7 +1,7 @@
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import { AuthLayout, TableLayout } from 'layouts';
 import { routesUrls } from 'utils';
-import { ConfirmAccount, Login, Register, ResetPassword, SetNewPassword, Table } from 'views';
+import { ConfirmAccount, Login, Register, ResetPassword, SetNewPassword, Table, TableChoose } from 'views';
 
 export const Routes = () => {
   const router = createBrowserRouter(
@@ -17,6 +17,7 @@ export const Routes = () => {
         <Route element={<TableLayout />}>
           <Route path={routesUrls.app.table} element={<Table />} />
         </Route>
+        <Route path={'/choose'} element={<TableChoose />} />
       </Route>
     )
   );
