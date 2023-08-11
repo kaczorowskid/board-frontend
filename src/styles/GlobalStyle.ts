@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { button, input } from './components';
+import { button, input, table } from './components';
 
 export const GlobalStyle = createGlobalStyle`
   html, * {
@@ -7,14 +7,16 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
+    font-family: 'Roboto', sans-serif;
     line-height: 1.5;
     font-weight: 400;
 
     color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #f8f8f8;
-    /* background-color: #242424; */
+    /* color: rgba(255, 255, 255, 0.87); */
+    color: black;
+    /* background-color: #fff0f0; */
+    background-color: white;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -33,4 +35,5 @@ export const GlobalStyle = createGlobalStyle`
 
   ${input}
   ${button}
+  ${table}
 `;

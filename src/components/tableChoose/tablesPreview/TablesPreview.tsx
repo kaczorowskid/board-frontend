@@ -3,7 +3,7 @@ import VirtualList from 'rc-virtual-list';
 import { useEffect, useState } from 'react';
 import { TablesPreviewProps, TablesPreviewType } from './TablesPreview.type';
 
-export const TablesPreview = ({ data, onChangePagination, itemHeight, ...props }: TablesPreviewProps) => {
+export const TablesPreview = ({ data, onChangePagination, itemHeight, height, ...props }: TablesPreviewProps) => {
   const [dataSource, setDataSource] = useState<TablesPreviewType[]>([]);
 
   useEffect(() => {
@@ -11,14 +11,14 @@ export const TablesPreview = ({ data, onChangePagination, itemHeight, ...props }
   }, [data]);
 
   const handleScroll = (e: React.UIEvent<HTMLElement, UIEvent>) => {
-    if (e.currentTarget.scrollHeight - e.currentTarget.scrollTop === 200) {
+    if (e.currentTarget.scrollHeight - e.currentTarget.scrollTop === height) {
       onChangePagination();
     }
   };
 
   return (
     <List>
-      <VirtualList data={dataSource} onScroll={handleScroll} itemHeight={itemHeight} {...props}>
+      <VirtualList data={dataSource} onScroll={handleScroll} itemHeight={itemHeight} height={height} {...props}>
         {({ image, name }) => (
           <List.Item key={name}>
             <List.Item.Meta

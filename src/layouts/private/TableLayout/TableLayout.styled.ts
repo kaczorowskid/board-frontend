@@ -7,7 +7,7 @@ export const GridContainer = styled.div`
   grid-template-columns: 300px auto;
   grid-template-rows: 100px auto;
   grid-template-areas:
-    'navbar navbar'
+    'sidebar navbar'
     'sidebar table';
 `;
 
@@ -16,6 +16,9 @@ export const NavbarContainer = styled.div`
 `;
 
 export const SidebarContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: #182545;
   grid-area: sidebar;
 `;
 
