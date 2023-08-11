@@ -16,8 +16,8 @@ export const Routes = () => {
         </Route>
         <Route element={<TableLayout />}>
           <Route path={routesUrls.app.table} element={<Table />} />
+          <Route path={'/choose'} element={<TableChoose />} />
         </Route>
-        <Route path={'/choose'} element={<TableChoose />} />
       </Route>
     )
   );

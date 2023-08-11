@@ -12,5 +12,8 @@ export const apiUrls = {
   table: {
     getAllTables: (user_id: string) => `/${generatePath('table/:user_id', { user_id })}`,
     getTablesWithPagination: 'table/pagination'
+  },
+  folder: {
+    getAllFolders: '/folder/all'
   }
 };
