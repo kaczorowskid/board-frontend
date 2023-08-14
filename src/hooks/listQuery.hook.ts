@@ -10,7 +10,7 @@ interface UseListQuery {
 export const defaultConfig: ListQuery = {
   pagination: {
     current: 1,
-    pageSize: 5
+    pageSize: 4
   }
 };
 

@@ -4,6 +4,7 @@ export const apiUrls = {
   user: {
     register: '/user/register',
     login: '/user/login',
+    getUser: '/user',
     resetPassword: '/user/reset-password',
     setNewPassword: '/user/set-new-password',
     updateUser: (id: string) => `/${generatePath('user/:id', { id })}`,

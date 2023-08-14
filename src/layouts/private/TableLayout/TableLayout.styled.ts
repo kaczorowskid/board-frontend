@@ -18,7 +18,6 @@ export const NavbarContainer = styled.div`
 export const SidebarContainer = styled.div`
   width: 100%;
   height: 100%;
-  background-color: #182545;
   grid-area: sidebar;
 `;
 
