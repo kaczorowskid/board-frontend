@@ -2,6 +2,7 @@ import { HttpMethod, apiCall, apiUrls } from 'utils';
 import {
   ConfirmAccountUserRequest,
   ConfirmAccountUserResponse,
+  GetUserResponse,
   LoginUserRequest,
   LoginUserResponse,
   RegisterUserRequest,
@@ -28,6 +29,16 @@ export const loginUser = async (payload: LoginUserRequest): Promise<LoginUserRes
   } = apiUrls;
 
   const { data } = await apiCall<LoginUserRequest, LoginUserResponse>(login, HttpMethod.POST, payload);
+
+  return data;
+};
+
+export const getUser = async (): Promise<GetUserResponse> => {
+  const {
+    user: { getUser: getUserUrl }
+  } = apiUrls;
+
+  const { data } = await apiCall<unknown, GetUserResponse>(getUserUrl, HttpMethod.GET);
 
   return data;
 };

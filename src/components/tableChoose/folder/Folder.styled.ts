@@ -5,6 +5,16 @@ export const Container = styled.div`
   border: 1px solid #f4f0fc;
   width: 250px;
   height: 200px;
+  border-radius: 20px;
+  overflow: hidden;
+`;
+
+export const IconContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const TitleContainer = styled.div`

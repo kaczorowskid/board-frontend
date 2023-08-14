@@ -1,3 +1,2 @@
-export * from './tablesPreview';
-export * from './folder';
-export * from './tileItem';
+export * from './Folder';
+export * from './TileItem';

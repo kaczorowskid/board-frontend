@@ -2,7 +2,7 @@ import { Button } from 'antd';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { Header, PaginationButton, Tile, TileContainer, TileTitle } from './TileItem.styled';
 import { TileItemProps } from './TileItem.type';
-import { Action } from './tileItem.enum';
+import { Action } from './TileItem.enum';
 
 export const TileItem = ({
   title,

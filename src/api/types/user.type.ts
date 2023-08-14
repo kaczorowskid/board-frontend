@@ -25,6 +25,13 @@ export interface LoginUserResponse {
   token?: string;
 }
 
+export interface GetUserResponse {
+  id: string;
+  email: string;
+  is_active: boolean;
+  name: string;
+}
+
 export interface ResetPasswordUserRequest {
   email: string;
 }
