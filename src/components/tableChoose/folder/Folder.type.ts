@@ -6,6 +6,6 @@ interface Data {
 }
 
 export interface FolderProps {
-  data: Data[];
+  data?: Data[];
   setFolderId: React.Dispatch<React.SetStateAction<string>>;
 }

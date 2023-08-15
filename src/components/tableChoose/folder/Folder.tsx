@@ -9,7 +9,7 @@ export const Folder = ({ data, setFolderId }: FolderProps) => (
         <PlusCircleOutlined style={{ fontSize: 60 }} />
       </IconContainer>
     </Container>
-    {data.map(({ id, name, description, tables_count: tablesCount }) => (
+    {(data || []).map(({ id, name, description, tables_count: tablesCount }) => (
       <Container key={id} onClick={() => setFolderId(id)}>
         <TitleContainer>
           <FolderFilled style={{ fontSize: '50px', color: '#ad9cde' }} />

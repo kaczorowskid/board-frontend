@@ -1,4 +1,3 @@
-// import { userId } from 'constants/userId';
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
 import { GetTablesWithPaginationResponse } from 'api';
 import { getTablesWithPagination } from 'api/table';
@@ -9,22 +8,26 @@ import { useUserStore } from 'stores';
 
 export const useFetchTables = (
   listQuery: ListQuery,
-  folderId: string
+  folderId: string,
+  isSearchEnabled: boolean
 ): UseQueryResult<GetTablesWithPaginationResponse, Error> => {
-  const { skip, take } = usePaginationConfig(listQuery);
+  const { skip, take, searchValue } = usePaginationConfig(listQuery);
   const { id } = useUserStore();
 
+  const queryKey = isSearchEnabled ? [folderId, skip, take, searchValue] : [];
+
   return useQuery(
-    [QueryKeys.GET_TABLES_WITH_PAGINATION, folderId, skip, take],
+    [QueryKeys.GET_TABLES_WITH_PAGINATION, queryKey],
     () =>
       getTablesWithPagination({
         user_id: id,
         folder_id: folderId,
         skip,
-        take
+        take,
+        search_value: searchValue || ''
       }),
     {
-      enabled: Boolean(id)
+      enabled: !!id
     }
   );
 };

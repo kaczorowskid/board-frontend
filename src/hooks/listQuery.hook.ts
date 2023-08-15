@@ -8,6 +8,7 @@ interface UseListQuery {
 }
 
 export const defaultConfig: ListQuery = {
+  searchValue: '',
   pagination: {
     current: 1,
     pageSize: 4

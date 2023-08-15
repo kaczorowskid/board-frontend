@@ -3,6 +3,7 @@ import { ListQuery } from 'types';
 
 type UsePaginationHelpers = {
   onChangePagination: (page: number) => void;
+  onSearchPagination: (value: string) => void;
 };
 
 export const usePaginationHelpers = (
@@ -19,7 +20,19 @@ export const usePaginationHelpers = (
     }));
   };
 
+  const onSearchPagination = (value: string) => {
+    setListQuery((prev) => ({
+      ...prev,
+      searchValue: value,
+      pagination: {
+        ...prev.pagination,
+        current: 1
+      }
+    }));
+  };
+
   return {
-    onChangePagination
+    onChangePagination,
+    onSearchPagination
   };
 };

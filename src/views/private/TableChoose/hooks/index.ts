@@ -1,2 +1,3 @@
-export * from './fetchFolders.hook';
-export * from './fetchTables.hook';
+export * from './useFetchFolders.hook';
+export * from './useFetchTables.hook';
+export * from './useFilterBy.hook';

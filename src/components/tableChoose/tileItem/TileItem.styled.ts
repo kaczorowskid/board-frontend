@@ -26,7 +26,7 @@ export const TileContainer = styled.div<{ hasBorder?: boolean }>`
       : ''};
   border-radius: 20px;
   background-color: white;
-  padding: 20px 30px 20px 30px;
+  padding: 20px 30px 30px 30px;
 `;
 
 export const TileTitle = styled.div<{ hasBigTitle?: boolean }>`
