@@ -1,2 +1,4 @@
 export * from './Table';
-export * from './TableChoose';
+export * from './Dashboard';
+export * from './Folders';
+export * from './Tables';

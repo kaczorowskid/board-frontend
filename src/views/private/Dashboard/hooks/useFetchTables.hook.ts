@@ -14,10 +14,10 @@ export const useFetchTables = (
   const { skip, take, searchValue } = usePaginationConfig(listQuery);
   const { id } = useUserStore();
 
-  const queryKey = isSearchEnabled ? [folderId, skip, take, searchValue] : [];
+  const queryKey = isSearchEnabled ? [skip, take, searchValue] : [];
 
   return useQuery(
-    [QueryKeys.GET_TABLES_WITH_PAGINATION, queryKey],
+    [QueryKeys.GET_TABLES_WITH_PAGINATION, folderId, queryKey],
     () =>
       getTablesWithPagination({
         user_id: id,
