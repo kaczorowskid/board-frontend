@@ -1,15 +1,16 @@
-import { Folder, TileItem } from 'components';
 import { useListQuery, usePaginationHelpers } from 'hooks';
 import { Input, Select, Table } from 'antd';
 import { useState } from 'react';
 import { Option } from 'antd/es/mentions';
-import { Container } from './TableChoose.styled';
+
+import { Folder, TileItem } from 'components/dashboard';
 import { Filter, useFetchFolders, useFetchTables, useFilterBy } from './hooks';
 import { columns } from './utils';
+import { Container } from './Dashboard.styled';
 
 const { Search } = Input;
 
-export const TableChoose = () => {
+export const Dashboard = () => {
   const [searchBy, setSearchBy] = useState<string>(Filter.FOLDERS);
   const [folderId, setFolderId] = useState<string>('');
 

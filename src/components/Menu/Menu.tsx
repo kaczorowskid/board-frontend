@@ -1,13 +1,56 @@
 import { useUserStore } from 'stores';
+import { useState } from 'react';
+import { AppstoreOutlined, FolderOutlined, TableOutlined } from '@ant-design/icons';
+import { useNavigate } from 'react-router';
+import { routesUrls } from 'utils';
 import { Container } from './Menu.styled';
-import { UserInfo } from './elements';
+import { MenuItems, UserInfo } from './elements';
+
+enum MenuElements {
+  DASHBOARD = 'dashboard',
+  FOLDERS = 'folders',
+  TABLES = 'tables'
+}
 
 export const Menu = () => {
+  const navigation = useNavigate();
   const { name, email } = useUserStore();
+  const [clickedElement, setClickedElement] = useState<MenuElements>(MenuElements.DASHBOARD);
+
+  const menuData = [
+    {
+      name: 'Dashboard',
+      onClick: () => {
+        setClickedElement(MenuElements.DASHBOARD);
+        navigation(routesUrls.app.dashboard);
+      },
+      isClicked: clickedElement === MenuElements.DASHBOARD,
+      icon: <AppstoreOutlined />
+    },
+    {
+      name: 'Folders',
+      onClick: () => {
+        setClickedElement(MenuElements.FOLDERS);
+        navigation(routesUrls.app.folders);
+      },
+      isClicked: clickedElement === MenuElements.FOLDERS,
+      icon: <FolderOutlined />
+    },
+    {
+      name: 'Tables',
+      onClick: () => {
+        setClickedElement(MenuElements.TABLES);
+        navigation(routesUrls.app.tables);
+      },
+      isClicked: clickedElement === MenuElements.TABLES,
+      icon: <TableOutlined />
+    }
+  ];
 
   return (
     <Container>
       <UserInfo name={name} email={email} />
+      <MenuItems data={menuData} />
     </Container>
   );
 };

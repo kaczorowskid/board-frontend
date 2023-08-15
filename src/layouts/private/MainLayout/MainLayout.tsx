@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router-dom';
 import { Menu } from 'components';
 import { useAuthorization } from 'hooks';
-import { GridContainer, SidebarContainer, TableContainer } from './TableLayout.styled';
+import { GridContainer, SidebarContainer, TableContainer } from './MainLayout.styled';
 
-export const TableLayout = () => {
+export const MainLayout = () => {
   useAuthorization();
 
   return (

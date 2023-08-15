@@ -8,6 +8,9 @@ export const routesUrls = {
     confirmAccount: '/confirm-account'
   },
   app: {
-    table: '/table'
+    table: '/table',
+    dashboard: '/dashboard',
+    tables: '/tables',
+    folders: '/folders'
   }
 };
