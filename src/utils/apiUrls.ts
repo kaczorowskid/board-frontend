@@ -15,6 +15,7 @@ export const apiUrls = {
     getTablesWithPagination: 'table/pagination'
   },
   folder: {
-    getAllFolders: '/folder/all'
+    getAllFolders: '/folder/all',
+    getFoldersWithPagination: '/folder/pagination'
   }
 };

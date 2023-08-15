@@ -15,6 +15,7 @@ export interface GetTablesWithPaginationRequest {
   folder_id: string;
   take: number;
   skip: number;
+  search_value: string;
 }
 
 export interface GetTablesWithPaginationResponse {

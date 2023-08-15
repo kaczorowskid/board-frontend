@@ -1,28 +1,43 @@
 import { Folder, TileItem } from 'components';
 import { useListQuery, usePaginationHelpers } from 'hooks';
-import { Table } from 'antd';
+import { Input, Select, Table } from 'antd';
 import { useState } from 'react';
+import { Option } from 'antd/es/mentions';
 import { Container } from './TableChoose.styled';
-import { useFetchFolders, useFetchTables } from './hooks';
+import { Filter, useFetchFolders, useFetchTables, useFilterBy } from './hooks';
 import { columns } from './utils';
 
+const { Search } = Input;
+
 export const TableChoose = () => {
+  const [searchBy, setSearchBy] = useState<string>(Filter.FOLDERS);
   const [folderId, setFolderId] = useState<string>('');
 
   const { listQuery, setListQuery } = useListQuery();
-  const { onChangePagination } = usePaginationHelpers(listQuery, setListQuery);
+  const { onChangePagination, onSearchPagination } = usePaginationHelpers(listQuery, setListQuery);
 
-  const { data: tablesData, isLoading } = useFetchTables(listQuery, folderId);
-  const { data: folderData } = useFetchFolders();
+  const { filterByFolders, filterByTables } = useFilterBy(searchBy);
+
+  const { data: tablesData } = useFetchTables(listQuery, folderId, filterByTables);
+  const { data: folderData } = useFetchFolders(listQuery, filterByFolders);
+
+  const handleOptionChange = (value: string) => setSearchBy(value);
+
+  const addonAfter = (
+    <Select defaultValue={searchBy} onChange={handleOptionChange}>
+      <Option value={Filter.FOLDERS}>Folders</Option>
+      <Option value={Filter.TABLES}>Tables</Option>
+    </Select>
+  );
 
   return (
     <Container>
-      <TileItem title='My Tables' buttonName='Add Table' hasBigTitle />
+      <Search addonBefore={addonAfter} placeholder='Search' onSearch={onSearchPagination} />
       <TileItem title='Folders' pagination>
-        <Folder data={folderData || []} setFolderId={setFolderId} />
+        <Folder data={folderData?.data} setFolderId={setFolderId} />
       </TileItem>
       <TileItem title='Tables' hasBorder pagination onChangePagination={onChangePagination}>
-        <Table dataSource={tablesData?.data} columns={columns} pagination={false} loading={isLoading} />
+        <Table dataSource={tablesData?.data} columns={columns} pagination={false} />
       </TileItem>
     </Container>
   );
