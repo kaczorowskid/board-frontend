@@ -1,5 +1,7 @@
 import { HttpMethod, apiCall, apiUrls } from 'utils';
 import {
+  CreateFolderRequest,
+  CreateFolderResponse,
   GetAllFoldersRequest,
   GetAllFoldersResponse,
   GetFoldersWithPaginationRequest,
@@ -28,6 +30,16 @@ export const getFoldersWithPagination = async (
     HttpMethod.GET,
     payload
   );
+
+  return data;
+};
+
+export const createFolder = async (payload: CreateFolderRequest): Promise<CreateFolderResponse> => {
+  const {
+    folder: { createFolder: create }
+  } = apiUrls;
+
+  const { data } = await apiCall<CreateFolderRequest, CreateFolderResponse>(create, HttpMethod.POST, payload);
 
   return data;
 };

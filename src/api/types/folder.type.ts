@@ -12,8 +12,8 @@ export interface GetAllFoldersResponse {
 
 export interface GetFoldersWithPaginationRequest {
   user_id: string;
-  take: number;
-  skip: number;
+  limit: number;
+  offset: number;
   search_value: string;
 }
 
@@ -26,4 +26,16 @@ export interface GetFoldersWithPaginationResponse {
     user_id: boolean;
     tables_count: number;
   }[];
+}
+
+export interface CreateFolderRequest {
+  user_id: string;
+  name: string;
+  description: string;
+}
+
+export interface CreateFolderResponse {
+  id: string;
+  name: string;
+  description: string;
 }

@@ -12,9 +12,9 @@ export interface GetAllTablesResponse {
 
 export interface GetTablesWithPaginationRequest {
   user_id: string;
-  folder_id: string;
-  take: number;
-  skip: number;
+  folder_id?: string;
+  limit: number;
+  offset: number;
   search_value: string;
 }
 
@@ -27,4 +27,19 @@ export interface GetTablesWithPaginationResponse {
     favorite: boolean;
     team: boolean;
   }[];
+}
+
+export interface CreateTableRequest {
+  name: string;
+  description: string;
+  favorite: boolean;
+  user_id: string;
+}
+
+export interface CreateTableResponse {
+  id: string;
+  name: string;
+  description: string;
+  favorite: boolean;
+  user_id: string;
 }

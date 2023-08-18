@@ -1,19 +1,19 @@
 import { Outlet } from 'react-router-dom';
 import { Menu } from 'components';
 import { useAuthorization } from 'hooks';
-import { GridContainer, SidebarContainer, TableContainer } from './MainLayout.styled';
+import { GridContainer, MenuContainer, MainContainer } from './MainLayout.styled';
 
 export const MainLayout = () => {
   useAuthorization();
 
   return (
     <GridContainer>
-      <SidebarContainer>
+      <MenuContainer>
         <Menu />
-      </SidebarContainer>
-      <TableContainer>
+      </MenuContainer>
+      <MainContainer>
         <Outlet />
-      </TableContainer>
+      </MainContainer>
     </GridContainer>
   );
 };

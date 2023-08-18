@@ -1,14 +1,6 @@
 import { Button } from 'antd';
 import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  padding: 0 30px;
-`;
-
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
@@ -26,13 +18,13 @@ export const TileContainer = styled.div<{ hasBorder?: boolean }>`
       : ''};
   border-radius: 20px;
   background-color: white;
-  padding: 20px 30px 30px 30px;
+  padding: 40px 30px 40px 30px;
 `;
 
 export const TileTitle = styled.div<{ hasBigTitle?: boolean }>`
   font-size: ${({ hasBigTitle }) => (hasBigTitle ? '30px' : '20px')};
   font-weight: bold;
-  padding: 0 0 20px 0;
+  padding-bottom: 20px;
 `;
 
 export const Tile = styled.div`
