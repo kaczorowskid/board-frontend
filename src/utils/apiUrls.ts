@@ -11,11 +11,13 @@ export const apiUrls = {
     confirmAccount: (token: string | null) => `/${generatePath('user/confirm-account/:token', { token })}`
   },
   table: {
+    createTable: '/table',
     getAllTables: (user_id: string) => `/${generatePath('table/:user_id', { user_id })}`,
     getTablesWithPagination: 'table/pagination'
   },
   folder: {
     getAllFolders: '/folder/all',
-    getFoldersWithPagination: '/folder/pagination'
+    getFoldersWithPagination: '/folder/pagination',
+    createFolder: 'folder/create'
   }
 };

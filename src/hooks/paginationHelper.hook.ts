@@ -1,9 +1,12 @@
+import { TablePaginationConfig } from 'antd';
+import { FilterValue } from 'antd/es/table/interface';
 import { Dispatch, SetStateAction } from 'react';
 import { ListQuery } from 'types';
 
 type UsePaginationHelpers = {
   onChangePagination: (page: number) => void;
   onSearchPagination: (value: string) => void;
+  onHandleTableChange: (pagination: TablePaginationConfig, _: Record<string, FilterValue | null>, sorter: any) => void;
 };
 
 export const usePaginationHelpers = (
@@ -16,6 +19,17 @@ export const usePaginationHelpers = (
       pagination: {
         ...prev.pagination,
         current: listQuery.pagination.current + page
+      }
+    }));
+  };
+
+  const onHandleTableChange = (pagination: TablePaginationConfig, _: Record<string, FilterValue | null>): void => {
+    setListQuery((prevState: any) => ({
+      ...prevState,
+      pagination: {
+        ...prevState.pagination,
+        current: pagination.current,
+        pageSize: pagination.pageSize
       }
     }));
   };
@@ -33,6 +47,7 @@ export const usePaginationHelpers = (
 
   return {
     onChangePagination,
-    onSearchPagination
+    onSearchPagination,
+    onHandleTableChange
   };
 };

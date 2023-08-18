@@ -9,6 +9,7 @@ export const TileItem = ({
   hasBorder,
   hasBigTitle,
   buttonName,
+  onClick,
   buttonProps,
   pagination,
   onChangePagination,
@@ -26,7 +27,11 @@ export const TileItem = ({
     <TileContainer hasBorder={hasBorder}>
       <Header>
         <TileTitle hasBigTitle={hasBigTitle}>{title}</TileTitle>
-        {buttonName && <Button {...buttonProps}>{buttonName}</Button>}
+        {buttonName && (
+          <Button onClick={onClick} {...buttonProps}>
+            {buttonName}
+          </Button>
+        )}
         {pagination && (
           <div>
             <PaginationButton onClick={() => handlePagination(Action.PREV)} type='link' icon={<LeftOutlined />} />

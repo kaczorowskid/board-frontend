@@ -1,19 +1,19 @@
 import { ListQuery } from 'types';
 
 interface UsePaginationConfig {
-  skip: number;
-  take: number;
+  offset: number;
+  limit: number;
   searchValue?: string;
 }
 
 export const usePaginationConfig = (listQuery: ListQuery): UsePaginationConfig => {
   const { searchValue } = listQuery;
-  const skip = listQuery.pagination.current * listQuery.pagination.pageSize - listQuery.pagination.pageSize;
-  const take = listQuery.pagination.pageSize;
+  const offset = listQuery.pagination.current * listQuery.pagination.pageSize - listQuery.pagination.pageSize;
+  const limit = listQuery.pagination.pageSize;
 
   return {
-    skip,
-    take,
+    offset,
+    limit,
     searchValue
   };
 };

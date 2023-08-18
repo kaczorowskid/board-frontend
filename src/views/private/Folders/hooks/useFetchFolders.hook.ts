@@ -5,17 +5,12 @@ import { usePaginationConfig } from 'hooks';
 import { ListQuery } from 'types';
 import { useUserStore } from 'stores';
 
-export const useFetchFolders = (
-  listQuery: ListQuery,
-  isSearchEnabled: boolean
-): UseQueryResult<GetFoldersWithPaginationResponse, Error> => {
+export const useFetchFolders = (listQuery: ListQuery): UseQueryResult<GetFoldersWithPaginationResponse, Error> => {
   const { offset, limit, searchValue } = usePaginationConfig(listQuery);
   const { id } = useUserStore();
 
-  const queryKey = isSearchEnabled ? [id, offset, limit, searchValue] : [];
-
   return useQuery(
-    [QueryKeys.GET_FOLDERS_WITH_PAGINATION, queryKey],
+    [QueryKeys.GET_FOLDERS_WITH_PAGINATION, [id, offset, limit, searchValue]],
     () =>
       getFoldersWithPagination({
         user_id: id,

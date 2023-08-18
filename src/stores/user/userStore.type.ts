@@ -7,5 +7,5 @@ export interface UserStore {
 }
 
 export interface UserStoreProps extends UserStore {
-  setUser: (userData: Omit<UserStore, 'setUser'>) => void;
+  setUser: (userData: UserStore) => void;
 }

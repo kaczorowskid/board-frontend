@@ -1,5 +1,7 @@
 import { HttpMethod, apiCall, apiUrls } from 'utils';
 import {
+  CreateTableRequest,
+  CreateTableResponse,
   GetAllTablesRequest,
   GetAllTablesResponse,
   GetTablesWithPaginationRequest,
@@ -32,6 +34,16 @@ export const getTablesWithPagination = async (
     HttpMethod.GET,
     payload
   );
+
+  return data;
+};
+
+export const createTable = async (payload: CreateTableRequest): Promise<CreateTableResponse> => {
+  const {
+    table: { createTable: create }
+  } = apiUrls;
+
+  const { data } = await apiCall<CreateTableRequest, CreateTableResponse>(create, HttpMethod.POST, payload);
 
   return data;
 };
