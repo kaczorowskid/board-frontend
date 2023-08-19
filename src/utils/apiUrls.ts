@@ -12,12 +12,10 @@ export const apiUrls = {
   },
   table: {
     createTable: '/table',
-    getAllTables: (user_id: string) => `/${generatePath('table/:user_id', { user_id })}`,
-    getTablesWithPagination: 'table/pagination'
+    getTablesWithPagination: '/table'
   },
   folder: {
-    getAllFolders: '/folder/all',
-    getFoldersWithPagination: '/folder/pagination',
-    createFolder: 'folder/create'
+    getFoldersWithPagination: '/folder',
+    createFolder: '/folder'
   }
 };
