@@ -7,5 +7,5 @@
     "bracketSpacing": true,
     "parser": "typescript",
     "jsxSingleQuote": true,
-    "printWidth": 120
+    "printWidth": 80
 }

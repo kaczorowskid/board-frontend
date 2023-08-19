@@ -8,6 +8,8 @@ export interface DraggableItemProps {
     columnItem: ColumnItem,
     isDragging: DraggableStateSnapshot['isDragging'],
     ref: DraggableProvided['innerRef'],
-    props: DraggableProvided['draggableProps'] | DraggableProvided['dragHandleProps']
+    props:
+      | DraggableProvided['draggableProps']
+      | DraggableProvided['dragHandleProps']
   ) => ReactElement;
 }

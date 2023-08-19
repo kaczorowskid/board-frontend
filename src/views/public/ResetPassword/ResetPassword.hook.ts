@@ -1,13 +1,27 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
-import { ResetPasswordUserRequest, ResetPasswordUserResponse, resetPasswordUser } from 'api';
+import {
+  ResetPasswordUserRequest,
+  ResetPasswordUserResponse,
+  resetPasswordUser
+} from 'api';
 import { MessageType, antdMessage } from 'components';
 
-export const useResetPassword = (): UseMutationResult<ResetPasswordUserResponse, Error, ResetPasswordUserRequest> =>
+export const useResetPassword = (): UseMutationResult<
+  ResetPasswordUserResponse,
+  Error,
+  ResetPasswordUserRequest
+> =>
   useMutation(resetPasswordUser, {
     onSuccess: () => {
-      antdMessage({ type: MessageType.SUCCESS, content: 'Password has been reset' });
+      antdMessage({
+        type: MessageType.SUCCESS,
+        content: 'Password has been reset'
+      });
     },
     onError: () => {
-      antdMessage({ type: MessageType.ERROR, content: 'nie pojedziesz tom windom' });
+      antdMessage({
+        type: MessageType.ERROR,
+        content: 'nie pojedziesz tom windom'
+      });
     }
   });

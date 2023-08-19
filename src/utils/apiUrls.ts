@@ -8,7 +8,8 @@ export const apiUrls = {
     resetPassword: '/user/reset-password',
     setNewPassword: '/user/set-new-password',
     updateUser: (id: string) => `/${generatePath('user/:id', { id })}`,
-    confirmAccount: (token: string | null) => `/${generatePath('user/confirm-account/:token', { token })}`
+    confirmAccount: (token: string | null) =>
+      `/${generatePath('user/confirm-account/:token', { token })}`
   },
   table: {
     createTable: '/table',

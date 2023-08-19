@@ -1,6 +1,12 @@
 import { Button } from 'antd';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import { Header, PaginationButton, Tile, TileContainer, TileTitle } from './TileItem.styled';
+import {
+  Header,
+  PaginationButton,
+  Tile,
+  TileContainer,
+  TileTitle
+} from './TileItem.styled';
 import { TileItemProps } from './TileItem.type';
 import { Action } from './TileItem.enum';
 
@@ -34,8 +40,16 @@ export const TileItem = ({
         )}
         {pagination && (
           <div>
-            <PaginationButton onClick={() => handlePagination(Action.PREV)} type='link' icon={<LeftOutlined />} />
-            <PaginationButton onClick={() => handlePagination(Action.NEXT)} type='link' icon={<RightOutlined />} />
+            <PaginationButton
+              onClick={() => handlePagination(Action.PREV)}
+              type='link'
+              icon={<LeftOutlined />}
+            />
+            <PaginationButton
+              onClick={() => handlePagination(Action.NEXT)}
+              type='link'
+              icon={<RightOutlined />}
+            />
           </div>
         )}
       </Header>

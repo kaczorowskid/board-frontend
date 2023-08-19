@@ -6,7 +6,11 @@ import { ListQuery } from 'types';
 type UsePaginationHelpers = {
   onChangePagination: (page: number) => void;
   onSearchPagination: (value: string) => void;
-  onHandleTableChange: (pagination: TablePaginationConfig, _: Record<string, FilterValue | null>, sorter: any) => void;
+  onHandleTableChange: (
+    pagination: TablePaginationConfig,
+    _: Record<string, FilterValue | null>,
+    sorter: any
+  ) => void;
 };
 
 export const usePaginationHelpers = (
@@ -23,7 +27,10 @@ export const usePaginationHelpers = (
     }));
   };
 
-  const onHandleTableChange = (pagination: TablePaginationConfig, _: Record<string, FilterValue | null>): void => {
+  const onHandleTableChange = (
+    pagination: TablePaginationConfig,
+    _: Record<string, FilterValue | null>
+  ): void => {
     setListQuery((prevState: any) => ({
       ...prevState,
       pagination: {

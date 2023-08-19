@@ -17,7 +17,12 @@ export const ResetPassword = () => {
   return (
     <Container>
       <Title>Reset Password</Title>
-      <Form layout='vertical' form={form} onFinish={handleFinish} initialValues={initValues}>
+      <Form
+        layout='vertical'
+        form={form}
+        onFinish={handleFinish}
+        initialValues={initValues}
+      >
         <AntdInput name={ResetPasswordFormInputs.EMAIL} placeholder='email' />
         <Button htmlType='submit' block type='primary'>
           Reset Password

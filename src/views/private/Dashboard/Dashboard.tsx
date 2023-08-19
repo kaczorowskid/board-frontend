@@ -16,11 +16,16 @@ export const Dashboard = () => {
   const [folderId, setFolderId] = useState<string>('');
 
   const { listQuery, setListQuery } = useListQuery();
-  const { onChangePagination, onHandleTableChange, onSearchPagination } = usePaginationHelpers(listQuery, setListQuery);
+  const { onChangePagination, onHandleTableChange, onSearchPagination } =
+    usePaginationHelpers(listQuery, setListQuery);
 
   const { filterByFolders, filterByTables } = useFilterBy(searchBy);
 
-  const { data: tablesData, isFetching: isFetchingTables } = useFetchTables(listQuery, folderId, filterByTables);
+  const { data: tablesData, isFetching: isFetchingTables } = useFetchTables(
+    listQuery,
+    folderId,
+    filterByTables
+  );
   const { data: foldersData } = useFetchFolders(listQuery, filterByFolders);
 
   const handleOptionChange = (value: string) => setSearchBy(value);
@@ -34,7 +39,11 @@ export const Dashboard = () => {
 
   return (
     <>
-      <Search addonBefore={addonAfter} placeholder='Search' onSearch={onSearchPagination} />
+      <Search
+        addonBefore={addonAfter}
+        placeholder='Search'
+        onSearch={onSearchPagination}
+      />
       <TileItem
         title='Folders'
         pagination
@@ -43,7 +52,12 @@ export const Dashboard = () => {
       >
         <Folder data={foldersData?.data} setFolderId={setFolderId} />
       </TileItem>
-      <TileItem title='Tables' hasBorder buttonName='Add table' onChangePagination={onChangePagination}>
+      <TileItem
+        title='Tables'
+        hasBorder
+        buttonName='Add table'
+        onChangePagination={onChangePagination}
+      >
         <Table
           dataSource={tablesData?.data}
           columns={columns}

@@ -18,4 +18,8 @@ export const apiCall = async <RequestData, ResponseData>(
   method: HttpMethod,
   data?: RequestData
 ): Promise<AxiosResponse<ResponseData>> =>
-  axiosInstance({ url, method, ...(method === HttpMethod.GET ? { params: data } : { data }) });
+  axiosInstance({
+    url,
+    method,
+    ...(method === HttpMethod.GET ? { params: data } : { data })
+  });

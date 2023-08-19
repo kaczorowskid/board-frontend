@@ -6,9 +6,13 @@ interface UsePaginationConfig {
   searchValue?: string;
 }
 
-export const usePaginationConfig = (listQuery: ListQuery): UsePaginationConfig => {
+export const usePaginationConfig = (
+  listQuery: ListQuery
+): UsePaginationConfig => {
   const { searchValue } = listQuery;
-  const offset = listQuery.pagination.current * listQuery.pagination.pageSize - listQuery.pagination.pageSize;
+  const offset =
+    listQuery.pagination.current * listQuery.pagination.pageSize -
+    listQuery.pagination.pageSize;
   const limit = listQuery.pagination.pageSize;
 
   return {

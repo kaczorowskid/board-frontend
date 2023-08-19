@@ -7,7 +7,8 @@ export const DragDropContainer = styled.div`
 
 export const DroppableColumn = styled.div<{ isDraggingOver: boolean }>`
   border-radius: 10px;
-  background: ${({ isDraggingOver }) => (isDraggingOver ? 'lightblue' : '#ebecf0')};
+  background: ${({ isDraggingOver }) =>
+    isDraggingOver ? 'lightblue' : '#ebecf0'};
   width: 280px;
   padding: 20px 10px;
 `;

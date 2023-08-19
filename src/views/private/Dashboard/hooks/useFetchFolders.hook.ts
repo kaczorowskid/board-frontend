@@ -1,5 +1,8 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
-import { GetFoldersWithPaginationResponse, getFoldersWithPagination } from 'api';
+import {
+  GetFoldersWithPaginationResponse,
+  getFoldersWithPagination
+} from 'api';
 import { QueryKeys } from 'enums';
 import { usePaginationConfig } from 'hooks';
 import { ListQuery } from 'types';

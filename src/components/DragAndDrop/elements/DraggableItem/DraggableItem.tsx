@@ -2,7 +2,13 @@ import { forwardRef } from 'react';
 import { Tag } from 'antd';
 import { AntdAvatar } from 'components/antd';
 import { DraggableItemProps } from './DraggableItem.type';
-import { Container, EpicsContainer, TicketInfo, TicketInfoContainer, Title } from './DraggableItem.styled';
+import {
+  Container,
+  EpicsContainer,
+  TicketInfo,
+  TicketInfoContainer,
+  Title
+} from './DraggableItem.styled';
 
 export const DraggableItem = forwardRef<HTMLDivElement, DraggableItemProps>(
   ({ columnItem, isDragging, openItem, ...props }, ref) => {
@@ -27,7 +33,9 @@ export const DraggableItem = forwardRef<HTMLDivElement, DraggableItemProps>(
           <TicketInfo>{columnItem.content.code}</TicketInfo>
           <TicketInfo />
           <TicketInfo>
-            <AntdAvatar size='small'>{columnItem.content.estimation}</AntdAvatar>
+            <AntdAvatar size='small'>
+              {columnItem.content.estimation}
+            </AntdAvatar>
           </TicketInfo>
           <TicketInfo>
             <AntdAvatar />

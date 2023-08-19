@@ -6,7 +6,12 @@ interface AntdCardProps {
   epics: string[];
 }
 
-export const AntdItemCard = ({ ticketCode, ticketDescription, epics, ...props }: AntdCardProps & CardProps) => (
+export const AntdItemCard = ({
+  ticketCode,
+  ticketDescription,
+  epics,
+  ...props
+}: AntdCardProps & CardProps) => (
   <Card title={ticketCode} {...props}>
     <span>{ticketDescription}</span>
     {epics && (

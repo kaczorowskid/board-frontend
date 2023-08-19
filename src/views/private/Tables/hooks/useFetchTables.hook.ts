@@ -6,7 +6,9 @@ import { usePaginationConfig } from 'hooks';
 import { ListQuery } from 'types';
 import { useUserStore } from 'stores';
 
-export const useFetchTables = (listQuery: ListQuery): UseQueryResult<GetTablesWithPaginationResponse, Error> => {
+export const useFetchTables = (
+  listQuery: ListQuery
+): UseQueryResult<GetTablesWithPaginationResponse, Error> => {
   const { offset, limit, searchValue } = usePaginationConfig(listQuery);
   const { id } = useUserStore();
 

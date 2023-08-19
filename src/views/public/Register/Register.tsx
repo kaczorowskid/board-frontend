@@ -20,9 +20,18 @@ export const Register = () => {
   return (
     <Container>
       <Title>Register</Title>
-      <Form layout='vertical' form={form} onFinish={handleFinish} initialValues={initValues}>
+      <Form
+        layout='vertical'
+        form={form}
+        onFinish={handleFinish}
+        initialValues={initValues}
+      >
         <AntdInput name={RegisterFormInputs.EMAIL} placeholder='email' />
-        <AntdInput name={RegisterFormInputs.PASSWORD} placeholder='password' customInput={Input.Password} />
+        <AntdInput
+          name={RegisterFormInputs.PASSWORD}
+          placeholder='password'
+          customInput={Input.Password}
+        />
         <AntdInput
           name={RegisterFormInputs.CONFIRM_PASSWORD}
           placeholder='confirm password'
