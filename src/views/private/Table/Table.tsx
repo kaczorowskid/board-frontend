@@ -11,16 +11,27 @@ export const Table = () => {
 
     const source = {
       itemIndex: result.source.index,
-      columnIndex: resultList.findIndex((column) => column.columnId === result.source.droppableId)
+      columnIndex: resultList.findIndex(
+        (column) => column.columnId === result.source.droppableId
+      )
     };
 
     const destination = {
       itemIndex: result.destination?.index,
-      columnIndex: resultList.findIndex((column) => column.columnId === result.destination?.droppableId)
+      columnIndex: resultList.findIndex(
+        (column) => column.columnId === result.destination?.droppableId
+      )
     };
 
-    const [remove] = resultList[source.columnIndex].columnItems.splice(Number(source.itemIndex), 1);
-    resultList[destination.columnIndex].columnItems.splice(Number(destination.itemIndex), 0, remove);
+    const [remove] = resultList[source.columnIndex].columnItems.splice(
+      Number(source.itemIndex),
+      1
+    );
+    resultList[destination.columnIndex].columnItems.splice(
+      Number(destination.itemIndex),
+      0,
+      remove
+    );
 
     return { list, resultList };
   };
@@ -37,8 +48,16 @@ export const Table = () => {
 
   return (
     <>
-      <DragAndDrop onDragEnd={onDragEnd} draggableData={data} openItem={setItemData} />
-      <ModalOptions isOpen={!!itemData} id={itemData} modalClose={handleCloseModal} />
+      <DragAndDrop
+        onDragEnd={onDragEnd}
+        draggableData={data}
+        openItem={setItemData}
+      />
+      <ModalOptions
+        isOpen={!!itemData}
+        id={itemData}
+        modalClose={handleCloseModal}
+      />
     </>
   );
 };

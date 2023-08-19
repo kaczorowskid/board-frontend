@@ -11,12 +11,14 @@ export const defaultConfig: ListQuery = {
   searchValue: '',
   pagination: {
     current: 1,
-    pageSize: 4
+    pageSize: 5
   }
 };
 
-export const useListQuery = (): UseListQuery => {
-  const [listQuery, setListQuery] = useState<ListQuery>(defaultConfig);
+export const useListQuery = (config?: ListQuery): UseListQuery => {
+  const [listQuery, setListQuery] = useState<ListQuery>(
+    config || defaultConfig
+  );
 
   return {
     defaultConfig,

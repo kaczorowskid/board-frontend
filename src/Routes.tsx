@@ -1,4 +1,9 @@
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider
+} from 'react-router-dom';
 import { AuthLayout, MainLayout } from 'layouts';
 import { routesUrls } from 'utils';
 import {
@@ -20,9 +25,18 @@ export const Routes = () => {
         <Route element={<AuthLayout />}>
           <Route path={routesUrls.auth.login} element={<Login />} />
           <Route path={routesUrls.auth.register} element={<Register />} />
-          <Route path={routesUrls.auth.resetPassword} element={<ResetPassword />} />
-          <Route path={routesUrls.auth.setNewPassword} element={<SetNewPassword />} />
-          <Route path={routesUrls.auth.confirmAccount} element={<ConfirmAccount />} />
+          <Route
+            path={routesUrls.auth.resetPassword}
+            element={<ResetPassword />}
+          />
+          <Route
+            path={routesUrls.auth.setNewPassword}
+            element={<SetNewPassword />}
+          />
+          <Route
+            path={routesUrls.auth.confirmAccount}
+            element={<ConfirmAccount />}
+          />
         </Route>
         <Route element={<MainLayout />}>
           <Route path={routesUrls.app.table} element={<Table />} />

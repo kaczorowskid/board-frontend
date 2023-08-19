@@ -21,13 +21,22 @@ export const SetNewPassword = () => {
   return (
     <Container>
       <Title>Set New Password</Title>
-      <Form layout='vertical' form={form} onFinish={handleFinish} initialValues={initValues}>
+      <Form
+        layout='vertical'
+        form={form}
+        onFinish={handleFinish}
+        initialValues={initValues}
+      >
         <AntdInput
           name={SetNewPasswordFormInputs.OLD_PASSWORD}
           placeholder='old password'
           customInput={Input.Password}
         />
-        <AntdInput name={SetNewPasswordFormInputs.PASSWORD} placeholder='password' customInput={Input.Password} />
+        <AntdInput
+          name={SetNewPasswordFormInputs.PASSWORD}
+          placeholder='password'
+          customInput={Input.Password}
+        />
         <Button htmlType='submit' block type='primary'>
           Set New Password
         </Button>

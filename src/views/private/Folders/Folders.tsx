@@ -12,14 +12,22 @@ export const Folders = () => {
   const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);
 
   const { listQuery, setListQuery } = useListQuery();
-  const { onHandleTableChange, onSearchPagination } = usePaginationHelpers(listQuery, setListQuery);
+  const { onHandleTableChange, onSearchPagination } = usePaginationHelpers(
+    listQuery,
+    setListQuery
+  );
 
   const { data: folderData, isFetching } = useFetchFolders(listQuery);
 
   return (
     <>
       <Search placeholder='Search' onSearch={onSearchPagination} />
-      <TileItem title='Folders' hasBigTitle buttonName='Add folder' onClick={() => setIsSidebarVisible(true)}>
+      <TileItem
+        hasBigTitle
+        title='Folders'
+        buttonName='Add folder'
+        onClick={() => setIsSidebarVisible(true)}
+      >
         <Table
           dataSource={folderData?.data}
           columns={columns}

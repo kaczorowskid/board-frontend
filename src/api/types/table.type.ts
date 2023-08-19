@@ -1,15 +1,3 @@
-export interface GetAllTablesRequest {
-  user_id: string;
-}
-
-export interface GetAllTablesResponse {
-  id: string;
-  image?: string;
-  name: string;
-  favorite: boolean;
-  team: boolean;
-}
-
 export interface GetTablesWithPaginationRequest {
   user_id: string;
   folder_id?: string;

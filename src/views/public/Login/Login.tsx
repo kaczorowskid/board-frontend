@@ -18,11 +18,22 @@ export const Login = () => {
   return (
     <Container>
       <Title>Login</Title>
-      <Form layout='vertical' form={form} onFinish={handleFinish} initialValues={initValues}>
+      <Form
+        layout='vertical'
+        form={form}
+        onFinish={handleFinish}
+        initialValues={initValues}
+      >
         <AntdInput name={LoginFormInputs.EMAIL} placeholder='email' />
-        <AntdInput name={LoginFormInputs.PASSWORD} placeholder='password' customInput={Input.Password} />
+        <AntdInput
+          name={LoginFormInputs.PASSWORD}
+          placeholder='password'
+          customInput={Input.Password}
+        />
         <HintContainer>
-          <StyledLink to={routesUrls.auth.resetPassword}>Forgot password?</StyledLink>
+          <StyledLink to={routesUrls.auth.resetPassword}>
+            Forgot password?
+          </StyledLink>
           <Button htmlType='submit' type='primary'>
             Login
           </Button>

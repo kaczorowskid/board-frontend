@@ -5,7 +5,11 @@ import { Sidebar } from 'components';
 import { useCreate } from '../../hooks';
 import { TablesFormProps } from './TablesForm.type';
 
-export const TablesForm = ({ isSidebarVisible, onCloseSidebar, onSave }: TablesFormProps) => {
+export const TablesForm = ({
+  isSidebarVisible,
+  onCloseSidebar,
+  onSave
+}: TablesFormProps) => {
   const [form] = useForm();
 
   const { mutateAsync: createTable } = useCreate();
@@ -16,7 +20,12 @@ export const TablesForm = ({ isSidebarVisible, onCloseSidebar, onSave }: TablesF
   };
 
   return (
-    <Sidebar open={isSidebarVisible} onClose={onCloseSidebar} onSumbit={onSave} title='Add table'>
+    <Sidebar
+      open={isSidebarVisible}
+      onClose={onCloseSidebar}
+      onSumbit={onSave}
+      title='Add table'
+    >
       <Form id='form' form={form} onFinish={handleSubmit}>
         <Form.Item name='name'>
           <Input placeholder='name' />

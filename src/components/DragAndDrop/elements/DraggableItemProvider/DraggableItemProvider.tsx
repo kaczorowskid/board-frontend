@@ -1,7 +1,10 @@
 import { Draggable } from 'react-beautiful-dnd';
 import { DraggableItemProps } from './DraggableItemProvider.type';
 
-export const DraggableItemProvider = ({ columnItems, children }: DraggableItemProps) => (
+export const DraggableItemProvider = ({
+  columnItems,
+  children
+}: DraggableItemProps) => (
   <>
     {columnItems.map((columnItem, index) => (
       <Draggable key={columnItem.id} draggableId={columnItem.id} index={index}>

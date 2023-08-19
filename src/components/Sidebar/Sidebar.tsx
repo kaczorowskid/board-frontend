@@ -1,7 +1,12 @@
 import { Button, Drawer, Space } from 'antd';
 import { SidebarProps } from './Sidebar.types';
 
-export const Sidebar = ({ onClose, onSumbit, children, ...props }: SidebarProps) => {
+export const Sidebar = ({
+  onClose,
+  onSumbit,
+  children,
+  ...props
+}: SidebarProps) => {
   const extra = (
     <Space>
       <Button onClick={onClose}>Click</Button>

@@ -1,5 +1,5 @@
 import { Input, Table } from 'antd';
-import { useListQuery, usePaginationHelpers } from 'hooks';
+import { defaultConfig, useListQuery, usePaginationHelpers } from 'hooks';
 import { TileItem } from 'components';
 import { useFetchTables } from './hooks';
 import { columns } from './schema';
@@ -7,8 +7,18 @@ import { columns } from './schema';
 const { Search } = Input;
 
 export const Tables = () => {
-  const { listQuery, setListQuery } = useListQuery();
-  const { onHandleTableChange, onSearchPagination } = usePaginationHelpers(listQuery, setListQuery);
+  const { listQuery, setListQuery } = useListQuery({
+    ...defaultConfig,
+    pagination: {
+      ...defaultConfig.pagination,
+      pageSize: 10
+    }
+  });
+
+  const { onHandleTableChange, onSearchPagination } = usePaginationHelpers(
+    listQuery,
+    setListQuery
+  );
 
   const { data: tablesData, isFetching } = useFetchTables(listQuery);
 

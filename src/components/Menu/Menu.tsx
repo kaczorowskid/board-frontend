@@ -1,6 +1,10 @@
 import { useUserStore } from 'stores';
 import { useState } from 'react';
-import { AppstoreOutlined, FolderOutlined, TableOutlined } from '@ant-design/icons';
+import {
+  AppstoreOutlined,
+  FolderOutlined,
+  TableOutlined
+} from '@ant-design/icons';
 import { useNavigate } from 'react-router';
 import { routesUrls } from 'utils';
 import { Container } from './Menu.styled';
@@ -15,7 +19,9 @@ enum MenuElements {
 export const Menu = () => {
   const navigation = useNavigate();
   const { name, email } = useUserStore();
-  const [clickedElement, setClickedElement] = useState<MenuElements>(MenuElements.DASHBOARD);
+  const [clickedElement, setClickedElement] = useState<MenuElements>(
+    MenuElements.DASHBOARD
+  );
 
   const menuData = [
     {
