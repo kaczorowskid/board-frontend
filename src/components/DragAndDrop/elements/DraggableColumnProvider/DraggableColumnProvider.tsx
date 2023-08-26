@@ -1,5 +1,5 @@
 import { Droppable } from 'react-beautiful-dnd';
-import { DroppableColumn } from './DraggableColumnProvider.styled';
+import { ColumnName, DroppableColumn } from './DraggableColumnProvider.styled';
 import { DraggableColumnProps } from './DraggableColumnProvider.type';
 
 export const DraggableColumnProvider = ({
@@ -15,7 +15,7 @@ export const DraggableColumnProvider = ({
             isDraggingOver={snapshot.isDraggingOver}
             {...provided.droppableProps}
           >
-            <h1>{columnName}</h1>
+            <ColumnName>{columnName}</ColumnName>
             {children(columnItems)}
             {provided.placeholder}
           </DroppableColumn>

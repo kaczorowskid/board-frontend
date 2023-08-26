@@ -7,6 +7,7 @@ import {
 import { AuthLayout, MainLayout } from 'layouts';
 import { routesUrls } from 'utils';
 import {
+  Board,
   ConfirmAccount,
   Dashboard,
   Folders,
@@ -14,7 +15,6 @@ import {
   Register,
   ResetPassword,
   SetNewPassword,
-  Table,
   Tables
 } from 'views';
 
@@ -39,7 +39,7 @@ export const Routes = () => {
           />
         </Route>
         <Route element={<MainLayout />}>
-          <Route path={routesUrls.app.table} element={<Table />} />
+          <Route path={routesUrls.app.board} element={<Board />} />
           <Route path={routesUrls.app.dashboard} element={<Dashboard />} />
           <Route path={routesUrls.app.folders} element={<Folders />} />
           <Route path={routesUrls.app.tables} element={<Tables />} />
