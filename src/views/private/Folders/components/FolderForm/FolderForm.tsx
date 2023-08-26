@@ -1,7 +1,7 @@
 import { Form, Input } from 'antd';
 import { useForm } from 'antd/es/form/Form';
 import { useUserStore } from 'stores';
-import { AntdModal } from 'components';
+import { AntdDrawer } from 'components';
 import { useCreate } from '../../hooks';
 import { FolderFormProps, FolderFormType } from './FolderForm.type';
 import { FolderFormInputs } from './FolderForm.enum';
@@ -22,9 +22,9 @@ export const FolderForm = ({
   };
 
   return (
-    <AntdModal
+    <AntdDrawer
       open={isSidebarVisible}
-      onCancel={onCloseSidebar}
+      onClose={onCloseSidebar}
       onSumbit={onSave}
       title='Add folder'
     >
@@ -36,6 +36,6 @@ export const FolderForm = ({
           <Input placeholder='description' />
         </Form.Item>
       </Form>
-    </AntdModal>
+    </AntdDrawer>
   );
 };

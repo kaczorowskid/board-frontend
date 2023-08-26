@@ -1,12 +1,16 @@
 import { Input, Table } from 'antd';
 import { defaultConfig, useListQuery, usePaginationHelpers } from 'hooks';
 import { TileItem } from 'components';
+import { useState } from 'react';
 import { useFetchTables } from './hooks';
 import { columns } from './schema';
+import { TablesForm } from './components';
 
 const { Search } = Input;
 
 export const Tables = () => {
+  const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);
+
   const { listQuery, setListQuery } = useListQuery({
     ...defaultConfig,
     pagination: {
@@ -25,7 +29,11 @@ export const Tables = () => {
   return (
     <>
       <Search placeholder='Search' onSearch={onSearchPagination} />
-      <TileItem title='Tables' buttonName='Add table'>
+      <TileItem
+        title='Tables'
+        buttonName='Add table'
+        onClick={() => setIsSidebarVisible(true)}
+      >
         <Table
           dataSource={tablesData?.data}
           columns={columns}
@@ -39,6 +47,11 @@ export const Tables = () => {
           }}
         />
       </TileItem>
+      <TablesForm
+        isSidebarVisible={isSidebarVisible}
+        onCloseSidebar={() => setIsSidebarVisible(false)}
+        onSave={() => setIsSidebarVisible(false)}
+      />
     </>
   );
 };

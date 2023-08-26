@@ -11,7 +11,7 @@ export const defaultConfig: ListQuery = {
   searchValue: '',
   pagination: {
     current: 1,
-    pageSize: 5
+    pageSize: 4
   }
 };
 

@@ -1,5 +1,5 @@
 import { Input, Table } from 'antd';
-import { useListQuery, usePaginationHelpers } from 'hooks';
+import { defaultConfig, useListQuery, usePaginationHelpers } from 'hooks';
 import { TileItem } from 'components';
 import { useState } from 'react';
 import { useFetchFolders } from './hooks';
@@ -11,7 +11,14 @@ const { Search } = Input;
 export const Folders = () => {
   const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);
 
-  const { listQuery, setListQuery } = useListQuery();
+  const { listQuery, setListQuery } = useListQuery({
+    ...defaultConfig,
+    pagination: {
+      ...defaultConfig.pagination,
+      pageSize: 10
+    }
+  });
+
   const { onHandleTableChange, onSearchPagination } = usePaginationHelpers(
     listQuery,
     setListQuery

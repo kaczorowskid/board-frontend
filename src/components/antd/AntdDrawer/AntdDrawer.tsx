@@ -1,15 +1,15 @@
 import { Button, Drawer, Space } from 'antd';
-import { SidebarProps } from './Sidebar.types';
+import { AntdDrawerProps } from './AntdDrawer.types';
 
-export const Sidebar = ({
+export const AntdDrawer = ({
   onClose,
   onSumbit,
   children,
   ...props
-}: SidebarProps) => {
+}: AntdDrawerProps) => {
   const extra = (
     <Space>
-      <Button onClick={onClose}>Click</Button>
+      <Button onClick={onClose}>Cancel</Button>
       <Button onClick={onSumbit} form='form' key='sumbit' htmlType='submit'>
         Submit
       </Button>
@@ -17,7 +17,7 @@ export const Sidebar = ({
   );
 
   return (
-    <Drawer width={550} extra={extra} {...props}>
+    <Drawer closable={false} width={550} extra={extra} {...props}>
       {children}
     </Drawer>
   );

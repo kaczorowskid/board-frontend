@@ -7,14 +7,11 @@ export const useCreate = (): UseMutationResult<
   CreateFolderResponse,
   Error,
   CreateFolderRequest
-> => {
-  const a = '';
-
-  return useMutation(createFolder, {
+> =>
+  useMutation(createFolder, {
     onSuccess: async () => {
       await queryClient.invalidateQueries([
         QueryKeys.GET_FOLDERS_WITH_PAGINATION
       ]);
     }
   });
-};

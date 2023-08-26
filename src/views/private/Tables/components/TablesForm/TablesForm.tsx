@@ -1,7 +1,7 @@
 import { Form, Input } from 'antd';
 import { useForm } from 'antd/es/form/Form';
 import { useUserStore } from 'stores';
-import { Sidebar } from 'components';
+import { AntdDrawer } from 'components';
 import { useCreate } from '../../hooks';
 import { TablesFormProps } from './TablesForm.type';
 
@@ -20,7 +20,7 @@ export const TablesForm = ({
   };
 
   return (
-    <Sidebar
+    <AntdDrawer
       open={isSidebarVisible}
       onClose={onCloseSidebar}
       onSumbit={onSave}
@@ -34,6 +34,6 @@ export const TablesForm = ({
           <Input placeholder='description' />
         </Form.Item>
       </Form>
-    </Sidebar>
+    </AntdDrawer>
   );
 };
