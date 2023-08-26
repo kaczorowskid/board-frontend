@@ -1,9 +1,13 @@
 export interface Content {
   code: string;
+  title: string;
   description: string;
   epics?: string[];
-  type: 'BUG' | 'STORY';
-  estimation: number | null;
+  prio: string;
+  start: string;
+  end: string;
+  comments: number;
+  comentatorsAvatars?: { name: string; avatar: string }[];
 }
 
 export interface ColumnItem {
