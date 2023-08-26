@@ -1,8 +1,5 @@
 import { ColumnsType } from 'antd/es/table';
-import {
-  GetFoldersWithPaginationResponse,
-  GetTablesWithPaginationResponse
-} from 'api';
+import { GetFoldersWithPaginationResponse } from 'api';
 
 export const columns: ColumnsType<GetFoldersWithPaginationResponse['data'][0]> =
   [
