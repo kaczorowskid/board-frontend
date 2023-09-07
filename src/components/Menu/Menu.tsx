@@ -13,7 +13,7 @@ import { MenuItems, UserInfo } from './elements';
 enum MenuElements {
   DASHBOARD = 'dashboard',
   FOLDERS = 'folders',
-  TABLES = 'tables'
+  BOARDS = 'boards'
 }
 
 export const Menu = () => {
@@ -43,12 +43,12 @@ export const Menu = () => {
       icon: <FolderOutlined />
     },
     {
-      name: 'Tables',
+      name: 'Boards',
       onClick: () => {
-        setClickedElement(MenuElements.TABLES);
-        navigation(routesUrls.app.tables);
+        setClickedElement(MenuElements.BOARDS);
+        navigation(routesUrls.app.boards);
       },
-      isClicked: clickedElement === MenuElements.TABLES,
+      isClicked: clickedElement === MenuElements.BOARDS,
       icon: <TableOutlined />
     }
   ];

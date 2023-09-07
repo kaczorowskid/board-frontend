@@ -4,13 +4,14 @@ import { AntdDrawerProps } from './AntdDrawer.types';
 export const AntdDrawer = ({
   onClose,
   onSumbit,
+  formId,
   children,
   ...props
 }: AntdDrawerProps) => {
   const extra = (
     <Space>
       <Button onClick={onClose}>Cancel</Button>
-      <Button onClick={onSumbit} form='form' key='sumbit' htmlType='submit'>
+      <Button onClick={onSumbit} form={formId} key='sumbit' htmlType='submit'>
         Submit
       </Button>
     </Space>

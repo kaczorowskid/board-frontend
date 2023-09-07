@@ -8,9 +8,9 @@ export const routesUrls = {
     confirmAccount: '/confirm-account'
   },
   app: {
-    board: '/board',
+    board: '/board/:id',
     dashboard: '/dashboard',
-    tables: '/tables',
+    boards: '/boards',
     folders: '/folders'
   }
 };

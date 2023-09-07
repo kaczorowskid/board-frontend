@@ -8,14 +8,14 @@ import { AuthLayout, MainLayout } from 'layouts';
 import { routesUrls } from 'utils';
 import {
   Board,
+  Boards,
   ConfirmAccount,
   Dashboard,
   Folders,
   Login,
   Register,
   ResetPassword,
-  SetNewPassword,
-  Tables
+  SetNewPassword
 } from 'views';
 
 export const Routes = () => {
@@ -42,7 +42,7 @@ export const Routes = () => {
           <Route path={routesUrls.app.board} element={<Board />} />
           <Route path={routesUrls.app.dashboard} element={<Dashboard />} />
           <Route path={routesUrls.app.folders} element={<Folders />} />
-          <Route path={routesUrls.app.tables} element={<Tables />} />
+          <Route path={routesUrls.app.boards} element={<Boards />} />
         </Route>
       </Route>
     )

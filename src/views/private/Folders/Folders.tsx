@@ -51,7 +51,6 @@ export const Folders = () => {
       <FolderForm
         isSidebarVisible={isSidebarVisible}
         onCloseSidebar={() => setIsSidebarVisible(false)}
-        onSave={() => setIsSidebarVisible(false)}
       />
     </>
   );

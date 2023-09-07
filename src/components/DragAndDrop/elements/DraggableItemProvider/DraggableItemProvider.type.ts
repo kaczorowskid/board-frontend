@@ -1,11 +1,11 @@
-import { ColumnItem } from 'components/DragAndDrop/types';
+import { Ticket } from 'components/DragAndDrop/types';
 import { ReactElement } from 'react';
 import { DraggableProvided, DraggableStateSnapshot } from 'react-beautiful-dnd';
 
 export interface DraggableItemProps {
-  columnItems: ColumnItem[];
+  columnItems: Ticket[];
   children: (
-    columnItem: ColumnItem,
+    columnItem: Ticket,
     isDragging: DraggableStateSnapshot['isDragging'],
     ref: DraggableProvided['innerRef'],
     props:

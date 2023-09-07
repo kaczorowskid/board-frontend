@@ -3,21 +3,22 @@ import { useForm } from 'antd/es/form/Form';
 import { useUserStore } from 'stores';
 import { AntdDrawer } from 'components';
 import { useCreate } from '../../hooks';
-import { FolderFormProps, FolderFormType } from './FolderForm.type';
-import { FolderFormInputs } from './FolderForm.enum';
+import { BoardFormType, BoardsFormProps } from './BoardsForm.type';
+import { BoardsFormInputs } from './BoardForm.enum';
 
-export const FolderForm = ({
+export const BoardsForm = ({
   isSidebarVisible,
   onCloseSidebar
-}: FolderFormProps) => {
-  const [form] = useForm<FolderFormType>();
+}: BoardsFormProps) => {
+  const [form] = useForm<BoardFormType>();
 
-  const { mutateAsync: createFolder } = useCreate();
+  const { mutateAsync: createBoard } = useCreate();
   const { id } = useUserStore();
 
-  const handleSubmit = (values: FolderFormType) => {
-    createFolder({ ...values, user_id: id });
+  const handleSubmit = (values: BoardFormType) => {
+    createBoard({ ...values, user_id: id });
     form.resetFields();
+    onCloseSidebar();
   };
 
   return (
@@ -25,13 +26,13 @@ export const FolderForm = ({
       open={isSidebarVisible}
       onClose={onCloseSidebar}
       formId='form'
-      title='Add folder'
+      title='Add board'
     >
       <Form id='form' form={form} onFinish={handleSubmit}>
-        <Form.Item name={FolderFormInputs.NAME}>
-          <Input placeholder='name' />
+        <Form.Item name={BoardsFormInputs.TITLE}>
+          <Input placeholder='title' />
         </Form.Item>
-        <Form.Item name={FolderFormInputs.DESCRIPTION}>
+        <Form.Item name={BoardsFormInputs.DESCRIPTION}>
           <Input placeholder='description' />
         </Form.Item>
       </Form>

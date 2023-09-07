@@ -1,23 +1,21 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
-import { GetTablesWithPaginationResponse } from 'api';
-import { getTablesWithPagination } from 'api/table';
+import { GetBoardsWithPaginationResponse, getBoardsWithPagination } from 'api';
 import { QueryKeys } from 'enums';
 import { usePaginationConfig } from 'hooks';
 import { ListQuery } from 'types';
 import { useUserStore } from 'stores';
 
-export const useFetchTables = (
+export const useFetchBoards = (
   listQuery: ListQuery
-): UseQueryResult<GetTablesWithPaginationResponse, Error> => {
+): UseQueryResult<GetBoardsWithPaginationResponse, Error> => {
   const { offset, limit, searchValue } = usePaginationConfig(listQuery);
   const { id } = useUserStore();
 
   return useQuery(
     [QueryKeys.GET_TABLES_WITH_PAGINATION, [offset, limit, searchValue]],
     () =>
-      getTablesWithPagination({
+      getBoardsWithPagination({
         user_id: id,
-        folder_id: undefined,
         offset,
         limit,
         search_value: searchValue || ''

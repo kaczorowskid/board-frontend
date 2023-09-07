@@ -75,7 +75,6 @@ export const Dashboard = () => {
       <FolderForm
         isSidebarVisible={isSidebarVisible}
         onCloseSidebar={() => setIsSidebarVisible(false)}
-        onSave={() => setIsSidebarVisible(false)}
       />
     </>
   );
