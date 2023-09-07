@@ -29,6 +29,7 @@ export const usePaginationHelpers = (
 
   const onHandleTableChange = (
     pagination: TablePaginationConfig,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     _: Record<string, FilterValue | null>
   ): void => {
     setListQuery((prevState: any) => ({

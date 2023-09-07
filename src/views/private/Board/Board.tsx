@@ -1,62 +1,49 @@
-import { Column, DragAndDrop, ModalOptions, mockData } from 'components';
+import { Board as BoardType, Column, DragAndDrop } from 'components';
 import { useState } from 'react';
-import { DropResult } from 'react-beautiful-dnd';
+import { useParams } from 'react-router-dom';
+import { useGetBoard, useRemoveColumn, useUpdateBoard } from './hooks';
+import { AddColumnForm, AddTicketForm } from './components';
 
 export const Board = () => {
-  const [data, setData] = useState<Column[]>(mockData as Column[]);
-  const [itemData, setItemData] = useState<string>('');
+  const { id } = useParams();
 
-  const reorder = (list: Column[], result: DropResult) => {
-    const resultList = Array.from(list);
+  const [boardId, setBoardId] = useState<string>('');
+  const [columnId, setColumnId] = useState<string>('');
 
-    const source = {
-      itemIndex: result.source.index,
-      columnIndex: resultList.findIndex(
-        (column) => column.columnId === result.source.droppableId
-      )
-    };
+  const { data } = useGetBoard(id as string);
+  const { mutateAsync: updateBoard, isError } = useUpdateBoard();
+  const { mutateAsync: removeColumn } = useRemoveColumn();
 
-    const destination = {
-      itemIndex: result.destination?.index,
-      columnIndex: resultList.findIndex(
-        (column) => column.columnId === result.destination?.droppableId
-      )
-    };
-
-    const [remove] = resultList[source.columnIndex].columnItems.splice(
-      Number(source.itemIndex),
-      1
-    );
-    resultList[destination.columnIndex].columnItems.splice(
-      Number(destination.itemIndex),
-      0,
-      remove
-    );
-
-    return { list, resultList };
+  const handleDragEnd = (mappedColumn: Column[]) => {
+    updateBoard({
+      ...(data as BoardType),
+      columns: mappedColumn
+    });
   };
 
-  const onDragEnd = (result: DropResult) => {
-    const { resultList } = reorder(data, result);
-
-    setData(resultList);
-  };
-
-  const handleCloseModal = () => {
-    setItemData('');
+  const handleRemoveColumn = (id: string) => {
+    removeColumn({ id });
   };
 
   return (
     <>
       <DragAndDrop
-        onDragEnd={onDragEnd}
-        draggableData={data}
-        openItem={setItemData}
+        onDragEnd={handleDragEnd}
+        isError={isError}
+        dataSource={(data as BoardType) || []}
+        setBoardId={setBoardId}
+        setColumnId={setColumnId}
+        removeColumn={handleRemoveColumn}
       />
-      <ModalOptions
-        isOpen={!!itemData}
-        id={itemData}
-        modalClose={handleCloseModal}
+      <AddColumnForm
+        isSidebarVisible={Boolean(boardId)}
+        onCloseSidebar={() => setBoardId('')}
+        boardId={boardId}
+      />
+      <AddTicketForm
+        isSidebarVisible={Boolean(columnId)}
+        onCloseSidebar={() => setColumnId('')}
+        columnId={columnId}
       />
     </>
   );

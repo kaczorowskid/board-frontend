@@ -1,8 +1,11 @@
-import { OnDragEndResponder } from 'react-beautiful-dnd';
-import { Column } from './types';
+import { Board, Column } from './types';
 
 export interface DragAndDropProps {
-  onDragEnd: OnDragEndResponder;
-  draggableData: Column[];
+  onDragEnd: (data: Column[]) => void;
+  dataSource: Board;
   openItem?: React.Dispatch<React.SetStateAction<string>>;
+  isError: boolean;
+  setBoardId: React.Dispatch<React.SetStateAction<string>>;
+  setColumnId: React.Dispatch<React.SetStateAction<string>>;
+  removeColumn: (id: string) => void;
 }

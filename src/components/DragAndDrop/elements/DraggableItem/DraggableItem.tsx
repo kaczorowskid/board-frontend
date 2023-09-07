@@ -30,13 +30,13 @@ export const DraggableItem = forwardRef<HTMLDivElement, DraggableItemProps>(
         <TitleContainer>
           <IconContainer>
             <CheckSquareOutlined />
-            <Title>{columnItem.content.title}</Title>
+            <Title>{columnItem.title}</Title>
           </IconContainer>
           <MoreOutlined style={{ fontSize: '20px' }} />
         </TitleContainer>
-        <Description>{columnItem.content.description}</Description>
+        <Description>{columnItem.description}</Description>
         <EpicsContainer>
-          {columnItem.content.epics?.map((epic) => (
+          {columnItem.epics?.map((epic) => (
             <Tag key={epic} color='red'>
               {epic}
             </Tag>
@@ -45,18 +45,18 @@ export const DraggableItem = forwardRef<HTMLDivElement, DraggableItemProps>(
         <DatePrioContainer>
           <IconContainer>
             <FieldTimeOutlined style={{ fontSize: '16px' }} />
-            <span>{columnItem.content.start}</span>
+            <span>{columnItem.start}</span>
             <span>-</span>
-            <span>{columnItem.content.end}</span>
+            <span>{columnItem.end}</span>
           </IconContainer>
           <IconContainer>
             <UpOutlined style={{ fontSize: '16px' }} />
-            <span>{columnItem.content.prio}</span>
+            <span>{columnItem.prio}</span>
           </IconContainer>
         </DatePrioContainer>
         <CommentsContainer>
           <Avatar.Group maxCount={2}>
-            {columnItem.content.comentatorsAvatars?.map(({ name, avatar }) => (
+            {columnItem.comentatorsAvatars?.map(({ name, avatar }) => (
               <Avatar src={avatar}>{name}</Avatar>
             ))}
           </Avatar.Group>

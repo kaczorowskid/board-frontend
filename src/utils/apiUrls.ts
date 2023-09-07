@@ -18,5 +18,14 @@ export const apiUrls = {
   folder: {
     getFoldersWithPagination: '/folder',
     createFolder: '/folder'
+  },
+  board: {
+    getBoard: (id: string) => `/board/one/${generatePath(':id', { id })}`,
+    getBoardsWithPagination: '/board',
+    editBoard: (id: string) => `board/edit/${generatePath(':id', { id })}`,
+    createColumn: '/board/column',
+    removeColumn: (id: string) => `board/column/${generatePath(':id', { id })}`,
+    createTicket: '/board/ticket',
+    createBoard: '/board/board'
   }
 };

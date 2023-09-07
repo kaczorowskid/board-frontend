@@ -1,4 +1,5 @@
-export interface Content {
+export interface Ticket {
+  id: string;
   code: string;
   title: string;
   description: string;
@@ -6,17 +7,22 @@ export interface Content {
   prio: string;
   start: string;
   end: string;
+  order: number;
   comments: number;
   comentatorsAvatars?: { name: string; avatar: string }[];
-}
-
-export interface ColumnItem {
-  id: string;
-  content: Content;
+  column_id: string;
 }
 
 export interface Column {
-  columnId: string;
-  columnName: string;
-  columnItems: ColumnItem[];
+  id: string;
+  title: string;
+  board_id: string;
+  tickets: Ticket[];
+}
+
+export interface Board {
+  id: string;
+  title: string;
+  user_id: string;
+  columns: Column[];
 }

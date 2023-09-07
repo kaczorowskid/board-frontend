@@ -2,14 +2,16 @@ import { Input, Table } from 'antd';
 import { defaultConfig, useListQuery, usePaginationHelpers } from 'hooks';
 import { TileItem } from 'components';
 import { useState } from 'react';
-import { useFetchTables } from './hooks';
+import { useNavigate } from 'react-router-dom';
 import { columns } from './schema';
-import { TablesForm } from './components';
+import { BoardsForm } from './components';
+import { useFetchBoards } from './hooks';
 
 const { Search } = Input;
 
-export const Tables = () => {
+export const Boards = () => {
   const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const { listQuery, setListQuery } = useListQuery({
     ...defaultConfig,
@@ -24,33 +26,35 @@ export const Tables = () => {
     setListQuery
   );
 
-  const { data: tablesData, isFetching } = useFetchTables(listQuery);
+  const { data: boardsData, isFetching } = useFetchBoards(listQuery);
 
   return (
     <>
       <Search placeholder='Search' onSearch={onSearchPagination} />
       <TileItem
-        title='Tables'
-        buttonName='Add table'
+        title='Boards'
+        buttonName='Add board'
         onClick={() => setIsSidebarVisible(true)}
       >
         <Table
-          dataSource={tablesData?.data}
+          dataSource={boardsData?.data}
           columns={columns}
           onChange={onHandleTableChange}
           pagination={{
             disabled: isFetching,
-            total: tablesData?.count,
+            total: boardsData?.count,
             current: listQuery.pagination.current,
             pageSize: listQuery.pagination.pageSize,
             showSizeChanger: false
           }}
+          onRow={(row) => ({
+            onClick: () => navigate(`/board/${row.id}`)
+          })}
         />
       </TileItem>
-      <TablesForm
+      <BoardsForm
         isSidebarVisible={isSidebarVisible}
         onCloseSidebar={() => setIsSidebarVisible(false)}
-        onSave={() => setIsSidebarVisible(false)}
       />
     </>
   );

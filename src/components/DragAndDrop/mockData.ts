@@ -1,53 +1,99 @@
 export const mockData = [
   {
-    columnId: 'column1',
-    columnName: 'To Do',
-    columnItems: [
+    id: 'column1',
+    title: 'To Do',
+    tickets: [
       {
         id: 'item-1',
-        content: {
-          code: 'FRONT-1',
-          title: 'Add ticket 1',
-          description: 'Dodanie cos tam',
-          start: '20 Apr',
-          end: '23 Apr',
-          prio: 'Medium',
-          epics: ['epic1', 'dufsdfsdpa'],
-          comentatorsAvatars: [
-            {
-              name: 'D',
-              avatar: ''
-            },
-            {
-              name: 'A',
-              avatar: ''
-            }
-          ]
-        }
+        code: 'FRONT-1',
+        title: 'Add ticket 1',
+        description: 'Dodanie cos tam',
+        start: '20 Apr',
+        end: '23 Apr',
+        prio: 'Medium',
+        order: 1,
+        epics: ['epic1', 'dufsdfsdpa'],
+        comentatorsAvatars: [
+          {
+            name: 'D',
+            avatar: ''
+          },
+          {
+            name: 'A',
+            avatar: ''
+          }
+        ]
       },
       {
         id: 'item-2',
-        content: {
-          code: 'FRONT-2',
-          title: 'Add ticket 2',
-          description: 'Dodanie menu',
-          start: '20 Apr',
-          end: '23 Apr',
-          prio: 'Medium',
-          epics: ['epic1', 'dufsdfsdpa']
-        }
+        code: 'FRONT-2',
+        title: 'Add ticket 2',
+        description: 'Dodanie menu',
+        start: '20 Apr',
+        end: '23 Apr',
+        prio: 'Medium',
+        order: 2,
+        epics: ['epic1', 'dufsdfsdpa']
       },
       {
         id: 'item-3',
-        content: {
-          code: 'FRONT-3',
-          title: 'Add ticket 3',
-          description: 'Doddanie sidebar',
-          start: '20 Apr',
-          end: '23 Apr',
-          prio: 'Medium',
-          epics: ['epic1', 'dufsdfsdpa']
-        }
+        code: 'FRONT-3',
+        title: 'Add ticket 3',
+        description: 'Doddanie sidebar',
+        start: '20 Apr',
+        end: '23 Apr',
+        prio: 'Medium',
+        order: 3,
+        epics: ['epic1', 'dufsdfsdpa']
+      }
+    ]
+  },
+  {
+    id: 'column2',
+    title: 'In progress',
+    tickets: [
+      {
+        id: 'item-4',
+        code: 'FRONT-4',
+        title: 'Add ticket 1',
+        description: 'Dodanie cos tam',
+        start: '20 Apr',
+        end: '23 Apr',
+        prio: 'Medium',
+        order: 1,
+        epics: ['epic1', 'dufsdfsdpa'],
+        comentatorsAvatars: [
+          {
+            name: 'D',
+            avatar: ''
+          },
+          {
+            name: 'A',
+            avatar: ''
+          }
+        ]
+      },
+      {
+        id: 'item-5',
+        code: 'FRONT-5',
+        title: 'Add ticket 2',
+        description: 'Dodanie menu',
+        start: '20 Apr',
+        end: '23 Apr',
+        prio: 'Medium',
+        order: 2,
+        epics: ['epic1', 'dufsdfsdpa']
+      },
+      {
+        id: 'item-6',
+        code: 'FRONT-6',
+        title: 'Add ticket 3',
+        description: 'Doddanie sidebar',
+        start: '20 Apr',
+        end: '23 Apr',
+        prio: 'Medium',
+        order: 3,
+        epics: ['epic1', 'dufsdfsdpa']
       }
     ]
   }

@@ -7,8 +7,7 @@ import { FolderFormProps } from './FolderForm.type';
 
 export const FolderForm = ({
   isSidebarVisible,
-  onCloseSidebar,
-  onSave
+  onCloseSidebar
 }: FolderFormProps) => {
   const [form] = useForm();
 
@@ -23,7 +22,7 @@ export const FolderForm = ({
     <AntdDrawer
       open={isSidebarVisible}
       onClose={onCloseSidebar}
-      onSumbit={onSave}
+      formId='form'
       title='Add folder'
     >
       <Form id='form' form={form} onFinish={handleSubmit}>
