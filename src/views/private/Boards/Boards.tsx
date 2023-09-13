@@ -2,16 +2,39 @@ import { Input, Table } from 'antd';
 import { defaultConfig, useListQuery, usePaginationHelpers } from 'hooks';
 import { TileItem } from 'components';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { columns } from './schema';
+import { generatePath, useNavigate } from 'react-router-dom';
+import { routesUrls } from 'utils';
 import { BoardsForm } from './components';
-import { useFetchBoards } from './hooks';
+import { useColumns, useFetchBoards, useRemoveBoard } from './hooks';
 
 const { Search } = Input;
 
 export const Boards = () => {
-  const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);
   const navigate = useNavigate();
+
+  const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);
+  const [boardId, setBoardId] = useState<string>('');
+  const { mutateAsync: removeBoard } = useRemoveBoard();
+
+  const handleEdit = (id: string) => {
+    setBoardId(id);
+    setIsSidebarVisible(true);
+  };
+
+  const handleDelete = (id: string) => {
+    removeBoard({ id });
+  };
+
+  const handleOpenBoard = (id: string) => {
+    navigate(generatePath(routesUrls.app.board, { id }));
+  };
+
+  const handleCloseSidebar = () => {
+    setIsSidebarVisible(false);
+    setBoardId('');
+  };
+
+  const columns = useColumns(handleEdit, handleDelete, handleOpenBoard);
 
   const { listQuery, setListQuery } = useListQuery({
     ...defaultConfig,
@@ -39,6 +62,7 @@ export const Boards = () => {
         <Table
           dataSource={boardsData?.data}
           columns={columns}
+          rowKey={(row) => row.id}
           onChange={onHandleTableChange}
           pagination={{
             disabled: isFetching,
@@ -47,14 +71,12 @@ export const Boards = () => {
             pageSize: listQuery.pagination.pageSize,
             showSizeChanger: false
           }}
-          onRow={(row) => ({
-            onClick: () => navigate(`/board/${row.id}`)
-          })}
         />
       </TileItem>
       <BoardsForm
+        id={boardId}
         isSidebarVisible={isSidebarVisible}
-        onCloseSidebar={() => setIsSidebarVisible(false)}
+        onCloseSidebar={handleCloseSidebar}
       />
     </>
   );

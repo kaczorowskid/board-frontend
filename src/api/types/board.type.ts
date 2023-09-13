@@ -134,3 +134,76 @@ export interface CreateBoardResponse {
     updated_at: Date;
   };
 }
+
+export interface EditBoardRequest {
+  id: string;
+  title: string;
+  description: string;
+}
+
+export interface EditBoardResponse {
+  result: string;
+}
+
+export interface RemoveBoardRequest {
+  id: string;
+}
+
+export interface RemoveBoardResponse {
+  result: string;
+}
+
+export interface EditTicketRequest {
+  id: string;
+  title: string;
+  description: string;
+  prio: string;
+  start: string;
+  end: string;
+}
+
+export interface EditTicketResponse {
+  result: string;
+}
+
+export interface RemoveTicketRequest {
+  id: string;
+}
+
+export interface RemoveTicketResponse {
+  result: string;
+}
+
+export interface GetTicketRequest {
+  id: string;
+}
+
+export interface GetTicketResponse {
+  id: string;
+  title: string;
+  description: string;
+  prio: string;
+  start: string;
+  end: string;
+  order: number;
+  column_id: string;
+}
+
+export interface GetColumnRequest {
+  id: string;
+}
+
+export interface GetColumnResponse {
+  id: string;
+  title: string;
+  board_id: string;
+}
+
+export interface EditColumnRequest {
+  id: string;
+  title: string;
+}
+
+export interface EditColumnResponse {
+  result: string;
+}

@@ -1,14 +1,14 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
-import { CreateBoardRequest, CreateBoardResponse, createBoard } from 'api';
+import { RemoveBoardRequest, RemoveBoardResponse, removeBoard } from 'api';
 import { QueryKeys } from 'enums';
 import { queryClient } from 'utils';
 
-export const useCreate = (): UseMutationResult<
-  CreateBoardResponse,
+export const useRemoveBoard = (): UseMutationResult<
+  RemoveBoardResponse,
   Error,
-  CreateBoardRequest
+  RemoveBoardRequest
 > =>
-  useMutation(createBoard, {
+  useMutation(removeBoard, {
     onSuccess: async () => {
       await queryClient.invalidateQueries([
         QueryKeys.GET_TABLES_WITH_PAGINATION

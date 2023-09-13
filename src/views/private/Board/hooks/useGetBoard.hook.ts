@@ -5,6 +5,6 @@ import { QueryKeys } from 'enums';
 export const useGetBoard = (
   id: string
 ): UseQueryResult<GetBoardResponse, Error> =>
-  useQuery([QueryKeys.GET_BOARD], () => getBoard({ id }), {
+  useQuery([QueryKeys.GET_BOARD, id], () => getBoard({ id }), {
     enabled: !!id
   });
