@@ -1,18 +1,40 @@
 import { Board as BoardType, Column, DragAndDrop } from 'components';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useGetBoard, useRemoveColumn, useUpdateBoard } from './hooks';
+import { MoreOutlined } from '@ant-design/icons';
+import {
+  useColumnItems,
+  useGetBoard,
+  useRemoveColumn,
+  useRemoveTicket,
+  useTicketItems,
+  useUpdateBoard
+} from './hooks';
 import { AddColumnForm, AddTicketForm } from './components';
 
 export const Board = () => {
   const { id } = useParams();
 
-  const [boardId, setBoardId] = useState<string>('');
-  const [columnId, setColumnId] = useState<string>('');
+  const [createColumn, setCreateColumn] = useState<string>('');
+  const [createTicket, setCreateTicket] = useState<string>('');
+  const [editColumn, setEditColumn] = useState<string>('');
+  const [editTicket, setEditTicket] = useState<string>('');
 
   const { data } = useGetBoard(id as string);
   const { mutateAsync: updateBoard, isError } = useUpdateBoard();
   const { mutateAsync: removeColumn } = useRemoveColumn();
+  const { mutateAsync: removeTicket } = useRemoveTicket();
+
+  const ticketDropdownItems = useTicketItems(
+    (id) => setEditTicket(id),
+    (id) => removeTicket({ id })
+  );
+
+  const columnDropdownItems = useColumnItems(
+    (id) => setEditColumn(id),
+    (id) => removeColumn({ id }),
+    (id) => setCreateTicket(id)
+  );
 
   const handleDragEnd = (mappedColumn: Column[]) => {
     updateBoard({
@@ -21,29 +43,39 @@ export const Board = () => {
     });
   };
 
-  const handleRemoveColumn = (id: string) => {
-    removeColumn({ id });
+  const hideColumnSideboard = () => {
+    setCreateColumn('');
+    setEditColumn('');
+  };
+
+  const hideTicketSideboard = () => {
+    setCreateTicket('');
+    setEditTicket('');
   };
 
   return (
     <>
       <DragAndDrop
-        onDragEnd={handleDragEnd}
-        isError={isError}
         dataSource={(data as BoardType) || []}
-        setBoardId={setBoardId}
-        setColumnId={setColumnId}
-        removeColumn={handleRemoveColumn}
+        ticketDropdownItems={ticketDropdownItems}
+        ticketDropdownIcon={<MoreOutlined />}
+        columnDropdownItems={columnDropdownItems}
+        columnDropdownIcon={<MoreOutlined />}
+        onDragEnd={handleDragEnd}
+        setCreateColumn={setCreateColumn}
+        isError={isError}
       />
       <AddColumnForm
-        isSidebarVisible={Boolean(boardId)}
-        onCloseSidebar={() => setBoardId('')}
-        boardId={boardId}
+        isSidebarVisible={Boolean(createColumn || editColumn)}
+        onCloseSidebar={hideColumnSideboard}
+        boardId={createColumn}
+        columnId={editColumn}
       />
       <AddTicketForm
-        isSidebarVisible={Boolean(columnId)}
-        onCloseSidebar={() => setColumnId('')}
-        columnId={columnId}
+        isSidebarVisible={Boolean(createTicket || editTicket)}
+        onCloseSidebar={hideTicketSideboard}
+        columnId={createTicket}
+        ticketId={editTicket}
       />
     </>
   );

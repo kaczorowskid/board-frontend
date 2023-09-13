@@ -1,3 +1,4 @@
+import { MenuProps } from 'antd';
 import { Board, Column } from './types';
 
 export interface DragAndDropProps {
@@ -5,7 +6,9 @@ export interface DragAndDropProps {
   dataSource: Board;
   openItem?: React.Dispatch<React.SetStateAction<string>>;
   isError: boolean;
-  setBoardId: React.Dispatch<React.SetStateAction<string>>;
-  setColumnId: React.Dispatch<React.SetStateAction<string>>;
-  removeColumn: (id: string) => void;
+  setCreateColumn: React.Dispatch<React.SetStateAction<string>>;
+  ticketDropdownItems: (id: string) => MenuProps['items'];
+  ticketDropdownIcon: JSX.Element;
+  columnDropdownItems: (id: string) => MenuProps['items'];
+  columnDropdownIcon: JSX.Element;
 }

@@ -6,12 +6,26 @@ import {
   CreateColumnResponse,
   CreateTicketRequest,
   CreateTicketResponse,
+  EditBoardRequest,
+  EditBoardResponse,
+  EditColumnRequest,
+  EditColumnResponse,
+  EditTicketRequest,
+  EditTicketResponse,
   GetBoardRequest,
   GetBoardResponse,
   GetBoardsWithPaginationRequest,
   GetBoardsWithPaginationResponse,
+  GetColumnRequest,
+  GetColumnResponse,
+  GetTicketRequest,
+  GetTicketResponse,
+  RemoveBoardRequest,
+  RemoveBoardResponse,
   RemoveColumnRequest,
   RemoveColumnResponse,
+  RemoveTicketRequest,
+  RemoveTicketResponse,
   UpdateBoardRequest,
   UpdateBoardResponse
 } from './types';
@@ -36,11 +50,11 @@ export const updateBoard = async (
   payload: UpdateBoardRequest
 ): Promise<UpdateBoardResponse> => {
   const {
-    board: { editBoard: edit }
+    board: { updateBoard: update }
   } = apiUrls;
 
   const { data } = await apiCall<UpdateBoardRequest, UpdateBoardResponse>(
-    edit(payload.id),
+    update(payload.id),
     HttpMethod.PATCH,
     payload
   );
@@ -120,6 +134,118 @@ export const createBoard = async (
   const { data } = await apiCall<CreateBoardRequest, CreateBoardResponse>(
     create,
     HttpMethod.POST,
+    payload
+  );
+
+  return data;
+};
+
+export const editBoard = async (
+  payload: EditBoardRequest
+): Promise<EditBoardResponse> => {
+  const {
+    board: { editBoard: edit }
+  } = apiUrls;
+
+  const { data } = await apiCall<EditBoardRequest, EditBoardResponse>(
+    edit(payload.id),
+    HttpMethod.PATCH,
+    payload
+  );
+
+  return data;
+};
+
+export const removeBoard = async (
+  payload: RemoveBoardRequest
+): Promise<RemoveBoardResponse> => {
+  const {
+    board: { removeBoard: remove }
+  } = apiUrls;
+
+  const { data } = await apiCall<RemoveBoardRequest, RemoveBoardResponse>(
+    remove(payload.id),
+    HttpMethod.DELETE,
+    payload
+  );
+
+  return data;
+};
+
+export const editTicket = async (
+  payload: EditTicketRequest
+): Promise<EditTicketResponse> => {
+  const {
+    board: { editTicket: edit }
+  } = apiUrls;
+
+  const { data } = await apiCall<EditTicketRequest, EditTicketResponse>(
+    edit(payload.id),
+    HttpMethod.PATCH,
+    payload
+  );
+
+  return data;
+};
+
+export const removeTicket = async (
+  payload: RemoveTicketRequest
+): Promise<RemoveTicketResponse> => {
+  const {
+    board: { removeTicket: remove }
+  } = apiUrls;
+
+  const { data } = await apiCall<RemoveTicketRequest, RemoveTicketResponse>(
+    remove(payload.id),
+    HttpMethod.DELETE,
+    payload
+  );
+
+  return data;
+};
+
+export const getTicket = async (
+  payload: GetTicketRequest
+): Promise<GetTicketResponse> => {
+  const {
+    board: { getTicket: get }
+  } = apiUrls;
+
+  const { data } = await apiCall<GetTicketRequest, GetTicketResponse>(
+    get(payload.id),
+    HttpMethod.GET,
+    payload
+  );
+
+  return data;
+};
+
+export const getColumn = async (
+  payload: GetColumnRequest
+): Promise<GetColumnResponse> => {
+  const {
+    board: { getColumn: get }
+  } = apiUrls;
+
+  const { data } = await apiCall<GetColumnRequest, GetColumnResponse>(
+    get(payload.id),
+    HttpMethod.GET,
+    payload
+  );
+
+  return data;
+};
+
+export const editColumn = async (
+  payload: EditColumnRequest
+): Promise<EditColumnResponse> => {
+  const {
+    board: { editColumn: edit }
+  } = apiUrls;
+
+  const { data } = await apiCall<EditColumnRequest, EditColumnResponse>(
+    edit(payload.id),
+    HttpMethod.PATCH,
     payload
   );
 

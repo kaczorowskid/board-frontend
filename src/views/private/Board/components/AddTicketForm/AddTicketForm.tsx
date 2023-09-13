@@ -1,6 +1,8 @@
 import { useForm } from 'antd/es/form/Form';
-import { DatePicker, Form, Input } from 'antd';
+import { Form, Input } from 'antd';
 import { AntdDrawer } from 'components';
+import { useEffect } from 'react';
+import { useEditTicket, useGetTicket } from '../../hooks';
 import { AddTicketFormProps, AddTicketFormType } from './AddTicketForm.type';
 import { AddTicketFormInputs } from './AddTicketForm.enum';
 import { useCreateTicket } from './AddTicketForm.hook';
@@ -8,13 +10,30 @@ import { useCreateTicket } from './AddTicketForm.hook';
 export const AddTicketForm = ({
   isSidebarVisible,
   onCloseSidebar,
-  columnId
+  columnId,
+  ticketId
 }: AddTicketFormProps) => {
-  const [form] = useForm<AddTicketFormType>();
+  const isEdit = Boolean(ticketId);
+  const [form] = useForm();
+
+  const { data: ticketData } = useGetTicket(ticketId);
   const { mutateAsync: createTicket } = useCreateTicket();
+  const { mutateAsync: editTicket } = useEditTicket();
+
+  useEffect(() => {
+    if (!isEdit) {
+      form.resetFields();
+    } else {
+      form.setFieldsValue(ticketData);
+    }
+  }, [isSidebarVisible, ticketData]);
 
   const handleSubmit = (values: AddTicketFormType) => {
-    createTicket({ ...values, column_id: columnId });
+    if (isEdit) {
+      editTicket({ ...values, id: ticketData?.id as string });
+    } else {
+      createTicket({ ...values, column_id: columnId });
+    }
     form.resetFields();
     onCloseSidebar();
   };
@@ -36,12 +55,12 @@ export const AddTicketForm = ({
         <Form.Item name={AddTicketFormInputs.PRIO}>
           <Input placeholder='Prio' />
         </Form.Item>
-        <Form.Item name={AddTicketFormInputs.START}>
+        {/* <Form.Item name={AddTicketFormInputs.START}>
           <DatePicker placeholder='Select start time' />
         </Form.Item>
         <Form.Item name={AddTicketFormInputs.END}>
           <DatePicker placeholder='Select end time' />
-        </Form.Item>
+        </Form.Item> */}
       </Form>
     </AntdDrawer>
   );

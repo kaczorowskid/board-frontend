@@ -1,10 +1,9 @@
 import { forwardRef } from 'react';
-import { Avatar, Tag } from 'antd';
+import { Avatar, Dropdown, Tag } from 'antd';
 import {
   CheckSquareOutlined,
   FieldTimeOutlined,
   MessageOutlined,
-  MoreOutlined,
   UpOutlined
 } from '@ant-design/icons';
 import { DraggableItemProps } from './DraggableItem.type';
@@ -20,9 +19,19 @@ import {
 } from './DraggableItem.styled';
 
 export const DraggableItem = forwardRef<HTMLDivElement, DraggableItemProps>(
-  ({ columnItem, isDragging, openItem, ...props }, ref) => {
+  (
+    {
+      columnItem: ticket,
+      isDragging,
+      openItem,
+      ticketDropdownItems,
+      ticketDropdownIcon,
+      ...props
+    },
+    ref
+  ) => {
     const handleOpenItem = () => {
-      openItem?.(columnItem.id);
+      openItem?.(ticket.id);
     };
 
     return (
@@ -30,13 +39,18 @@ export const DraggableItem = forwardRef<HTMLDivElement, DraggableItemProps>(
         <TitleContainer>
           <IconContainer>
             <CheckSquareOutlined />
-            <Title>{columnItem.title}</Title>
+            <Title>{ticket.title}</Title>
           </IconContainer>
-          <MoreOutlined style={{ fontSize: '20px' }} />
+          <Dropdown
+            menu={{ items: ticketDropdownItems(ticket.id) }}
+            trigger={['click']}
+          >
+            {ticketDropdownIcon}
+          </Dropdown>
         </TitleContainer>
-        <Description>{columnItem.description}</Description>
+        <Description>{ticket.description}</Description>
         <EpicsContainer>
-          {columnItem.epics?.map((epic) => (
+          {ticket.epics?.map((epic) => (
             <Tag key={epic} color='red'>
               {epic}
             </Tag>
@@ -45,18 +59,18 @@ export const DraggableItem = forwardRef<HTMLDivElement, DraggableItemProps>(
         <DatePrioContainer>
           <IconContainer>
             <FieldTimeOutlined style={{ fontSize: '16px' }} />
-            <span>{columnItem.start}</span>
+            <span>{ticket.start}</span>
             <span>-</span>
-            <span>{columnItem.end}</span>
+            <span>{ticket.end}</span>
           </IconContainer>
           <IconContainer>
             <UpOutlined style={{ fontSize: '16px' }} />
-            <span>{columnItem.prio}</span>
+            <span>{ticket.prio}</span>
           </IconContainer>
         </DatePrioContainer>
         <CommentsContainer>
           <Avatar.Group maxCount={2}>
-            {columnItem.comentatorsAvatars?.map(({ name, avatar }) => (
+            {ticket.comentatorsAvatars?.map(({ name, avatar }) => (
               <Avatar src={avatar}>{name}</Avatar>
             ))}
           </Avatar.Group>

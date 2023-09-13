@@ -1,22 +1,24 @@
 import { Droppable } from 'react-beautiful-dnd';
-import { CloseOutlined } from '@ant-design/icons';
+import { Dropdown } from 'antd';
 import {
   AddColumn,
-  DroppableColumn,
   ColumnInfo,
-  AddTicket
+  DroppableColumn
 } from './DraggableColumnProvider.styled';
 import { DraggableColumnProps } from './DraggableColumnProvider.type';
 
 export const DraggableColumnProvider = ({
-  setBoardId,
-  setColumnId,
-  removeColumn,
+  setCreateColumn,
   columnsData,
   boardId,
-  children
+  children,
+  columnDropdownItems,
+  columnDropdownIcon
 }: DraggableColumnProps) => (
   <>
+    <AddColumn onClick={() => setCreateColumn(boardId)}>
+      {columnDropdownIcon}
+    </AddColumn>
     {columnsData.map(({ tickets, title, id }) => (
       <Droppable key={id} droppableId={id}>
         {(provided, snapshot) => (
@@ -28,16 +30,19 @@ export const DraggableColumnProvider = ({
             >
               <ColumnInfo>
                 <span>{title}</span>
-                <CloseOutlined onClick={() => removeColumn(id)} />
+                <Dropdown
+                  menu={{ items: columnDropdownItems(id) }}
+                  trigger={['click']}
+                >
+                  {columnDropdownIcon}
+                </Dropdown>
               </ColumnInfo>
               {children(tickets)}
               {provided.placeholder}
-              <AddTicket onClick={() => setColumnId(id)}>Add ticket</AddTicket>
             </DroppableColumn>
           </>
         )}
       </Droppable>
     ))}
-    <AddColumn onClick={() => setBoardId(boardId)}>Add column</AddColumn>
   </>
 );

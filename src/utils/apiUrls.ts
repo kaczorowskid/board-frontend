@@ -22,10 +22,18 @@ export const apiUrls = {
   board: {
     getBoard: (id: string) => `/board/one/${generatePath(':id', { id })}`,
     getBoardsWithPagination: '/board',
-    editBoard: (id: string) => `board/edit/${generatePath(':id', { id })}`,
+    updateBoard: (id: string) => `board/update/${generatePath(':id', { id })}`,
     createColumn: '/board/column',
     removeColumn: (id: string) => `board/column/${generatePath(':id', { id })}`,
     createTicket: '/board/ticket',
-    createBoard: '/board/board'
+    createBoard: '/board/board',
+    editBoard: (id: string) => `/board/${generatePath(':id', { id })}`,
+    removeBoard: (id: string) => `/board/${generatePath(':id', { id })}`,
+    editTicket: (id: string) => `/board/ticket/${generatePath(':id', { id })}`,
+    removeTicket: (id: string) =>
+      `/board/ticket/${generatePath(':id', { id })}`,
+    getTicket: (id: string) => `/board/ticket/${generatePath(':id', { id })}`,
+    getColumn: (id: string) => `/board/column/${generatePath(':id', { id })}`,
+    editColumn: (id: string) => `/board/column/${generatePath(':id', { id })}`
   }
 };

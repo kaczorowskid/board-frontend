@@ -12,7 +12,7 @@ export const ColumnInfo = styled.div`
   height: 60px;
   border-radius: 10px;
   background-color: #ebecf0;
-  padding: 20px 10px;
+  padding: 20px 15px;
   font-weight: bold;
   display: flex;
   justify-content: space-between;
@@ -25,11 +25,12 @@ export const ColumnInfo = styled.div`
 export const AddColumn = styled.div`
   height: 60px;
   border-radius: 10px;
-  width: 350px;
+  width: 60px;
   background-color: #ebecf0;
   margin-top: 20px;
-  padding: 20px 10px;
-  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &:hover {
     background-color: #c6c6c6;

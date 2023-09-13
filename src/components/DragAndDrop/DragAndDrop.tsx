@@ -1,5 +1,4 @@
 import { DragDropContext, DropResult } from 'react-beautiful-dnd';
-import { useEffect, useState } from 'react';
 import { DragDropContainer } from './DragAndDrop.styled';
 import { DragAndDropProps } from './DragAndDrop.type';
 import {
@@ -14,16 +13,13 @@ export const DragAndDrop = ({
   onDragEnd,
   openItem,
   isError,
-  setBoardId,
-  setColumnId,
-  removeColumn
+  setCreateColumn,
+  ticketDropdownItems,
+  ticketDropdownIcon,
+  columnDropdownItems,
+  columnDropdownIcon
 }: DragAndDropProps) => {
-  const [data, setData] = useState<Column[]>(dataSource.columns);
   const boardId = dataSource.id;
-
-  useEffect(() => {
-    setData(dataSource.columns);
-  }, [dataSource.columns]);
 
   const reorder = (list: Column[], result: DropResult) => {
     const { source, destination } = result;
@@ -61,26 +57,28 @@ export const DragAndDrop = ({
   };
 
   const handleOnDragEnd = (result: DropResult) => {
-    const { list, mappedResult } = reorder(data, result);
+    const { list, mappedResult } = reorder(dataSource.columns, result);
 
     onDragEnd(mappedResult);
-    setData(isError ? list : mappedResult);
+    // setData(isError ? list : mappedResult);
   };
 
   return (
     <DragDropContext onDragEnd={handleOnDragEnd}>
       <DragDropContainer>
         <DraggableColumnProvider
-          setBoardId={setBoardId}
-          setColumnId={setColumnId}
-          columnsData={data || []}
-          removeColumn={removeColumn}
+          columnDropdownItems={columnDropdownItems}
+          columnDropdownIcon={columnDropdownIcon}
+          setCreateColumn={setCreateColumn}
+          columnsData={dataSource.columns || []}
           boardId={boardId}
         >
           {(columnItems) => (
             <DraggableItemProvider columnItems={columnItems}>
               {(columnItem, isDragging, ref, props) => (
                 <DraggableItem
+                  ticketDropdownIcon={ticketDropdownIcon}
+                  ticketDropdownItems={ticketDropdownItems}
                   columnItem={columnItem}
                   openItem={openItem}
                   isDragging={isDragging}
