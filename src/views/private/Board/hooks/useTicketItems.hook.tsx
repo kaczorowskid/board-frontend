@@ -1,5 +1,8 @@
-import { MenuProps } from 'antd';
+import { ExclamationCircleFilled } from '@ant-design/icons';
+import { MenuProps, Modal } from 'antd';
 import { UseColumn } from 'types';
+
+const { confirm } = Modal;
 
 export const useTicketItems =
   (
@@ -16,6 +19,14 @@ export const useTicketItems =
       {
         key: 'delete',
         label: 'Delete',
-        onClick: () => onDelete(id)
+        onClick: () => {
+          confirm({
+            title: 'Do you Want to delete this item?',
+            icon: <ExclamationCircleFilled />,
+            onOk: () => {
+              onDelete(id);
+            }
+          });
+        }
       }
     ];
