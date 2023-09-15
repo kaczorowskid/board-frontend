@@ -1,7 +1,12 @@
-import { UnorderedListOutlined } from '@ant-design/icons';
-import { Dropdown, MenuProps, TableColumnsType } from 'antd';
+import {
+  ExclamationCircleFilled,
+  UnorderedListOutlined
+} from '@ant-design/icons';
+import { Dropdown, MenuProps, TableColumnsType, Modal } from 'antd';
 import { GetBoardsWithPaginationResponse } from 'api';
 import { UseColumn } from 'types';
+
+const { confirm } = Modal;
 
 const items = (
   record: UseColumn<GetBoardsWithPaginationResponse['data'][0]>['record'],
@@ -17,7 +22,15 @@ const items = (
   {
     key: 'delete',
     label: 'Delete',
-    onClick: () => onDelete(record.id)
+    onClick: () => {
+      confirm({
+        title: 'Do you Want to delete this item?',
+        icon: <ExclamationCircleFilled />,
+        onOk: () => {
+          onDelete(record.id);
+        }
+      });
+    }
   },
   {
     key: 'open',

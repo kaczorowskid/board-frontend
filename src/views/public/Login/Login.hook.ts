@@ -27,7 +27,7 @@ export const useLogin = (): UseMutationResult<
         type: MessageType.SUCCESS,
         content: 'User has been logged'
       });
-      navigate('/choose');
+      navigate('/dashboard');
     },
     onError: () => {
       antdMessage({

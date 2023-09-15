@@ -5,7 +5,7 @@ import { UserInfoProps } from './UserInfo.type';
 export const UserInfo = ({ name, email }: UserInfoProps) => (
   <Container>
     <Avatar size={64} style={{ backgroundColor: 'gray' }}>
-      {name.at(0)?.toUpperCase()}
+      {name?.at(0)?.toUpperCase()}
     </Avatar>
     <InfoContainer>
       <Name>{name}</Name>
