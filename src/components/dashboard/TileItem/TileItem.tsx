@@ -4,16 +4,13 @@ import {
   Header,
   PaginationButton,
   Tile,
-  TileContainer,
-  TileTitle
+  TileContainer
 } from './TileItem.styled';
 import { TileItemProps } from './TileItem.type';
 import { Action } from './TileItem.enum';
 
 export const TileItem = ({
-  title,
   hasBorder,
-  hasBigTitle,
   buttonName,
   onClick,
   buttonProps,
@@ -32,7 +29,6 @@ export const TileItem = ({
   return (
     <TileContainer hasBorder={hasBorder}>
       <Header>
-        <TileTitle hasBigTitle={hasBigTitle}>{title}</TileTitle>
         {buttonName && (
           <Button onClick={onClick} {...buttonProps}>
             {buttonName}

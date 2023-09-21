@@ -78,6 +78,7 @@ export interface CreateTicketRequest {
   description: string;
   prio: string;
   column_id: string;
+  user_id: string;
 }
 
 export interface CreateTicketResponse {
@@ -187,6 +188,7 @@ export interface GetTicketResponse {
   end: string;
   order: number;
   column_id: string;
+  user_id: string;
 }
 
 export interface GetColumnRequest {

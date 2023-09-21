@@ -9,7 +9,7 @@ export const table = css`
     }
 
     .ant-table-cell {
-      border-bottom: 3px solid #f3f0f8 !important;
+      border-bottom: 3px dotted #f3f0f8 !important;
     }
   }
 `;

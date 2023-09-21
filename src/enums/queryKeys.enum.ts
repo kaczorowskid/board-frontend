@@ -3,5 +3,6 @@ export enum QueryKeys {
   GET_FOLDERS_WITH_PAGINATION = 'GetFoldersWithPagination',
   GET_FOLDERS = 'GetFolders',
   GET_USER = 'GetUser',
-  GET_BOARD = 'GetBoard'
+  GET_BOARD = 'GetBoard',
+  GET_DASHBOARD = 'GetDashboard'
 }

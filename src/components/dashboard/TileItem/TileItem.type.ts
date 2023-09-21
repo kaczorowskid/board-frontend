@@ -1,9 +1,7 @@
 import { ButtonProps } from 'antd';
 
 export interface TileItemProps {
-  title: string;
   hasBorder?: boolean;
-  hasBigTitle?: boolean;
   buttonName?: ButtonProps['name'];
   onClick?: ButtonProps['onClick'];
   buttonProps?: ButtonProps;

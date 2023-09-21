@@ -19,5 +19,5 @@ export const MenuContainer = styled.div`
 
 export const MainContainer = styled.div`
   grid-area: main;
-  padding: 50px 30px 0px 30px;
+  padding: 40px 50px 0px 50px;
 `;
