@@ -2,6 +2,7 @@ import { useForm } from 'antd/es/form/Form';
 import { Form, Input } from 'antd';
 import { AntdDrawer } from 'components';
 import { useEffect } from 'react';
+import { useUserStore } from 'stores';
 import { useEditTicket, useGetTicket } from '../../hooks';
 import { AddTicketFormProps, AddTicketFormType } from './AddTicketForm.type';
 import { AddTicketFormInputs } from './AddTicketForm.enum';
@@ -16,6 +17,7 @@ export const AddTicketForm = ({
   const isEdit = Boolean(ticketId);
   const [form] = useForm();
 
+  const { id } = useUserStore();
   const { data: ticketData } = useGetTicket(ticketId);
   const { mutateAsync: createTicket } = useCreateTicket();
   const { mutateAsync: editTicket } = useEditTicket();
@@ -32,7 +34,7 @@ export const AddTicketForm = ({
     if (isEdit) {
       editTicket({ ...values, id: ticketData?.id as string });
     } else {
-      createTicket({ ...values, column_id: columnId });
+      createTicket({ ...values, column_id: columnId, user_id: id });
     }
     form.resetFields();
     onCloseSidebar();

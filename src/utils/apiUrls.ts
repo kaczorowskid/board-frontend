@@ -35,5 +35,8 @@ export const apiUrls = {
     getTicket: (id: string) => `/board/ticket/${generatePath(':id', { id })}`,
     getColumn: (id: string) => `/board/column/${generatePath(':id', { id })}`,
     editColumn: (id: string) => `/board/column/${generatePath(':id', { id })}`
+  },
+  dashboard: {
+    getDashboard: (id: string) => `/dashboard/${generatePath(':id', { id })}`
   }
 };

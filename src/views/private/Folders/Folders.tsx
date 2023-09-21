@@ -1,12 +1,10 @@
-import { Input, Table } from 'antd';
+import { Table } from 'antd';
 import { defaultConfig, useListQuery, usePaginationHelpers } from 'hooks';
-import { TileItem } from 'components';
+import { PageWrapper, TileItem } from 'components';
 import { useState } from 'react';
 import { useFetchFolders } from './hooks';
 import { columns } from './schema';
 import { FolderForm } from './components';
-
-const { Search } = Input;
 
 export const Folders = () => {
   const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);
@@ -27,11 +25,13 @@ export const Folders = () => {
   const { data: folderData, isFetching } = useFetchFolders(listQuery);
 
   return (
-    <>
-      <Search placeholder='Search' onSearch={onSearchPagination} />
+    <PageWrapper
+      title='Folders'
+      hasSearchbar
+      placeholder='Search'
+      onSearch={onSearchPagination}
+    >
       <TileItem
-        hasBigTitle
-        title='Folders'
         buttonName='Add folder'
         onClick={() => setIsSidebarVisible(true)}
       >
@@ -52,6 +52,6 @@ export const Folders = () => {
         isSidebarVisible={isSidebarVisible}
         onCloseSidebar={() => setIsSidebarVisible(false)}
       />
-    </>
+    </PageWrapper>
   );
 };

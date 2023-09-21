@@ -3,7 +3,8 @@ import styled, { css } from 'styled-components';
 
 export const Header = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  margin-bottom: 10px;
 `;
 
 export const TileContainer = styled.div<{ hasBorder?: boolean }>`
@@ -16,15 +17,9 @@ export const TileContainer = styled.div<{ hasBorder?: boolean }>`
           box-shadow: 0px 0px 21px -21px rgba(0, 0, 0, 1);
         `
       : ''};
-  border-radius: 20px;
+  border-radius: 30px;
   background-color: white;
   padding: 40px 30px 40px 30px;
-`;
-
-export const TileTitle = styled.div<{ hasBigTitle?: boolean }>`
-  font-size: ${({ hasBigTitle }) => (hasBigTitle ? '30px' : '20px')};
-  font-weight: bold;
-  padding-bottom: 20px;
 `;
 
 export const Tile = styled.div`

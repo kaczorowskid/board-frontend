@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { button, input, table } from './components';
+import { button, calendar, input, table } from './components';
 
 export const GlobalStyle = createGlobalStyle`
   html, * {
@@ -11,14 +11,16 @@ export const GlobalStyle = createGlobalStyle`
   :root {
     font-family: 'Manrope', sans-serif;
     color: black;
-    background-color: white;
   }
 
   body {
     margin: 0;
+    background-color: #f9fafa;
+
   }
 
   ${input}
   ${button}
   ${table}
+  ${calendar}
 `;

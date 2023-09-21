@@ -1,13 +1,11 @@
-import { Input, Table } from 'antd';
+import { Table } from 'antd';
 import { defaultConfig, useListQuery, usePaginationHelpers } from 'hooks';
-import { TileItem } from 'components';
+import { PageWrapper, TileItem } from 'components';
 import { useState } from 'react';
 import { generatePath, useNavigate } from 'react-router-dom';
 import { routesUrls } from 'utils';
 import { BoardsForm } from './components';
 import { useColumns, useFetchBoards, useRemoveBoard } from './hooks';
-
-const { Search } = Input;
 
 export const Boards = () => {
   const navigate = useNavigate();
@@ -52,10 +50,13 @@ export const Boards = () => {
   const { data: boardsData, isFetching } = useFetchBoards(listQuery);
 
   return (
-    <>
-      <Search placeholder='Search' onSearch={onSearchPagination} />
+    <PageWrapper
+      title='Boards'
+      placeholder='Search'
+      onSearch={onSearchPagination}
+      hasSearchbar
+    >
       <TileItem
-        title='Boards'
         buttonName='Add board'
         onClick={() => setIsSidebarVisible(true)}
       >
@@ -78,6 +79,6 @@ export const Boards = () => {
         isSidebarVisible={isSidebarVisible}
         onCloseSidebar={handleCloseSidebar}
       />
-    </>
+    </PageWrapper>
   );
 };
