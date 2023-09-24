@@ -1,3 +1,5 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const SignedCell = styled.div`
+  border: 1px solid red;
+`;

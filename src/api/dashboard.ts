@@ -1,8 +1,5 @@
 import { HttpMethod, apiCall, apiUrls } from 'utils';
-import {
-  GetDashboardRequest,
-  GetDashboardResponse
-} from './types/dashboard.type';
+import { GetDashboardRequest, GetDashboardResponse } from './types';
 
 export const getDashboard = async (
   payload: GetDashboardRequest

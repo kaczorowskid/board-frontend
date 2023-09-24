@@ -1,22 +1,28 @@
+import { DATE_FORMAT } from 'constants/timeFormat';
 import { Calendar as AntdCalendar } from 'antd';
+import dayjs, { Dayjs } from 'dayjs';
+import { CalendarProps } from './Calendar.types';
+import { SignedCell } from './Calendar.styled';
 
-export const Calendar = () => {
-  const redBorderDates = ['2023-08-20', '2023-09-25', '2023-09-25'];
+export const Calendar = ({ data, setSelectedDate }: CalendarProps) => {
+  const cellRender = (current: Dayjs) => {
+    const dateString = current.format(DATE_FORMAT);
+    const shouldSign = data?.find((date) =>
+      dayjs(date.start_date).format(DATE_FORMAT).includes(dateString)
+    );
 
-  const isRedBorderDate = (current: any) => {
-    const dateString = current.format('YYYY-MM-DD');
-    return redBorderDates.includes(dateString);
+    return shouldSign ? <SignedCell /> : null;
   };
 
-  const cellRender = (current: any) => {
-    const shouldShowRedBorder = isRedBorderDate(current);
-    return <div className={shouldShowRedBorder ? 'bordered' : ''}></div>;
+  const handleSelectDate = (date: Dayjs) => {
+    setSelectedDate(date.format(DATE_FORMAT));
   };
 
   return (
     <AntdCalendar
       fullscreen={false}
       cellRender={cellRender}
+      onSelect={handleSelectDate}
       headerRender={() => null}
     />
   );

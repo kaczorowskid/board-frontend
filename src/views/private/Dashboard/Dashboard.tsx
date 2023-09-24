@@ -1,5 +1,10 @@
+import { DATE_FORMAT } from 'constants/timeFormat';
 import { PageWrapper } from 'components';
 import { useUserStore } from 'stores';
+import dayjs from 'dayjs';
+import { Alert, Space } from 'antd';
+import { useState } from 'react';
+import { useGetNotesByDate } from '../Calendar/hooks';
 import {
   Calendar,
   RecentBoards,
@@ -19,8 +24,15 @@ import { useGetDashboard } from './hooks';
 import { statisticsDataMapper } from './utils';
 
 export const Dashboard = () => {
-  const { id } = useUserStore();
-  const { recentBoards, recentTickets } = useGetDashboard(id);
+  const { id: userId } = useUserStore();
+  const currentMonth = dayjs().format(DATE_FORMAT);
+
+  const [selectedDate, setSelectedDate] = useState<string>(currentMonth);
+  const { recentBoards, recentTickets, calendar } = useGetDashboard(
+    userId,
+    currentMonth
+  );
+  const { data: notesData } = useGetNotesByDate(selectedDate, userId);
   const option = statisticsDataMapper(
     recentBoards?.count,
     recentTickets?.count
@@ -47,10 +59,26 @@ export const Dashboard = () => {
           </RecentBoardsContainer>
           <CalendarContainer>
             <TileWrapper>
-              <Calendar />
+              <Calendar data={calendar} setSelectedDate={setSelectedDate} />
             </TileWrapper>
           </CalendarContainer>
-          <CalendarInfoContainer></CalendarInfoContainer>
+          <CalendarInfoContainer>
+            <TileWrapper>
+              <Space direction='vertical' size={24} style={{ width: '100%' }}>
+                {notesData?.map(({ note, hour }) => (
+                  <Alert
+                    message={
+                      <span>
+                        <strong>{hour}</strong>
+                        <span>&nbsp;-&nbsp;</span>
+                        <span>{note}</span>
+                      </span>
+                    }
+                  />
+                ))}
+              </Space>
+            </TileWrapper>
+          </CalendarInfoContainer>
         </ItemsContainer>
       </PageWrapper>
     </>

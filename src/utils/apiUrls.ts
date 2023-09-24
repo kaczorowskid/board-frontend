@@ -37,6 +37,15 @@ export const apiUrls = {
     editColumn: (id: string) => `/board/column/${generatePath(':id', { id })}`
   },
   dashboard: {
-    getDashboard: (id: string) => `/dashboard/${generatePath(':id', { id })}`
+    getDashboard: (id: string) => `/dashboard/${generatePath(':id', { id })}`,
+    getNotesByDate: '/dashboard/notes'
+  },
+  calendar: {
+    getCalendar: '/calendar',
+    createNote: '/calendar/note',
+    editNote: (id: string) => `/calendar/note/${generatePath(':id', { id })}`,
+    getNotesByDate: '/calendar/notes',
+    getNote: (id: string) => `/calendar/note/${generatePath(':id', { id })}`,
+    removeNote: (id: string) => `/calendar/note/${generatePath(':id', { id })}`
   }
 };
