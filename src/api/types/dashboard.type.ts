@@ -1,5 +1,6 @@
 export interface GetDashboardRequest {
   user_id: string;
+  date: string;
 }
 
 export interface GetDashboardResponse {
@@ -30,4 +31,13 @@ export interface GetDashboardResponse {
     }[];
     count: number;
   };
+  calendar: {
+    id: string;
+    start_date: string;
+    hour: string;
+    note: string;
+    user_id: string;
+    created_at: Date;
+    updated_at: Date;
+  }[];
 }

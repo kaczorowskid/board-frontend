@@ -4,5 +4,6 @@ export enum QueryKeys {
   GET_FOLDERS = 'GetFolders',
   GET_USER = 'GetUser',
   GET_BOARD = 'GetBoard',
-  GET_DASHBOARD = 'GetDashboard'
+  GET_DASHBOARD = 'GetDashboard',
+  GET_CALENDAR = 'GetCalendar'
 }

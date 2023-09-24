@@ -11,6 +11,8 @@ export const routesUrls = {
     board: '/board/:id',
     dashboard: '/dashboard',
     boards: '/boards',
-    folders: '/folders'
+    folders: '/folders',
+    calendar: '/calendar',
+    calendarNotes: '/calendar/:id'
   }
 };

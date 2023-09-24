@@ -9,6 +9,7 @@ import { routesUrls } from 'utils';
 import {
   Board,
   Boards,
+  Calendar,
   ConfirmAccount,
   Dashboard,
   Folders,
@@ -43,6 +44,8 @@ export const Routes = () => {
           <Route path={routesUrls.app.dashboard} element={<Dashboard />} />
           <Route path={routesUrls.app.folders} element={<Folders />} />
           <Route path={routesUrls.app.boards} element={<Boards />} />
+          <Route path={routesUrls.app.calendar} element={<Calendar />} />
+          <Route path={routesUrls.app.calendarNotes} element={<Calendar />} />
         </Route>
       </Route>
     )

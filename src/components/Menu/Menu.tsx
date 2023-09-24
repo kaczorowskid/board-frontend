@@ -2,10 +2,11 @@ import { useUserStore } from 'stores';
 import { useState } from 'react';
 import {
   AppstoreOutlined,
+  CalendarOutlined,
   FolderOutlined,
   TableOutlined
 } from '@ant-design/icons';
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import { routesUrls } from 'utils';
 import { Container } from './Menu.styled';
 import { MenuItems, UserInfo } from './elements';
@@ -13,11 +14,13 @@ import { MenuItems, UserInfo } from './elements';
 enum MenuElements {
   DASHBOARD = 'dashboard',
   FOLDERS = 'folders',
-  BOARDS = 'boards'
+  BOARDS = 'boards',
+  CALENDAR = 'calendar'
 }
 
 export const Menu = () => {
   const navigation = useNavigate();
+  const { hash, pathname, search } = useLocation();
   const { name, email } = useUserStore();
   const [clickedElement, setClickedElement] = useState<MenuElements>(
     MenuElements.DASHBOARD
@@ -50,6 +53,15 @@ export const Menu = () => {
       },
       isClicked: clickedElement === MenuElements.BOARDS,
       icon: <TableOutlined />
+    },
+    {
+      name: 'Calendar',
+      onClick: () => {
+        setClickedElement(MenuElements.CALENDAR);
+        navigation(routesUrls.app.calendar);
+      },
+      isClicked: clickedElement === MenuElements.CALENDAR,
+      icon: <CalendarOutlined />
     }
   ];
 
