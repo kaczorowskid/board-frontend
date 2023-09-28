@@ -15,6 +15,7 @@ import {
   Login,
   Register,
   ResetPassword,
+  Root,
   SetNewPassword
 } from 'views';
 import { routesUrls } from './routesUrls';
@@ -23,6 +24,9 @@ export const Routes = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route>
+        <Route>
+          <Route path={routesUrls.base} element={<Root />} />
+        </Route>
         <Route element={<AuthLayout />}>
           <Route path={routesUrls.auth.login} element={<Login />} />
           <Route path={routesUrls.auth.register} element={<Register />} />

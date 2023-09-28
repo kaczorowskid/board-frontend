@@ -1,6 +1,5 @@
 import { Outlet } from 'react-router-dom';
 import { Menu } from 'components';
-import { useAuthorization } from 'hooks';
 import { menuItems } from 'utils';
 import {
   GridContainer,
@@ -8,17 +7,13 @@ import {
   MainContainer
 } from './MainLayout.styled';
 
-export const MainLayout = () => {
-  useAuthorization();
-
-  return (
-    <GridContainer>
-      <MenuContainer>
-        <Menu items={menuItems} />
-      </MenuContainer>
-      <MainContainer>
-        <Outlet />
-      </MainContainer>
-    </GridContainer>
-  );
-};
+export const MainLayout = () => (
+  <GridContainer>
+    <MenuContainer>
+      <Menu items={menuItems} />
+    </MenuContainer>
+    <MainContainer>
+      <Outlet />
+    </MainContainer>
+  </GridContainer>
+);
