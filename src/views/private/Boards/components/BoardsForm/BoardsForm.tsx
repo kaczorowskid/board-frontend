@@ -3,7 +3,7 @@ import { useForm } from 'antd/es/form/Form';
 import { useUserStore } from 'stores';
 import { AntdDrawer } from 'components';
 import { useGetBoard } from 'views/private/Board/hooks';
-import { useEffect } from 'react';
+import { useFillForm } from 'hooks';
 import { useCreateBoard, useEditBoard } from '../../hooks';
 import { BoardFormType, BoardsFormProps } from './BoardsForm.type';
 import { BoardsFormInputs } from './BoardForm.enum';
@@ -21,13 +21,7 @@ export const BoardsForm = ({
   const { mutateAsync: editBoard } = useEditBoard();
   const { id: userId } = useUserStore();
 
-  useEffect(() => {
-    if (!isEdit) {
-      form.resetFields();
-    } else {
-      form.setFieldsValue(boardData);
-    }
-  }, [isSidebarVisible, boardData]);
+  useFillForm(boardData, form, isSidebarVisible, isEdit);
 
   const handleSubmit = (values: BoardFormType) => {
     if (isEdit) {

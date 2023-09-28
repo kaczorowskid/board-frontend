@@ -1,4 +1,5 @@
-import { HttpMethod, apiCall, apiUrls } from 'utils';
+import { HttpMethod, apiCall } from 'api/apiCall';
+import { apiUrls } from 'api/apiUrls';
 import {
   CreateNoteRequest,
   CreateNoteResponse,
@@ -12,7 +13,7 @@ import {
   GetNotesByDateResponse,
   RemoveNoteRequest,
   RemoveNoteResponse
-} from './types';
+} from 'api/types';
 
 export const getCalendar = async (
   payload: GetCalendarRequest

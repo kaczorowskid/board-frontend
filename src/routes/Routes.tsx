@@ -5,7 +5,6 @@ import {
   RouterProvider
 } from 'react-router-dom';
 import { AuthLayout, MainLayout } from 'layouts';
-import { routesUrls } from 'utils';
 import {
   Board,
   Boards,
@@ -18,6 +17,7 @@ import {
   ResetPassword,
   SetNewPassword
 } from 'views';
+import { routesUrls } from './routesUrls';
 
 export const Routes = () => {
   const router = createBrowserRouter(

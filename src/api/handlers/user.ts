@@ -1,4 +1,5 @@
-import { HttpMethod, apiCall, apiUrls } from 'utils';
+import { HttpMethod, apiCall } from 'api/apiCall';
+import { apiUrls } from 'api/apiUrls';
 import {
   ConfirmAccountUserRequest,
   ConfirmAccountUserResponse,
@@ -11,7 +12,7 @@ import {
   ResetPasswordUserResponse,
   SetNewPasswordUserRequest,
   SetNewPasswordUserResponse
-} from './types';
+} from 'api/types';
 
 export const registerUser = async (
   payload: RegisterUserRequest

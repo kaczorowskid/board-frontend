@@ -1,8 +1,8 @@
 import { Form, TimePicker } from 'antd';
 import { useForm } from 'antd/es/form/Form';
 import { AntdDrawer } from 'components';
-import { useEffect } from 'react';
 import TextArea from 'antd/es/input/TextArea';
+import { useFillForm } from 'hooks';
 import { useCreateNote, useEditNote, useGetNote } from '../../hooks';
 import { CellFormProps, CellFormType } from './CellForm.types';
 import { CellFormInputs } from './CellForm.enum';
@@ -21,21 +21,15 @@ export const CellForm = ({
   const { mutateAsync: createNote } = useCreateNote();
   const { mutateAsync: editNote } = useEditNote();
 
-  useEffect(() => {
-    if (!isEdit) {
-      form.resetFields();
-    } else {
-      form.setFieldsValue(noteData);
-    }
-  }, [isSidebarVisible, noteData]);
+  useFillForm(noteData, form, isSidebarVisible, isEdit);
 
   const handleSubmit = (values: CellFormType) => {
-    const time = values.hour.format('HH:mm');
+    const hour = values.hour.format('HH:mm');
 
     if (isEdit) {
-      editNote({ ...values, start_date: date, hour: time, id: id as string });
+      editNote({ ...values, start_date: date, hour, id: id as string });
     } else {
-      createNote({ ...values, start_date: date, hour: time, user_id: userId });
+      createNote({ ...values, start_date: date, hour, user_id: userId });
     }
     form.resetFields();
     onCloseSidebar();
