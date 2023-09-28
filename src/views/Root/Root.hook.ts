@@ -2,6 +2,7 @@ import { UseQueryResult, useQuery } from '@tanstack/react-query';
 import { GetUserResponse, getUser } from 'api';
 import { QueryKeys } from 'enums';
 import { useNavigate } from 'react-router-dom';
+import { routesUrls } from 'routes';
 import { useUserStore } from 'stores';
 
 export const useAuthorization = (): UseQueryResult<GetUserResponse, Error> => {
@@ -17,9 +18,10 @@ export const useAuthorization = (): UseQueryResult<GetUserResponse, Error> => {
         isActive,
         isLoggedIn: true
       });
+      navigate(routesUrls.app.dashboard);
     },
     onError: () => {
-      navigate('/login');
+      navigate(routesUrls.auth.login);
     }
   });
 };
