@@ -1,10 +1,11 @@
-import { HttpMethod, apiCall, apiUrls } from 'utils';
+import { HttpMethod, apiCall } from 'api/apiCall';
+import { apiUrls } from 'api/apiUrls';
 import {
   CreateTableRequest,
   CreateTableResponse,
   GetTablesWithPaginationRequest,
   GetTablesWithPaginationResponse
-} from './types';
+} from 'api/types';
 
 export const getTablesWithPagination = async (
   payload: GetTablesWithPaginationRequest

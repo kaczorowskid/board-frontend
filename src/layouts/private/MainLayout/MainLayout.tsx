@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { Menu } from 'components';
 import { useAuthorization } from 'hooks';
+import { menuItems } from 'utils';
 import {
   GridContainer,
   MenuContainer,
@@ -13,7 +14,7 @@ export const MainLayout = () => {
   return (
     <GridContainer>
       <MenuContainer>
-        <Menu />
+        <Menu items={menuItems} />
       </MenuContainer>
       <MainContainer>
         <Outlet />

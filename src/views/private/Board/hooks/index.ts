@@ -9,3 +9,4 @@ export * from './useColumnItems.hook';
 export * from './useGetTicket.hook';
 export * from './useGetColumn.hook';
 export * from './useEditColumn.hook';
+export * from './useCreateTicket.hook';

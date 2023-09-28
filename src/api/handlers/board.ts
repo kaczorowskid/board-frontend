@@ -1,4 +1,5 @@
-import { HttpMethod, apiCall, apiUrls } from 'utils';
+import { HttpMethod, apiCall } from 'api/apiCall';
+import { apiUrls } from 'api/apiUrls';
 import {
   CreateBoardRequest,
   CreateBoardResponse,
@@ -28,7 +29,7 @@ import {
   RemoveTicketResponse,
   UpdateBoardRequest,
   UpdateBoardResponse
-} from './types';
+} from 'api/types';
 
 export const getBoard = async (
   payload: GetBoardRequest

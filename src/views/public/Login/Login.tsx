@@ -1,6 +1,6 @@
 import { Form, Button, Input } from 'antd';
 import { AntdInput } from 'components';
-import { routesUrls } from 'utils';
+import { routesUrls } from 'routes';
 import { Container, HintContainer, StyledLink, Title } from '../common';
 import { useLogin } from './Login.hook';
 import { LoginForm } from './Login.type';

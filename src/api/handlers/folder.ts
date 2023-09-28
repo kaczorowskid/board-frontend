@@ -1,10 +1,11 @@
-import { HttpMethod, apiCall, apiUrls } from 'utils';
+import { HttpMethod, apiCall } from 'api/apiCall';
+import { apiUrls } from 'api/apiUrls';
 import {
   CreateFolderRequest,
   CreateFolderResponse,
   GetFoldersWithPaginationRequest,
   GetFoldersWithPaginationResponse
-} from './types';
+} from 'api/types';
 
 export const getFoldersWithPagination = async (
   payload: GetFoldersWithPaginationRequest

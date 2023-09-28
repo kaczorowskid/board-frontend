@@ -3,7 +3,7 @@ import { defaultConfig, useListQuery, usePaginationHelpers } from 'hooks';
 import { PageWrapper, TileItem } from 'components';
 import { useState } from 'react';
 import { generatePath, useNavigate } from 'react-router-dom';
-import { routesUrls } from 'utils';
+import { routesUrls } from 'routes';
 import { BoardsForm } from './components';
 import { useColumns, useFetchBoards, useRemoveBoard } from './hooks';
 

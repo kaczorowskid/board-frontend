@@ -1,12 +1,11 @@
 import { useForm } from 'antd/es/form/Form';
 import { Form, Input } from 'antd';
 import { AntdDrawer } from 'components';
-import { useEffect } from 'react';
 import { useUserStore } from 'stores';
-import { useEditTicket, useGetTicket } from '../../hooks';
+import { useFillForm } from 'hooks';
+import { useCreateTicket, useEditTicket, useGetTicket } from '../../hooks';
 import { AddTicketFormProps, AddTicketFormType } from './AddTicketForm.type';
 import { AddTicketFormInputs } from './AddTicketForm.enum';
-import { useCreateTicket } from './AddTicketForm.hook';
 
 export const AddTicketForm = ({
   isSidebarVisible,
@@ -22,17 +21,11 @@ export const AddTicketForm = ({
   const { mutateAsync: createTicket } = useCreateTicket();
   const { mutateAsync: editTicket } = useEditTicket();
 
-  useEffect(() => {
-    if (!isEdit) {
-      form.resetFields();
-    } else {
-      form.setFieldsValue(ticketData);
-    }
-  }, [isSidebarVisible, ticketData]);
+  useFillForm(ticketData, form, isSidebarVisible, isEdit);
 
   const handleSubmit = (values: AddTicketFormType) => {
     if (isEdit) {
-      editTicket({ ...values, id: ticketData?.id as string });
+      editTicket({ ...values, id: ticketId });
     } else {
       createTicket({ ...values, column_id: columnId, user_id: id });
     }
