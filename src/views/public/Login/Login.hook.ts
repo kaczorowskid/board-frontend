@@ -1,9 +1,9 @@
-import { userToken } from 'constants/token';
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
 import { LoginUserRequest, LoginUserResponse, loginUser } from 'api';
 import { MessageType, antdMessage } from 'components';
 import { useNavigate } from 'react-router-dom';
 import { useUserStore } from 'stores';
+import { routesUrls } from 'routes';
 
 export const useLogin = (): UseMutationResult<
   LoginUserResponse,
@@ -15,7 +15,6 @@ export const useLogin = (): UseMutationResult<
 
   return useMutation(loginUser, {
     onSuccess: ({ id, name, email, is_active: isActive }) => {
-      localStorage.setItem(userToken, id);
       setUser({
         id,
         name,
@@ -27,7 +26,7 @@ export const useLogin = (): UseMutationResult<
         type: MessageType.SUCCESS,
         content: 'User has been logged'
       });
-      navigate('/dashboard');
+      navigate(routesUrls.app.dashboard);
     },
     onError: () => {
       antdMessage({
