@@ -1,4 +1,3 @@
-import { userToken } from 'constants/token';
 import axios from 'axios';
 
 const baseURL =
@@ -7,8 +6,11 @@ const baseURL =
     : process.env.VITE_API_PROD_URL;
 
 const headers = {
-  'Content-Type': 'application/json',
-  'user-token': localStorage.getItem(userToken)
+  'Content-Type': 'application/json'
 };
 
-export const axiosInstance = axios.create({ baseURL, headers });
+export const axiosInstance = axios.create({
+  baseURL,
+  headers,
+  withCredentials: true
+});

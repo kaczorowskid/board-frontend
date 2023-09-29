@@ -1,15 +1,18 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
-import { GetUserResponse, getUser } from 'api';
+import { AuthorizeUserResponse, authorizeUser } from 'api';
 import { QueryKeys } from 'enums';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { routesUrls } from 'routes';
 import { useUserStore } from 'stores';
 
-export const useAuthorization = (): UseQueryResult<GetUserResponse, Error> => {
+export const useAuthorizeUser = (): UseQueryResult<
+  AuthorizeUserResponse,
+  Error
+> => {
   const { setUser } = useUserStore();
   const navigate = useNavigate();
 
-  return useQuery([QueryKeys.GET_USER], getUser, {
+  return useQuery([QueryKeys.GET_USER], authorizeUser, {
     onSuccess: ({ id, email, name, is_active: isActive }) => {
       setUser({
         id,
@@ -18,7 +21,6 @@ export const useAuthorization = (): UseQueryResult<GetUserResponse, Error> => {
         isActive,
         isLoggedIn: true
       });
-      navigate(routesUrls.app.dashboard);
     },
     onError: () => {
       navigate(routesUrls.auth.login);

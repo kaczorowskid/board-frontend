@@ -2,6 +2,7 @@ import { generatePath } from 'react-router-dom';
 
 export const apiUrls = {
   user: {
+    authorize: '/user/authorization',
     register: '/user/register',
     login: '/user/login',
     getUser: '/user',

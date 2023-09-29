@@ -25,6 +25,8 @@ export interface LoginUserResponse {
   token?: string;
 }
 
+export type GetUserRequest = void;
+
 export interface GetUserResponse {
   id: string;
   email: string;
@@ -56,4 +58,13 @@ export interface ConfirmAccountUserRequest {
 
 export interface ConfirmAccountUserResponse {
   data: string;
+}
+
+export type AuthorizeUserRequest = void;
+
+export interface AuthorizeUserResponse {
+  id: string;
+  email: string;
+  is_active: boolean;
+  name: string;
 }

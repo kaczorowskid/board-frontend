@@ -1,8 +1,11 @@
 import { HttpMethod, apiCall } from 'api/apiCall';
 import { apiUrls } from 'api/apiUrls';
 import {
+  AuthorizeUserRequest,
+  AuthorizeUserResponse,
   ConfirmAccountUserRequest,
   ConfirmAccountUserResponse,
+  GetUserRequest,
   GetUserResponse,
   LoginUserRequest,
   LoginUserResponse,
@@ -51,7 +54,7 @@ export const getUser = async (): Promise<GetUserResponse> => {
     user: { getUser: getUserUrl }
   } = apiUrls;
 
-  const { data } = await apiCall<unknown, GetUserResponse>(
+  const { data } = await apiCall<GetUserRequest, GetUserResponse>(
     getUserUrl,
     HttpMethod.GET
   );
@@ -100,6 +103,19 @@ export const confirmAccountUser = async (
     ConfirmAccountUserRequest,
     ConfirmAccountUserResponse
   >(confirmAccount(payload.token), HttpMethod.GET, payload);
+
+  return data;
+};
+
+export const authorizeUser = async (): Promise<AuthorizeUserResponse> => {
+  const {
+    user: { authorize }
+  } = apiUrls;
+
+  const { data } = await apiCall<AuthorizeUserRequest, AuthorizeUserResponse>(
+    authorize,
+    HttpMethod.GET
+  );
 
   return data;
 };
