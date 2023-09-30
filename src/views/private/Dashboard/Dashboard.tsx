@@ -2,24 +2,17 @@ import { DATE_FORMAT } from 'constants/timeFormat';
 import { PageWrapper } from 'components';
 import { useUserStore } from 'stores';
 import dayjs from 'dayjs';
-import { Alert, Space } from 'antd';
 import { useState } from 'react';
 import { useGetNotesByDate } from '../Calendar/hooks';
 import {
   Calendar,
+  CalendarInfo,
+  DashboardItem,
   RecentBoards,
   RecentTickets,
-  Statistics,
-  TileWrapper
+  Statistics
 } from './components';
-import {
-  CalendarContainer,
-  ItemsContainer,
-  RecentBoardsContainer,
-  RecentTicketsContainer,
-  StatisticContainer,
-  CalendarInfoContainer
-} from './Dashboard.styled';
+import { ItemsContainer } from './Dashboard.styled';
 import { useGetDashboard } from './hooks';
 import { statisticsDataMapper } from './utils';
 
@@ -42,43 +35,31 @@ export const Dashboard = () => {
     <>
       <PageWrapper title='Dashboard'>
         <ItemsContainer>
-          <RecentTicketsContainer>
-            <TileWrapper title='Recent tickets'>
-              <RecentTickets data={recentTickets?.data} />
-            </TileWrapper>
-          </RecentTicketsContainer>
-          <StatisticContainer>
-            <TileWrapper title='Statistics'>
-              <Statistics option={option} />
-            </TileWrapper>
-          </StatisticContainer>
-          <RecentBoardsContainer>
-            <TileWrapper title='Recent boards'>
-              <RecentBoards data={recentBoards?.data} />
-            </TileWrapper>
-          </RecentBoardsContainer>
-          <CalendarContainer>
-            <TileWrapper>
+          <DashboardItem
+            title='Recent tickets'
+            gridArea='recent-tickets'
+            component={<RecentTickets data={recentTickets?.data} />}
+          />
+          <DashboardItem
+            title='Statistics'
+            gridArea='statisctic'
+            component={<Statistics option={option} />}
+          />
+          <DashboardItem
+            title='Recent boards'
+            gridArea='recent-boards'
+            component={<RecentBoards data={recentBoards?.data} />}
+          />
+          <DashboardItem
+            gridArea='calendar-info'
+            component={<CalendarInfo data={notesData} />}
+          />
+          <DashboardItem
+            gridArea='calendar'
+            component={
               <Calendar data={calendar} setSelectedDate={setSelectedDate} />
-            </TileWrapper>
-          </CalendarContainer>
-          <CalendarInfoContainer>
-            <TileWrapper>
-              <Space direction='vertical' size={24} style={{ width: '100%' }}>
-                {notesData?.map(({ note, hour }) => (
-                  <Alert
-                    message={
-                      <span>
-                        <strong>{hour}</strong>
-                        <span>&nbsp;-&nbsp;</span>
-                        <span>{note}</span>
-                      </span>
-                    }
-                  />
-                ))}
-              </Space>
-            </TileWrapper>
-          </CalendarInfoContainer>
+            }
+          />
         </ItemsContainer>
       </PageWrapper>
     </>

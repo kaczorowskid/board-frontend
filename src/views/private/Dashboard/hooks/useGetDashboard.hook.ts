@@ -2,8 +2,6 @@ import { useQuery } from '@tanstack/react-query';
 import { getDashboard } from 'api';
 import { QueryKeys } from 'enums';
 
-type DataRecord = Record<string, string | number | Date>;
-
 interface UseGetDashboard {
   recentBoards?: {
     data: Record<string, string | number | Date>[];
@@ -13,7 +11,7 @@ interface UseGetDashboard {
     data: Record<string, string | number | Date>[];
     count: number;
   };
-  calendar?: Record<string, string | number | Date>[];
+  calendar?: Record<string, string | Date>[];
 }
 
 export const useGetDashboard = (
