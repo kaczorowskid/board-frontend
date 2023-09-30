@@ -1,5 +1,15 @@
 import { Button } from 'antd';
+import { CSSProperties } from 'react';
 import styled from 'styled-components';
+
+export const GridContainer = styled.div<{
+  gridArea: CSSProperties['gridArea'];
+}>`
+  grid-area: ${({ gridArea }) => gridArea};
+  background-color: white;
+  border-radius: 30px;
+  border: 3px solid #f2f2f2;
+`;
 
 export const Container = styled.div`
   padding-bottom: 10px;
