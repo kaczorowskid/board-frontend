@@ -1,10 +1,15 @@
 import { useForm } from 'antd/es/form/Form';
 import { Form, Input } from 'antd';
-import { AntdDrawer } from 'components';
+import { AntdModal } from 'components';
 import { useFillForm } from 'hooks';
 import { useCreateColumn, useEditColumn, useGetColumn } from '../../hooks';
 import { AddColumnFormProps, AddColumnFormType } from './AddColumnForm.type';
 import { AddColumnFormInputs } from './AddColumnForm.enum';
+import {
+  initialValues,
+  inputsLabel,
+  inputsPlaceholder
+} from './AddColumnForm.schema';
 
 export const AddColumnForm = ({
   isSidebarVisible,
@@ -32,17 +37,26 @@ export const AddColumnForm = ({
   };
 
   return (
-    <AntdDrawer
+    <AntdModal
       open={isSidebarVisible}
       onClose={onCloseSidebar}
       formId='columnForm'
       title='Add Column'
     >
-      <Form id='columnForm' form={form} onFinish={handleSubmit}>
-        <Form.Item name={AddColumnFormInputs.TITLE}>
-          <Input placeholder='Add new column' />
+      <Form
+        id='columnForm'
+        layout='vertical'
+        form={form}
+        onFinish={handleSubmit}
+        initialValues={initialValues}
+      >
+        <Form.Item
+          name={AddColumnFormInputs.TITLE}
+          label={inputsLabel[AddColumnFormInputs.TITLE]}
+        >
+          <Input placeholder={inputsPlaceholder[AddColumnFormInputs.TITLE]} />
         </Form.Item>
       </Form>
-    </AntdDrawer>
+    </AntdModal>
   );
 };
