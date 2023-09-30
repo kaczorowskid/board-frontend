@@ -1,12 +1,17 @@
 import { Form, Input } from 'antd';
 import { useForm } from 'antd/es/form/Form';
 import { useUserStore } from 'stores';
-import { AntdDrawer } from 'components';
+import { AntdModal } from 'components';
 import { useGetBoard } from 'views/private/Board/hooks';
 import { useFillForm } from 'hooks';
 import { useCreateBoard, useEditBoard } from '../../hooks';
 import { BoardFormType, BoardsFormProps } from './BoardsForm.type';
 import { BoardsFormInputs } from './BoardForm.enum';
+import {
+  initialValues,
+  inputsLabel,
+  inputsPlaceholder
+} from './BoardsForm.schema';
 
 export const BoardsForm = ({
   id,
@@ -34,20 +39,34 @@ export const BoardsForm = ({
   };
 
   return (
-    <AntdDrawer
+    <AntdModal
       open={isSidebarVisible}
       onClose={onCloseSidebar}
       formId='form'
       title='Add board'
     >
-      <Form id='form' form={form} onFinish={handleSubmit}>
-        <Form.Item name={BoardsFormInputs.TITLE}>
-          <Input placeholder='title' />
+      <Form
+        id='form'
+        layout='vertical'
+        form={form}
+        onFinish={handleSubmit}
+        initialValues={initialValues}
+      >
+        <Form.Item
+          name={BoardsFormInputs.TITLE}
+          label={inputsLabel[BoardsFormInputs.TITLE]}
+        >
+          <Input placeholder={inputsPlaceholder[BoardsFormInputs.TITLE]} />
         </Form.Item>
-        <Form.Item name={BoardsFormInputs.DESCRIPTION}>
-          <Input placeholder='description' />
+        <Form.Item
+          name={BoardsFormInputs.DESCRIPTION}
+          label={inputsLabel[BoardsFormInputs.DESCRIPTION]}
+        >
+          <Input
+            placeholder={inputsPlaceholder[BoardsFormInputs.DESCRIPTION]}
+          />
         </Form.Item>
       </Form>
-    </AntdDrawer>
+    </AntdModal>
   );
 };

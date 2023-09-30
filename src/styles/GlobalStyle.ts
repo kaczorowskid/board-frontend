@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { button, calendar, input, table } from './components';
+import { button, calendar, formItem, input, table } from './components';
 
 export const GlobalStyle = createGlobalStyle`
   html, * {
@@ -23,4 +23,5 @@ export const GlobalStyle = createGlobalStyle`
   ${button}
   ${table}
   ${calendar}
+  ${formItem}
 `;

@@ -1,11 +1,16 @@
 import { Form, TimePicker } from 'antd';
 import { useForm } from 'antd/es/form/Form';
-import { AntdDrawer } from 'components';
+import { AntdModal } from 'components';
 import TextArea from 'antd/es/input/TextArea';
 import { useFillForm } from 'hooks';
 import { useCreateNote, useEditNote, useGetNote } from '../../hooks';
 import { CellFormProps, CellFormType } from './CellForm.types';
 import { CellFormInputs } from './CellForm.enum';
+import {
+  initialValues,
+  inputsLabel,
+  inputsPlaceholder
+} from './CellForm.schema';
 
 export const CellForm = ({
   userId,
@@ -36,20 +41,35 @@ export const CellForm = ({
   };
 
   return (
-    <AntdDrawer
+    <AntdModal
       open={isSidebarVisible}
       onClose={onCloseSidebar}
       formId='form'
       title='Add note'
     >
-      <Form id='form' form={form} onFinish={handleSubmit}>
-        <Form.Item name={CellFormInputs.HOUR}>
-          <TimePicker format={'HH:mm'} />
+      <Form
+        id='form'
+        layout='vertical'
+        form={form}
+        onFinish={handleSubmit}
+        initialValues={initialValues}
+      >
+        <Form.Item
+          name={CellFormInputs.HOUR}
+          label={inputsLabel[CellFormInputs.HOUR]}
+        >
+          <TimePicker
+            format={'HH:mm'}
+            placeholder={inputsPlaceholder[CellFormInputs.HOUR]}
+          />
         </Form.Item>
-        <Form.Item name={CellFormInputs.NOTE}>
-          <TextArea placeholder='description' />
+        <Form.Item
+          name={CellFormInputs.NOTE}
+          label={inputsLabel[CellFormInputs.NOTE]}
+        >
+          <TextArea placeholder={inputsPlaceholder[CellFormInputs.NOTE]} />
         </Form.Item>
       </Form>
-    </AntdDrawer>
+    </AntdModal>
   );
 };

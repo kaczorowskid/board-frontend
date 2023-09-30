@@ -1,11 +1,16 @@
 import { useForm } from 'antd/es/form/Form';
 import { Form, Input } from 'antd';
-import { AntdDrawer } from 'components';
+import { AntdModal } from 'components';
 import { useUserStore } from 'stores';
 import { useFillForm } from 'hooks';
 import { useCreateTicket, useEditTicket, useGetTicket } from '../../hooks';
 import { AddTicketFormProps, AddTicketFormType } from './AddTicketForm.type';
 import { AddTicketFormInputs } from './AddTicketForm.enum';
+import {
+  initialValues,
+  inputsLabel,
+  inputsPlaceholder
+} from './AddTicketForm.schema';
 
 export const AddTicketForm = ({
   isSidebarVisible,
@@ -34,29 +39,40 @@ export const AddTicketForm = ({
   };
 
   return (
-    <AntdDrawer
+    <AntdModal
       open={isSidebarVisible}
       onClose={onCloseSidebar}
       formId='ticketForm'
       title='Add Ticket'
     >
-      <Form id='ticketForm' form={form} onFinish={handleSubmit}>
-        <Form.Item name={AddTicketFormInputs.TITLE}>
-          <Input placeholder='Title' />
+      <Form
+        id='ticketForm'
+        layout='vertical'
+        form={form}
+        onFinish={handleSubmit}
+        initialValues={initialValues}
+      >
+        <Form.Item
+          name={AddTicketFormInputs.TITLE}
+          label={inputsLabel[AddTicketFormInputs.TITLE]}
+        >
+          <Input placeholder={inputsPlaceholder[AddTicketFormInputs.TITLE]} />
         </Form.Item>
-        <Form.Item name={AddTicketFormInputs.DESCRIPTION}>
-          <Input placeholder='Description' />
+        <Form.Item
+          name={AddTicketFormInputs.DESCRIPTION}
+          label={inputsLabel[AddTicketFormInputs.DESCRIPTION]}
+        >
+          <Input
+            placeholder={inputsPlaceholder[AddTicketFormInputs.DESCRIPTION]}
+          />
         </Form.Item>
-        <Form.Item name={AddTicketFormInputs.PRIO}>
-          <Input placeholder='Prio' />
+        <Form.Item
+          name={AddTicketFormInputs.PRIO}
+          label={inputsLabel[AddTicketFormInputs.PRIO]}
+        >
+          <Input placeholder={inputsPlaceholder[AddTicketFormInputs.PRIO]} />
         </Form.Item>
-        {/* <Form.Item name={AddTicketFormInputs.START}>
-          <DatePicker placeholder='Select start time' />
-        </Form.Item>
-        <Form.Item name={AddTicketFormInputs.END}>
-          <DatePicker placeholder='Select end time' />
-        </Form.Item> */}
       </Form>
-    </AntdDrawer>
+    </AntdModal>
   );
 };
