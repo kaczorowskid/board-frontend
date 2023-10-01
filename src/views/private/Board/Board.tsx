@@ -1,4 +1,9 @@
-import { Board as BoardType, Column, DragAndDrop } from 'components';
+import {
+  Board as BoardType,
+  Column,
+  DragAndDrop,
+  PageWrapper
+} from 'components';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { MoreOutlined } from '@ant-design/icons';
@@ -25,22 +30,21 @@ export const Board = () => {
   const { mutateAsync: removeColumn } = useRemoveColumn();
   const { mutateAsync: removeTicket } = useRemoveTicket();
 
-  const ticketDropdownItems = useTicketItems(
-    (id) => setEditTicket(id),
-    (id) => removeTicket({ id })
-  );
+  const ticketDropdownItems = useTicketItems(setEditTicket, removeTicket);
 
   const columnDropdownItems = useColumnItems(
-    (id) => setEditColumn(id),
-    (id) => removeColumn({ id }),
-    (id) => setCreateTicket(id)
+    setEditColumn,
+    removeColumn,
+    setCreateTicket
   );
 
   const handleDragEnd = (mappedColumn: Column[]) => {
-    updateBoard({
-      ...(data as BoardType),
-      columns: mappedColumn
-    });
+    if (data) {
+      updateBoard({
+        ...data,
+        columns: mappedColumn
+      });
+    }
   };
 
   const hideColumnSideboard = () => {
@@ -54,7 +58,7 @@ export const Board = () => {
   };
 
   return (
-    <>
+    <PageWrapper title='Board'>
       <DragAndDrop
         dataSource={(data as BoardType) || []}
         ticketDropdownItems={ticketDropdownItems}
@@ -77,6 +81,6 @@ export const Board = () => {
         columnId={createTicket}
         ticketId={editTicket}
       />
-    </>
+    </PageWrapper>
   );
 };

@@ -48,5 +48,9 @@ export const apiUrls = {
     getNotesByDate: '/calendar/notes',
     getNote: (id: string) => `/calendar/note/${generatePath(':id', { id })}`,
     removeNote: (id: string) => `/calendar/note/${generatePath(':id', { id })}`
+  },
+  comment: {
+    createComment: '/comment',
+    removeComment: (id: string) => `/comment/${generatePath(':id', { id })}`
   }
 };

@@ -1,16 +1,21 @@
+export interface Comment {
+  id: string;
+  text: string;
+  ticket_id: string;
+  user_id: string;
+  // created_at: Date;
+  // updated_at: Date;
+}
+
 export interface Ticket {
   id: string;
-  code: string;
   title: string;
   description: string;
-  epics?: string[];
-  prio: string;
-  start: string;
-  end: string;
+  prio: 'high' | 'medium' | 'low';
   order: number;
-  comments: number;
-  comentatorsAvatars?: { name: string; avatar: string }[];
   column_id: string;
+  user_id: string;
+  comments: Comment[];
 }
 
 export interface Column {
@@ -23,6 +28,7 @@ export interface Column {
 export interface Board {
   id: string;
   title: string;
+  description: string;
   user_id: string;
   columns: Column[];
 }

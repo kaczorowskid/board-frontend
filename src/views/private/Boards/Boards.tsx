@@ -19,10 +19,6 @@ export const Boards = () => {
     setIsSidebarVisible(true);
   };
 
-  const handleDelete = (id: string) => {
-    removeBoard({ id });
-  };
-
   const handleOpenBoard = (id: string) => {
     navigate(generatePath(routesUrls.app.board, { id }));
   };
@@ -32,7 +28,7 @@ export const Boards = () => {
     setBoardId('');
   };
 
-  const columns = useColumns(handleEdit, handleDelete, handleOpenBoard);
+  const columns = useColumns(handleEdit, removeBoard, handleOpenBoard);
 
   const { listQuery, setListQuery } = useListQuery({
     ...defaultConfig,

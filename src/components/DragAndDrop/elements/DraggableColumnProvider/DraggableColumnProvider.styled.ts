@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const DroppableColumn = styled.div<{ isDraggingOver: boolean }>`
   border-radius: 10px;
   background-color: white;
-  border: ${({ isDraggingOver }) => (isDraggingOver ? '5px dotted red' : '')};
+  border: ${({ isDraggingOver }) => (isDraggingOver ? '5px dotted gray' : '')};
   width: 350px;
   padding: 20px 10px;
 `;
@@ -11,7 +11,9 @@ export const DroppableColumn = styled.div<{ isDraggingOver: boolean }>`
 export const ColumnInfo = styled.div`
   height: 60px;
   border-radius: 10px;
-  background-color: #ebecf0;
+  /* background-color: #ebecf0; */
+  border: 2px solid gray;
+  background-color: white;
   padding: 20px 15px;
   font-weight: bold;
   display: flex;

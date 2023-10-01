@@ -4,7 +4,7 @@ import { UseColumn } from 'types';
 
 const { confirm } = Modal;
 
-export const useTicketItems =
+export const useCommentsItems =
   (
     onEdit: UseColumn['onEdit'],
     onDelete: UseColumn['onDelete']

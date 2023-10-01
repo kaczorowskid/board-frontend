@@ -10,3 +10,6 @@ export * from './useGetTicket.hook';
 export * from './useGetColumn.hook';
 export * from './useEditColumn.hook';
 export * from './useCreateTicket.hook';
+export * from './useCreateComment.hook';
+export * from './useCommentItems.hook';
+export * from './useRemoveComment.hook';

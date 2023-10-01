@@ -27,7 +27,7 @@ const items = (
         title: 'Do you Want to delete this item?',
         icon: <ExclamationCircleFilled />,
         onOk: () => {
-          onDelete(record.id);
+          onDelete({ id: record.id });
         }
       });
     }
