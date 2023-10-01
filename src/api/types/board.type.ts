@@ -5,6 +5,7 @@ export interface GetBoardRequest {
 export interface GetBoardResponse {
   id: string;
   title: string;
+  description: string;
   user_id: string;
   columns: {
     id: string;
@@ -12,17 +13,20 @@ export interface GetBoardResponse {
     board_id: string;
     tickets: {
       id: string;
-      code: string;
       title: string;
       description: string;
-      epics?: string[];
-      prio: string;
-      start: string;
-      end: string;
+      prio: 'high' | 'medium' | 'low';
       order: number;
-      comments: number;
-      comentatorsAvatars?: { name: string; avatar: string }[];
       column_id: string;
+      user_id: string;
+      comments: {
+        id: string;
+        text: string;
+        ticket_id: string;
+        user_id: string;
+        created_at: Date;
+        updated_at: Date;
+      }[];
     }[];
   }[];
 }
@@ -30,22 +34,28 @@ export interface GetBoardResponse {
 export interface UpdateBoardRequest {
   id: string;
   title: string;
+  description: string;
+  user_id: string;
   columns: {
     id: string;
     title: string;
     board_id: string;
     tickets: {
       id: string;
-      code: string;
       title: string;
       description: string;
-      epics?: string[];
-      prio: string;
-      start: string;
-      end: string;
+      prio: 'high' | 'medium' | 'low';
       order: number;
-      comments: number;
-      comentatorsAvatars?: { name: string; avatar: string }[];
+      column_id: string;
+      user_id: string;
+      comments: {
+        id: string;
+        text: string;
+        ticket_id: string;
+        user_id: string;
+        created_at: Date;
+        updated_at: Date;
+      }[];
     }[];
   }[];
 }
@@ -104,17 +114,12 @@ export interface GetBoardsWithPaginationResponse {
       board_id: string;
       tickets: {
         id: string;
-        code: string;
         title: string;
         description: string;
-        epics?: string[];
         prio: string;
-        start: string;
-        end: string;
         order: number;
-        comments: number;
-        comentatorsAvatars?: { name: string; avatar: string }[];
         column_id: string;
+        user_id: string;
       }[];
     }[];
   }[];
@@ -184,11 +189,24 @@ export interface GetTicketResponse {
   title: string;
   description: string;
   prio: string;
-  start: string;
-  end: string;
   order: number;
   column_id: string;
   user_id: string;
+  comments: {
+    id: string;
+    text: string;
+    ticket_id: string;
+    created_at: Date;
+    updated_at: Date;
+    user: {
+      id: string;
+      email: string;
+      is_active: boolean;
+      name: string;
+      created_at: Date;
+      updated_at: Date;
+    };
+  }[];
 }
 
 export interface GetColumnRequest {

@@ -5,5 +5,6 @@ export enum QueryKeys {
   GET_USER = 'GetUser',
   GET_BOARD = 'GetBoard',
   GET_DASHBOARD = 'GetDashboard',
-  GET_CALENDAR = 'GetCalendar'
+  GET_CALENDAR = 'GetCalendar',
+  GET_TICKET = 'GetTicket'
 }

@@ -1,3 +1,4 @@
+import { SelectProps } from 'antd';
 import { AddTicketFormInputs } from './AddTicketForm.enum';
 
 export const initialValues = {
@@ -17,3 +18,18 @@ export const inputsPlaceholder = {
   [AddTicketFormInputs.DESCRIPTION]: 'Description',
   [AddTicketFormInputs.PRIO]: 'Prio'
 };
+
+export const prioOptions: SelectProps['options'] = [
+  {
+    label: 'High',
+    value: 'high'
+  },
+  {
+    label: 'Medium',
+    value: 'medium'
+  },
+  {
+    label: 'Low',
+    value: 'low'
+  }
+];

@@ -39,10 +39,7 @@ export const Calendar = () => {
     removeSelectedNoteId();
   };
 
-  const noteDropdownItems = useNotesItems(
-    (id) => handleOpenForm(id),
-    (id) => removeNote({ id })
-  );
+  const noteDropdownItems = useNotesItems(handleOpenForm, removeNote);
 
   const handlePanelChange = (date: Dayjs) => {
     setSelectedMonth(date.format(DATE_ONLY_MONTH));

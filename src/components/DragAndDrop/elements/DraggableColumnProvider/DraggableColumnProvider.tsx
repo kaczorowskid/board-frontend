@@ -29,7 +29,9 @@ export const DraggableColumnProvider = ({
               {...provided.droppableProps}
             >
               <ColumnInfo>
-                <span>{title}</span>
+                <span>
+                  {title} - {tickets.length}
+                </span>
                 <Dropdown
                   menu={{ items: columnDropdownItems(id) }}
                   trigger={['click']}

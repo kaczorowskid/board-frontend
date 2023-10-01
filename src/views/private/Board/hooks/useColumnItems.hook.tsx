@@ -25,7 +25,7 @@ export const useColumnItems =
             title: 'Do you Want to delete this item?',
             icon: <ExclamationCircleFilled />,
             onOk: () => {
-              onDelete(id);
+              onDelete({ id });
             }
           });
         }
