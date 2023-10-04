@@ -4,11 +4,13 @@ import {
 } from '@ant-design/icons';
 import { Dropdown, MenuProps, TableColumnsType, Modal } from 'antd';
 import { GetBoardsWithPaginationResponse } from 'api';
+import { useUserStore } from 'stores';
 import { UseColumn } from 'types';
 
 const { confirm } = Modal;
 
 const items = (
+  userId: string,
   record: UseColumn<GetBoardsWithPaginationResponse['data'][0]>['record'],
   onEdit: UseColumn['onEdit'],
   onDelete: UseColumn['onDelete'],
@@ -23,6 +25,7 @@ const items = (
   {
     key: 'delete',
     label: 'Delete',
+    disabled: record.owner_id !== userId,
     onClick: () => {
       confirm({
         title: 'Do you Want to delete this item?',
@@ -50,32 +53,36 @@ export const useColumns = (
   onDelete: UseColumn['onDelete'],
   onOpenBoard: (id: string) => void,
   shareBoard?: (id: string) => void
-): TableColumnsType<GetBoardsWithPaginationResponse['data'][0]> => [
-  {
-    key: 'actions',
-    align: 'left',
-    width: 100,
-    render: (record) => (
-      <Dropdown
-        menu={{
-          items: items(record, onEdit, onDelete, onOpenBoard, shareBoard)
-        }}
-        trigger={['click']}
-      >
-        <UnorderedListOutlined />
-      </Dropdown>
-    )
-  },
-  {
-    title: 'Title',
-    dataIndex: 'title',
-    key: 'title',
-    width: '50%'
-  },
-  {
-    title: 'Description',
-    dataIndex: 'description',
-    key: 'description',
-    width: '50%'
-  }
-];
+): TableColumnsType<GetBoardsWithPaginationResponse['data'][0]> => {
+  const { id } = useUserStore();
+
+  return [
+    {
+      key: 'actions',
+      align: 'left',
+      width: 100,
+      render: (record) => (
+        <Dropdown
+          menu={{
+            items: items(id, record, onEdit, onDelete, onOpenBoard, shareBoard)
+          }}
+          trigger={['click']}
+        >
+          <UnorderedListOutlined />
+        </Dropdown>
+      )
+    },
+    {
+      title: 'Title',
+      dataIndex: 'title',
+      key: 'title',
+      width: '50%'
+    },
+    {
+      title: 'Description',
+      dataIndex: 'description',
+      key: 'description',
+      width: '50%'
+    }
+  ];
+};

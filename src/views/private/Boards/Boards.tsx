@@ -23,6 +23,21 @@ export const Boards = () => {
   const { mutateAsync: removeBoard } = useRemoveBoard();
   const { data, mutate: createToken } = useCreateShareToken();
 
+  const { listQuery, setListQuery } = useListQuery({
+    ...defaultConfig,
+    pagination: {
+      ...defaultConfig.pagination,
+      pageSize: 10
+    }
+  });
+
+  const { onHandleTableChange, onSearchPagination } = usePaginationHelpers(
+    listQuery,
+    setListQuery
+  );
+
+  const { data: boardsData, isFetching } = useFetchBoards(listQuery);
+
   const handleEdit = (id: string) => {
     setBoardId(id);
     setIsSidebarVisible(true);
@@ -47,21 +62,6 @@ export const Boards = () => {
     handleOpenBoard,
     handleShareBoard
   );
-
-  const { listQuery, setListQuery } = useListQuery({
-    ...defaultConfig,
-    pagination: {
-      ...defaultConfig.pagination,
-      pageSize: 10
-    }
-  });
-
-  const { onHandleTableChange, onSearchPagination } = usePaginationHelpers(
-    listQuery,
-    setListQuery
-  );
-
-  const { data: boardsData, isFetching } = useFetchBoards(listQuery);
 
   useEffect(() => {
     if (data) {
