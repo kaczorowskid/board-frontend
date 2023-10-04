@@ -2,6 +2,10 @@ import { css } from 'styled-components';
 
 export const formItem = css`
   .ant-form-item {
+    width: 100%;
+  }
+
+  .ant-form-item {
     margin-bottom: 8px;
   }
 

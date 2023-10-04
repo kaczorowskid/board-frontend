@@ -5,7 +5,7 @@ export const DragDropContainer = styled.div`
   gap: 10px;
 
   background-color: white;
-  height: calc(100vh - 200px);
+  min-height: calc(100vh - 200px);
   padding: 30px;
 
   border-radius: 30px;

@@ -3,8 +3,8 @@ export interface Comment {
   text: string;
   ticket_id: string;
   user_id: string;
-  // created_at: Date;
-  // updated_at: Date;
+  created_at: Date;
+  updated_at: Date;
 }
 
 export interface Ticket {

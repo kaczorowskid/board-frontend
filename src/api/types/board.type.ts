@@ -227,3 +227,20 @@ export interface EditColumnRequest {
 export interface EditColumnResponse {
   result: string;
 }
+
+export interface ConfirmShareTokenRequest {
+  token: string;
+  user_id: string;
+}
+
+export interface ConfirmShareTokenResponse {
+  result: string;
+}
+
+export interface CreateShareTokenRequest {
+  board_id: string;
+}
+
+export interface CreateShareTokenResponse {
+  result: string;
+}

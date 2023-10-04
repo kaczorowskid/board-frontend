@@ -1,5 +1,4 @@
 import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
 import { Container } from './RichTextEditor.styled';
 import { RichTextEditrorProps } from './RichTextEditor.types';
 

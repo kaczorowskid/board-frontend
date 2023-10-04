@@ -22,7 +22,6 @@ import {
 } from './AddTicketForm.schema';
 import { Comments, CommentsForm } from './components';
 import { CommentsContainer } from './AddTicketForm.styled';
-import 'react-quill/dist/quill.snow.css';
 
 export const AddTicketForm = ({
   isSidebarVisible,

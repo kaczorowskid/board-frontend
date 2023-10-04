@@ -24,7 +24,9 @@ export const Comments = ({
         </AvatarContainer>
         <AvatarInfoContainer>{user?.name}</AvatarInfoContainer>
         <CommentContainer>
-          <Markdown rehypePlugins={[rehypeRaw]}>{text}</Markdown>
+          <div>
+            <Markdown rehypePlugins={[rehypeRaw]}>{text}</Markdown>
+          </div>
           <DropdownContainer>
             <Dropdown
               menu={{ items: commentsDropdownItems(id) }}

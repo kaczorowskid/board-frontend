@@ -1,10 +1,14 @@
 import { HttpMethod, apiCall } from 'api/apiCall';
 import { apiUrls } from 'api/apiUrls';
 import {
+  ConfirmShareTokenRequest,
+  ConfirmShareTokenResponse,
   CreateBoardRequest,
   CreateBoardResponse,
   CreateColumnRequest,
   CreateColumnResponse,
+  CreateShareTokenRequest,
+  CreateShareTokenResponse,
   CreateTicketRequest,
   CreateTicketResponse,
   EditBoardRequest,
@@ -249,6 +253,36 @@ export const editColumn = async (
     HttpMethod.PATCH,
     payload
   );
+
+  return data;
+};
+
+export const confirmShareToken = async (
+  payload: ConfirmShareTokenRequest
+): Promise<ConfirmShareTokenResponse> => {
+  const {
+    board: { confirmShareToken: confirm }
+  } = apiUrls;
+
+  const { data } = await apiCall<
+    ConfirmShareTokenRequest,
+    ConfirmShareTokenResponse
+  >(confirm, HttpMethod.POST, payload);
+
+  return data;
+};
+
+export const createShareToken = async (
+  payload: CreateShareTokenRequest
+): Promise<CreateShareTokenResponse> => {
+  const {
+    board: { createShareToken: create }
+  } = apiUrls;
+
+  const { data } = await apiCall<
+    CreateShareTokenRequest,
+    CreateShareTokenResponse
+  >(create, HttpMethod.POST, payload);
 
   return data;
 };
