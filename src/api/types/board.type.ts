@@ -108,6 +108,7 @@ export interface GetBoardsWithPaginationResponse {
     id: string;
     title: string;
     user_id: string;
+    owner_id: string;
     columns: {
       id: string;
       title: string;

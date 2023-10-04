@@ -23,7 +23,7 @@ export const ShareBoardForm = () => {
     <Tooltip
       open={isFormVisible}
       overlayInnerStyle={overlayStyle}
-      onOpenChange={() => setIsFormVisible(true)}
+      onOpenChange={() => setIsFormVisible((prev) => !prev)}
       title={
         <Container>
           <Form

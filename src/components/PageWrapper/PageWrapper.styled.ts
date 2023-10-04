@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const SearchWrapper = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
   padding: 0 20px 0 20px;

@@ -13,7 +13,6 @@ export const DragAndDrop = ({
   onDragEnd,
   openItem,
   isError,
-  setCreateColumn,
   ticketDropdownItems,
   ticketDropdownIcon,
   columnDropdownItems,
@@ -69,7 +68,6 @@ export const DragAndDrop = ({
         <DraggableColumnProvider
           columnDropdownItems={columnDropdownItems}
           columnDropdownIcon={columnDropdownIcon}
-          setCreateColumn={setCreateColumn}
           columnsData={dataSource.columns || []}
           boardId={boardId}
         >

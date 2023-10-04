@@ -6,7 +6,6 @@ export interface DragAndDropProps {
   dataSource: Board;
   openItem?: React.Dispatch<React.SetStateAction<string>>;
   isError: boolean;
-  setCreateColumn: React.Dispatch<React.SetStateAction<string>>;
   ticketDropdownItems: (id: string) => MenuProps['items'];
   ticketDropdownIcon: JSX.Element;
   columnDropdownItems: (id: string) => MenuProps['items'];

@@ -58,7 +58,11 @@ export const Board = () => {
   };
 
   return (
-    <PageWrapper title='Board'>
+    <PageWrapper
+      title='Board'
+      buttonName='Add column'
+      buttonClick={() => setCreateColumn(id as string)}
+    >
       <DragAndDrop
         dataSource={(data as BoardType) || []}
         ticketDropdownItems={ticketDropdownItems}
@@ -66,7 +70,6 @@ export const Board = () => {
         columnDropdownItems={columnDropdownItems}
         columnDropdownIcon={<MoreOutlined />}
         onDragEnd={handleDragEnd}
-        setCreateColumn={setCreateColumn}
         isError={isError}
       />
       <AddColumnForm
