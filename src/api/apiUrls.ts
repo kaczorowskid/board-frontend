@@ -35,7 +35,9 @@ export const apiUrls = {
       `/board/ticket/${generatePath(':id', { id })}`,
     getTicket: (id: string) => `/board/ticket/${generatePath(':id', { id })}`,
     getColumn: (id: string) => `/board/column/${generatePath(':id', { id })}`,
-    editColumn: (id: string) => `/board/column/${generatePath(':id', { id })}`
+    editColumn: (id: string) => `/board/column/${generatePath(':id', { id })}`,
+    confirmShareToken: '/board/share/confirm',
+    createShareToken: '/board/share/create'
   },
   dashboard: {
     getDashboard: (id: string) => `/dashboard/${generatePath(':id', { id })}`,

@@ -1,18 +1,27 @@
-import { Table } from 'antd';
+import { Modal, Table } from 'antd';
 import { defaultConfig, useListQuery, usePaginationHelpers } from 'hooks';
 import { PageWrapper, TileItem } from 'components';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { generatePath, useNavigate } from 'react-router-dom';
 import { routesUrls } from 'routes';
-import { BoardsForm } from './components';
-import { useColumns, useFetchBoards, useRemoveBoard } from './hooks';
+import { ExclamationCircleFilled } from '@ant-design/icons';
+import { BoardsForm, ShareBoardForm } from './components';
+import {
+  useColumns,
+  useCreateShareToken,
+  useFetchBoards,
+  useRemoveBoard
+} from './hooks';
 
 export const Boards = () => {
   const navigate = useNavigate();
 
   const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);
+
+  const [modal, contextHolder] = Modal.useModal();
   const [boardId, setBoardId] = useState<string>('');
   const { mutateAsync: removeBoard } = useRemoveBoard();
+  const { data, mutate: createToken } = useCreateShareToken();
 
   const handleEdit = (id: string) => {
     setBoardId(id);
@@ -28,7 +37,16 @@ export const Boards = () => {
     setBoardId('');
   };
 
-  const columns = useColumns(handleEdit, removeBoard, handleOpenBoard);
+  const handleShareBoard = (id: string) => {
+    createToken({ board_id: id });
+  };
+
+  const columns = useColumns(
+    handleEdit,
+    removeBoard,
+    handleOpenBoard,
+    handleShareBoard
+  );
 
   const { listQuery, setListQuery } = useListQuery({
     ...defaultConfig,
@@ -45,6 +63,16 @@ export const Boards = () => {
 
   const { data: boardsData, isFetching } = useFetchBoards(listQuery);
 
+  useEffect(() => {
+    if (data) {
+      modal.confirm({
+        title: 'Share token',
+        content: data?.result,
+        icon: <ExclamationCircleFilled />
+      });
+    }
+  }, [data]);
+
   return (
     <PageWrapper
       title='Boards'
@@ -55,6 +83,7 @@ export const Boards = () => {
       <TileItem
         buttonName='Add board'
         onClick={() => setIsSidebarVisible(true)}
+        additionButtons={<ShareBoardForm />}
       >
         <Table
           dataSource={boardsData?.data}
@@ -75,6 +104,7 @@ export const Boards = () => {
         isSidebarVisible={isSidebarVisible}
         onCloseSidebar={handleCloseSidebar}
       />
+      {contextHolder}
     </PageWrapper>
   );
 };

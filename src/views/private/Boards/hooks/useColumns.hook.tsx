@@ -12,7 +12,8 @@ const items = (
   record: UseColumn<GetBoardsWithPaginationResponse['data'][0]>['record'],
   onEdit: UseColumn['onEdit'],
   onDelete: UseColumn['onDelete'],
-  onOpenBoard: (id: string) => void
+  onOpenBoard: (id: string) => void,
+  shareBoard?: (id: string) => void
 ): MenuProps['items'] => [
   {
     key: 'edit',
@@ -36,13 +37,19 @@ const items = (
     key: 'open',
     label: 'Open board',
     onClick: () => onOpenBoard(record.id)
+  },
+  {
+    key: 'generate',
+    label: 'Share board',
+    onClick: () => shareBoard?.(record.id)
   }
 ];
 
 export const useColumns = (
   onEdit: UseColumn['onEdit'],
   onDelete: UseColumn['onDelete'],
-  onOpenBoard: (id: string) => void
+  onOpenBoard: (id: string) => void,
+  shareBoard?: (id: string) => void
 ): TableColumnsType<GetBoardsWithPaginationResponse['data'][0]> => [
   {
     key: 'actions',
@@ -50,7 +57,9 @@ export const useColumns = (
     width: 100,
     render: (record) => (
       <Dropdown
-        menu={{ items: items(record, onEdit, onDelete, onOpenBoard) }}
+        menu={{
+          items: items(record, onEdit, onDelete, onOpenBoard, shareBoard)
+        }}
         trigger={['click']}
       >
         <UnorderedListOutlined />

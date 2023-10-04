@@ -4,6 +4,7 @@ import { queryClient } from 'utils';
 import { GlobalStyle, theme } from 'styles';
 import { ThemeProvider } from 'styled-components';
 import { Routes } from 'routes';
+import 'react-quill/dist/quill.snow.css';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <QueryClientProvider client={queryClient}>

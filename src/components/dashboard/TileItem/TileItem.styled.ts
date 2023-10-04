@@ -5,6 +5,7 @@ export const Header = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-bottom: 10px;
+  gap: 10px;
 `;
 
 export const TileContainer = styled.div<{ hasBorder?: boolean }>`
