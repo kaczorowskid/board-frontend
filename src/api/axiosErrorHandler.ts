@@ -38,9 +38,7 @@ export const axiosErrorHandler = (error: AxiosError) => {
 
   if (status) {
     message.error(errorMap.find((error) => error.code === status)?.message);
-  }
-
-  if (!status) {
+  } else {
     message.error('Connection error');
   }
 };
