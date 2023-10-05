@@ -1,5 +1,6 @@
 import { AxiosResponse } from 'axios';
 import { axiosInstance } from 'libs';
+import { axiosErrorHandler } from './axiosErrorHandler';
 
 export enum HttpMethod {
   GET = 'GET',
@@ -10,7 +11,10 @@ export enum HttpMethod {
 
 axiosInstance.interceptors.response.use(
   (response) => response,
-  (error) => Promise.reject(error)
+  (error) => {
+    axiosErrorHandler(error);
+    Promise.reject(error);
+  }
 );
 
 export const apiCall = async <RequestData, ResponseData>(
