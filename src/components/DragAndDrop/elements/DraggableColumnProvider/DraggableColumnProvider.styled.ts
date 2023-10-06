@@ -11,7 +11,6 @@ export const DroppableColumn = styled.div<{ isDraggingOver: boolean }>`
 export const ColumnInfo = styled.div`
   height: 60px;
   border-radius: 10px;
-  /* background-color: #ebecf0; */
   border: 2px solid gray;
   background-color: white;
   padding: 20px 15px;
