@@ -6,9 +6,8 @@ export const GridContainer = styled.div<{
   gridArea: CSSProperties['gridArea'];
 }>`
   grid-area: ${({ gridArea }) => gridArea};
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.background.tile};
   border-radius: 30px;
-  border: 3px solid #f2f2f2;
 `;
 
 export const Container = styled.div`
@@ -32,6 +31,7 @@ export const Header = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 20px 20px 10px 20px;
+  color: ${({ theme }) => theme.colors.font.base};
 `;
 
 export const Title = styled.span`
