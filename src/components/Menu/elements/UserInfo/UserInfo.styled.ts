@@ -11,9 +11,9 @@ export const InfoContainer = styled.div`
 
 export const Name = styled.div`
   font-weight: bold;
-  color: white;
+  color: ${({ theme }) => theme.colors.font.menu};
 `;
 
 export const Email = styled.div`
-  color: #a2abb5;
+  color: ${({ theme }) => theme.colors.font.email};
 `;

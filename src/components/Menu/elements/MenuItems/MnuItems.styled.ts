@@ -2,8 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   margin-top: 20px;
-  width: 100%;
-  color: white;
+  color: ${({ theme }) => theme.colors.font.menu};
 `;
 
 export const Item = styled.div<{ isClicked?: boolean }>`
@@ -14,10 +13,11 @@ export const Item = styled.div<{ isClicked?: boolean }>`
   padding: 5px 10px;
   border-radius: 10px;
   cursor: pointer;
-  background-color: ${({ isClicked }) => isClicked && '#425c9d'};
+  background-color: ${({ isClicked, theme }) =>
+    isClicked && theme.colors.background.menuItem};
 
   &:hover {
-    background-color: #425c9d;
+    background-color: ${({ theme }) => theme.colors.background.menuItem};
     transition: 0.5s all;
   }
 `;

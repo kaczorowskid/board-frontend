@@ -28,7 +28,7 @@ export const AvatarInfoContainer = styled.div`
 
 export const CommentContainer = styled.div`
   grid-area: comment;
-  border: 2px solid gray;
+  border: 2px solid ${({ theme }) => theme.colors.border.tile};
   border-radius: 10px;
   display: flex;
   justify-content: space-between;

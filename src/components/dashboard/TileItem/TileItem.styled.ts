@@ -19,7 +19,7 @@ export const TileContainer = styled.div<{ hasBorder?: boolean }>`
         `
       : ''};
   border-radius: 30px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.background.tile};
   padding: 40px 30px 40px 30px;
 `;
 

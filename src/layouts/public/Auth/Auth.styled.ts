@@ -8,7 +8,7 @@ export const MainContainer = styled.div`
 
   & :nth-child(1) {
     width: 25%;
-    background-color: ${({ theme }) => theme.color.white};
+    background-color: ${({ theme }) => theme.colors.white};
   }
 
   & :nth-child(2) {
@@ -24,7 +24,7 @@ export const MainContainer = styled.div`
       position: absolute;
       width: 100%;
       height: 100%;
-      background-color: ${({ theme }) => theme.color.blueberry};
+      background-color: ${({ theme }) => theme.colors.background.blueberry};
       opacity: 0.8;
     }
   }
@@ -42,7 +42,7 @@ export const Container = styled.div`
   border-radius: 15px;
   display: flex;
   justify-content: space-between;
-  background: ${({ theme }) => theme.color.white};
+  background: ${({ theme }) => theme.colors.white};
   box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
   padding: ${({ theme }) => theme.gapp.large} ${({ theme }) => theme.gapp.small};
 `;

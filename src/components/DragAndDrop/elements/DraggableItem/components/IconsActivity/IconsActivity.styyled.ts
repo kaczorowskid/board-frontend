@@ -5,4 +5,5 @@ export const Container = styled.div<{ hasGap?: boolean }>`
   align-items: center;
   gap: ${({ hasGap }) => (hasGap ? '10px' : '')};
   font-size: 15px;
+  color: ${({ theme }) => theme.colors.font.base};
 `;
