@@ -1,6 +1,7 @@
-import { Avatar, Dropdown } from 'antd';
+import { Avatar } from 'antd';
 import Markdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
+import { AntdDropdown } from 'components';
 import { CommentsProps } from './Comments.types';
 import {
   AvatarContainer,
@@ -28,12 +29,9 @@ export const Comments = ({
             <Markdown rehypePlugins={[rehypeRaw]}>{text}</Markdown>
           </div>
           <DropdownContainer>
-            <Dropdown
-              menu={{ items: commentsDropdownItems(id) }}
-              trigger={['click']}
-            >
+            <AntdDropdown menu={{ items: commentsDropdownItems(id) }}>
               {commentsDropdownIcon}
-            </Dropdown>
+            </AntdDropdown>
           </DropdownContainer>
         </CommentContainer>
       </CommentWrapper>

@@ -2,8 +2,9 @@ import {
   ExclamationCircleFilled,
   UnorderedListOutlined
 } from '@ant-design/icons';
-import { Dropdown, MenuProps, TableColumnsType, Modal } from 'antd';
+import { MenuProps, TableColumnsType, Modal } from 'antd';
 import { GetBoardsWithPaginationResponse } from 'api';
+import { AntdDropdown } from 'components';
 import { useUserStore } from 'stores';
 import { UseColumn } from 'types';
 
@@ -62,14 +63,13 @@ export const useColumns = (
       align: 'left',
       width: 100,
       render: (record) => (
-        <Dropdown
+        <AntdDropdown
           menu={{
             items: items(id, record, onEdit, onDelete, onOpenBoard, shareBoard)
           }}
-          trigger={['click']}
         >
           <UnorderedListOutlined />
-        </Dropdown>
+        </AntdDropdown>
       )
     },
     {

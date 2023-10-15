@@ -14,13 +14,10 @@ export const ColumnInfo = styled.div`
   border-radius: 10px;
   border: 2px solid ${({ theme }) => theme.colors.border.boardColumn};
   background-color: ${({ theme }) => theme.colors.background.tile};
-  padding: 20px 15px;
+  padding: 0px 15px;
   font-weight: bold;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   color: ${({ theme }) => theme.colors.font.base};
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.hover.base};
-  }
 `;

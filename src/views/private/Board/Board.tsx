@@ -6,7 +6,7 @@ import {
 } from 'components';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { MoreOutlined } from '@ant-design/icons';
+import { EditOutlined } from '@ant-design/icons';
 import {
   useColumnItems,
   useGetBoard,
@@ -66,9 +66,9 @@ export const Board = () => {
       <DragAndDrop
         dataSource={(data as BoardType) || []}
         ticketDropdownItems={ticketDropdownItems}
-        ticketDropdownIcon={<MoreOutlined />}
+        ticketDropdownIcon={<EditOutlined />}
         columnDropdownItems={columnDropdownItems}
-        columnDropdownIcon={<MoreOutlined />}
+        columnDropdownIcon={<EditOutlined />}
         onDragEnd={handleDragEnd}
         isError={isError}
       />

@@ -1,5 +1,5 @@
-import { AntdDrawer } from 'components';
-import { Alert, Button, Dropdown, Space } from 'antd';
+import { AntdDrawer, AntdDropdown } from 'components';
+import { Alert, Button, Space } from 'antd';
 import { useGetNotesByDate } from '../../hooks';
 import { NotesProps } from './Notes.types';
 
@@ -35,12 +35,9 @@ export const Notes = ({
               </span>
             }
             action={
-              <Dropdown
-                menu={{ items: noteDropdownItems(id) }}
-                trigger={['click']}
-              >
+              <AntdDropdown menu={{ items: noteDropdownItems(id) }}>
                 {noteDropdownIcon}
-              </Dropdown>
+              </AntdDropdown>
             }
           />
         ))}
