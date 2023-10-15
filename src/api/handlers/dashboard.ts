@@ -11,8 +11,7 @@ export const getDashboard = async (
 
   const { data } = await apiCall<GetDashboardRequest, GetDashboardResponse>(
     get(payload.user_id),
-    HttpMethod.GET,
-    payload
+    HttpMethod.GET
   );
 
   return data;

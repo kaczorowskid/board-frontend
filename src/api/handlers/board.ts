@@ -44,8 +44,7 @@ export const getBoard = async (
 
   const { data } = await apiCall<GetBoardRequest, GetBoardResponse>(
     get(payload.id),
-    HttpMethod.GET,
-    payload
+    HttpMethod.GET
   );
 
   return data;
@@ -218,8 +217,7 @@ export const getTicket = async (
 
   const { data } = await apiCall<GetTicketRequest, GetTicketResponse>(
     get(payload.id),
-    HttpMethod.GET,
-    payload
+    HttpMethod.GET
   );
 
   return data;
@@ -234,8 +232,7 @@ export const getColumn = async (
 
   const { data } = await apiCall<GetColumnRequest, GetColumnResponse>(
     get(payload.id),
-    HttpMethod.GET,
-    payload
+    HttpMethod.GET
   );
 
   return data;
