@@ -1,5 +1,5 @@
 import { Droppable } from 'react-beautiful-dnd';
-import { Dropdown } from 'antd';
+import { AntdDropdown } from 'components/antd';
 import { ColumnInfo, DroppableColumn } from './DraggableColumnProvider.styled';
 import { DraggableColumnProps } from './DraggableColumnProvider.type';
 
@@ -24,12 +24,9 @@ export const DraggableColumnProvider = ({
                 <span>
                   {title} - {tickets.length}
                 </span>
-                <Dropdown
-                  menu={{ items: columnDropdownItems(id) }}
-                  trigger={['click']}
-                >
+                <AntdDropdown menu={{ items: columnDropdownItems(id) }}>
                   {columnDropdownIcon}
-                </Dropdown>
+                </AntdDropdown>
               </ColumnInfo>
               {children(tickets)}
               {provided.placeholder}

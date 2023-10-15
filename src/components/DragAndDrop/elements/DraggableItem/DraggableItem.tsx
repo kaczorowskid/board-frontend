@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { Dropdown } from 'antd';
+import { AntdDropdown } from 'components/antd';
 import { DraggableItemProps } from './DraggableItem.type';
 import {
   Container,
@@ -30,12 +30,9 @@ export const DraggableItem = forwardRef<HTMLDivElement, DraggableItemProps>(
       <Container ref={ref} onClick={handleOpenItem} {...props}>
         <TitleContainer>
           <Title>{ticket.title}</Title>
-          <Dropdown
-            menu={{ items: ticketDropdownItems(ticket.id) }}
-            trigger={['click']}
-          >
+          <AntdDropdown menu={{ items: ticketDropdownItems(ticket.id) }}>
             {ticketDropdownIcon}
-          </Dropdown>
+          </AntdDropdown>
         </TitleContainer>
         <DatePrioContainer>
           <IconsActivity
