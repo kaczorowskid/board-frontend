@@ -1,7 +1,6 @@
 import {
   AppstoreOutlined,
   CalendarOutlined,
-  FolderOutlined,
   TableOutlined,
   PoweroffOutlined
 } from '@ant-design/icons';
@@ -13,11 +12,6 @@ export const useMenuItems = (logout: () => void): MenuItemProps['items'] => [
     name: 'Dashboard',
     icon: <AppstoreOutlined />,
     routing: routesUrls.app.dashboard
-  },
-  {
-    name: 'Folders',
-    icon: <FolderOutlined />,
-    routing: routesUrls.app.folders
   },
   {
     name: 'Boards',

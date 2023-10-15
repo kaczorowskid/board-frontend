@@ -1,6 +1,6 @@
 export * from './antd';
 export * from './DragAndDrop';
-export * from './dashboard';
+export * from './TileItem';
 export * from './Menu';
 export * from './PageWrapper';
 export * from './PrivateWrapper';
