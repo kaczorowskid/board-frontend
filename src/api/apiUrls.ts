@@ -8,6 +8,7 @@ export const apiUrls = {
     getUser: '/user',
     resetPassword: '/user/reset-password',
     setNewPassword: '/user/set-new-password',
+    logout: '/user/logout',
     updateUser: (id: string) => `/${generatePath('user/:id', { id })}`,
     confirmAccount: (token: string | null) =>
       `/${generatePath('user/confirm-account/:token', { token })}`

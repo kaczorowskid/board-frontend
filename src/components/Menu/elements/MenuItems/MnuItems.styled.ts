@@ -1,11 +1,15 @@
 import styled from 'styled-components';
+import { CSSProperties } from 'react';
 
 export const Container = styled.div`
   margin-top: 20px;
   color: ${({ theme }) => theme.colors.font.menu};
 `;
 
-export const Item = styled.div<{ isClicked?: boolean }>`
+export const Item = styled.div<{
+  isClicked?: boolean;
+  color?: CSSProperties['color'];
+}>`
   margin-top: 20px;
   height: 70px;
   display: flex;
@@ -15,6 +19,7 @@ export const Item = styled.div<{ isClicked?: boolean }>`
   cursor: pointer;
   background-color: ${({ isClicked, theme }) =>
     isClicked && theme.colors.background.menuItem};
+  color: ${({ color }) => color};
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.background.menuItem};

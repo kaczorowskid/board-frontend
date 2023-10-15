@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Menu, PrivateWrapper } from 'components';
-import { menuItems } from 'utils';
+
 import {
   GridContainer,
   MenuContainer,
@@ -11,7 +11,7 @@ export const MainLayout = () => (
   <PrivateWrapper>
     <GridContainer>
       <MenuContainer>
-        <Menu items={menuItems} />
+        <Menu />
       </MenuContainer>
       <MainContainer>
         <Outlet />

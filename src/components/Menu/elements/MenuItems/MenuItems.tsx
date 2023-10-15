@@ -8,14 +8,14 @@ export const MenuItems = ({ items }: MenuItemProps) => {
 
   return (
     <Container>
-      {items.map(({ name, routing, icon }) => (
+      {items.map(({ name, routing, icon, color, onClick }) => (
         <Item
           isClicked={routing.includes(pathname.split('/')[1])}
-          onClick={() => navigation(routing)}
+          onClick={() => (onClick ? onClick?.() : navigation(routing))}
+          color={color}
         >
           <Icon>{icon}</Icon>
           <ItemName>{name}</ItemName>
-          <div></div>
         </Item>
       ))}
     </Container>

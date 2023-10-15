@@ -1,13 +1,14 @@
-import { MenuProps } from 'components';
 import {
   AppstoreOutlined,
   CalendarOutlined,
   FolderOutlined,
-  TableOutlined
+  TableOutlined,
+  PoweroffOutlined
 } from '@ant-design/icons';
 import { routesUrls } from 'routes';
+import { MenuItemProps } from '../elements';
 
-export const menuItems: MenuProps['items'] = [
+export const useMenuItems = (logout: () => void): MenuItemProps['items'] => [
   {
     name: 'Dashboard',
     icon: <AppstoreOutlined />,
@@ -27,5 +28,12 @@ export const menuItems: MenuProps['items'] = [
     name: 'Calendar',
     icon: <CalendarOutlined />,
     routing: routesUrls.app.calendar
+  },
+  {
+    name: 'Loguot',
+    icon: <PoweroffOutlined />,
+    routing: routesUrls.auth.login,
+    color: 'red',
+    onClick: logout
   }
 ];

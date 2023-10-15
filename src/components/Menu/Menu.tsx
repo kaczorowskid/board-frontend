@@ -1,10 +1,12 @@
 import { useUserStore } from 'stores';
 import { Container } from './Menu.styled';
 import { MenuItems, ThemeSwitch, UserInfo } from './elements';
-import { MenuProps } from './Menu.types';
+import { useLogout, useMenuItems } from './hooks';
 
-export const Menu = ({ items }: MenuProps) => {
+export const Menu = () => {
   const { name, email } = useUserStore();
+  const { mutateAsync: logout } = useLogout();
+  const items = useMenuItems(() => logout({}));
 
   return (
     <Container>
