@@ -119,3 +119,13 @@ export const authorizeUser = async (): Promise<AuthorizeUserResponse> => {
 
   return data;
 };
+
+export const logout = async (): Promise<unknown> => {
+  const {
+    user: { logout }
+  } = apiUrls;
+
+  const { data } = await apiCall<unknown, unknown>(logout, HttpMethod.GET);
+
+  return data;
+};
