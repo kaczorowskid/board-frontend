@@ -12,7 +12,6 @@ import {
   Calendar,
   ConfirmAccount,
   Dashboard,
-  Folders,
   Login,
   Register,
   ResetPassword,
@@ -47,7 +46,6 @@ export const Routes = () => {
         <Route element={<MainLayout />}>
           <Route path={routesUrls.app.board} element={<Board />} />
           <Route path={routesUrls.app.dashboard} element={<Dashboard />} />
-          <Route path={routesUrls.app.folders} element={<Folders />} />
           <Route path={routesUrls.app.boards} element={<Boards />} />
           <Route path={routesUrls.app.calendar} element={<Calendar />} />
           <Route path={routesUrls.app.calendarNotes} element={<Calendar />} />
