@@ -1,59 +1,71 @@
 import { generatePath } from 'react-router-dom';
 
+const base = {
+  user: '/user',
+  board: '/board',
+  dashboard: '/dashboard',
+  calendar: '/calendar',
+  comment: '/comment'
+};
+
 export const apiUrls = {
   user: {
-    authorize: '/user/authorization',
-    register: '/user/register',
-    login: '/user/login',
-    getUser: '/user',
-    resetPassword: '/user/reset-password',
-    setNewPassword: '/user/set-new-password',
-    logout: '/user/logout',
-    updateUser: (id: string) => `/${generatePath('user/:id', { id })}`,
+    getUser: base.user,
+    authorize: `${base.user}/authorization`,
+    register: `${base.user}/register`,
+    login: `${base.user}/login`,
+    resetPassword: `${base.user}/reset-password`,
+    setNewPassword: `${base.user}/set-new-password`,
+    logout: `${base.user}/logout`,
+    updateUser: (id: string) => `${base.user}/${generatePath(':id', { id })}`,
     confirmAccount: (token: string | null) =>
-      `/${generatePath('user/confirm-account/:token', { token })}`
-  },
-  table: {
-    createTable: '/table',
-    getTablesWithPagination: '/table'
-  },
-  folder: {
-    getFoldersWithPagination: '/folder',
-    createFolder: '/folder'
+      `${base.user}/confirm-account/${generatePath(':token', { token })}`
   },
   board: {
-    getBoard: (id: string) => `/board/one/${generatePath(':id', { id })}`,
-    getBoardsWithPagination: '/board',
-    updateBoard: (id: string) => `board/update/${generatePath(':id', { id })}`,
-    createColumn: '/board/column',
-    removeColumn: (id: string) => `board/column/${generatePath(':id', { id })}`,
-    createTicket: '/board/ticket',
-    createBoard: '/board/board',
-    editBoard: (id: string) => `/board/${generatePath(':id', { id })}`,
-    removeBoard: (id: string) => `/board/${generatePath(':id', { id })}`,
-    editTicket: (id: string) => `/board/ticket/${generatePath(':id', { id })}`,
+    getBoardsWithPagination: base.board,
+    createTicket: `${base.board}/ticket`,
+    createBoard: `${base.board}/board`,
+    createColumn: `${base.board}/column`,
+    confirmShareToken: `${base.board}/share/confirm`,
+    createShareToken: `${base.board}/share/create`,
+    getBoard: (id: string) =>
+      `${base.board}/one/${generatePath(':id', { id })}`,
+    updateBoard: (id: string) =>
+      `${base.board}/update/${generatePath(':id', { id })}`,
+    removeColumn: (id: string) =>
+      `${base.board}/column/${generatePath(':id', { id })}`,
+    editBoard: (id: string) => `${base.board}/${generatePath(':id', { id })}`,
+    removeBoard: (id: string) => `${base.board}/${generatePath(':id', { id })}`,
+    editTicket: (id: string) =>
+      `${base.board}/ticket/${generatePath(':id', { id })}`,
     removeTicket: (id: string) =>
-      `/board/ticket/${generatePath(':id', { id })}`,
-    getTicket: (id: string) => `/board/ticket/${generatePath(':id', { id })}`,
-    getColumn: (id: string) => `/board/column/${generatePath(':id', { id })}`,
-    editColumn: (id: string) => `/board/column/${generatePath(':id', { id })}`,
-    confirmShareToken: '/board/share/confirm',
-    createShareToken: '/board/share/create'
+      `${base.board}/ticket/${generatePath(':id', { id })}`,
+    getTicket: (id: string) =>
+      `${base.board}/ticket/${generatePath(':id', { id })}`,
+    getColumn: (id: string) =>
+      `${base.board}/column/${generatePath(':id', { id })}`,
+    editColumn: (id: string) =>
+      `${base.board}/column/${generatePath(':id', { id })}`
   },
   dashboard: {
-    getDashboard: (id: string) => `/dashboard/${generatePath(':id', { id })}`,
-    getNotesByDate: '/dashboard/notes'
+    getNotesByDate: `${base.dashboard}/notes`,
+    getDashboard: (id: string) =>
+      `${base.dashboard}/${generatePath(':id', { id })}`
   },
   calendar: {
-    getCalendar: '/calendar',
-    createNote: '/calendar/note',
-    editNote: (id: string) => `/calendar/note/${generatePath(':id', { id })}`,
-    getNotesByDate: '/calendar/notes',
-    getNote: (id: string) => `/calendar/note/${generatePath(':id', { id })}`,
-    removeNote: (id: string) => `/calendar/note/${generatePath(':id', { id })}`
+    getCalendar: base.calendar,
+    createNote: `${base.calendar}/note`,
+    getNotesByDate: `${base.calendar}/notes`,
+    editNote: (id: string) =>
+      `${base.calendar}/note/${generatePath(':id', { id })}`,
+    getNote: (id: string) =>
+      `${base.calendar}/note/${generatePath(':id', { id })}`,
+    removeNote: (id: string) =>
+      `${base.calendar}/note/${generatePath(':id', { id })}`
   },
   comment: {
-    createComment: '/comment',
-    removeComment: (id: string) => `/comment/${generatePath(':id', { id })}`
+    createComment: base.comment,
+    removeComment: (id: string) =>
+      `${base.comment}/${generatePath(':id', { id })}`
   }
 };
