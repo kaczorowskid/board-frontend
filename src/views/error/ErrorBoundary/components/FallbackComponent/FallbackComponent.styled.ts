@@ -9,7 +9,17 @@ export const Container = styled.div`
 `;
 
 export const InfoBox = styled.div`
-  width: 300px;
-  height: 200px;
-  border: ${({ theme }) => theme.colors.border.tile};
+  width: 400px;
+  height: 300px;
+  border: 2px solid ${({ theme }) => theme.colors.border.boardColumn};
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+`;
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  gap: 20px;
 `;
