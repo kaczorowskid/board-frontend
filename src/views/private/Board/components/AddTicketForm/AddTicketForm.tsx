@@ -1,5 +1,5 @@
 import { useForm } from 'antd/es/form/Form';
-import { Button, Divider, Form, Input, Select } from 'antd';
+import { Divider, Form, Input, Select } from 'antd';
 import { AntdModal } from 'components';
 import { useUserStore } from 'stores';
 import { useFillForm } from 'hooks';
@@ -21,7 +21,7 @@ import {
   prioOptions
 } from './AddTicketForm.schema';
 import { Branch, Comments, CommentsForm } from './components';
-import { CommentsContainer } from './AddTicketForm.styled';
+import { CommentsContainer, ItemsContainer } from './AddTicketForm.styled';
 
 export const AddTicketForm = ({
   isSidebarVisible,
@@ -98,7 +98,10 @@ export const AddTicketForm = ({
           />
         </Form.Item>
       </Form>
-      <Branch data={ticketData} />
+
+      <ItemsContainer>
+        <Branch data={ticketData} />
+      </ItemsContainer>
       <Divider />
       <h2>Comments</h2>
       <CommentsContainer>

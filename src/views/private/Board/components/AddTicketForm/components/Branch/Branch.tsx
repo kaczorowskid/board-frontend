@@ -1,6 +1,7 @@
-import { Button, Tooltip } from 'antd';
+import { Tooltip } from 'antd';
 import Paragraph from 'antd/es/typography/Paragraph';
 import { BranchProps } from './Branch.types';
+import { StyledButton } from './Branch.styled';
 
 export const Branch = ({ data }: BranchProps) => {
   const branch = data?.title.split(' ').join('-');
@@ -23,9 +24,9 @@ export const Branch = ({ data }: BranchProps) => {
           {branch}
         </Paragraph>
       }
-      placement='right'
+      placement='bottomLeft'
     >
-      <Button size='small'>Create branch</Button>
+      <StyledButton>Create branch</StyledButton>
     </Tooltip>
   );
 };
