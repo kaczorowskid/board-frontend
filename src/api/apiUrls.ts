@@ -10,14 +10,17 @@ const base = {
 
 export const apiUrls = {
   user: {
-    getUser: base.user,
     authorize: `${base.user}/authorization`,
     register: `${base.user}/register`,
     login: `${base.user}/login`,
     resetPassword: `${base.user}/reset-password`,
     setNewPassword: `${base.user}/set-new-password`,
     logout: `${base.user}/logout`,
-    updateUser: (id: string) => `${base.user}/${generatePath(':id', { id })}`,
+    getUser: (id: string) => `${base.user}/one/${generatePath(':id', { id })}`,
+    updateUser: (id: string) =>
+      `${base.user}/update/${generatePath(':id', { id })}`,
+    updatePassword: (id: string) =>
+      `${base.user}/update-password/${generatePath(':id', { id })}`,
     confirmAccount: (token: string | null) =>
       `${base.user}/confirm-account/${generatePath(':token', { token })}`
   },

@@ -1,16 +1,24 @@
 import { useUserStore } from 'stores';
+import { useNavigate } from 'react-router';
+import { routesUrls } from 'routes';
 import { Container } from './Menu.styled';
 import { MenuItems, ThemeSwitch, UserInfo } from './elements';
 import { useLogout, useMenuItems } from './hooks';
 
 export const Menu = () => {
-  const { name, email } = useUserStore();
+  const navigate = useNavigate();
+  const { firstName, lastName, email } = useUserStore();
   const { mutateAsync: logout } = useLogout();
   const items = useMenuItems(() => logout({}));
 
   return (
     <Container>
-      <UserInfo name={name} email={email} />
+      <UserInfo
+        onClick={() => navigate(routesUrls.app.user)}
+        firstName={firstName}
+        lastName={lastName}
+        email={email}
+      />
       <MenuItems items={items} />
       <ThemeSwitch />
     </Container>

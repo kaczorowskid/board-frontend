@@ -13,6 +13,7 @@ export const routesUrls = {
     boards: '/boards',
     folders: '/folders',
     calendar: '/calendar',
-    calendarNotes: '/calendar/:id'
+    calendarNotes: '/calendar/:id',
+    user: '/user'
   }
 };

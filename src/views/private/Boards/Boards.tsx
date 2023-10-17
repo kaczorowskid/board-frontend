@@ -4,7 +4,7 @@ import { PageWrapper, TileItem } from 'components';
 import { useEffect, useState } from 'react';
 import { generatePath, useNavigate } from 'react-router-dom';
 import { routesUrls } from 'routes';
-import { ExclamationCircleFilled } from '@ant-design/icons';
+import { ExclamationCircleFilled, TableOutlined } from '@ant-design/icons';
 import { BoardsForm, ShareBoardForm } from './components';
 import {
   useColumns,
@@ -77,6 +77,7 @@ export const Boards = () => {
     <PageWrapper
       title='Boards'
       placeholder='Search'
+      icon={<TableOutlined />}
       onSearch={onSearchPagination}
       hasSearchbar
     >

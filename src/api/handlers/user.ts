@@ -14,7 +14,11 @@ import {
   ResetPasswordUserRequest,
   ResetPasswordUserResponse,
   SetNewPasswordUserRequest,
-  SetNewPasswordUserResponse
+  SetNewPasswordUserResponse,
+  UpdatePasswordRequest,
+  UpdatePasswordResponse,
+  UpdateUserRequest,
+  UpdateUserResponse
 } from 'api/types';
 
 export const registerUser = async (
@@ -49,13 +53,15 @@ export const loginUser = async (
   return data;
 };
 
-export const getUser = async (): Promise<GetUserResponse> => {
+export const getUser = async (
+  payload: GetUserRequest
+): Promise<GetUserResponse> => {
   const {
-    user: { getUser: getUserUrl }
+    user: { getUser: get }
   } = apiUrls;
 
   const { data } = await apiCall<GetUserRequest, GetUserResponse>(
-    getUserUrl,
+    get(payload.id),
     HttpMethod.GET
   );
 
@@ -126,6 +132,38 @@ export const logout = async (): Promise<unknown> => {
   } = apiUrls;
 
   const { data } = await apiCall<unknown, unknown>(logout, HttpMethod.GET);
+
+  return data;
+};
+
+export const updateUser = async (
+  payload: UpdateUserRequest
+): Promise<UpdateUserResponse> => {
+  const {
+    user: { updateUser: update }
+  } = apiUrls;
+
+  const { data } = await apiCall<UpdateUserRequest, UpdateUserResponse>(
+    update(payload.id),
+    HttpMethod.PATCH,
+    payload
+  );
+
+  return data;
+};
+
+export const updatePassword = async (
+  payload: UpdatePasswordRequest
+): Promise<UpdatePasswordResponse> => {
+  const {
+    user: { updatePassword: update }
+  } = apiUrls;
+
+  const { data } = await apiCall<UpdatePasswordRequest, UpdatePasswordResponse>(
+    update(payload.id),
+    HttpMethod.PATCH,
+    payload
+  );
 
   return data;
 };

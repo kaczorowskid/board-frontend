@@ -14,10 +14,17 @@ export const useLogin = (): UseMutationResult<
   const navigate = useNavigate();
 
   return useMutation(loginUser, {
-    onSuccess: ({ id, name, email, is_active: isActive }) => {
+    onSuccess: ({
+      id,
+      first_name: firstName,
+      last_name: lastName,
+      email,
+      is_active: isActive
+    }) => {
       setUser({
         id,
-        name,
+        firstName,
+        lastName,
         email,
         isActive,
         isLoggedIn: true

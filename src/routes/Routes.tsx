@@ -15,7 +15,8 @@ import {
   Login,
   Register,
   ResetPassword,
-  SetNewPassword
+  SetNewPassword,
+  User
 } from 'views';
 import { routesUrls } from './routesUrls';
 
@@ -49,6 +50,7 @@ export const Routes = () => {
           <Route path={routesUrls.app.boards} element={<Boards />} />
           <Route path={routesUrls.app.calendar} element={<Calendar />} />
           <Route path={routesUrls.app.calendarNotes} element={<Calendar />} />
+          <Route path={routesUrls.app.user} element={<User />} />
         </Route>
       </Route>
     )
