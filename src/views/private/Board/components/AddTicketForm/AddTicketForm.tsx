@@ -1,5 +1,5 @@
 import { useForm } from 'antd/es/form/Form';
-import { Divider, Form, Input, Select } from 'antd';
+import { Button, Divider, Form, Input, Select } from 'antd';
 import { AntdModal } from 'components';
 import { useUserStore } from 'stores';
 import { useFillForm } from 'hooks';
@@ -20,7 +20,7 @@ import {
   inputsPlaceholder,
   prioOptions
 } from './AddTicketForm.schema';
-import { Comments, CommentsForm } from './components';
+import { Branch, Comments, CommentsForm } from './components';
 import { CommentsContainer } from './AddTicketForm.styled';
 
 export const AddTicketForm = ({
@@ -98,6 +98,7 @@ export const AddTicketForm = ({
           />
         </Form.Item>
       </Form>
+      <Branch data={ticketData} />
       <Divider />
       <h2>Comments</h2>
       <CommentsContainer>
