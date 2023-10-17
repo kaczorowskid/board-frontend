@@ -7,18 +7,6 @@ export const initialValues = {
   [AddTicketFormInputs.PRIO]: ''
 };
 
-export const inputsLabel = {
-  [AddTicketFormInputs.TITLE]: 'Title',
-  [AddTicketFormInputs.DESCRIPTION]: 'Description',
-  [AddTicketFormInputs.PRIO]: 'Prio'
-};
-
-export const inputsPlaceholder = {
-  [AddTicketFormInputs.TITLE]: 'Title',
-  [AddTicketFormInputs.DESCRIPTION]: 'Description',
-  [AddTicketFormInputs.PRIO]: 'Prio'
-};
-
 export const prioOptions: SelectProps['options'] = [
   {
     label: 'High',

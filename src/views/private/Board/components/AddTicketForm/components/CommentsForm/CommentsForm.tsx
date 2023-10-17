@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useCreateComment } from 'views/private/Board/hooks';
 import { RichTextEditor } from 'components';
 import { AddTicketFormType, CommentsFormProps } from './CommentsForm.types';
-import { initialValues, inputsPlaceholder } from './CommentsForm.schema';
+import { initialValues } from './CommentsForm.schema';
 import { CommentsFormInputs } from './CommentsForm.enum';
 
 export const CommentsForm = ({ ticketId, userId }: CommentsFormProps) => {
@@ -34,7 +34,7 @@ export const CommentsForm = ({ ticketId, userId }: CommentsFormProps) => {
         <RichTextEditor
           theme='snow'
           style={{ backgroundColor: 'white' }}
-          placeholder={inputsPlaceholder[CommentsFormInputs.TEXT]}
+          placeholder={'Add comment'}
           isFocus={isCommentAreaFocus}
           setIsFocus={() => setIsCommentAreaFocus(true)}
         />

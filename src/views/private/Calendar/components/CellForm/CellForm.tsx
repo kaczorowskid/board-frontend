@@ -6,11 +6,7 @@ import { useFillForm } from 'hooks';
 import { useCreateNote, useEditNote, useGetNote } from '../../hooks';
 import { CellFormProps, CellFormType } from './CellForm.types';
 import { CellFormInputs } from './CellForm.enum';
-import {
-  initialValues,
-  inputsLabel,
-  inputsPlaceholder
-} from './CellForm.schema';
+import { initialValues } from './CellForm.schema';
 
 export const CellForm = ({
   userId,
@@ -54,20 +50,11 @@ export const CellForm = ({
         onFinish={handleSubmit}
         initialValues={initialValues}
       >
-        <Form.Item
-          name={CellFormInputs.HOUR}
-          label={inputsLabel[CellFormInputs.HOUR]}
-        >
-          <TimePicker
-            format={'HH:mm'}
-            placeholder={inputsPlaceholder[CellFormInputs.HOUR]}
-          />
+        <Form.Item name={CellFormInputs.HOUR} label={'Hour'}>
+          <TimePicker format={'HH:mm'} placeholder={'Hour'} />
         </Form.Item>
-        <Form.Item
-          name={CellFormInputs.NOTE}
-          label={inputsLabel[CellFormInputs.NOTE]}
-        >
-          <TextArea placeholder={inputsPlaceholder[CellFormInputs.NOTE]} />
+        <Form.Item name={CellFormInputs.NOTE} label={'Note'}>
+          <TextArea placeholder={'Note'} />
         </Form.Item>
       </Form>
     </AntdModal>
