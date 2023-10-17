@@ -13,11 +13,18 @@ export const useAuthorizeUser = (): UseQueryResult<
   const navigate = useNavigate();
 
   return useQuery([QueryKeys.GET_USER], authorizeUser, {
-    onSuccess: ({ id, email, name, is_active: isActive }) => {
+    onSuccess: ({
+      id,
+      email,
+      first_name: firstName,
+      last_name: lastName,
+      is_active: isActive
+    }) => {
       setUser({
         id,
         email,
-        name,
+        firstName,
+        lastName,
         isActive,
         isLoggedIn: true
       });

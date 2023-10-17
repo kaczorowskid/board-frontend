@@ -3,6 +3,7 @@ import { PageWrapper } from 'components';
 import { useUserStore } from 'stores';
 import dayjs from 'dayjs';
 import { useState } from 'react';
+import { AppstoreOutlined } from '@ant-design/icons';
 import { useGetNotesByDate } from '../Calendar/hooks';
 import {
   Calendar,
@@ -33,7 +34,7 @@ export const Dashboard = () => {
 
   return (
     <>
-      <PageWrapper title='Dashboard'>
+      <PageWrapper title='Dashboard' icon={<AppstoreOutlined />}>
         <ItemsContainer>
           <DashboardItem
             title='Recent tickets'

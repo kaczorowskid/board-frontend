@@ -7,5 +7,6 @@ export interface PageWrapperProps extends SearchProps {
   hasSearchbar?: boolean;
   buttonName?: ButtonProps['name'];
   buttonClick?: ButtonProps['onClick'];
+  icon?: ReactNode;
   children: ReactNode;
 }

@@ -1,5 +1,6 @@
 export interface UserInfoProps {
-  avatar?: string;
-  name?: string;
+  firstName: string;
+  lastName: string;
   email?: string;
+  onClick: React.MouseEventHandler<HTMLDivElement>;
 }

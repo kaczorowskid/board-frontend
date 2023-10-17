@@ -5,7 +5,7 @@ import { useUserStore } from 'stores';
 import dayjs, { Dayjs } from 'dayjs';
 import { useState } from 'react';
 import { useCustomSearchParams } from 'hooks';
-import { MoreOutlined } from '@ant-design/icons';
+import { CalendarOutlined, MoreOutlined } from '@ant-design/icons';
 import { useGetCalendar, useNotesItems, useRemoveNote } from './hooks';
 import { SignCell } from './Calendar.styled';
 import { CellForm, Notes } from './components';
@@ -55,7 +55,7 @@ export const Calendar = () => {
   };
 
   return (
-    <PageWrapper title='Calendar'>
+    <PageWrapper title='Calendar' icon={<CalendarOutlined />}>
       <AntdCalendar
         cellRender={cellRender}
         onPanelChange={handlePanelChange}

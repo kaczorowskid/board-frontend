@@ -6,7 +6,7 @@ import {
 } from 'components';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { EditOutlined } from '@ant-design/icons';
+import { EditOutlined, TableOutlined } from '@ant-design/icons';
 import {
   useColumnItems,
   useGetBoard,
@@ -61,6 +61,7 @@ export const Board = () => {
     <PageWrapper
       title='Board'
       buttonName='Add column'
+      icon={<TableOutlined />}
       buttonClick={() => setCreateColumn(id as string)}
     >
       <DragAndDrop

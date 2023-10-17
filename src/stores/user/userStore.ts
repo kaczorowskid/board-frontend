@@ -4,7 +4,8 @@ import { UserStoreProps } from './userStore.type';
 export const useUserStore = create<UserStoreProps>((set) => ({
   id: '',
   email: '',
-  name: '',
+  firstName: '',
+  lastName: '',
   isLoggedIn: false,
   isActive: false,
   setUser: (userData) => {

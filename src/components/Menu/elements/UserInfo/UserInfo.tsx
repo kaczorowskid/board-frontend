@@ -2,13 +2,20 @@ import { Avatar } from 'antd';
 import { Container, Email, InfoContainer, Name } from './UserInfo.styled';
 import { UserInfoProps } from './UserInfo.type';
 
-export const UserInfo = ({ name, email }: UserInfoProps) => (
-  <Container>
+export const UserInfo = ({
+  firstName,
+  lastName,
+  email,
+  onClick
+}: UserInfoProps) => (
+  <Container onClick={onClick}>
     <Avatar size={64} style={{ backgroundColor: 'gray' }}>
-      {name?.at(0)?.toUpperCase()}
+      {firstName?.at(0)?.toUpperCase()}
+      {lastName?.at(0)?.toUpperCase()}
     </Avatar>
     <InfoContainer>
-      <Name>{name}</Name>
+      <Name>{firstName}</Name>
+      <Name>{lastName}</Name>
       <Email>{email}</Email>
     </InfoContainer>
   </Container>
