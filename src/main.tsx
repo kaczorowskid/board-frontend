@@ -4,11 +4,14 @@ import { queryClient } from 'utils';
 import { ThemeProvider } from 'context';
 import { App } from 'App';
 import 'react-quill/dist/quill.snow.css';
+import { ErrorBoundaryProvider } from 'views';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
-  </QueryClientProvider>
+  <ErrorBoundaryProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    </QueryClientProvider>
+  </ErrorBoundaryProvider>
 );
