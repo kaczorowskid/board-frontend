@@ -2,7 +2,7 @@ import { useUserStore } from 'stores';
 import { useNavigate } from 'react-router';
 import { routesUrls } from 'routes';
 import { Container } from './Menu.styled';
-import { MenuItems, ThemeSwitch, UserInfo } from './elements';
+import { MenuItems, UserInfo } from './elements';
 import { useLogout, useMenuItems } from './hooks';
 
 export const Menu = () => {
@@ -20,7 +20,6 @@ export const Menu = () => {
         email={email}
       />
       <MenuItems items={items} />
-      <ThemeSwitch />
     </Container>
   );
 };
