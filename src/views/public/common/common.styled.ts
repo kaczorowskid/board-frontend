@@ -7,8 +7,8 @@ export const Container = styled.div`
 
 export const Title = styled.h1`
   width: 100%;
-  text-align: center;
   color: ${({ theme }) => theme.colors.font.blueberry};
+  text-align: center;
 `;
 
 export const HintContainer = styled.div`

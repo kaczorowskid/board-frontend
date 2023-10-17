@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: 48px;
   color: ${({ theme }) => theme.colors.font.base};
 `;

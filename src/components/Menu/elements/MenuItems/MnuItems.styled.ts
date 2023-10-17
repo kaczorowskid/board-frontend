@@ -10,16 +10,16 @@ export const Item = styled.div<{
   isClicked?: boolean;
   color?: CSSProperties['color'];
 }>`
-  margin-top: 20px;
-  height: 70px;
   display: flex;
   align-items: center;
+  height: 70px;
   padding: 5px 10px;
-  border-radius: 10px;
+  margin-top: 20px;
+  color: ${({ color }) => color};
   cursor: pointer;
   background-color: ${({ isClicked, theme }) =>
     isClicked && theme.colors.background.menuItem};
-  color: ${({ color }) => color};
+  border-radius: 10px;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.background.menuItem};

@@ -11,25 +11,25 @@ export const GridContainer = styled.div<{
 `;
 
 export const Container = styled.div`
-  padding-bottom: 10px;
   width: 100%;
   height: max-content;
+  padding-bottom: 10px;
 `;
 
 export const AllButton = styled(Button)`
-  padding: 0;
-  min-width: 0;
-  gap: 10px;
   display: flex;
   flex-direction: row-reverse;
+  gap: 10px;
   align-items: center;
+  min-width: 0;
+  padding: 0;
   font-weight: bold;
 `;
 
 export const Header = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 20px 20px 10px 20px;
   color: ${({ theme }) => theme.colors.font.base};
 `;
@@ -40,10 +40,10 @@ export const Title = styled.span`
 `;
 
 export const Tile = styled.div`
-  padding: 0 10px 0 10px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
+  padding: 0 10px 0 10px;
 `;

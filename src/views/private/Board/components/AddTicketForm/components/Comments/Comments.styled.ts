@@ -1,20 +1,20 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  margin-top: 20px;
 `;
 
 export const CommentWrapper = styled.div`
   display: grid;
-
-  grid-template-columns: 40px auto;
-  grid-template-rows: 20px auto;
   grid-template-areas:
     'avatar avatar-info'
     '. comment';
+  grid-template-rows: 20px auto;
+
+  grid-template-columns: 40px auto;
 `;
 
 export const AvatarContainer = styled.div`
@@ -27,14 +27,14 @@ export const AvatarInfoContainer = styled.div`
 `;
 
 export const CommentContainer = styled.div`
+  display: flex;
   grid-area: comment;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+  padding-left: 10px;
   border: 2px solid ${({ theme }) => theme.colors.border.tile};
   border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 10px;
-  max-width: 100%;
 `;
 
 export const DropdownContainer = styled.div`

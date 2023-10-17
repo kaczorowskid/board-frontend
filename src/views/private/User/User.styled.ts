@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export const InfoContainer = styled.div`
   box-sizing: border-box;
   width: 40%;
-  color: ${({ theme }) => theme.colors.font.base};
   font-size: 20px;
   font-weight: bold;
+  color: ${({ theme }) => theme.colors.font.base};
 `;
 
 export const FormContainer = styled.div`
@@ -13,8 +13,8 @@ export const FormContainer = styled.div`
 `;
 
 export const ThemeSwitchContainer = styled.div`
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 `;

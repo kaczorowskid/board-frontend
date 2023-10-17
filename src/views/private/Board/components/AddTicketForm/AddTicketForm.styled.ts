@@ -5,6 +5,6 @@ export const ItemsContainer = styled.div`
 `;
 
 export const CommentsContainer = styled.div`
-  background-color: ${({ theme }) => theme.colors.background.comments};
   padding: 25px 15px;
+  background-color: ${({ theme }) => theme.colors.background.comments};
 `;

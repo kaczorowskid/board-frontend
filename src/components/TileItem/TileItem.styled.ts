@@ -3,9 +3,9 @@ import styled, { css } from 'styled-components';
 
 export const Header = styled.div`
   display: flex;
+  gap: 10px;
   justify-content: flex-end;
   margin-bottom: 10px;
-  gap: 10px;
 `;
 
 export const TileContainer = styled.div<{ hasBorder?: boolean }>`
@@ -18,10 +18,10 @@ export const TileContainer = styled.div<{ hasBorder?: boolean }>`
           box-shadow: 0px 0px 21px -21px rgba(0, 0, 0, 1);
         `
       : ''};
-  border-radius: 30px;
-  background-color: ${({ theme }) => theme.colors.background.tile};
   padding: 40px 30px 40px 30px;
   margin-bottom: 30px;
+  background-color: ${({ theme }) => theme.colors.background.tile};
+  border-radius: 30px;
 `;
 
 export const Tile = styled.div`
@@ -30,6 +30,6 @@ export const Tile = styled.div`
 
 export const PaginationButton = styled(Button)`
   min-width: 50px !important;
-  border: none;
   color: black;
+  border: none;
 `;
