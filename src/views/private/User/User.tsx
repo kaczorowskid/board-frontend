@@ -1,8 +1,12 @@
 import { UserOutlined } from '@ant-design/icons';
 import { PageWrapper, TileItem } from 'components';
 import { useUserStore } from 'stores';
-import { InfoContainer, FormContainer } from './User.styled';
-import { ChangePasswordForm, UserDetailsForm } from './components';
+import {
+  InfoContainer,
+  FormContainer,
+  ThemeSwitchContainer
+} from './User.styled';
+import { ChangePasswordForm, ThemeSwitch, UserDetailsForm } from './components';
 
 export const User = () => {
   const { firstName, lastName } = useUserStore();
@@ -12,6 +16,12 @@ export const User = () => {
       title={`User - ${firstName} ${lastName}`}
       icon={<UserOutlined />}
     >
+      <TileItem>
+        <ThemeSwitchContainer>
+          <InfoContainer>Theme</InfoContainer>
+          <ThemeSwitch />
+        </ThemeSwitchContainer>
+      </TileItem>
       <TileItem>
         <InfoContainer>Basic Details</InfoContainer>
         <FormContainer>

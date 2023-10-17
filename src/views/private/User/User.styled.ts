@@ -11,3 +11,10 @@ export const InfoContainer = styled.div`
 export const FormContainer = styled.div`
   width: 60%;
 `;
+
+export const ThemeSwitchContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
