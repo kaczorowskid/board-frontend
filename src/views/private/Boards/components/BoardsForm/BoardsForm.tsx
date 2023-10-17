@@ -7,11 +7,7 @@ import { useFillForm } from 'hooks';
 import { useCreateBoard, useEditBoard } from '../../hooks';
 import { BoardFormType, BoardsFormProps } from './BoardsForm.type';
 import { BoardsFormInputs } from './BoardForm.enum';
-import {
-  initialValues,
-  inputsLabel,
-  inputsPlaceholder
-} from './BoardsForm.schema';
+import { initialValues } from './BoardsForm.schema';
 
 export const BoardsForm = ({
   id,
@@ -52,19 +48,11 @@ export const BoardsForm = ({
         onFinish={handleSubmit}
         initialValues={initialValues}
       >
-        <Form.Item
-          name={BoardsFormInputs.TITLE}
-          label={inputsLabel[BoardsFormInputs.TITLE]}
-        >
-          <Input placeholder={inputsPlaceholder[BoardsFormInputs.TITLE]} />
+        <Form.Item name={BoardsFormInputs.TITLE} label={'Title'}>
+          <Input placeholder={'Title'} />
         </Form.Item>
-        <Form.Item
-          name={BoardsFormInputs.DESCRIPTION}
-          label={inputsLabel[BoardsFormInputs.DESCRIPTION]}
-        >
-          <Input
-            placeholder={inputsPlaceholder[BoardsFormInputs.DESCRIPTION]}
-          />
+        <Form.Item name={BoardsFormInputs.DESCRIPTION} label={'Description'}>
+          <Input placeholder={'Description'} />
         </Form.Item>
       </Form>
     </AntdModal>

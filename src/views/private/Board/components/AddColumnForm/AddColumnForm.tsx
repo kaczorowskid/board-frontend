@@ -5,11 +5,7 @@ import { useFillForm } from 'hooks';
 import { useCreateColumn, useEditColumn, useGetColumn } from '../../hooks';
 import { AddColumnFormProps, AddColumnFormType } from './AddColumnForm.type';
 import { AddColumnFormInputs } from './AddColumnForm.enum';
-import {
-  initialValues,
-  inputsLabel,
-  inputsPlaceholder
-} from './AddColumnForm.schema';
+import { initialValues } from './AddColumnForm.schema';
 
 export const AddColumnForm = ({
   isSidebarVisible,
@@ -50,11 +46,8 @@ export const AddColumnForm = ({
         onFinish={handleSubmit}
         initialValues={initialValues}
       >
-        <Form.Item
-          name={AddColumnFormInputs.TITLE}
-          label={inputsLabel[AddColumnFormInputs.TITLE]}
-        >
-          <Input placeholder={inputsPlaceholder[AddColumnFormInputs.TITLE]} />
+        <Form.Item name={AddColumnFormInputs.TITLE} label={'Title'}>
+          <Input placeholder={'Title'} />
         </Form.Item>
       </Form>
     </AntdModal>
