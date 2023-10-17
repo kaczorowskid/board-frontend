@@ -2,13 +2,13 @@ import styled from 'styled-components';
 
 export const GridContainer = styled.div`
   display: grid;
-  width: 100vw;
-  height: 100vh;
-  grid-template-columns: 300px auto;
-  grid-template-rows: 100px auto;
   grid-template-areas:
     'menu main'
     'menu main';
+  grid-template-rows: 100px auto;
+  grid-template-columns: 300px auto;
+  width: 100vw;
+  height: 100vh;
 `;
 
 export const MenuContainer = styled.div`

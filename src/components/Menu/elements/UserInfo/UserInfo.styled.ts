@@ -11,9 +11,9 @@ export const InfoContainer = styled.div`
 `;
 
 export const Name = styled.span`
+  margin-right: 8px;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.font.menu};
-  margin-right: 8px;
 `;
 
 export const Email = styled.div`

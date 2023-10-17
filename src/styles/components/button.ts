@@ -2,8 +2,8 @@ import { css } from 'styled-components';
 
 export const button = css`
   .ant-btn {
-    height: 40px;
     min-width: 120px;
+    height: 40px;
   }
 
   .ant-btn-primary {

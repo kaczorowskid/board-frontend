@@ -8,8 +8,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "prepare": "husky install",
-    "stylelint:css": "stylelint './src/**/*.ts'",
-    "stylelint:fix": "stylelint './src/**/*.ts' --fix"
+    "stylelint:css": "stylelint src/**/*.ts",
+    "stylelint:fix": "stylelint ./src/**/*.ts --fix"
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.5",
