@@ -203,7 +203,8 @@ export interface GetTicketResponse {
       id: string;
       email: string;
       is_active: boolean;
-      name: string;
+      first_name: string;
+      last_name: string;
       created_at: Date;
       updated_at: Date;
     };

@@ -1,34 +1,35 @@
 import { ColumnsType } from 'antd/es/table';
-import { Tag } from 'antd';
 import { MessageOutlined } from '@ant-design/icons';
+import dayjs from 'dayjs';
+import { IconTag } from 'components';
 
 export const columns: ColumnsType<any> = [
   {
     title: 'title',
     dataIndex: 'title',
-    key: 'title',
-    ellipsis: true
+    key: 'title'
   },
   {
     title: 'Prio',
     dataIndex: 'prio',
     key: 'prio',
-    render: (data) => <Tag color='green'>{data}</Tag>
+    render: (prio) => <IconTag prio={prio} />
   },
   {
     title: 'Comments',
     dataIndex: 'comments',
     key: 'comments',
-    render: (data) => (
+    render: (comments) => (
       <>
         <MessageOutlined />
-        <span style={{ marginLeft: '10px' }}>{data}</span>
+        <span style={{ marginLeft: '10px' }}>{comments.length}</span>
       </>
     )
   },
   {
-    title: 'Updated',
-    dataIndex: 'updated',
-    key: 'updated'
+    title: 'Created',
+    dataIndex: 'created_at',
+    key: 'created_at',
+    render: (time) => dayjs(time).format('DD-MM-YYYY HH:mm')
   }
 ];

@@ -21,9 +21,9 @@ export const Comments = ({
     {data?.map(({ id, text, user }) => (
       <CommentWrapper>
         <AvatarContainer>
-          <Avatar>{user?.name.at(0)?.toUpperCase()}</Avatar>
+          <Avatar>{user?.first_name.at(0)?.toUpperCase()}</Avatar>
         </AvatarContainer>
-        <AvatarInfoContainer>{user?.name}</AvatarInfoContainer>
+        <AvatarInfoContainer>{user?.first_name}</AvatarInfoContainer>
         <CommentContainer>
           <div>
             <Markdown rehypePlugins={[rehypeRaw]}>{text}</Markdown>

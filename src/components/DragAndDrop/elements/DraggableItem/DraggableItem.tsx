@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 import { AntdDropdown } from 'components/antd';
+import { IconTag } from 'components/IconTag';
 import { DraggableItemProps } from './DraggableItem.type';
 import {
   Container,
@@ -7,7 +8,6 @@ import {
   TitleContainer,
   DatePrioContainer
 } from './DraggableItem.styled';
-import { IconTag } from './components/IconTag/IconTag';
 import { IconsActivity } from './components';
 
 export const DraggableItem = forwardRef<HTMLDivElement, DraggableItemProps>(
