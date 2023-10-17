@@ -13,6 +13,7 @@ import {
   ConfirmAccount,
   Dashboard,
   Login,
+  Page404,
   Register,
   ResetPassword,
   SetNewPassword,
@@ -52,6 +53,7 @@ export const Routes = () => {
           <Route path={routesUrls.app.calendarNotes} element={<Calendar />} />
           <Route path={routesUrls.app.user} element={<User />} />
         </Route>
+        <Route path='*' element={<Page404 />} />
       </Route>
     )
   );
