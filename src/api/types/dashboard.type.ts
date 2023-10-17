@@ -28,6 +28,7 @@ export interface GetDashboardResponse {
       user_id: string;
       created_at: Date;
       updated_at: Date;
+      comments: any[];
     }[];
     count: number;
   };

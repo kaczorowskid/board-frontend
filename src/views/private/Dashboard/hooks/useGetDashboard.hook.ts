@@ -4,11 +4,13 @@ import { QueryKeys } from 'enums';
 
 interface UseGetDashboard {
   recentBoards?: {
-    data: Record<string, string | number | Date>[];
+    // data: Record<string, string | number | Date>[];
+    data: any;
     count: number;
   };
   recentTickets?: {
-    data: Record<string, string | number | Date>[];
+    // data: Record<string, string | number | Date>[];
+    data: any;
     count: number;
   };
   calendar?: Record<string, string | Date>[];
