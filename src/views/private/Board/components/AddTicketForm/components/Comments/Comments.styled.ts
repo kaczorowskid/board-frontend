@@ -33,7 +33,7 @@ export const CommentContainer = styled.div`
   justify-content: space-between;
   max-width: 100%;
   padding-left: 10px;
-  border: 2px solid ${({ theme }) => theme.colors.border.tile};
+  border: 2px solid ${({ theme }) => theme.colors.border.boardColumn};
   border-radius: 10px;
 `;
 

@@ -8,16 +8,7 @@ export const Header = styled.div`
   margin-bottom: 10px;
 `;
 
-export const TileContainer = styled.div<{ hasBorder?: boolean }>`
-  ${({ hasBorder }) =>
-    hasBorder
-      ? css`
-          border: 1px solid #f3f0f8;
-          -webkit-box-shadow: 0px 0px 21px -21px rgba(0, 0, 0, 1);
-          -moz-box-shadow: 0px 0px 21px -21px rgba(0, 0, 0, 1);
-          box-shadow: 0px 0px 21px -21px rgba(0, 0, 0, 1);
-        `
-      : ''};
+export const TileContainer = styled.div`
   padding: 40px 30px 40px 30px;
   margin-bottom: 30px;
   background-color: ${({ theme }) => theme.colors.background.tile};

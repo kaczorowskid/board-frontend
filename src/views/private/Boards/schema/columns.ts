@@ -1,7 +1,7 @@
 import { ColumnsType } from 'antd/es/table';
 import { GetBoardsWithPaginationResponse } from 'api';
 
-export const columns: ColumnsType<GetBoardsWithPaginationResponse['data'][0]> =
+export const columns: ColumnsType<GetBoardsWithPaginationResponse['rows'][0]> =
   [
     {
       title: 'Title',

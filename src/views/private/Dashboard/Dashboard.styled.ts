@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const ItemsContainer = styled.div`
-
   display: grid;
   grid-template-areas:
     'recent-tickets recent-tickets calendar'

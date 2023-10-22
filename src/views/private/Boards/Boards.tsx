@@ -87,7 +87,7 @@ export const Boards = () => {
         additionButtons={<ShareBoardForm />}
       >
         <Table
-          dataSource={boardsData?.data}
+          dataSource={boardsData?.rows}
           columns={columns}
           rowKey={(row) => row.id}
           onChange={onHandleTableChange}
