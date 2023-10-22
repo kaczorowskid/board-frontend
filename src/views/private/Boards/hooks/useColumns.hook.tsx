@@ -12,7 +12,7 @@ const { confirm } = Modal;
 
 const items = (
   userId: string,
-  record: UseColumn<GetBoardsWithPaginationResponse['data'][0]>['record'],
+  record: UseColumn<GetBoardsWithPaginationResponse['rows'][0]>['record'],
   onEdit: UseColumn['onEdit'],
   onDelete: UseColumn['onDelete'],
   onOpenBoard: (id: string) => void,
@@ -54,7 +54,7 @@ export const useColumns = (
   onDelete: UseColumn['onDelete'],
   onOpenBoard: (id: string) => void,
   shareBoard?: (id: string) => void
-): TableColumnsType<GetBoardsWithPaginationResponse['data'][0]> => {
+): TableColumnsType<GetBoardsWithPaginationResponse['rows'][0]> => {
   const { id } = useUserStore();
 
   return [

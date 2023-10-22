@@ -104,7 +104,7 @@ export interface GetBoardsWithPaginationRequest {
 
 export interface GetBoardsWithPaginationResponse {
   count: number;
-  data: {
+  rows: {
     id: string;
     title: string;
     user_id: string;
@@ -133,13 +133,11 @@ export interface CreateBoardRequest {
 }
 
 export interface CreateBoardResponse {
-  result: {
-    id: string;
-    title: string;
-    user_id: string;
-    created_ta: Date;
-    updated_at: Date;
-  };
+  id: string;
+  title: string;
+  user_id: string;
+  created_ta: Date;
+  updated_at: Date;
 }
 
 export interface EditBoardRequest {

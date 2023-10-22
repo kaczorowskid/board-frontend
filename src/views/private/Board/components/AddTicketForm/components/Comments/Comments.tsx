@@ -21,7 +21,7 @@ export const Comments = ({
     {data?.map(({ id, text, user }) => (
       <CommentWrapper>
         <AvatarContainer>
-          <Avatar>{user?.first_name.at(0)?.toUpperCase()}</Avatar>
+          <Avatar>{user?.first_name?.at(0)?.toUpperCase()}</Avatar>
         </AvatarContainer>
         <AvatarInfoContainer>{user?.first_name}</AvatarInfoContainer>
         <CommentContainer>
