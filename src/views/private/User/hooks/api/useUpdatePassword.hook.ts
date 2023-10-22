@@ -1,11 +1,8 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
-import {
-  UpdatePasswordRequest,
-  UpdatePasswordResponse,
-  updatePassword
-} from 'api';
+import { updatePassword } from 'api';
 import { QueryKeys } from 'enums';
 import { queryClient } from 'utils';
+import { UpdatePasswordRequest, UpdatePasswordResponse } from 'contracts';
 
 export const useUpdatePassword = (): UseMutationResult<
   UpdatePasswordResponse,

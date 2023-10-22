@@ -1,7 +1,8 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
-import { UpdateUserRequest, UpdateUserResponse, updateUser } from 'api';
+import { updateUser } from 'api';
 import { QueryKeys } from 'enums';
 import { queryClient } from 'utils';
+import { UpdateUserRequest, UpdateUserResponse } from 'contracts';
 
 export const useUpdateUser = (): UseMutationResult<
   UpdateUserResponse,

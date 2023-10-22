@@ -1,9 +1,10 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
-import { GetBoardsWithPaginationResponse, getBoardsWithPagination } from 'api';
+import { getBoardsWithPagination } from 'api';
 import { QueryKeys } from 'enums';
 import { usePaginationConfig } from 'hooks';
 import { ListQuery } from 'types';
 import { useUserStore } from 'stores';
+import { GetBoardsWithPaginationResponse } from 'contracts';
 
 export const useFetchBoards = (
   listQuery: ListQuery

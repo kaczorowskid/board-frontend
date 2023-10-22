@@ -1,10 +1,10 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
+import { setNewPasswordUser } from 'api';
+import { MessageType, antdMessage } from 'components';
 import {
   SetNewPasswordUserRequest,
-  SetNewPasswordUserResponse,
-  setNewPasswordUser
-} from 'api';
-import { MessageType, antdMessage } from 'components';
+  SetNewPasswordUserResponse
+} from 'contracts';
 
 export const useSetNewPassword = (): UseMutationResult<
   SetNewPasswordUserResponse,

@@ -1,9 +1,10 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
-import { AuthorizeUserResponse, authorizeUser } from 'api';
+import { authorizeUser } from 'api';
 import { QueryKeys } from 'enums';
 import { useNavigate } from 'react-router';
 import { routesUrls } from 'routes';
 import { useUserStore } from 'stores';
+import { AuthorizeUserResponse } from 'contracts';
 
 export const useAuthorizeUser = (): UseQueryResult<
   AuthorizeUserResponse,

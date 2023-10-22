@@ -1,11 +1,8 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
-import {
-  RemoveCommentRequest,
-  RemoveCommentResponse,
-  removeComment
-} from 'api';
+import { removeComment } from 'api';
 import { QueryKeys } from 'enums';
 import { queryClient } from 'utils';
+import { RemoveCommentRequest, RemoveCommentResponse } from 'contracts';
 
 export const useRemoveComment = (): UseMutationResult<
   RemoveCommentResponse,

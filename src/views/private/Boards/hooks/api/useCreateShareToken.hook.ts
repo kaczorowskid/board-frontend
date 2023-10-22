@@ -1,11 +1,8 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
-import {
-  CreateShareTokenRequest,
-  CreateShareTokenResponse,
-  createShareToken
-} from 'api';
+import { createShareToken } from 'api';
 import { QueryKeys } from 'enums';
 import { queryClient } from 'utils';
+import { CreateShareTokenRequest, CreateShareTokenResponse } from 'contracts';
 
 export const useCreateShareToken = (): UseMutationResult<
   CreateShareTokenResponse,

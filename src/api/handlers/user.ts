@@ -19,7 +19,7 @@ import {
   UpdatePasswordResponse,
   UpdateUserRequest,
   UpdateUserResponse
-} from 'api/types';
+} from 'contracts';
 
 export const registerUser = async (
   payload: RegisterUserRequest

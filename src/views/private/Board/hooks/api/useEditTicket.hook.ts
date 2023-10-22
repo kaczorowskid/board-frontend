@@ -1,7 +1,8 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
-import { EditTicketRequest, EditTicketResponse, editTicket } from 'api';
+import { editTicket } from 'api';
 import { QueryKeys } from 'enums';
 import { queryClient } from 'utils';
+import { EditTicketRequest, EditTicketResponse } from 'contracts';
 
 export const useEditTicket = (): UseMutationResult<
   EditTicketResponse,

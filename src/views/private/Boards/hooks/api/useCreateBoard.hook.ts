@@ -1,7 +1,8 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
-import { CreateBoardRequest, CreateBoardResponse, createBoard } from 'api';
+import { createBoard } from 'api';
 import { QueryKeys } from 'enums';
 import { queryClient } from 'utils';
+import { CreateBoardRequest, CreateBoardResponse } from 'contracts';
 
 export const useCreateBoard = (): UseMutationResult<
   CreateBoardResponse,

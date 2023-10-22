@@ -1,7 +1,8 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
-import { CreateColumnRequest, CreateColumnResponse, createColumn } from 'api';
+import { createColumn } from 'api';
 import { QueryKeys } from 'enums';
 import { queryClient } from 'utils';
+import { CreateColumnRequest, CreateColumnResponse } from 'contracts';
 
 export const useCreateColumn = (): UseMutationResult<
   CreateColumnResponse,
