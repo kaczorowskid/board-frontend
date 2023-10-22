@@ -9,7 +9,5 @@ export interface AddTicketFormProps extends CommonFormProps {
 export interface AddTicketFormType {
   [AddTicketFormInputs.TITLE]: string;
   [AddTicketFormInputs.DESCRIPTION]: string;
-  [AddTicketFormInputs.PRIO]: string;
-  [AddTicketFormInputs.START]: string;
-  [AddTicketFormInputs.END]: string;
+  [AddTicketFormInputs.PRIO]: 'high' | 'medium' | 'low';
 }

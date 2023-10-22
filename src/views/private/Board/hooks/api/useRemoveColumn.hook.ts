@@ -1,7 +1,8 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
-import { RemoveColumnRequest, RemoveColumnResponse, removeColumn } from 'api';
+import { removeColumn } from 'api';
 import { QueryKeys } from 'enums';
 import { queryClient } from 'utils';
+import { RemoveColumnRequest, RemoveColumnResponse } from 'contracts';
 
 export const useRemoveColumn = (): UseMutationResult<
   RemoveColumnResponse,

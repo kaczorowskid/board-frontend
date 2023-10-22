@@ -1,0 +1,41 @@
+import {
+  AuthorizeUserRequest,
+  AuthorizeUserResponse,
+  ConfirmAccountUserRequest,
+  ConfirmAccountUserResponse,
+  GetUserRequest,
+  GetUserResponse,
+  LoginUserRequest,
+  LoginUserResponse,
+  RegisterUserRequest,
+  RegisterUserResponse,
+  ResetPasswordUserRequest,
+  ResetPasswordUserResponse,
+  SetNewPasswordUserRequest,
+  SetNewPasswordUserResponse,
+  UpdatePasswordRequest,
+  UpdatePasswordResponse,
+  UpdateUserRequest,
+  UpdateUserResponse
+} from 'board-contracts/lib/user';
+
+export type {
+  AuthorizeUserRequest,
+  AuthorizeUserResponse,
+  ConfirmAccountUserRequest,
+  ConfirmAccountUserResponse,
+  GetUserRequest,
+  GetUserResponse,
+  LoginUserRequest,
+  LoginUserResponse,
+  RegisterUserRequest,
+  RegisterUserResponse,
+  ResetPasswordUserRequest,
+  ResetPasswordUserResponse,
+  SetNewPasswordUserRequest,
+  SetNewPasswordUserResponse,
+  UpdatePasswordRequest,
+  UpdatePasswordResponse,
+  UpdateUserRequest,
+  UpdateUserResponse
+};

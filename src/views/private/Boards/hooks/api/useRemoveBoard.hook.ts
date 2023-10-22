@@ -1,7 +1,8 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
-import { RemoveBoardRequest, RemoveBoardResponse, removeBoard } from 'api';
+import { removeBoard } from 'api';
 import { QueryKeys } from 'enums';
 import { queryClient } from 'utils';
+import { RemoveBoardRequest, RemoveBoardResponse } from 'contracts';
 
 export const useRemoveBoard = (): UseMutationResult<
   RemoveBoardResponse,

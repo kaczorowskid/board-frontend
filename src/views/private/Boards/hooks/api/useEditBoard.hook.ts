@@ -1,7 +1,8 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
-import { EditBoardRequest, EditBoardResponse, editBoard } from 'api';
+import { editBoard } from 'api';
 import { QueryKeys } from 'enums';
 import { queryClient } from 'utils';
+import { EditBoardRequest, EditBoardResponse } from 'contracts';
 
 export const useEditBoard = (): UseMutationResult<
   EditBoardResponse,

@@ -1,6 +1,7 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
-import { GetBoardResponse, getBoard } from 'api';
+import { getBoard } from 'api';
 import { QueryKeys } from 'enums';
+import { GetBoardResponse } from 'contracts';
 
 export const useGetBoard = (
   id: string

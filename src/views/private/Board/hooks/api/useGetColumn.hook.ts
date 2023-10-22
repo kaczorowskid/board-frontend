@@ -1,6 +1,7 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
-import { GetColumnResponse, getColumn } from 'api';
+import { getColumn } from 'api';
 import { QueryKeys } from 'enums';
+import { GetColumnResponse } from 'contracts';
 
 export const useGetColumn = (
   id: string

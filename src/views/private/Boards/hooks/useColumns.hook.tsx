@@ -3,7 +3,7 @@ import {
   UnorderedListOutlined
 } from '@ant-design/icons';
 import { MenuProps, TableColumnsType, Modal } from 'antd';
-import { GetBoardsWithPaginationResponse } from 'api';
+import { GetBoardsWithPaginationResponse } from 'contracts';
 import { AntdDropdown } from 'components';
 import { useUserStore } from 'stores';
 import { UseColumn } from 'types';

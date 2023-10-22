@@ -33,7 +33,7 @@ import {
   RemoveTicketResponse,
   UpdateBoardRequest,
   UpdateBoardResponse
-} from 'api/types';
+} from 'contracts';
 
 export const getBoard = async (
   payload: GetBoardRequest

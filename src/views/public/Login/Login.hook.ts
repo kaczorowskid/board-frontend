@@ -1,9 +1,10 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
-import { LoginUserRequest, LoginUserResponse, loginUser } from 'api';
+import { loginUser } from 'api';
 import { MessageType, antdMessage } from 'components';
 import { useNavigate } from 'react-router-dom';
 import { useUserStore } from 'stores';
 import { routesUrls } from 'routes';
+import { LoginUserRequest, LoginUserResponse } from 'contracts';
 
 export const useLogin = (): UseMutationResult<
   LoginUserResponse,

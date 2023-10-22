@@ -13,7 +13,7 @@ import {
   GetNotesByDateResponse,
   RemoveNoteRequest,
   RemoveNoteResponse
-} from 'api/types';
+} from 'contracts';
 
 export const getCalendar = async (
   payload: GetCalendarRequest

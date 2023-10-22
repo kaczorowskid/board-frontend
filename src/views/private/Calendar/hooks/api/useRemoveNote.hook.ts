@@ -1,7 +1,8 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
-import { RemoveNoteRequest, RemoveNoteResponse, removeNote } from 'api';
+import { removeNote } from 'api';
 import { QueryKeys } from 'enums';
 import { queryClient } from 'utils';
+import { RemoveNoteRequest, RemoveNoteResponse } from 'contracts';
 
 export const useRemoveNote = (): UseMutationResult<
   RemoveNoteResponse,

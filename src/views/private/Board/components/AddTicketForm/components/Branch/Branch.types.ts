@@ -1,4 +1,4 @@
-import { GetTicketResponse } from 'api';
+import { GetTicketResponse } from 'contracts';
 
 export interface BranchProps {
   data?: GetTicketResponse;

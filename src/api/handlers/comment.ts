@@ -5,7 +5,7 @@ import {
   CreateCommentResponse,
   RemoveCommentRequest,
   RemoveCommentResponse
-} from 'api/types';
+} from 'contracts';
 
 export const createComment = async (
   payload: CreateCommentRequest

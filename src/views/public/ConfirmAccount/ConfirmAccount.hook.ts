@@ -1,10 +1,10 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
+import { confirmAccountUser } from 'api';
+import { MessageType, antdMessage } from 'components';
 import {
   ConfirmAccountUserRequest,
-  ConfirmAccountUserResponse,
-  confirmAccountUser
-} from 'api';
-import { MessageType, antdMessage } from 'components';
+  ConfirmAccountUserResponse
+} from 'contracts';
 
 export const useConfirmAccount = (): UseMutationResult<
   ConfirmAccountUserResponse,

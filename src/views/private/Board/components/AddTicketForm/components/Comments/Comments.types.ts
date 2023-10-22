@@ -1,5 +1,5 @@
 import { MenuProps } from 'antd';
-import { GetTicketResponse } from 'api';
+import { GetTicketResponse } from 'contracts';
 
 export interface CommentsProps {
   data?: GetTicketResponse['comments'];

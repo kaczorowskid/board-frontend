@@ -16,6 +16,8 @@ export interface Ticket {
   column_id: string;
   user_id: string;
   comments: Comment[];
+  created_at: Date;
+  updated_at: Date;
 }
 
 export interface Column {
@@ -23,6 +25,8 @@ export interface Column {
   title: string;
   board_id: string;
   tickets: Ticket[];
+  created_at: Date;
+  updated_at: Date;
 }
 
 export interface Board {
@@ -31,4 +35,6 @@ export interface Board {
   description: string;
   user_id: string;
   columns: Column[];
+  created_at: Date;
+  updated_at: Date;
 }

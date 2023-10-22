@@ -1,5 +1,5 @@
 import { ColumnsType } from 'antd/es/table';
-import { GetBoardsWithPaginationResponse } from 'api';
+import { GetBoardsWithPaginationResponse } from 'contracts';
 
 export const columns: ColumnsType<GetBoardsWithPaginationResponse['rows'][0]> =
   [

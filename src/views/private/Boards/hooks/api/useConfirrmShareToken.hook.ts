@@ -1,11 +1,8 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
-import {
-  ConfirmShareTokenRequest,
-  ConfirmShareTokenResponse,
-  confirmShareToken
-} from 'api';
+import { confirmShareToken } from 'api';
 import { QueryKeys } from 'enums';
 import { queryClient } from 'utils';
+import { ConfirmShareTokenRequest, ConfirmShareTokenResponse } from 'contracts';
 
 export const useConfirmShareToken = (): UseMutationResult<
   ConfirmShareTokenResponse,

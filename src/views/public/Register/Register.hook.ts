@@ -1,6 +1,7 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
-import { RegisterUserRequest, RegisterUserResponse, registerUser } from 'api';
+import { registerUser } from 'api';
 import { MessageType, antdMessage } from 'components';
+import { RegisterUserRequest, RegisterUserResponse } from 'contracts';
 
 export const useRegister = (): UseMutationResult<
   RegisterUserResponse,

@@ -1,7 +1,8 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
-import { CreateNoteRequest, CreateNoteResponse, createNote } from 'api';
+import { createNote } from 'api';
 import { QueryKeys } from 'enums';
 import { queryClient } from 'utils';
+import { CreateNoteRequest, CreateNoteResponse } from 'contracts';
 
 export const useCreateNote = (): UseMutationResult<
   CreateNoteResponse,
