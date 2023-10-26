@@ -56,10 +56,9 @@ export const DragAndDrop = ({
   };
 
   const handleOnDragEnd = (result: DropResult) => {
-    const { list, mappedResult } = reorder(dataSource.columns, result);
+    const { mappedResult } = reorder(dataSource.columns, result);
 
     onDragEnd(mappedResult);
-    // setData(isError ? list : mappedResult);
   };
 
   return (
