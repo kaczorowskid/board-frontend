@@ -1,6 +1,7 @@
 import { forwardRef } from 'react';
 import { AntdDropdown } from 'components/antd';
 import { IconTag } from 'components/IconTag';
+import { EditOutlined } from '@ant-design/icons';
 import { DraggableItemProps } from './DraggableItem.type';
 import {
   Container,
@@ -12,14 +13,7 @@ import { IconsActivity } from './components';
 
 export const DraggableItem = forwardRef<HTMLDivElement, DraggableItemProps>(
   (
-    {
-      columnItem: ticket,
-      isDragging,
-      openItem,
-      ticketDropdownItems,
-      ticketDropdownIcon,
-      ...props
-    },
+    { columnItem: ticket, isDragging, openItem, ticketDropdownItems, ...props },
     ref
   ) => {
     const handleOpenItem = () => {
@@ -31,7 +25,7 @@ export const DraggableItem = forwardRef<HTMLDivElement, DraggableItemProps>(
         <TitleContainer>
           <Title>{ticket.title}</Title>
           <AntdDropdown menu={{ items: ticketDropdownItems(ticket.id) }}>
-            {ticketDropdownIcon}
+            <EditOutlined />
           </AntdDropdown>
         </TitleContainer>
         <DatePrioContainer>

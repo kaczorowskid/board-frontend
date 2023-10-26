@@ -12,11 +12,8 @@ export const DragAndDrop = ({
   dataSource,
   onDragEnd,
   openItem,
-  isError,
   ticketDropdownItems,
-  ticketDropdownIcon,
-  columnDropdownItems,
-  columnDropdownIcon
+  columnDropdownItems
 }: DragAndDropProps) => {
   const boardId = dataSource.id;
 
@@ -66,7 +63,6 @@ export const DragAndDrop = ({
       <DragDropContainer>
         <DraggableColumnProvider
           columnDropdownItems={columnDropdownItems}
-          columnDropdownIcon={columnDropdownIcon}
           columnsData={dataSource.columns || []}
           boardId={boardId}
         >
@@ -74,7 +70,6 @@ export const DragAndDrop = ({
             <DraggableItemProvider columnItems={columnItems}>
               {(columnItem, isDragging, ref, props) => (
                 <DraggableItem
-                  ticketDropdownIcon={ticketDropdownIcon}
                   ticketDropdownItems={ticketDropdownItems}
                   columnItem={columnItem}
                   openItem={openItem}

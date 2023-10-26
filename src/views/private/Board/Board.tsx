@@ -6,7 +6,7 @@ import {
 } from 'components';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { EditOutlined, TableOutlined } from '@ant-design/icons';
+import { TableOutlined } from '@ant-design/icons';
 import {
   useColumnItems,
   useGetBoard,
@@ -26,7 +26,7 @@ export const Board = () => {
   const [editTicket, setEditTicket] = useState<string>('');
 
   const { data } = useGetBoard(id as string);
-  const { mutateAsync: updateBoard, isError } = useUpdateBoard();
+  const { mutateAsync: updateBoard } = useUpdateBoard();
   const { mutateAsync: removeColumn } = useRemoveColumn();
   const { mutateAsync: removeTicket } = useRemoveTicket();
 
@@ -67,11 +67,8 @@ export const Board = () => {
       <DragAndDrop
         dataSource={(data as BoardType) || []}
         ticketDropdownItems={ticketDropdownItems}
-        ticketDropdownIcon={<EditOutlined />}
         columnDropdownItems={columnDropdownItems}
-        columnDropdownIcon={<EditOutlined />}
         onDragEnd={handleDragEnd}
-        isError={isError}
       />
       <AddColumnForm
         isSidebarVisible={Boolean(createColumn || editColumn)}

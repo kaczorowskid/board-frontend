@@ -1,13 +1,13 @@
 import { Droppable } from 'react-beautiful-dnd';
 import { AntdDropdown } from 'components/antd';
+import { EditOutlined } from '@ant-design/icons';
 import { ColumnInfo, DroppableColumn } from './DraggableColumnProvider.styled';
 import { DraggableColumnProps } from './DraggableColumnProvider.type';
 
 export const DraggableColumnProvider = ({
   columnsData,
   children,
-  columnDropdownItems,
-  columnDropdownIcon
+  columnDropdownItems
 }: DraggableColumnProps) => (
   <>
     {columnsData.map(({ tickets, title, id }) => (
@@ -25,7 +25,7 @@ export const DraggableColumnProvider = ({
                   {title} - {tickets.length}
                 </span>
                 <AntdDropdown menu={{ items: columnDropdownItems(id) }}>
-                  {columnDropdownIcon}
+                  <EditOutlined />
                 </AntdDropdown>
               </ColumnInfo>
               {children(tickets)}
