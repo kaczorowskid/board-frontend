@@ -6,5 +6,4 @@ export interface DraggableItemProps {
   isDragging: boolean;
   openItem?: React.Dispatch<React.SetStateAction<string>>;
   ticketDropdownItems: (id: string) => MenuProps['items'];
-  ticketDropdownIcon: JSX.Element;
 }
