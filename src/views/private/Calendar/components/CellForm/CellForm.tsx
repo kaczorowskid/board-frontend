@@ -25,7 +25,7 @@ export const CellForm = ({
   useFillForm(noteData, form, isSidebarVisible, isEdit);
 
   const handleSubmit = (values: CellFormType) => {
-    const hour = values.hour.format('HH:mm');
+    const hour = values?.hour?.format('HH:mm');
 
     if (isEdit) {
       editNote({ ...values, start_date: date, hour, id: id as string });

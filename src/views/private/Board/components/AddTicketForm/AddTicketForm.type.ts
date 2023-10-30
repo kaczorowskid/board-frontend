@@ -1,10 +1,7 @@
 import { CommonFormProps } from 'types';
 import { AddTicketFormInputs } from './AddTicketForm.enum';
 
-export interface AddTicketFormProps extends CommonFormProps {
-  columnId: string;
-  ticketId: string;
-}
+export interface AddTicketFormProps extends CommonFormProps {}
 
 export interface AddTicketFormType {
   [AddTicketFormInputs.TITLE]: string;

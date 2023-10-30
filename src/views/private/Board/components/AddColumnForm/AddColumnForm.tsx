@@ -1,22 +1,27 @@
 import { useForm } from 'antd/es/form/Form';
 import { Form, Input } from 'antd';
 import { AntdModal } from 'components';
-import { useFillForm } from 'hooks';
+import { useCustomSearchParams, useFillForm } from 'hooks';
+import { useParams } from 'react-router-dom';
 import { useCreateColumn, useEditColumn, useGetColumn } from '../../hooks';
+import { SearchParams } from '../../Board.type';
 import { AddColumnFormProps, AddColumnFormType } from './AddColumnForm.type';
 import { AddColumnFormInputs } from './AddColumnForm.enum';
 import { initialValues } from './AddColumnForm.schema';
 
 export const AddColumnForm = ({
   isSidebarVisible,
-  onCloseSidebar,
-  boardId,
-  columnId
+  onCloseSidebar
 }: AddColumnFormProps) => {
+  const { boardId } = useParams<{ boardId: string }>();
+  const {
+    params: { columnId }
+  } = useCustomSearchParams<SearchParams>();
+
   const isEdit = Boolean(columnId);
   const [form] = useForm();
 
-  const { data: columnData } = useGetColumn(columnId);
+  const { data: columnData } = useGetColumn(columnId as string);
   const { mutateAsync: createColumn } = useCreateColumn();
   const { mutateAsync: editColumn } = useEditColumn();
 
@@ -24,9 +29,9 @@ export const AddColumnForm = ({
 
   const handleSubmit = (values: AddColumnFormType) => {
     if (isEdit) {
-      editColumn({ ...values, id: columnId });
+      editColumn({ ...values, id: columnId as string });
     } else {
-      createColumn({ ...values, board_id: boardId });
+      createColumn({ ...values, board_id: boardId as string });
     }
     form.resetFields();
     onCloseSidebar();
