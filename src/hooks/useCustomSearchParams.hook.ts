@@ -1,28 +1,36 @@
 import { useSearchParams } from 'react-router-dom';
+import { ObjectParams } from 'types';
 
-type UseCustomSearchParams = [
-  string | null,
-  (value: string) => void,
-  () => void
-];
-export const useCustomSearchParams = (field: string): UseCustomSearchParams => {
+type UseCustomSearchParams<T> = {
+  params: T;
+  setParams: (data: ObjectParams) => void;
+  deleteParams: (field?: string) => void;
+};
+
+export const useCustomSearchParams = <T>(): UseCustomSearchParams<T> => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const param = searchParams.get(field);
+  const params = Object.assign(
+    {},
+    ...[...searchParams.keys()].map((key) => ({
+      [key]: searchParams.get(key)
+    }))
+  );
 
-  const setParam = (value: string) => {
-    setSearchParams((params) => {
-      params.set(field, value);
-      return params;
-    });
+  const setParams = (data: ObjectParams) => {
+    setSearchParams(data);
   };
 
-  const deleteParam = () => {
-    setSearchParams((params) => {
-      params.delete(field);
-      return params;
-    });
+  const deleteParams = (param?: string) => {
+    if (param) {
+      setSearchParams((params) => {
+        params.delete(param);
+        return params;
+      });
+    } else {
+      setSearchParams({});
+    }
   };
 
-  return [param, setParam, deleteParam];
+  return { params, setParams, deleteParams };
 };

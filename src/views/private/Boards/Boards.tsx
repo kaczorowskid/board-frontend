@@ -44,7 +44,7 @@ export const Boards = () => {
   };
 
   const handleOpenBoard = (id: string) => {
-    navigate(generatePath(routesUrls.app.board, { id }));
+    navigate(generatePath(routesUrls.app.board, { boardId: id }));
   };
 
   const handleCloseSidebar = () => {

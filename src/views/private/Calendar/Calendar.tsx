@@ -9,16 +9,15 @@ import { CalendarOutlined, MoreOutlined } from '@ant-design/icons';
 import { useGetCalendar, useNotesItems, useRemoveNote } from './hooks';
 import { SignCell } from './Calendar.styled';
 import { CellForm, Notes } from './components';
+import { SearchParams } from './Calendar.types';
 
 export const Calendar = () => {
   const { id: userId } = useUserStore();
   const { mutateAsync: removeNote } = useRemoveNote();
   const [isFormVisible, setIsFormVisible] = useState<boolean>(false);
 
-  const [selectedDate, setselectedDate, removeSelectedDate] =
-    useCustomSearchParams('date');
-  const [selectedNoteId, setSelectedNoteId, removeSelectedNoteId] =
-    useCustomSearchParams('id');
+  const { params, setParams, deleteParams } =
+    useCustomSearchParams<SearchParams>();
 
   const [selectedMonth, setSelectedMonth] = useState(
     dayjs().format(DATE_ONLY_MONTH)
@@ -26,17 +25,21 @@ export const Calendar = () => {
   const { data: calendarData } = useGetCalendar(userId, selectedMonth);
 
   const handleSelect = (date: Dayjs) => {
-    setselectedDate(date.format('YYYY-MM-DD'));
+    setParams({ date: date.format('YYYY-MM-DD') });
   };
 
   const handleOpenForm = (id: string) => {
     setIsFormVisible(true);
-    setSelectedNoteId(id);
+    setParams({ ...params, id });
   };
 
   const handleCloseForm = () => {
     setIsFormVisible(false);
-    removeSelectedNoteId();
+    deleteParams('id');
+  };
+
+  const handleCloseNotes = () => {
+    deleteParams('date');
   };
 
   const noteDropdownItems = useNotesItems(handleOpenForm, removeNote);
@@ -63,18 +66,18 @@ export const Calendar = () => {
       />
       <Notes
         userId={userId}
-        date={selectedDate}
-        isSidebarVisible={Boolean(selectedDate)}
-        onCloseSidebar={removeSelectedDate}
+        date={params.date}
+        isSidebarVisible={Boolean(params.date)}
+        onCloseSidebar={handleCloseNotes}
         openForm={handleOpenForm}
         noteDropdownItems={noteDropdownItems}
         noteDropdownIcon={<MoreOutlined />}
       />
       <CellForm
         userId={userId}
-        id={selectedNoteId as string}
-        date={selectedDate as string}
-        isSidebarVisible={Boolean(selectedNoteId) || isFormVisible}
+        id={params.id as string}
+        date={params.date as string}
+        isSidebarVisible={Boolean(params.id) || isFormVisible}
         onCloseSidebar={handleCloseForm}
       />
     </PageWrapper>

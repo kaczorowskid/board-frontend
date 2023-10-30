@@ -4,9 +4,9 @@ import {
   DragAndDrop,
   PageWrapper
 } from 'components';
-import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { TableOutlined } from '@ant-design/icons';
+import { useCustomSearchParams } from 'hooks';
 import {
   useColumnItems,
   useGetBoard,
@@ -16,27 +16,24 @@ import {
   useUpdateBoard
 } from './hooks';
 import { AddColumnForm, AddTicketForm } from './components';
+import { SearchParams } from './Board.type';
 
 export const Board = () => {
-  const { id } = useParams();
+  const { boardId } = useParams<{ boardId: string }>();
 
-  const [createColumn, setCreateColumn] = useState<string>('');
-  const [createTicket, setCreateTicket] = useState<string>('');
-  const [editColumn, setEditColumn] = useState<string>('');
-  const [editTicket, setEditTicket] = useState<string>('');
-
-  const { data } = useGetBoard(id as string);
+  const { data } = useGetBoard(boardId as string);
   const { mutateAsync: updateBoard } = useUpdateBoard();
   const { mutateAsync: removeColumn } = useRemoveColumn();
   const { mutateAsync: removeTicket } = useRemoveTicket();
 
-  const ticketDropdownItems = useTicketItems(setEditTicket, removeTicket);
+  const {
+    params: { target },
+    setParams,
+    deleteParams
+  } = useCustomSearchParams<SearchParams>();
 
-  const columnDropdownItems = useColumnItems(
-    setEditColumn,
-    removeColumn,
-    setCreateTicket
-  );
+  const ticketDropdownItems = useTicketItems(setParams, removeTicket);
+  const columnDropdownItems = useColumnItems(setParams, removeColumn);
 
   const handleDragEnd = (mappedColumn: Column[]) => {
     if (data) {
@@ -47,41 +44,37 @@ export const Board = () => {
     }
   };
 
-  const hideColumnSideboard = () => {
-    setCreateColumn('');
-    setEditColumn('');
+  const hideSideboard = () => {
+    deleteParams();
   };
 
-  const hideTicketSideboard = () => {
-    setCreateTicket('');
-    setEditTicket('');
+  const handleAddColumn = () => {
+    setParams({ target: 'column' });
   };
 
   return (
-    <PageWrapper
-      title='Board'
-      buttonName='Add column'
-      icon={<TableOutlined />}
-      buttonClick={() => setCreateColumn(id as string)}
-    >
-      <DragAndDrop
-        dataSource={(data as BoardType) || []}
-        ticketDropdownItems={ticketDropdownItems}
-        columnDropdownItems={columnDropdownItems}
-        onDragEnd={handleDragEnd}
-      />
-      <AddColumnForm
-        isSidebarVisible={Boolean(createColumn || editColumn)}
-        onCloseSidebar={hideColumnSideboard}
-        boardId={createColumn}
-        columnId={editColumn}
-      />
-      <AddTicketForm
-        isSidebarVisible={Boolean(createTicket || editTicket)}
-        onCloseSidebar={hideTicketSideboard}
-        columnId={createTicket}
-        ticketId={editTicket}
-      />
-    </PageWrapper>
+    <>
+      <PageWrapper
+        title='Board'
+        buttonName='Add column'
+        icon={<TableOutlined />}
+        buttonClick={handleAddColumn}
+      >
+        <DragAndDrop
+          dataSource={(data as BoardType) || []}
+          ticketDropdownItems={ticketDropdownItems}
+          columnDropdownItems={columnDropdownItems}
+          onDragEnd={handleDragEnd}
+        />
+        <AddColumnForm
+          isSidebarVisible={target === 'column'}
+          onCloseSidebar={hideSideboard}
+        />
+        <AddTicketForm
+          isSidebarVisible={target === 'ticket'}
+          onCloseSidebar={hideSideboard}
+        />
+      </PageWrapper>
+    </>
   );
 };

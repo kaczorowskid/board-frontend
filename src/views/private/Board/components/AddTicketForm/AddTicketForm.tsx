@@ -2,7 +2,7 @@ import { useForm } from 'antd/es/form/Form';
 import { Divider, Form, Input, Select } from 'antd';
 import { AntdModal } from 'components';
 import { useUserStore } from 'stores';
-import { useFillForm } from 'hooks';
+import { useCustomSearchParams, useFillForm } from 'hooks';
 import ReactQuill from 'react-quill';
 import { PicRightOutlined } from '@ant-design/icons';
 import {
@@ -12,6 +12,7 @@ import {
   useGetTicket,
   useRemoveComment
 } from '../../hooks';
+import { SearchParams } from '../../Board.type';
 import { AddTicketFormProps, AddTicketFormType } from './AddTicketForm.type';
 import { AddTicketFormInputs } from './AddTicketForm.enum';
 import { initialValues, prioOptions } from './AddTicketForm.schema';
@@ -20,15 +21,17 @@ import { CommentsContainer, ItemsContainer } from './AddTicketForm.styled';
 
 export const AddTicketForm = ({
   isSidebarVisible,
-  onCloseSidebar,
-  columnId,
-  ticketId
+  onCloseSidebar
 }: AddTicketFormProps) => {
+  const {
+    params: { columnId, ticketId }
+  } = useCustomSearchParams<SearchParams>();
+
   const isEdit = Boolean(ticketId);
   const [form] = useForm();
 
   const { id: userId } = useUserStore();
-  const { data: ticketData } = useGetTicket(ticketId);
+  const { data: ticketData } = useGetTicket(ticketId as string);
   const { mutateAsync: createTicket } = useCreateTicket();
   const { mutateAsync: editTicket } = useEditTicket();
 
@@ -45,9 +48,13 @@ export const AddTicketForm = ({
     }
 
     if (isEdit) {
-      editTicket({ ...mappedValues, id: ticketId });
+      editTicket({ ...mappedValues, id: ticketId as string });
     } else {
-      createTicket({ ...mappedValues, column_id: columnId, user_id: userId });
+      createTicket({
+        ...mappedValues,
+        column_id: columnId as string,
+        user_id: userId
+      });
     }
     form.resetFields();
     onCloseSidebar();
@@ -88,7 +95,7 @@ export const AddTicketForm = ({
       <Divider />
       <h2>Comments</h2>
       <CommentsContainer>
-        <CommentsForm ticketId={ticketId} userId={userId} />
+        <CommentsForm ticketId={ticketId as string} userId={userId} />
         <Comments
           data={ticketData?.comments}
           commentsDropdownItems={commentItems}

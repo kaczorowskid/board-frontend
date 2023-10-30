@@ -1,12 +1,12 @@
 import { ExclamationCircleFilled } from '@ant-design/icons';
 import { MenuProps, Modal } from 'antd';
-import { UseColumn } from 'types';
+import { ObjectParams, UseColumn } from 'types';
 
 const { confirm } = Modal;
 
 export const useTicketItems =
   (
-    onEdit: UseColumn['onEdit'],
+    onEdit: (data: ObjectParams) => void,
     onDelete: UseColumn['onDelete']
   ): ((id: string) => MenuProps['items']) =>
   (id: string) =>
@@ -14,7 +14,9 @@ export const useTicketItems =
       {
         key: 'edit',
         label: 'Edit',
-        onClick: () => onEdit(id)
+        onClick: () => {
+          onEdit({ ticketId: id, target: 'ticket' });
+        }
       },
       {
         key: 'delete',
