@@ -15,7 +15,7 @@ import {
 import { SearchParams } from '../../Board.type';
 import { AddTicketFormProps, AddTicketFormType } from './AddTicketForm.type';
 import { AddTicketFormInputs } from './AddTicketForm.enum';
-import { initialValues, prioOptions } from './AddTicketForm.schema';
+import { initialValues, inputsRule, prioOptions } from './AddTicketForm.schema';
 import { Branch, Comments, CommentsForm } from './components';
 import { CommentsContainer, ItemsContainer } from './AddTicketForm.styled';
 
@@ -74,18 +74,30 @@ export const AddTicketForm = ({
         onFinish={handleSubmit}
         initialValues={initialValues}
       >
-        <Form.Item name={AddTicketFormInputs.TITLE} label={'Title'}>
-          <Input placeholder={'Title'} />
+        <Form.Item
+          name={AddTicketFormInputs.TITLE}
+          label='Title'
+          rules={inputsRule[AddTicketFormInputs.TITLE]}
+        >
+          <Input placeholder='Title' />
         </Form.Item>
-        <Form.Item name={AddTicketFormInputs.DESCRIPTION} label={'Description'}>
+        <Form.Item
+          name={AddTicketFormInputs.DESCRIPTION}
+          label='Description'
+          rules={inputsRule[AddTicketFormInputs.DESCRIPTION]}
+        >
           <ReactQuill
             theme='snow'
             style={{ height: '200px', marginBottom: '40px' }}
           />
         </Form.Item>
 
-        <Form.Item name={AddTicketFormInputs.PRIO} label={'Priority'}>
-          <Select options={prioOptions} placeholder={'Priority'} />
+        <Form.Item
+          name={AddTicketFormInputs.PRIO}
+          label='Priority'
+          rules={inputsRule[AddTicketFormInputs.PRIO]}
+        >
+          <Select options={prioOptions} placeholder='Priority' />
         </Form.Item>
       </Form>
 

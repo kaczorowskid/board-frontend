@@ -1,9 +1,8 @@
-import { Form, Button } from 'antd';
-import { AntdInput } from 'components';
+import { Form, Button, Input } from 'antd';
 import { Container, Title } from '../common';
 import { ResetPasswordForm } from './ResetPassword.type';
 import { useResetPassword } from './ResetPassword.hook';
-import { initValues } from './ResetPassword.schema';
+import { initValues, inputsRule } from './ResetPassword.schema';
 import { ResetPasswordFormInputs } from './ResetPassword.enum';
 
 export const ResetPassword = () => {
@@ -23,7 +22,12 @@ export const ResetPassword = () => {
         onFinish={handleFinish}
         initialValues={initValues}
       >
-        <AntdInput name={ResetPasswordFormInputs.EMAIL} placeholder='email' />
+        <Form.Item
+          name={ResetPasswordFormInputs.EMAIL}
+          rules={inputsRule[ResetPasswordFormInputs.EMAIL]}
+        >
+          <Input name={ResetPasswordFormInputs.EMAIL} placeholder='email' />
+        </Form.Item>
         <Button htmlType='submit' block type='primary'>
           Reset Password
         </Button>

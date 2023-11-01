@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { Container, Title } from '../common';
 import { useConfirmAccount } from './ConfirmAccount.hook';
 import { SearchParams } from './ConfirmAccount.enum';
+import { initialValues } from './ConfirmAccount.schema';
 
 export const ConfirmAccount = () => {
   const [searchParams] = useSearchParams();
@@ -18,7 +19,12 @@ export const ConfirmAccount = () => {
   return (
     <Container>
       <Title>Confirm Account</Title>
-      <Form layout='vertical' form={form} onFinish={handleFinish}>
+      <Form
+        layout='vertical'
+        form={form}
+        onFinish={handleFinish}
+        initialValues={initialValues}
+      >
         <Button block htmlType='submit' type='primary'>
           Confirm
         </Button>

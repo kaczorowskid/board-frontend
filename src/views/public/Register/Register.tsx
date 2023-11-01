@@ -1,8 +1,7 @@
 import { Form, Button, Input } from 'antd';
-import { AntdInput } from 'components';
 import { Container, Title } from '../common';
 import { useRegister } from './Register.hook';
-import { initValues } from './Register.schema';
+import { initValues, inputsRule } from './Register.schema';
 import { RegisterForm } from './Register.type';
 import { RegisterFormInputs } from './Register.enum';
 
@@ -26,17 +25,30 @@ export const Register = () => {
         onFinish={handleFinish}
         initialValues={initValues}
       >
-        <AntdInput name={RegisterFormInputs.EMAIL} placeholder='email' />
-        <AntdInput
+        <Form.Item
+          name={RegisterFormInputs.EMAIL}
+          rules={inputsRule[RegisterFormInputs.EMAIL]}
+        >
+          <Input name={RegisterFormInputs.EMAIL} placeholder='email' />
+        </Form.Item>
+        <Form.Item
           name={RegisterFormInputs.PASSWORD}
-          placeholder='password'
-          customInput={Input.Password}
-        />
-        <AntdInput
+          rules={inputsRule[RegisterFormInputs.PASSWORD]}
+        >
+          <Input.Password
+            name={RegisterFormInputs.PASSWORD}
+            placeholder='password'
+          />
+        </Form.Item>
+        <Form.Item
           name={RegisterFormInputs.CONFIRM_PASSWORD}
-          placeholder='confirm password'
-          customInput={Input.Password}
-        />
+          rules={inputsRule[RegisterFormInputs.CONFIRM_PASSWORD]}
+        >
+          <Input.Password
+            name={RegisterFormInputs.CONFIRM_PASSWORD}
+            placeholder='confirm password'
+          />
+        </Form.Item>
         <Button htmlType='submit' block type='primary'>
           Register
         </Button>

@@ -9,7 +9,7 @@ export const useGetNotesByDate = (
 ): UseQueryResult<GetNotesByDateResponse[], Error> =>
   useQuery(
     [QueryKeys.GET_CALENDAR, date],
-    () => getNotesByDate({ date, user_id: userId }),
+    () => getNotesByDate({ date: date as string, user_id: userId }),
     {
       enabled: !!date
     }
