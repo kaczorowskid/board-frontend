@@ -27,6 +27,9 @@ export const antdTheme = (themeOptions: ThemeOptions): ThemeConfig => ({
     Calendar: {
       itemActiveBg: theme(themeOptions).colors.hover.base,
       colorPrimary: theme(themeOptions).colors.font.base
+    },
+    Modal: {
+      zIndexPopupBase: 1001
     }
   }
 });
