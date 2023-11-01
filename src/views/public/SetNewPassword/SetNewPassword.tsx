@@ -1,9 +1,8 @@
 import { Form, Button, Input } from 'antd';
 import { useSearchParams } from 'react-router-dom';
-import { AntdInput } from 'components';
 import { Container, Title } from '../common';
 import { SetNewPasswordForm } from './SetNewPassword.type';
-import { initValues } from './SewNewPassword.schema';
+import { initValues, inputsRule } from './SewNewPassword.schema';
 import { SearchParams, SetNewPasswordFormInputs } from './SetNewPassword.enum';
 import { useSetNewPassword } from './SetNewPassword.hook';
 
@@ -27,16 +26,24 @@ export const SetNewPassword = () => {
         onFinish={handleFinish}
         initialValues={initValues}
       >
-        <AntdInput
+        <Form.Item
           name={SetNewPasswordFormInputs.OLD_PASSWORD}
-          placeholder='old password'
-          customInput={Input.Password}
-        />
-        <AntdInput
+          rules={inputsRule[SetNewPasswordFormInputs.OLD_PASSWORD]}
+        >
+          <Input.Password
+            name={SetNewPasswordFormInputs.OLD_PASSWORD}
+            placeholder='old password'
+          />
+        </Form.Item>
+        <Form.Item
           name={SetNewPasswordFormInputs.PASSWORD}
-          placeholder='password'
-          customInput={Input.Password}
-        />
+          rules={inputsRule[SetNewPasswordFormInputs.PASSWORD]}
+        >
+          <Input.Password
+            name={SetNewPasswordFormInputs.PASSWORD}
+            placeholder='password'
+          />
+        </Form.Item>
         <Button htmlType='submit' block type='primary'>
           Set New Password
         </Button>

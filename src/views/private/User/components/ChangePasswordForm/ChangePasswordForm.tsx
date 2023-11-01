@@ -3,7 +3,11 @@ import { Col, Form, Input, Row } from 'antd';
 import { useForm } from 'antd/es/form/Form';
 import { useUserStore } from 'stores';
 import { useUpdatePassword } from '../../hooks';
-import { initialValues, requiredFields } from './ChangePasswordForm.schema';
+import {
+  initialValues,
+  inputsRule,
+  requiredFields
+} from './ChangePasswordForm.schema';
 import { ChangePasswordFormInputs } from './ChangePasswordForm.enum';
 import { StyledButton } from './ChangePasswordForm.styled';
 import { ChangePasswordFormType } from './ChangePasswordForm.types';
@@ -41,13 +45,22 @@ export const ChangePasswordForm = () => {
       initialValues={initialValues}
     >
       <Row gutter={[10, 22]}>
-        <Form.Item name={ChangePasswordFormInputs.OLD_PASSWORD}>
+        <Form.Item
+          name={ChangePasswordFormInputs.OLD_PASSWORD}
+          rules={inputsRule[ChangePasswordFormInputs.OLD_PASSWORD]}
+        >
           <Input placeholder='Old password' />
         </Form.Item>
-        <Form.Item name={ChangePasswordFormInputs.NEW_PASSWORD}>
+        <Form.Item
+          name={ChangePasswordFormInputs.NEW_PASSWORD}
+          rules={inputsRule[ChangePasswordFormInputs.NEW_PASSWORD]}
+        >
           <Input placeholder='New password' />
         </Form.Item>
-        <Form.Item name={ChangePasswordFormInputs.REPEAT_PASSWORD}>
+        <Form.Item
+          name={ChangePasswordFormInputs.REPEAT_PASSWORD}
+          rules={inputsRule[ChangePasswordFormInputs.REPEAT_PASSWORD]}
+        >
           <Input placeholder='Repeat password' />
         </Form.Item>
         {showButton && (

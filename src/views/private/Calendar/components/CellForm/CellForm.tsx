@@ -5,7 +5,7 @@ import TextArea from 'antd/es/input/TextArea';
 import { useFillForm } from 'hooks';
 import dayjs from 'dayjs';
 import { useCreateNote, useEditNote, useGetNote } from '../../hooks';
-import { CellFormProps, CellFormType } from './CellForm.types';
+import { CellFormProps, CellFormType, inputsRule } from './CellForm.types';
 import { CellFormInputs } from './CellForm.enum';
 import { initialValues } from './CellForm.schema';
 
@@ -59,11 +59,19 @@ export const CellForm = ({
         onFinish={handleSubmit}
         initialValues={initialValues}
       >
-        <Form.Item name={CellFormInputs.HOUR} label={'Hour'}>
-          <TimePicker format={'HH:mm'} placeholder={'Hour'} />
+        <Form.Item
+          name={CellFormInputs.HOUR}
+          label='Hour'
+          rules={inputsRule[CellFormInputs.HOUR]}
+        >
+          <TimePicker format={'HH:mm'} placeholder='Hour' />
         </Form.Item>
-        <Form.Item name={CellFormInputs.NOTE} label={'Note'}>
-          <TextArea placeholder={'Note'} />
+        <Form.Item
+          name={CellFormInputs.NOTE}
+          label='Note'
+          rules={inputsRule[CellFormInputs.NOTE]}
+        >
+          <TextArea placeholder='Note' />
         </Form.Item>
       </Form>
     </AntdModal>

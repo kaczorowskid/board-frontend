@@ -5,7 +5,11 @@ import { useUserStore } from 'stores';
 import { useFillForm } from 'hooks';
 import { useGetUser, useUpdateUser } from '../../hooks';
 import { UserDetailsFormInputs } from './UserDetailsForm.enum';
-import { initialValues, requiredFields } from './UserDetailsForm.schema';
+import {
+  initialValues,
+  inputsRule,
+  requiredFields
+} from './UserDetailsForm.schema';
 import { UserDetailsFormType } from './UserDetailsForm.types';
 import { StyledButton } from './UserDetailsForm.styled';
 
@@ -45,10 +49,16 @@ export const UserDetailsForm = () => {
       initialValues={initialValues}
     >
       <Row gutter={[10, 22]}>
-        <Form.Item name={UserDetailsFormInputs.FIRST_NAME}>
+        <Form.Item
+          name={UserDetailsFormInputs.FIRST_NAME}
+          rules={inputsRule[UserDetailsFormInputs.FIRST_NAME]}
+        >
           <Input placeholder='First name' />
         </Form.Item>
-        <Form.Item name={UserDetailsFormInputs.LAST_NAME}>
+        <Form.Item
+          name={UserDetailsFormInputs.LAST_NAME}
+          rules={inputsRule[UserDetailsFormInputs.LAST_NAME]}
+        >
           <Input placeholder='Last name' />
         </Form.Item>
         {showButton && (

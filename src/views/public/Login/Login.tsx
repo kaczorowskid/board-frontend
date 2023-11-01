@@ -1,10 +1,9 @@
 import { Form, Button, Input } from 'antd';
-import { AntdInput } from 'components';
 import { routesUrls } from 'routes';
 import { Container, HintContainer, StyledLink, Title } from '../common';
 import { useLogin } from './Login.hook';
 import { LoginForm } from './Login.type';
-import { initValues } from './Login.schema';
+import { initValues, inputsRule } from './Login.schema';
 import { LoginFormInputs } from './Login.enum';
 
 export const Login = () => {
@@ -24,12 +23,22 @@ export const Login = () => {
         onFinish={handleFinish}
         initialValues={initValues}
       >
-        <AntdInput name={LoginFormInputs.EMAIL} placeholder='email' />
-        <AntdInput
+        <Form.Item
+          name={LoginFormInputs.EMAIL}
+          rules={inputsRule[LoginFormInputs.EMAIL]}
+        >
+          <Input name={LoginFormInputs.EMAIL} placeholder='email' />
+        </Form.Item>
+        <Form.Item
           name={LoginFormInputs.PASSWORD}
-          placeholder='password'
-          customInput={Input.Password}
-        />
+          rules={inputsRule[LoginFormInputs.PASSWORD]}
+        >
+          <Input.Password
+            name={LoginFormInputs.PASSWORD}
+            placeholder='password'
+          />
+        </Form.Item>
+
         <HintContainer>
           <StyledLink to={routesUrls.auth.resetPassword}>
             Forgot password?
