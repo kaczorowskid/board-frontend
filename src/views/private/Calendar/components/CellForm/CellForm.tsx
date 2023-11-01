@@ -3,6 +3,7 @@ import { useForm } from 'antd/es/form/Form';
 import { AntdModal } from 'components';
 import TextArea from 'antd/es/input/TextArea';
 import { useFillForm } from 'hooks';
+import dayjs from 'dayjs';
 import { useCreateNote, useEditNote, useGetNote } from '../../hooks';
 import { CellFormProps, CellFormType } from './CellForm.types';
 import { CellFormInputs } from './CellForm.enum';
@@ -22,7 +23,15 @@ export const CellForm = ({
   const { mutateAsync: createNote } = useCreateNote();
   const { mutateAsync: editNote } = useEditNote();
 
-  useFillForm(noteData, form, isSidebarVisible, isEdit);
+  useFillForm(
+    {
+      ...noteData,
+      hour: dayjs(noteData?.hour, 'HH:mm')
+    },
+    form,
+    isSidebarVisible,
+    isEdit
+  );
 
   const handleSubmit = (values: CellFormType) => {
     const hour = values?.hour?.format('HH:mm');
