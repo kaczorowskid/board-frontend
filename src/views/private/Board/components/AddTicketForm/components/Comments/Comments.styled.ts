@@ -10,11 +10,11 @@ export const Container = styled.div`
 export const CommentWrapper = styled.div`
   display: grid;
   grid-template-areas:
-    'avatar avatar-info'
-    '. comment';
-  grid-template-rows: 20px auto;
+    'avatar avatar-info date'
+    '. comment comment';
+  grid-template-rows: 30px auto;
 
-  grid-template-columns: 40px auto;
+  grid-template-columns: 40px auto auto;
 `;
 
 export const AvatarContainer = styled.div`
@@ -24,6 +24,12 @@ export const AvatarContainer = styled.div`
 export const AvatarInfoContainer = styled.div`
   grid-area: avatar-info;
   font-weight: bold;
+`;
+
+export const AvatarDateContainer = styled.div`
+  grid-area: date;
+  font-weight: bold;
+  text-align: end;
 `;
 
 export const CommentContainer = styled.div`
