@@ -1,5 +1,6 @@
 import { AntdDrawer, AntdDropdown } from 'components';
 import { Alert, Button, Space } from 'antd';
+import { useTranslation } from 'react-i18next';
 import { useGetNotesByDate } from '../../hooks';
 import { NotesProps } from './Notes.types';
 
@@ -13,16 +14,17 @@ export const Notes = ({
   noteDropdownIcon
 }: NotesProps) => {
   const { data } = useGetNotesByDate(date, userId);
+  const { t } = useTranslation();
 
   return (
     <AntdDrawer
       open={isSidebarVisible}
       onClose={onCloseSidebar}
-      title={`Notes - ${date}`}
+      title={`${t('private.calendar.note')} - ${date}`}
     >
       <Space direction='vertical' size={24} style={{ width: '100%' }}>
         <Button block onClick={() => openForm('')}>
-          Add note
+          {t('private.calendar.add-note')}
         </Button>
         {data?.map(({ id, note, hour }) => (
           <Alert

@@ -1,6 +1,7 @@
 import { Button, Form, Input, Row, Tooltip } from 'antd';
 import { useUserStore } from 'stores';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useConfirmShareToken } from '../../hooks';
 import { Container } from './ShareBoardForm.styled';
 import { initialValues, overlayStyle } from './ShareBoardForm.schema';
@@ -10,6 +11,7 @@ import { ShareBoardFormType } from './ShareBoardForm.types';
 export const ShareBoardForm = () => {
   const [form] = Form.useForm();
   const { id } = useUserStore();
+  const { t } = useTranslation();
 
   const [isFormVisible, setIsFormVisible] = useState<boolean>(false);
   const { mutateAsync: confirm } = useConfirmShareToken();
@@ -35,7 +37,7 @@ export const ShareBoardForm = () => {
           >
             <Row gutter={[0, 10]}>
               <Form.Item name={ShareBoardFormInputs.TOKEN}>
-                <Input placeholder='Add token' />
+                <Input placeholder={t('private.boards.add-token')} />
               </Form.Item>
               <Button
                 onClick={() => setIsFormVisible(false)}
@@ -44,7 +46,7 @@ export const ShareBoardForm = () => {
                 htmlType='submit'
                 block
               >
-                Submit
+                {t('common.submit')}
               </Button>
             </Row>
           </Form>
@@ -53,7 +55,7 @@ export const ShareBoardForm = () => {
       trigger='click'
       placement='bottomLeft'
     >
-      <Button>Share board</Button>
+      <Button>{t('private.boards.share-board')}</Button>
     </Tooltip>
   );
 };

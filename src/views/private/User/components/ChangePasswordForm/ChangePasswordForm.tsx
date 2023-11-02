@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Col, Form, Input, Row } from 'antd';
 import { useForm } from 'antd/es/form/Form';
 import { useUserStore } from 'stores';
+import { useTranslation } from 'react-i18next';
 import { useUpdatePassword } from '../../hooks';
 import {
   initialValues,
@@ -17,6 +18,7 @@ export const ChangePasswordForm = () => {
   const [showButton, setShowButton] = useState<boolean>(false);
   const { mutateAsync: updateUser } = useUpdatePassword();
   const { id } = useUserStore();
+  const { t } = useTranslation();
 
   const handleValuesChange = () => {
     if (form.isFieldsTouched(requiredFields, true)) {
@@ -49,28 +51,30 @@ export const ChangePasswordForm = () => {
           name={ChangePasswordFormInputs.OLD_PASSWORD}
           rules={inputsRule[ChangePasswordFormInputs.OLD_PASSWORD]}
         >
-          <Input placeholder='Old password' />
+          <Input placeholder={t('private.user.old-password')} />
         </Form.Item>
         <Form.Item
           name={ChangePasswordFormInputs.NEW_PASSWORD}
           rules={inputsRule[ChangePasswordFormInputs.NEW_PASSWORD]}
         >
-          <Input placeholder='New password' />
+          <Input placeholder={t('private.user.new-password')} />
         </Form.Item>
         <Form.Item
           name={ChangePasswordFormInputs.REPEAT_PASSWORD}
           rules={inputsRule[ChangePasswordFormInputs.REPEAT_PASSWORD]}
         >
-          <Input placeholder='Repeat password' />
+          <Input placeholder={t('private.user.repeat-password')} />
         </Form.Item>
         {showButton && (
           <Row gutter={16} style={{ width: '100%' }}>
             <Col span={12}>
-              <StyledButton onClick={handleCancel}>Cancel</StyledButton>
+              <StyledButton onClick={handleCancel}>
+                {t('common.cancel')}
+              </StyledButton>
             </Col>
             <Col span={12}>
               <StyledButton type='primary' htmlType='submit'>
-                Submit
+                {t('common.submit')}
               </StyledButton>
             </Col>
           </Row>

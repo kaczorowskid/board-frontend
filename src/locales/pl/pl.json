@@ -1,0 +1,89 @@
+{
+  "common": {
+    "submit": "Wyślij",
+    "search": "Wyszukaj",
+    "cancel": "Anuluj",
+    "edit": "Edytuj",
+    "delete": "Usuń",
+     "do-you-want-to-delete": "Czy chcesz usunąć?"
+  },
+  "error": {
+    "something-went-wrong": "Coś poszło nie tak",
+    "go-to-dashboard": "Przejdź do dashboardu",
+    "reset": "Reset"
+  },
+  "private": {
+    "board": {
+      "board": "Tablica",
+      "add-column": "Dodaj kolumnę",
+      "add-ticket": "Dodaj zadanie",
+      "title": "Tytuł",
+      "description": "Opis",
+      "priority": "Priorytet",
+      "create-branch": "Stwórz gałąź",
+      "comments": "Komentarze"
+    },
+     "boards": {
+      "boards": "Tablice",
+      "add-board": "Dodaj tablice",
+      "title": "Tytuł",
+      "description": "Opis",
+      "add-token": "Dodaj token",
+      "share-board": "Udostępnij tablice",
+      "open-board": "Otwórz tablice",
+      "share-token": "Udostępnij token"
+    },
+    "calendar": {
+      "calendar": "Kalendarz",
+      "add-note": "Dodaj notkę",
+      "hour": "Godzina",
+      "note": "Notka"
+    },
+    "dashboard": {
+      "dashboard": "Pulpit",
+      "recent-tickets": "Ostatnie zadania",
+      "statistics": "Statystyki",
+      "recent-boards": "Ostatnie tablice"
+    },
+    "user": {
+      "user": "Użytkownik",
+      "old-password": "Stare hasło",
+      "new-password": "Nowe hasło",
+      "repeat-password": "Powtórz hasło",
+      "first-name": "Imię",
+      "last-name": "Nazwisko",
+      "theme": "Motyw",
+      "language": "Język",
+      "basic-details": "Podstawowe informacje",
+      "change-password": "Zmień hasło"
+    },
+    "logout": "Wyloguj"
+  },
+  "public": {
+    "confirm-account": {
+      "confirm-account": "Potwierdź konto",
+      "confirm": "Potwierdź"
+    },
+    "login": {
+      "login": "Login",
+      "email": "Email",
+      "password": "Hasło",
+      "forgot-password-question": "Zapomniałeś hasła?"
+    },
+    "register": {
+      "register": "Zarejestruj",
+      "email": "Email",
+      "password": "Password",
+      "confirm-password": "Powtórz hasło"
+    },
+    "reset-password": {
+      "reset-password": "Zresetuj hasło",
+      "email": "Email"
+    },
+    "set-new-password": {
+      "set-new-password": "Ustaw nowe hasło",
+      "old-password": "Stare hasło",
+      "password": "Hasło"
+    }
+  }
+}

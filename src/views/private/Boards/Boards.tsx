@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { generatePath, useNavigate } from 'react-router-dom';
 import { routesUrls } from 'routes';
 import { ExclamationCircleFilled, TableOutlined } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 import { BoardsForm, ShareBoardForm } from './components';
 import {
   useColumns,
@@ -15,6 +16,7 @@ import {
 
 export const Boards = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);
 
@@ -66,7 +68,7 @@ export const Boards = () => {
   useEffect(() => {
     if (data) {
       modal.confirm({
-        title: 'Share token',
+        title: t('private.boards.share-token'),
         content: data?.result,
         icon: <ExclamationCircleFilled />
       });
@@ -75,14 +77,14 @@ export const Boards = () => {
 
   return (
     <PageWrapper
-      title='Boards'
-      placeholder='Search'
+      title={t('private.boards.boards')}
+      placeholder={t('common.search')}
       icon={<TableOutlined />}
       onSearch={onSearchPagination}
       hasSearchbar
     >
       <TileItem
-        buttonName='Add board'
+        buttonName={t('private.boards.add-board')}
         onClick={() => setIsSidebarVisible(true)}
         additionButtons={<ShareBoardForm />}
       >

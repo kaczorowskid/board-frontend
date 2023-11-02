@@ -3,6 +3,7 @@ import { Col, Form, Input, Row } from 'antd';
 import { useForm } from 'antd/es/form/Form';
 import { useUserStore } from 'stores';
 import { useFillForm } from 'hooks';
+import { useTranslation } from 'react-i18next';
 import { useGetUser, useUpdateUser } from '../../hooks';
 import { UserDetailsFormInputs } from './UserDetailsForm.enum';
 import {
@@ -18,6 +19,7 @@ export const UserDetailsForm = () => {
   const { id } = useUserStore();
   const { data } = useGetUser(id);
   const { mutateAsync: update } = useUpdateUser();
+  const { t } = useTranslation();
 
   useFillForm(data, form, true, true);
 
@@ -53,22 +55,24 @@ export const UserDetailsForm = () => {
           name={UserDetailsFormInputs.FIRST_NAME}
           rules={inputsRule[UserDetailsFormInputs.FIRST_NAME]}
         >
-          <Input placeholder='First name' />
+          <Input placeholder={t('private.user.first-name')} />
         </Form.Item>
         <Form.Item
           name={UserDetailsFormInputs.LAST_NAME}
           rules={inputsRule[UserDetailsFormInputs.LAST_NAME]}
         >
-          <Input placeholder='Last name' />
+          <Input placeholder={t('private.user.last-name')} />
         </Form.Item>
         {showButton && (
           <Row gutter={16} style={{ width: '100%' }}>
             <Col span={12}>
-              <StyledButton onClick={handleCancel}>Cancel</StyledButton>
+              <StyledButton onClick={handleCancel}>
+                {t('common.cancel')}
+              </StyledButton>
             </Col>
             <Col span={12}>
               <StyledButton type='primary' htmlType='submit'>
-                Submit
+                {t('common.submit')}
               </StyledButton>
             </Col>
           </Row>

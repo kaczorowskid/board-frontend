@@ -5,6 +5,7 @@ import { useUserStore } from 'stores';
 import { useCustomSearchParams, useFillForm } from 'hooks';
 import ReactQuill from 'react-quill';
 import { PicRightOutlined } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 import {
   useCommentItems,
   useCreateTicket,
@@ -29,7 +30,7 @@ export const AddTicketForm = ({
 
   const isEdit = Boolean(ticketId);
   const [form] = useForm();
-
+  const { t } = useTranslation();
   const { id: userId } = useUserStore();
   const { data: ticketData } = useGetTicket(ticketId as string);
   const { mutateAsync: createTicket } = useCreateTicket();
@@ -65,7 +66,7 @@ export const AddTicketForm = ({
       open={isSidebarVisible}
       onClose={onCloseSidebar}
       formId='ticketForm'
-      title='Add Ticket'
+      title={t('private.board.add-ticket')}
     >
       <Form
         id='ticketForm'
@@ -76,14 +77,14 @@ export const AddTicketForm = ({
       >
         <Form.Item
           name={AddTicketFormInputs.TITLE}
-          label='Title'
+          label={t('private.board.title')}
           rules={inputsRule[AddTicketFormInputs.TITLE]}
         >
-          <Input placeholder='Title' />
+          <Input placeholder={t('private.board.title')} />
         </Form.Item>
         <Form.Item
           name={AddTicketFormInputs.DESCRIPTION}
-          label='Description'
+          label={t('private.board.description')}
           rules={inputsRule[AddTicketFormInputs.DESCRIPTION]}
         >
           <ReactQuill
@@ -94,10 +95,13 @@ export const AddTicketForm = ({
 
         <Form.Item
           name={AddTicketFormInputs.PRIO}
-          label='Priority'
+          label={t('private.board.priority')}
           rules={inputsRule[AddTicketFormInputs.PRIO]}
         >
-          <Select options={prioOptions} placeholder='Priority' />
+          <Select
+            options={prioOptions}
+            placeholder={t('private.board.priority')}
+          />
         </Form.Item>
       </Form>
 
@@ -105,7 +109,7 @@ export const AddTicketForm = ({
         <Branch data={ticketData} />
       </ItemsContainer>
       <Divider />
-      <h2>Comments</h2>
+      <h2>{t('private.board.comments')}</h2>
       <CommentsContainer>
         <CommentsForm ticketId={ticketId as string} userId={userId} />
         <Comments

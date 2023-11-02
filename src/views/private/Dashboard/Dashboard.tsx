@@ -4,6 +4,7 @@ import { useUserStore } from 'stores';
 import dayjs from 'dayjs';
 import { useState } from 'react';
 import { AppstoreOutlined } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 import { useGetNotesByDate } from '../Calendar/hooks';
 import {
   Calendar,
@@ -19,6 +20,7 @@ import { statisticsDataMapper } from './utils';
 
 export const Dashboard = () => {
   const { id: userId } = useUserStore();
+  const { t } = useTranslation();
   const currentMonth = dayjs().format(DATE_FORMAT);
 
   const [selectedDate, setSelectedDate] = useState<string>(currentMonth);
@@ -34,20 +36,23 @@ export const Dashboard = () => {
 
   return (
     <>
-      <PageWrapper title='Dashboard' icon={<AppstoreOutlined />}>
+      <PageWrapper
+        title={t('private.dashboard.dashboard')}
+        icon={<AppstoreOutlined />}
+      >
         <ItemsContainer>
           <DashboardItem
-            title='Recent tickets'
+            title={t('private.dashboard.recent-tickets')}
             gridArea='recent-tickets'
             component={<RecentTickets data={recentTickets?.data} />}
           />
           <DashboardItem
-            title='Statistics'
+            title={t('private.dashboard.statistics')}
             gridArea='statisctic'
             component={<Statistics option={option} />}
           />
           <DashboardItem
-            title='Recent boards'
+            title={t('private.dashboard.recent-boards')}
             gridArea='recent-boards'
             component={<RecentBoards data={recentBoards?.data} />}
           />

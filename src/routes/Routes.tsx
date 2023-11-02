@@ -19,6 +19,7 @@ import {
   SetNewPassword,
   User
 } from 'views';
+import { FallbackComponent } from 'views/error/ErrorBoundary/components';
 import { routesUrls } from './routesUrls';
 
 export const Routes = () => {
@@ -53,6 +54,15 @@ export const Routes = () => {
           <Route path={routesUrls.app.calendarNotes} element={<Calendar />} />
           <Route path={routesUrls.app.user} element={<User />} />
         </Route>
+        <Route
+          path='/lol'
+          element={
+            <FallbackComponent
+              error={{} as any}
+              resetErrorBoundary={{} as any}
+            />
+          }
+        />
         <Route path='*' element={<Page404 />} />
       </Route>
     )

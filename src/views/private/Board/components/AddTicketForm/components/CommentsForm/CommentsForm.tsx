@@ -3,11 +3,13 @@ import { Button, Form } from 'antd';
 import { useState } from 'react';
 import { useCreateComment } from 'views/private/Board/hooks';
 import { RichTextEditor } from 'components';
+import { useTranslation } from 'react-i18next';
 import { AddTicketFormType, CommentsFormProps } from './CommentsForm.types';
 import { initialValues } from './CommentsForm.schema';
 import { CommentsFormInputs } from './CommentsForm.enum';
 
 export const CommentsForm = ({ ticketId, userId }: CommentsFormProps) => {
+  const { t } = useTranslation();
   const [form] = useForm();
   const [isCommentAreaFocus, setIsCommentAreaFocus] = useState<boolean>(false);
 
@@ -48,7 +50,7 @@ export const CommentsForm = ({ ticketId, userId }: CommentsFormProps) => {
             setIsCommentAreaFocus(false);
           }}
         >
-          Submit
+          {t('common.submit')}
         </Button>
       )}
     </Form>

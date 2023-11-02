@@ -1,5 +1,6 @@
 import { Form, Button } from 'antd';
 import { useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Container, Title } from '../common';
 import { useConfirmAccount } from './ConfirmAccount.hook';
 import { SearchParams } from './ConfirmAccount.enum';
@@ -8,6 +9,7 @@ import { initialValues } from './ConfirmAccount.schema';
 export const ConfirmAccount = () => {
   const [searchParams] = useSearchParams();
   const token = searchParams.get(SearchParams.TOKEN);
+  const { t } = useTranslation();
 
   const [form] = Form.useForm();
   const { mutate: confirmAccount } = useConfirmAccount();
@@ -18,7 +20,7 @@ export const ConfirmAccount = () => {
 
   return (
     <Container>
-      <Title>Confirm Account</Title>
+      <Title>{t('public.confirm-account.confirm-account')}</Title>
       <Form
         layout='vertical'
         form={form}
@@ -26,7 +28,7 @@ export const ConfirmAccount = () => {
         initialValues={initialValues}
       >
         <Button block htmlType='submit' type='primary'>
-          Confirm
+          {t('public.confirm-account.confirm')}
         </Button>
       </Form>
     </Container>
