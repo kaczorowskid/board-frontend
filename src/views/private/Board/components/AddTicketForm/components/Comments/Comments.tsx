@@ -20,14 +20,14 @@ export const Comments = ({
   commentsDropdownIcon
 }: CommentsProps) => (
   <Container>
-    {data?.map(({ id, text, user }) => (
+    {data?.map(({ id, text, created_at, user }) => (
       <CommentWrapper>
         <AvatarContainer>
           <Avatar>{user?.first_name?.at(0)?.toUpperCase()}</Avatar>
         </AvatarContainer>
         <AvatarInfoContainer>{user?.first_name}</AvatarInfoContainer>
         <AvatarDateContainer>
-          {dayjs(user.created_at).format('HH:mm DD.MM.YYYY')}
+          {dayjs(created_at).format('HH:mm DD.MM.YYYY')}
         </AvatarDateContainer>
         <CommentContainer>
           <div>
