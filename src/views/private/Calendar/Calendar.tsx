@@ -6,6 +6,7 @@ import dayjs, { Dayjs } from 'dayjs';
 import { useState } from 'react';
 import { useCustomSearchParams } from 'hooks';
 import { CalendarOutlined, MoreOutlined } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 import { useGetCalendar, useNotesItems, useRemoveNote } from './hooks';
 import { SignCell } from './Calendar.styled';
 import { CellForm, Notes } from './components';
@@ -15,6 +16,7 @@ export const Calendar = () => {
   const { id: userId } = useUserStore();
   const { mutateAsync: removeNote } = useRemoveNote();
   const [isFormVisible, setIsFormVisible] = useState<boolean>(false);
+  const { t } = useTranslation();
 
   const { params, setParams, deleteParams } =
     useCustomSearchParams<SearchParams>();
@@ -58,7 +60,10 @@ export const Calendar = () => {
   };
 
   return (
-    <PageWrapper title='Calendar' icon={<CalendarOutlined />}>
+    <PageWrapper
+      title={t('private.calendar.calendar')}
+      icon={<CalendarOutlined />}
+    >
       <AntdCalendar
         cellRender={cellRender}
         onPanelChange={handlePanelChange}

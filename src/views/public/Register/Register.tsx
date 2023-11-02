@@ -1,4 +1,5 @@
 import { Form, Button, Input } from 'antd';
+import { useTranslation } from 'react-i18next';
 import { Container, Title } from '../common';
 import { useRegister } from './Register.hook';
 import { initValues, inputsRule } from './Register.schema';
@@ -8,6 +9,7 @@ import { RegisterFormInputs } from './Register.enum';
 export const Register = () => {
   const [form] = Form.useForm<RegisterForm>();
   const { mutate: register } = useRegister();
+  const { t } = useTranslation();
 
   const handleFinish = (payload: RegisterForm) => {
     // eslint-disable-next-line no-param-reassign
@@ -18,7 +20,7 @@ export const Register = () => {
 
   return (
     <Container>
-      <Title>Register</Title>
+      <Title>{t('public.register.register')}</Title>
       <Form
         layout='vertical'
         form={form}
@@ -29,7 +31,10 @@ export const Register = () => {
           name={RegisterFormInputs.EMAIL}
           rules={inputsRule[RegisterFormInputs.EMAIL]}
         >
-          <Input name={RegisterFormInputs.EMAIL} placeholder='email' />
+          <Input
+            name={RegisterFormInputs.EMAIL}
+            placeholder={t('public.register.email')}
+          />
         </Form.Item>
         <Form.Item
           name={RegisterFormInputs.PASSWORD}
@@ -37,7 +42,7 @@ export const Register = () => {
         >
           <Input.Password
             name={RegisterFormInputs.PASSWORD}
-            placeholder='password'
+            placeholder={t('public.register.password')}
           />
         </Form.Item>
         <Form.Item
@@ -46,11 +51,11 @@ export const Register = () => {
         >
           <Input.Password
             name={RegisterFormInputs.CONFIRM_PASSWORD}
-            placeholder='confirm password'
+            placeholder={t('public.register.confirm-password')}
           />
         </Form.Item>
         <Button htmlType='submit' block type='primary'>
-          Register
+          {t('public.register.register')}
         </Button>
       </Form>
     </Container>

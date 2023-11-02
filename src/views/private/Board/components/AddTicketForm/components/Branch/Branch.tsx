@@ -1,9 +1,11 @@
 import { Tooltip } from 'antd';
 import Paragraph from 'antd/es/typography/Paragraph';
+import { useTranslation } from 'react-i18next';
 import { BranchProps } from './Branch.types';
 import { StyledButton } from './Branch.styled';
 
 export const Branch = ({ data }: BranchProps) => {
+  const { t } = useTranslation();
   const branch = data?.title.split(' ').join('-');
 
   const tooltipStyle = {
@@ -26,7 +28,7 @@ export const Branch = ({ data }: BranchProps) => {
       }
       placement='bottomLeft'
     >
-      <StyledButton>Create branch</StyledButton>
+      <StyledButton>{t('private.board.create-branch')}</StyledButton>
     </Tooltip>
   );
 };

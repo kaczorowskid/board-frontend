@@ -4,6 +4,7 @@ import { AntdModal } from 'components';
 import TextArea from 'antd/es/input/TextArea';
 import { useFillForm } from 'hooks';
 import dayjs from 'dayjs';
+import { useTranslation } from 'react-i18next';
 import { useCreateNote, useEditNote, useGetNote } from '../../hooks';
 import { CellFormProps, CellFormType, inputsRule } from './CellForm.types';
 import { CellFormInputs } from './CellForm.enum';
@@ -17,6 +18,7 @@ export const CellForm = ({
   onCloseSidebar
 }: CellFormProps) => {
   const isEdit = Boolean(id);
+  const { t } = useTranslation();
 
   const [form] = useForm();
   const { data: noteData } = useGetNote(id as string);
@@ -50,7 +52,7 @@ export const CellForm = ({
       open={isSidebarVisible}
       onClose={onCloseSidebar}
       formId='form'
-      title='Add note'
+      title={t('private.calendar.add-note')}
     >
       <Form
         id='form'
@@ -61,17 +63,20 @@ export const CellForm = ({
       >
         <Form.Item
           name={CellFormInputs.HOUR}
-          label='Hour'
+          label={t('private.calendar.hour')}
           rules={inputsRule[CellFormInputs.HOUR]}
         >
-          <TimePicker format={'HH:mm'} placeholder='Hour' />
+          <TimePicker
+            format={'HH:mm'}
+            placeholder={t('private.calendar.hour')}
+          />
         </Form.Item>
         <Form.Item
           name={CellFormInputs.NOTE}
-          label='Note'
+          label={t('private.calendar.note')}
           rules={inputsRule[CellFormInputs.NOTE]}
         >
-          <TextArea placeholder='Note' />
+          <TextArea placeholder={t('private.calendar.note')} />
         </Form.Item>
       </Form>
     </AntdModal>

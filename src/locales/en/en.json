@@ -1,0 +1,89 @@
+{
+  "common": {
+    "submit": "Submit",
+    "search": "Search",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "do-you-want-to-delete": "Do you Want to delete this item?"
+  },
+  "error": {
+    "something-went-wrong": "Something went wrong",
+    "go-to-dashboard": "Go to dashboard",
+    "reset": "Reset"
+  },
+  "private": {
+    "board": {
+      "board": "Board",
+      "add-column": "Add column",
+      "add-ticket": "Add Ticket",
+      "title": "Title",
+      "description": "Description",
+      "priority": "Priority",
+      "create-branch": "Create branch",
+      "comments": "Comments"
+    },
+    "boards": {
+      "boards": "Boards",
+      "add-board": "Add board",
+      "title": "Title",
+      "description": "Description",
+      "add-token": "Add token",
+      "share-board": "Share board",
+      "open-board": "Open board",
+      "share-token": "Share token"
+    },
+    "calendar": {
+      "calendar": "Calendar",
+      "add-note": "Add note",
+      "hour": "Hour",
+      "note": "Note"
+    },
+    "dashboard": {
+      "dashboard": "Dashboard",
+      "recent-tickets": "Recent tickets",
+      "statistics": "Statistics",
+      "recent-boards": "Recent boards"
+    },
+    "user": {
+      "user": "User",
+      "old-password": "Old password",
+      "new-password": "New password",
+      "repeat-password": "Repeat password",
+      "first-name": "First name",
+      "last-name": "Last name",
+      "theme": "Theme",
+      "language": "Language",
+      "basic-details": "Basic details",
+      "change-password": "Change password"
+    },
+    "logout": "Logout"
+  },
+  "public": {
+    "confirm-account": {
+      "confirm-account": "Confirm account",
+      "confirm": "Confirm"
+    },
+    "login": {
+      "login": "Login",
+      "email": "Email",
+      "password": "Password",
+      "forgot-password-question": "Forgot password?"
+    },
+    "register": {
+      "register": "Register",
+      "email": "Email",
+      "password": "Password",
+      "confirm-password": "Confirm password"
+    },
+    "reset-password": {
+      "reset-password": "Reset password",
+      "email": "Email"
+    },
+    "set-new-password": {
+      "set-new-password": "Set New Password",
+      "old-password": "Old password",
+      "password": "Password"
+    }
+  }
+}

@@ -4,6 +4,7 @@ import { useUserStore } from 'stores';
 import { AntdModal } from 'components';
 import { useGetBoard } from 'views/private/Board/hooks';
 import { useFillForm } from 'hooks';
+import { useTranslation } from 'react-i18next';
 import { useCreateBoard, useEditBoard } from '../../hooks';
 import { BoardFormType, BoardsFormProps } from './BoardsForm.type';
 import { BoardsFormInputs } from './BoardForm.enum';
@@ -16,6 +17,7 @@ export const BoardsForm = ({
 }: BoardsFormProps) => {
   const isEdit = Boolean(id);
   const [form] = useForm();
+  const { t } = useTranslation();
 
   const { data: boardData } = useGetBoard(id as string);
   const { mutateAsync: createBoard } = useCreateBoard();
@@ -39,7 +41,7 @@ export const BoardsForm = ({
       open={isSidebarVisible}
       onClose={onCloseSidebar}
       formId='form'
-      title='Add board'
+      title={t('private.boards.add-board')}
     >
       <Form
         id='form'
@@ -50,17 +52,17 @@ export const BoardsForm = ({
       >
         <Form.Item
           name={BoardsFormInputs.TITLE}
-          label='Title'
+          label={t('private.boards.title')}
           rules={inputsRule[BoardsFormInputs.TITLE]}
         >
-          <Input placeholder='Title' />
+          <Input placeholder={t('private.boards.title')} />
         </Form.Item>
         <Form.Item
           name={BoardsFormInputs.DESCRIPTION}
-          label='Description'
+          label={t('private.boards.description')}
           rules={inputsRule[BoardsFormInputs.DESCRIPTION]}
         >
-          <Input placeholder='Description' />
+          <Input placeholder={t('private.boards.description')} />
         </Form.Item>
       </Form>
     </AntdModal>

@@ -3,6 +3,7 @@ import { Form, Input } from 'antd';
 import { AntdModal } from 'components';
 import { useCustomSearchParams, useFillForm } from 'hooks';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useCreateColumn, useEditColumn, useGetColumn } from '../../hooks';
 import { SearchParams } from '../../Board.type';
 import { AddColumnFormProps, AddColumnFormType } from './AddColumnForm.type';
@@ -13,6 +14,7 @@ export const AddColumnForm = ({
   isSidebarVisible,
   onCloseSidebar
 }: AddColumnFormProps) => {
+  const { t } = useTranslation();
   const { boardId } = useParams<{ boardId: string }>();
   const {
     params: { columnId }
@@ -42,7 +44,7 @@ export const AddColumnForm = ({
       open={isSidebarVisible}
       onClose={onCloseSidebar}
       formId='columnForm'
-      title='Add Column'
+      title={t('private.board.add-column')}
     >
       <Form
         id='columnForm'
@@ -53,10 +55,10 @@ export const AddColumnForm = ({
       >
         <Form.Item
           name={AddColumnFormInputs.TITLE}
-          label='Title'
+          label={t('private.board.title')}
           rules={inputRules[AddColumnFormInputs.TITLE]}
         >
-          <Input placeholder='Title' />
+          <Input placeholder={t('private.board.title')} />
         </Form.Item>
       </Form>
     </AntdModal>

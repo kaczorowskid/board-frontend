@@ -7,6 +7,7 @@ import {
 import { useParams } from 'react-router-dom';
 import { TableOutlined } from '@ant-design/icons';
 import { useCustomSearchParams } from 'hooks';
+import { useTranslation } from 'react-i18next';
 import {
   useColumnItems,
   useGetBoard,
@@ -21,6 +22,7 @@ import { SearchParams } from './Board.type';
 export const Board = () => {
   const { boardId } = useParams<{ boardId: string }>();
 
+  const { t } = useTranslation();
   const { data } = useGetBoard(boardId as string);
   const { mutateAsync: updateBoard } = useUpdateBoard();
   const { mutateAsync: removeColumn } = useRemoveColumn();
@@ -55,8 +57,8 @@ export const Board = () => {
   return (
     <>
       <PageWrapper
-        title='Board'
-        buttonName='Add column'
+        title={t('private.board.board')}
+        buttonName={t('private.board.add-column')}
         icon={<TableOutlined />}
         buttonClick={handleAddColumn}
       >

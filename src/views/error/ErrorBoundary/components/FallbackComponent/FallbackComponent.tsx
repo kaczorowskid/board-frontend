@@ -3,6 +3,7 @@ import { FallbackProps } from 'react-error-boundary';
 import { Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { routesUrls } from 'routes';
+import { useTranslation } from 'react-i18next';
 import {
   ButtonsContainer,
   Container,
@@ -10,11 +11,13 @@ import {
 } from './FallbackComponent.styled';
 
 export const FallbackComponent = ({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   error,
   resetErrorBoundary
 }: FallbackProps): JSX.Element => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
+  const { t } = useTranslation();
 
   const handleResetError = (): void => {
     queryClient.clear();
@@ -28,10 +31,12 @@ export const FallbackComponent = ({
   return (
     <Container>
       <InfoBox>
-        <h2>Something went wrong</h2>
+        <h2>{t('error.something-went-wrong')}</h2>
         <ButtonsContainer>
-          <Button onClick={handleGoToDashboard}>Go to dashboard</Button>
-          <Button onClick={handleResetError}>Reset</Button>
+          <Button onClick={handleGoToDashboard}>
+            {t('error.go-to-dashboard')}
+          </Button>
+          <Button onClick={handleResetError}>{t('error.reset')}</Button>
         </ButtonsContainer>
       </InfoBox>
     </Container>

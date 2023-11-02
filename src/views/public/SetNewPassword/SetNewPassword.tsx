@@ -1,5 +1,6 @@
 import { Form, Button, Input } from 'antd';
 import { useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Container, Title } from '../common';
 import { SetNewPasswordForm } from './SetNewPassword.type';
 import { initValues, inputsRule } from './SewNewPassword.schema';
@@ -9,6 +10,7 @@ import { useSetNewPassword } from './SetNewPassword.hook';
 export const SetNewPassword = () => {
   const [searchParams] = useSearchParams();
   const token = searchParams.get(SearchParams.TOKEN);
+  const { t } = useTranslation();
 
   const [form] = Form.useForm<SetNewPasswordForm>();
   const { mutate: setNewPassword } = useSetNewPassword();
@@ -19,7 +21,7 @@ export const SetNewPassword = () => {
 
   return (
     <Container>
-      <Title>Set New Password</Title>
+      <Title>{t('public.set-new-password.set-new-password')}</Title>
       <Form
         layout='vertical'
         form={form}
@@ -32,7 +34,7 @@ export const SetNewPassword = () => {
         >
           <Input.Password
             name={SetNewPasswordFormInputs.OLD_PASSWORD}
-            placeholder='old password'
+            placeholder={t('public.set-new-password.old-password')}
           />
         </Form.Item>
         <Form.Item
@@ -41,11 +43,11 @@ export const SetNewPassword = () => {
         >
           <Input.Password
             name={SetNewPasswordFormInputs.PASSWORD}
-            placeholder='password'
+            placeholder={t('public.set-new-password.password')}
           />
         </Form.Item>
         <Button htmlType='submit' block type='primary'>
-          Set New Password
+          {t('public.set-new-password.set-new-password')}
         </Button>
       </Form>
     </Container>

@@ -7,6 +7,8 @@ import { GetBoardsWithPaginationResponse } from 'contracts';
 import { AntdDropdown } from 'components';
 import { useUserStore } from 'stores';
 import { UseColumn } from 'types';
+import { useTranslation } from 'react-i18next';
+import { i18n } from 'utils';
 
 const { confirm } = Modal;
 
@@ -20,16 +22,16 @@ const items = (
 ): MenuProps['items'] => [
   {
     key: 'edit',
-    label: 'Edit',
+    label: i18n.t('common.edit'),
     onClick: () => onEdit(record.id)
   },
   {
     key: 'delete',
-    label: 'Delete',
+    label: i18n.t('common.delete'),
     disabled: record.owner_id !== userId,
     onClick: () => {
       confirm({
-        title: 'Do you Want to delete this item?',
+        title: i18n.t('common.do-you-want-to-delete'),
         icon: <ExclamationCircleFilled />,
         onOk: () => {
           onDelete({ id: record.id });
@@ -39,16 +41,15 @@ const items = (
   },
   {
     key: 'open',
-    label: 'Open board',
+    label: i18n.t('private.boards.open-board'),
     onClick: () => onOpenBoard(record.id)
   },
   {
     key: 'generate',
-    label: 'Share board',
+    label: i18n.t('private.boards.share-board'),
     onClick: () => shareBoard?.(record.id)
   }
 ];
-
 export const useColumns = (
   onEdit: UseColumn['onEdit'],
   onDelete: UseColumn['onDelete'],
@@ -56,6 +57,7 @@ export const useColumns = (
   shareBoard?: (id: string) => void
 ): TableColumnsType<GetBoardsWithPaginationResponse['rows'][0]> => {
   const { id } = useUserStore();
+  const { t } = useTranslation();
 
   return [
     {
@@ -73,13 +75,13 @@ export const useColumns = (
       )
     },
     {
-      title: 'Title',
+      title: t('private.boards.title'),
       dataIndex: 'title',
       key: 'title',
       width: '50%'
     },
     {
-      title: 'Description',
+      title: t('private.boards.description'),
       dataIndex: 'description',
       key: 'description',
       width: '50%'
