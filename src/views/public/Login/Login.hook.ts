@@ -1,10 +1,11 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
 import { loginUser } from 'api';
-import { MessageType, antdMessage } from 'components';
 import { useNavigate } from 'react-router-dom';
 import { useUserStore } from 'stores';
 import { routesUrls } from 'routes';
 import { LoginUserRequest, LoginUserResponse } from 'contracts';
+import { message } from 'antd';
+import { i18n } from 'utils';
 
 export const useLogin = (): UseMutationResult<
   LoginUserResponse,
@@ -30,17 +31,11 @@ export const useLogin = (): UseMutationResult<
         isActive,
         isLoggedIn: true
       });
-      antdMessage({
-        type: MessageType.SUCCESS,
-        content: 'User has been logged'
-      });
+      message.success(i18n.t('public.login.user-has-been-logged'));
       navigate(routesUrls.app.dashboard);
     },
     onError: () => {
-      antdMessage({
-        type: MessageType.ERROR,
-        content: 'nie pojedziesz tom windom'
-      });
+      message.error(i18n.t('public.login.user-has-not-been-logged'));
     }
   });
 };

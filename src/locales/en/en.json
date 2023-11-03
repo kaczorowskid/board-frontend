@@ -1,4 +1,18 @@
 {
+  "messages": {
+    "success": {
+      "add": "added successfully",
+      "edit": "edited successfully",
+      "delete": "deleted successfully",
+      "update": "updated successfully"
+    },
+    "error": {
+      "add": "added unsuccessfully",
+      "edit": "edited unsuccessfully",
+      "delete": "deleted unsuccessfully",
+      "update": "updated unsuccessfully"
+    }
+  },
   "common": {
     "submit": "Submit",
     "search": "Search",
@@ -21,7 +35,10 @@
       "description": "Description",
       "priority": "Priority",
       "create-branch": "Create branch",
-      "comments": "Comments"
+      "comments": "Comments",
+      "comment": "Comment",
+      "column": "Column",
+      "ticket": "Ticket"
     },
     "boards": {
       "boards": "Boards",
@@ -55,35 +72,46 @@
       "theme": "Theme",
       "language": "Language",
       "basic-details": "Basic details",
-      "change-password": "Change password"
+      "change-password": "Change password",
+      "password": "Password"
     },
     "logout": "Logout"
   },
   "public": {
     "confirm-account": {
       "confirm-account": "Confirm account",
-      "confirm": "Confirm"
+      "confirm": "Confirm",
+      "account-has-been-confirmed": "Account has been confirmed",
+      "account-has-not-been-confirmed": "Account has not been confirmed"
     },
     "login": {
       "login": "Login",
       "email": "Email",
       "password": "Password",
-      "forgot-password-question": "Forgot password?"
+      "forgot-password-question": "Forgot password?",
+      "user-has-been-logged": "User has been logged",
+      "user-has-not-been-logged": "User has not been logged"
     },
     "register": {
       "register": "Register",
       "email": "Email",
       "password": "Password",
-      "confirm-password": "Confirm password"
+      "confirm-password": "Confirm password",
+      "user-has-been-registered": "User has been registered",
+      "user-has-not-been-registered": "User has not been registered"
     },
     "reset-password": {
       "reset-password": "Reset password",
-      "email": "Email"
+      "email": "Email",
+      "password-has-been-reset": "Password has been reset",
+      "password-has-not-been-reset": "Password has not been reset"
     },
     "set-new-password": {
       "set-new-password": "Set New Password",
       "old-password": "Old password",
-      "password": "Password"
+      "password": "Password",
+      "new-password-has-been-set": "New password has been set",
+      "new-password-has-not-been-set": "New password has not been set"
     }
   }
 }

@@ -1,10 +1,11 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
+import { message } from 'antd';
 import { setNewPasswordUser } from 'api';
-import { MessageType, antdMessage } from 'components';
 import {
   SetNewPasswordUserRequest,
   SetNewPasswordUserResponse
 } from 'contracts';
+import { i18n } from 'utils';
 
 export const useSetNewPassword = (): UseMutationResult<
   SetNewPasswordUserResponse,
@@ -13,12 +14,13 @@ export const useSetNewPassword = (): UseMutationResult<
 > =>
   useMutation(setNewPasswordUser, {
     onSuccess: () => {
-      antdMessage({ type: MessageType.SUCCESS, content: 'New password set' });
+      message.success(
+        i18n.t('public.set-new-password.new-password-has-been-set')
+      );
     },
     onError: () => {
-      antdMessage({
-        type: MessageType.ERROR,
-        content: 'nie pojedziesz tom windom'
-      });
+      message.error(
+        i18n.t('public.set-new-password.new-password-has-not-been-set')
+      );
     }
   });

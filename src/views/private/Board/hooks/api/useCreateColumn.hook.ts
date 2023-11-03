@@ -1,7 +1,13 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
 import { createColumn } from 'api';
 import { QueryKeys } from 'enums';
-import { queryClient } from 'utils';
+import {
+  Operation,
+  errorMessagge,
+  i18n,
+  queryClient,
+  successMessagge
+} from 'utils';
 import { CreateColumnRequest, CreateColumnResponse } from 'contracts';
 
 export const useCreateColumn = (): UseMutationResult<
@@ -11,6 +17,10 @@ export const useCreateColumn = (): UseMutationResult<
 > =>
   useMutation(createColumn, {
     onSuccess: async () => {
+      successMessagge(i18n.t('private.board.column'), Operation.ADD);
       await queryClient.invalidateQueries([QueryKeys.GET_BOARD]);
+    },
+    onError: () => {
+      errorMessagge(i18n.t('private.board.column'), Operation.ADD);
     }
   });

@@ -1,7 +1,13 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
 import { removeColumn } from 'api';
 import { QueryKeys } from 'enums';
-import { queryClient } from 'utils';
+import {
+  Operation,
+  errorMessagge,
+  i18n,
+  queryClient,
+  successMessagge
+} from 'utils';
 import { RemoveColumnRequest, RemoveColumnResponse } from 'contracts';
 
 export const useRemoveColumn = (): UseMutationResult<
@@ -11,6 +17,10 @@ export const useRemoveColumn = (): UseMutationResult<
 > =>
   useMutation(removeColumn, {
     onSuccess: async () => {
+      successMessagge(i18n.t('private.board.column'), Operation.DELETE);
       await queryClient.invalidateQueries([QueryKeys.GET_BOARD]);
+    },
+    onError: () => {
+      errorMessagge(i18n.t('private.board.column'), Operation.DELETE);
     }
   });

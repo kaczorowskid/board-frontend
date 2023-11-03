@@ -1,7 +1,13 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
 import { removeBoard } from 'api';
 import { QueryKeys } from 'enums';
-import { queryClient } from 'utils';
+import {
+  Operation,
+  errorMessagge,
+  i18n,
+  queryClient,
+  successMessagge
+} from 'utils';
 import { RemoveBoardRequest, RemoveBoardResponse } from 'contracts';
 
 export const useRemoveBoard = (): UseMutationResult<
@@ -11,8 +17,12 @@ export const useRemoveBoard = (): UseMutationResult<
 > =>
   useMutation(removeBoard, {
     onSuccess: async () => {
+      successMessagge(i18n.t('private.boards.boards'), Operation.DELETE);
       await queryClient.invalidateQueries([
         QueryKeys.GET_TABLES_WITH_PAGINATION
       ]);
+    },
+    onError: () => {
+      errorMessagge(i18n.t('private.boards.boards'), Operation.DELETE);
     }
   });
