@@ -1,4 +1,18 @@
 {
+  "messages": {
+    "success": {
+      "add": "dodano pomyślnie",
+      "edit": "zedytowano pomyślnie",
+      "delete": "usunięto pomyślnie",
+      "update": "zaktualizowano pomyślnie"
+    },
+    "error": {
+      "add": "dodano niepomyślnie",
+      "edit": "zedytowano niepomyślnie",
+      "delete": "usunięto niepomyślnie",
+      "update": "zaktualizowano niepomyślnie"
+    }
+  },
   "common": {
     "submit": "Wyślij",
     "search": "Wyszukaj",
@@ -21,7 +35,10 @@
       "description": "Opis",
       "priority": "Priorytet",
       "create-branch": "Stwórz gałąź",
-      "comments": "Komentarze"
+      "comments": "Komentarze",
+      "comment": "Komentarz",
+      "column": "Kolumna",
+      "ticket": "Zadanie"
     },
      "boards": {
       "boards": "Tablice",
@@ -55,35 +72,46 @@
       "theme": "Motyw",
       "language": "Język",
       "basic-details": "Podstawowe informacje",
-      "change-password": "Zmień hasło"
+      "change-password": "Zmień hasło",
+      "password": "Hasło"
     },
     "logout": "Wyloguj"
   },
   "public": {
     "confirm-account": {
       "confirm-account": "Potwierdź konto",
-      "confirm": "Potwierdź"
+      "confirm": "Potwierdź",
+      "account-has-been-confirmed": "Konto zostało potwierdzone",
+      "account-has-not-been-confirmed": "Konto nie zostało potwierdzone"
     },
     "login": {
       "login": "Login",
       "email": "Email",
       "password": "Hasło",
-      "forgot-password-question": "Zapomniałeś hasła?"
+      "forgot-password-question": "Zapomniałeś hasła?",
+      "user-has-been-logged": "Użytkownik został zalogowany",
+      "user-has-not-been-logged": "Użytkownik nie został zalogowany"
     },
     "register": {
       "register": "Zarejestruj",
       "email": "Email",
       "password": "Password",
-      "confirm-password": "Powtórz hasło"
+      "confirm-password": "Powtórz hasło",
+      "user-has-been-registered": "Użytkownik został zarejestrowany",
+      "user-has-not-been-registered": "Użytkownik nie został zarejestrowany"
     },
     "reset-password": {
       "reset-password": "Zresetuj hasło",
-      "email": "Email"
+      "email": "Email",
+      "password-has-been-reset": "Hasło zostało zresetowane",
+      "password-has-not-been-reset": "Hasło nie zostało zresetowane"
     },
     "set-new-password": {
       "set-new-password": "Ustaw nowe hasło",
       "old-password": "Stare hasło",
-      "password": "Hasło"
+      "password": "Hasło",
+      "new-password-has-been-set": "Nowe hasło zostało ustawione",
+      "new-password-has-not-been-set": "Nowe hasło nie zostało ustawione"
     }
   }
 }

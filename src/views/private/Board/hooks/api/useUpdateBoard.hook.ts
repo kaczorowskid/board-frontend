@@ -1,7 +1,7 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
 import { updateBoard } from 'api';
-import { MessageType, antdMessage } from 'components';
 import { UpdateBoardRequest, UpdateBoardResponse } from 'contracts';
+import { Operation, errorMessagge, i18n, successMessagge } from 'utils';
 
 export const useUpdateBoard = (): UseMutationResult<
   UpdateBoardResponse,
@@ -9,16 +9,10 @@ export const useUpdateBoard = (): UseMutationResult<
   UpdateBoardRequest
 > =>
   useMutation(updateBoard, {
-    onSuccess: () => {
-      antdMessage({
-        type: MessageType.SUCCESS,
-        content: 'User has been logged'
-      });
+    onSuccess: async () => {
+      successMessagge(i18n.t('private.board.board'), Operation.UPDATE);
     },
     onError: () => {
-      antdMessage({
-        type: MessageType.ERROR,
-        content: 'nie pojedziesz tom windom'
-      });
+      errorMessagge(i18n.t('private.board.board'), Operation.UPDATE);
     }
   });

@@ -1,7 +1,8 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
+import { message } from 'antd';
 import { registerUser } from 'api';
-import { MessageType, antdMessage } from 'components';
 import { RegisterUserRequest, RegisterUserResponse } from 'contracts';
+import { i18n } from 'utils';
 
 export const useRegister = (): UseMutationResult<
   RegisterUserResponse,
@@ -10,15 +11,9 @@ export const useRegister = (): UseMutationResult<
 > =>
   useMutation(registerUser, {
     onSuccess: () => {
-      antdMessage({
-        type: MessageType.SUCCESS,
-        content: 'User has been registered'
-      });
+      message.success(i18n.t('public.register.user-has-been-registered'));
     },
     onError: () => {
-      antdMessage({
-        type: MessageType.ERROR,
-        content: 'nie pojedziesz tom windom'
-      });
+      message.error(i18n.t('public.register.user-has-not-been-registered'));
     }
   });

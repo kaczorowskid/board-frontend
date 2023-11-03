@@ -1,10 +1,11 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
+import { message } from 'antd';
 import { confirmAccountUser } from 'api';
-import { MessageType, antdMessage } from 'components';
 import {
   ConfirmAccountUserRequest,
   ConfirmAccountUserResponse
 } from 'contracts';
+import { i18n } from 'utils';
 
 export const useConfirmAccount = (): UseMutationResult<
   ConfirmAccountUserResponse,
@@ -13,15 +14,13 @@ export const useConfirmAccount = (): UseMutationResult<
 > =>
   useMutation(confirmAccountUser, {
     onSuccess: () => {
-      antdMessage({
-        type: MessageType.SUCCESS,
-        content: 'User has been logged'
-      });
+      message.success(
+        i18n.t('public.confirm-account.account-has-been-confirmed')
+      );
     },
     onError: () => {
-      antdMessage({
-        type: MessageType.ERROR,
-        content: 'nie pojedziesz tom windom'
-      });
+      message.error(
+        i18n.t('public.confirm-account.account-has-not-been-confirmed')
+      );
     }
   });
