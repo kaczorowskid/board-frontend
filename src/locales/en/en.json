@@ -38,7 +38,9 @@
       "comments": "Comments",
       "comment": "Comment",
       "column": "Column",
-      "ticket": "Ticket"
+      "ticket": "Ticket",
+      "search-by-title": "Search by title",
+      "search-by-prio": "Search by priority"
     },
     "boards": {
       "boards": "Boards",

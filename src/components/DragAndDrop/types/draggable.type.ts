@@ -1,3 +1,5 @@
+export type Prio = 'low' | 'medium' | 'high';
+
 export interface Comment {
   id: string;
   text: string;
@@ -11,7 +13,7 @@ export interface Ticket {
   id: string;
   title: string;
   description: string;
-  prio: 'high' | 'medium' | 'low';
+  prio: Prio;
   order: number;
   column_id: string;
   user_id: string;

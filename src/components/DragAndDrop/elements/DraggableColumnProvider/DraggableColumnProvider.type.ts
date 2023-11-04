@@ -7,4 +7,5 @@ export interface DraggableColumnProps {
   boardId: string;
   children: (tickets: Ticket[]) => ReactNode;
   columnDropdownItems: (id: string) => MenuProps['items'];
+  openFilter: () => void;
 }

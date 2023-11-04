@@ -2,6 +2,7 @@ import { Button, Drawer, Space } from 'antd';
 import { AntdDrawerProps } from './AntdDrawer.types';
 
 export const AntdDrawer = ({
+  hideSubmit,
   onClose,
   onSumbit,
   formId,
@@ -11,9 +12,11 @@ export const AntdDrawer = ({
   const extra = (
     <Space>
       <Button onClick={onClose}>Cancel</Button>
-      <Button onClick={onSumbit} form={formId} key='sumbit' htmlType='submit'>
-        Submit
-      </Button>
+      {!hideSubmit ? (
+        <Button onClick={onSumbit} form={formId} key='sumbit' htmlType='submit'>
+          Submit
+        </Button>
+      ) : null}
     </Space>
   );
 
