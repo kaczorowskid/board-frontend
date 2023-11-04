@@ -1,15 +1,23 @@
 import { Droppable } from 'react-beautiful-dnd';
 import { AntdDropdown } from 'components/antd';
-import { EditOutlined } from '@ant-design/icons';
-import { ColumnInfo, DroppableColumn } from './DraggableColumnProvider.styled';
+import { EditOutlined, FunnelPlotOutlined } from '@ant-design/icons';
+import {
+  ColumnInfo,
+  DroppableColumn,
+  FilterComponent
+} from './DraggableColumnProvider.styled';
 import { DraggableColumnProps } from './DraggableColumnProvider.type';
 
 export const DraggableColumnProvider = ({
   columnsData,
   children,
-  columnDropdownItems
+  columnDropdownItems,
+  openFilter
 }: DraggableColumnProps) => (
   <>
+    <FilterComponent onClick={openFilter}>
+      <FunnelPlotOutlined />
+    </FilterComponent>
     {columnsData.map(({ tickets, title, id }) => (
       <Droppable key={id} droppableId={id}>
         {(provided, snapshot) => (

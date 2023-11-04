@@ -6,54 +6,26 @@ import {
   DraggableItem,
   DraggableItemProvider
 } from './elements';
-import { Column } from './types';
+import { reorder } from './utils';
+import { useFilter } from './hooks';
 
 export const DragAndDrop = ({
   dataSource,
   onDragEnd,
   openItem,
+  filterPrios,
+  filterValue,
+  openFilter,
   ticketDropdownItems,
   columnDropdownItems
 }: DragAndDropProps) => {
   const boardId = dataSource.id;
+  const { columns } = dataSource;
 
-  const reorder = (list: Column[], result: DropResult) => {
-    const { source, destination } = result;
-    const resultList = [...list];
-
-    const getColumnIndex = (columnId: string) =>
-      resultList.findIndex((column) => column.id === columnId);
-
-    if (!source || !destination) {
-      return { list, mappedResult: resultList };
-    }
-
-    const { index: sourceIndex, droppableId: sourceDroppableId } = source;
-    const { index: destIndex, droppableId: destDroppableId } = destination;
-
-    const sourceColumnIndex = getColumnIndex(sourceDroppableId);
-    const destColumnIndex = getColumnIndex(destDroppableId);
-
-    resultList[destColumnIndex].tickets.splice(
-      destIndex,
-      0,
-      ...resultList[sourceColumnIndex].tickets.splice(sourceIndex, 1)
-    );
-
-    const mappedResult = resultList.map((column) => ({
-      ...column,
-      tickets: column.tickets.map((ticket, index) => ({
-        ...ticket,
-        order: index + 1,
-        column_id: column.id
-      }))
-    }));
-
-    return { list, mappedResult };
-  };
+  const filteredColumns = useFilter(columns, filterValue, filterPrios);
 
   const handleOnDragEnd = (result: DropResult) => {
-    const { mappedResult } = reorder(dataSource.columns, result);
+    const { mappedResult } = reorder(columns, result);
 
     onDragEnd(mappedResult);
   };
@@ -63,8 +35,9 @@ export const DragAndDrop = ({
       <DragDropContainer>
         <DraggableColumnProvider
           columnDropdownItems={columnDropdownItems}
-          columnsData={dataSource.columns || []}
+          columnsData={filteredColumns || []}
           boardId={boardId}
+          openFilter={openFilter}
         >
           {(columnItems) => (
             <DraggableItemProvider columnItems={columnItems}>

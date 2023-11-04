@@ -35,42 +35,40 @@ export const Dashboard = () => {
   );
 
   return (
-    <>
-      <PageWrapper
-        title={t('private.dashboard.dashboard')}
-        icon={<AppstoreOutlined />}
-      >
-        <ItemsContainer>
-          <DashboardItem
-            title={t('private.dashboard.recent-tickets')}
-            gridArea='recent-tickets'
-            component={<RecentTickets data={recentTickets?.data} />}
-          />
-          <DashboardItem
-            title={t('private.dashboard.statistics')}
-            gridArea='statisctic'
-            component={<Statistics option={option} />}
-          />
-          <DashboardItem
-            title={t('private.dashboard.recent-boards')}
-            gridArea='recent-boards'
-            component={<RecentBoards data={recentBoards?.data} />}
-          />
-          <DashboardItem
-            gridArea='calendar-info'
-            component={<CalendarInfo data={notesData} />}
-          />
-          <DashboardItem
-            gridArea='calendar'
-            component={
-              <Calendar
-                data={calendar as any}
-                setSelectedDate={setSelectedDate}
-              />
-            }
-          />
-        </ItemsContainer>
-      </PageWrapper>
-    </>
+    <PageWrapper
+      title={t('private.dashboard.dashboard')}
+      icon={<AppstoreOutlined />}
+    >
+      <ItemsContainer>
+        <DashboardItem
+          title={t('private.dashboard.recent-tickets')}
+          gridArea='recent-tickets'
+          component={<RecentTickets data={recentTickets?.data} />}
+        />
+        <DashboardItem
+          title={t('private.dashboard.statistics')}
+          gridArea='statisctic'
+          component={<Statistics option={option} />}
+        />
+        <DashboardItem
+          title={t('private.dashboard.recent-boards')}
+          gridArea='recent-boards'
+          component={<RecentBoards data={recentBoards?.data} />}
+        />
+        <DashboardItem
+          gridArea='calendar-info'
+          component={<CalendarInfo data={notesData} />}
+        />
+        <DashboardItem
+          gridArea='calendar'
+          component={
+            <Calendar
+              data={calendar as any}
+              setSelectedDate={setSelectedDate}
+            />
+          }
+        />
+      </ItemsContainer>
+    </PageWrapper>
   );
 };
