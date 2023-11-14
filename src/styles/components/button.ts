@@ -7,14 +7,15 @@ export const button = css`
   }
 
   .ant-btn-primary {
-    background-color: ${({ theme }) => theme.colors.background.blueberry};
+    background-color: ${({ theme }) =>
+      theme.components.common.button.background.primary};
 
     span {
-      color: ${({ theme }) => theme.colors.white};
+      color: ${({ theme }) => theme.components.common.button.font};
     }
   }
 
   .ant-btn-primary:not(:disabled):hover {
-    background: ${({ theme }) => theme.colors.buttonPrimaryHover};
+    background: ${({ theme }) => theme.components.common.button.hover};
   }
 `;

@@ -7,8 +7,8 @@ export const SearchWrapper = styled.div`
   height: 100px;
   padding: 0 20px 0 20px;
   margin-bottom: 30px;
-  color: ${({ theme }) => theme.colors.font.base};
-  background-color: ${({ theme }) => theme.colors.background.tile};
+  color: ${({ theme }) => theme.components.pageWrapper.font};
+  background-color: ${({ theme }) => theme.components.pageWrapper.background};
   border-radius: 30px;
 `;
 

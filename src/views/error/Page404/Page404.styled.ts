@@ -7,5 +7,5 @@ export const Container = styled.div`
   width: 100vw;
   height: 100vh;
   font-size: 48px;
-  color: ${({ theme }) => theme.colors.font.base};
+  color: ${({ theme }) => theme.errors.page404.font};
 `;

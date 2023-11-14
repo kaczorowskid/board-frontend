@@ -7,10 +7,10 @@ export const Container = styled.div`
   min-width: 40px;
   min-height: 40px;
   cursor: pointer;
-  border: 1px solid ${({ theme }) => theme.colors.border.tile};
+  border: 1px solid ${({ theme }) => theme.components.dropdown.border};
   border-radius: 10px;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.hover.base};
+    background-color: ${({ theme }) => theme.components.dropdown.hover};
   }
 `;

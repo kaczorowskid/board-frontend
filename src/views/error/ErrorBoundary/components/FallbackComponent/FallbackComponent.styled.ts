@@ -15,7 +15,7 @@ export const InfoBox = styled.div`
   justify-content: space-around;
   width: 400px;
   height: 300px;
-  border: 2px solid ${({ theme }) => theme.colors.border.boardColumn};
+  border: 2px solid ${({ theme }) => theme.errors.fallbackComponent.border};
   border-radius: 20px;
 `;
 

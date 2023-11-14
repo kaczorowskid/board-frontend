@@ -3,7 +3,7 @@ import { CSSProperties } from 'react';
 
 export const Container = styled.div`
   margin-top: 20px;
-  color: ${({ theme }) => theme.colors.font.menu};
+  color: ${({ theme }) => theme.components.menu.font};
 `;
 
 export const Item = styled.div<{
@@ -18,11 +18,11 @@ export const Item = styled.div<{
   color: ${({ color }) => color};
   cursor: pointer;
   background-color: ${({ isClicked, theme }) =>
-    isClicked && theme.colors.background.menuItem};
+    isClicked && theme.components.menu.menuItem.active};
   border-radius: 10px;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.background.menuItem};
+    background-color: ${({ theme }) => theme.components.menu.menuItem.hover};
     transition: 0.5s all;
   }
 `;

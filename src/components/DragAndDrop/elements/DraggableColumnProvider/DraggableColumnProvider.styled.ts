@@ -3,9 +3,12 @@ import styled from 'styled-components';
 export const DroppableColumn = styled.div<{ isDraggingOver: boolean }>`
   width: 350px;
   padding: 20px 10px;
-  background-color: ${({ theme }) => theme.colors.background.tile};
+  background-color: ${({ theme }) =>
+    theme.components.dragAndDrop.items.background};
   border: ${({ isDraggingOver, theme }) =>
-    isDraggingOver ? `5px dotted ${theme.colors.border.boardColumn}` : ''};
+    isDraggingOver
+      ? `5px dotted ${theme.components.dragAndDrop.items.border}`
+      : ''};
   border-radius: 10px;
 `;
 
@@ -16,9 +19,10 @@ export const ColumnInfo = styled.div`
   height: 60px;
   padding: 0px 10px;
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.font.base};
-  background-color: ${({ theme }) => theme.colors.background.tile};
-  border: 2px solid ${({ theme }) => theme.colors.border.boardColumn};
+  color: ${({ theme }) => theme.components.dragAndDrop.items.font};
+  background-color: ${({ theme }) =>
+    theme.components.dragAndDrop.items.background};
+  border: 2px solid ${({ theme }) => theme.components.dragAndDrop.items.border};
   border-radius: 10px;
 `;
 
@@ -30,8 +34,9 @@ export const FilterComponent = styled.div`
   margin-top: 20px;
   padding: 0px 10px;
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.font.base};
-  background-color: ${({ theme }) => theme.colors.background.tile};
-  border: 2px solid ${({ theme }) => theme.colors.border.boardColumn};
+  color: ${({ theme }) => theme.components.dragAndDrop.items.font};
+  background-color: ${({ theme }) =>
+    theme.components.dragAndDrop.items.background};
+  border: 2px solid ${({ theme }) => theme.components.dragAndDrop.items.border};
   border-radius: 10px;
 `;

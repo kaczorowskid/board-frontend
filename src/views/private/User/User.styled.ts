@@ -5,7 +5,7 @@ export const InfoContainer = styled.div`
   width: 40%;
   font-size: 20px;
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.font.base};
+  color: ${({ theme }) => theme.views.user.font};
 `;
 
 export const FormContainer = styled.div`

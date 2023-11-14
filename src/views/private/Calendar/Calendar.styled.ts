@@ -5,5 +5,5 @@ export const SignCell = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  border: 3px solid ${({ theme }) => theme.colors.background.blueberry};
+  border: 3px solid ${({ theme }) => theme.views.calendar.border};
 `;

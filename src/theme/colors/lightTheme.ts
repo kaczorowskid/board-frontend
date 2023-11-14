@@ -4,6 +4,13 @@ export const lightTheme = {
   layout: {
     app: {
       background: colors.ghostWhite
+    },
+    auth: {
+      background: {
+        base: colors.white,
+        primary: colors.white,
+        secondary: colors.blueberry
+      }
     }
   },
   errors: {
@@ -12,6 +19,32 @@ export const lightTheme = {
     },
     page404: {
       font: colors.black
+    }
+  },
+  views: {
+    board: {
+      commentsForm: {
+        background: colors.antiFlashWhite100,
+        border: colors.cultured
+      }
+    },
+    calendar: {
+      border: colors.blueberry
+    },
+    dashboard: {
+      calendar: {
+        border: colors.blueberry
+      },
+      dashboardItem: {
+        background: colors.white,
+        font: colors.black
+      }
+    },
+    user: {
+      font: colors.black
+    },
+    common: {
+      font: colors.blueberry
     }
   },
   components: {

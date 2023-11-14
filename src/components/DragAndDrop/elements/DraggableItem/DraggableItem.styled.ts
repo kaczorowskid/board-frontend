@@ -3,15 +3,16 @@ import styled from 'styled-components';
 export const Container = styled.div`
   padding: 10px 15px;
   margin-top: 10px;
-  background-color: ${({ theme }) => theme.colors.background.tile};
-  border: 2px solid ${({ theme }) => theme.colors.border.boardColumn};
+  background-color: ${({ theme }) =>
+    theme.components.dragAndDrop.items.background};
+  border: 2px solid ${({ theme }) => theme.components.dragAndDrop.items.border};
   border-radius: 10px;
 `;
 
 export const Title = styled.div`
   font-size: 18px;
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.font.base};
+  color: ${({ theme }) => theme.components.dragAndDrop.items.font};
 `;
 
 export const TitleContainer = styled.div`
@@ -19,7 +20,7 @@ export const TitleContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 16px;
-  color: ${({ theme }) => theme.colors.font.base};
+  color: ${({ theme }) => theme.components.dragAndDrop.items.font};
 `;
 
 export const DatePrioContainer = styled.div`

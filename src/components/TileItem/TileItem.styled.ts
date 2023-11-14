@@ -11,7 +11,7 @@ export const Header = styled.div`
 export const TileContainer = styled.div`
   padding: 40px 30px 40px 30px;
   margin-bottom: 30px;
-  background-color: ${({ theme }) => theme.colors.background.tile};
+  background-color: ${({ theme }) => theme.components.tileItem.background};
   border-radius: 30px;
 `;
 

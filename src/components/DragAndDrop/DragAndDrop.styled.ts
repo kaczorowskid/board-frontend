@@ -6,7 +6,7 @@ export const DragDropContainer = styled.div`
   min-height: calc(100vh - 200px);
   padding: 30px;
 
-  background-color: ${({ theme }) => theme.colors.background.tile};
+  background-color: ${({ theme }) => theme.components.dragAndDrop.background};
 
   border-radius: 30px;
 `;

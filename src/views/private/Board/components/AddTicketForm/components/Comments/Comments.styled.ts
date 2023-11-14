@@ -39,7 +39,7 @@ export const CommentContainer = styled.div`
   justify-content: space-between;
   max-width: 100%;
   padding-left: 10px;
-  border: 2px solid ${({ theme }) => theme.colors.border.boardColumn};
+  border: 2px solid ${({ theme }) => theme.views.board.commentsForm.border};
   border-radius: 10px;
 `;
 

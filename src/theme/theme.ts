@@ -1,11 +1,12 @@
 import { ThemeOptions } from 'types';
-import { dark, light } from './colors';
+import { dark, light, lightTheme } from './colors';
 
 export const theme = (themeOptions: ThemeOptions) => ({
   colors: {
     white: '#fff',
     buttonPrimaryHover: '#4062e3',
-    ...(themeOptions === 'dark' ? dark : light)
+    ...lightTheme
+    // ...(themeOptions === 'dark' ? dark : light)
   },
   gapp: {
     smaller: '8px',
