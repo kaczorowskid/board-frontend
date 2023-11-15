@@ -1,12 +1,13 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
-  display: flex;
-  align-items: center;
-  min-width: 100%;
-  min-height: 50px;
-  padding-left: 12px;
-
-  border: 2px solid gray;
-  border-radius: 10px;
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    min-width: 100%;
+    min-height: 50px;
+    padding-left: ${theme.spacing.smaller};
+    border: 2px solid gray;
+    border-radius: ${theme.borderRadius.smaller};
+  `}
 `;

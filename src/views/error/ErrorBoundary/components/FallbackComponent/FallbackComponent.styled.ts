@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -9,14 +9,16 @@ export const Container = styled.div`
 `;
 
 export const InfoBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  width: 400px;
-  height: 300px;
-  border: 2px solid ${({ theme }) => theme.errors.fallbackComponent.border};
-  border-radius: 20px;
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 400px;
+    height: 300px;
+    border: 2px solid ${theme.errors.fallbackComponent.border};
+    border-radius: ${theme.borderRadius.normal};
+  `}
 `;
 
 export const ButtonsContainer = styled.div`

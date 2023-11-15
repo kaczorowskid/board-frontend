@@ -1,10 +1,12 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const ItemsContainer = styled.div`
-  padding-top: 8px;
+  padding-top: ${({ theme }) => theme.spacing.mini};
 `;
 
 export const CommentsContainer = styled.div`
-  padding: 25px 15px;
-  background-color: ${({ theme }) => theme.views.board.commentsForm.background};
+  ${({ theme }) => css`
+    padding: ${theme.spacing.normal} ${theme.spacing.small};
+    background-color: ${theme.views.board.commentsForm.background};
+  `}
 `;

@@ -1,15 +1,17 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const SearchWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100px;
-  padding: 0 20px 0 20px;
-  margin-bottom: 30px;
-  color: ${({ theme }) => theme.components.pageWrapper.font};
-  background-color: ${({ theme }) => theme.components.pageWrapper.background};
-  border-radius: 30px;
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    padding: 0 ${theme.spacing.semiNormal} 0 ${theme.spacing.semiNormal};
+    margin-bottom: ${theme.spacing.semiLarge};
+    color: ${theme.components.pageWrapper.font};
+    background-color: ${theme.components.pageWrapper.background};
+    border-radius: ${theme.borderRadius.large};
+  `}
 `;
 
 export const TitleContainer = styled.div`
@@ -28,6 +30,8 @@ export const IconWrapper = styled.div`
 `;
 
 export const Title = styled.h1`
-  margin-right: 40px;
-  margin-left: 20px;
+  ${({ theme }) => css`
+    margin-right: ${theme.spacing.large};
+    margin-left: ${theme.spacing.semiNormal};
+  `}
 `;

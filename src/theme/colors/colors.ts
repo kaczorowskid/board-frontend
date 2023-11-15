@@ -17,4 +17,4 @@ export const colors = {
   yankeesBlue: '#182545',
   antiFlashWhite100: '#f0f0f0',
   royalBlue: '#4062e3'
-};
+} as const;

@@ -1,42 +1,44 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const DroppableColumn = styled.div<{ isDraggingOver: boolean }>`
-  width: 350px;
-  padding: 20px 10px;
-  background-color: ${({ theme }) =>
-    theme.components.dragAndDrop.items.background};
-  border: ${({ isDraggingOver, theme }) =>
-    isDraggingOver
+  ${({ isDraggingOver, theme }) => css`
+    width: 350px;
+    padding: ${theme.spacing.semiNormal} ${theme.spacing.smallest};
+    background-color: ${theme.components.dragAndDrop.items.background};
+    border: ${isDraggingOver
       ? `5px dotted ${theme.components.dragAndDrop.items.border}`
       : ''};
-  border-radius: 10px;
+    border-radius: ${theme.borderRadius.smaller};
+  `}
 `;
 
 export const ColumnInfo = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 60px;
-  padding: 0px 10px;
-  font-weight: bold;
-  color: ${({ theme }) => theme.components.dragAndDrop.items.font};
-  background-color: ${({ theme }) =>
-    theme.components.dragAndDrop.items.background};
-  border: 2px solid ${({ theme }) => theme.components.dragAndDrop.items.border};
-  border-radius: 10px;
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding: 0px ${theme.spacing.smallest};
+    font-weight: bold;
+    color: ${theme.components.dragAndDrop.items.font};
+    background-color: ${theme.components.dragAndDrop.items.background};
+    border: 2px solid ${theme.components.dragAndDrop.items.border};
+    border-radius: ${theme.borderRadius.smaller};
+  `}
 `;
 
 export const FilterComponent = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 60px;
-  margin-top: 20px;
-  padding: 0px 10px;
-  font-weight: bold;
-  color: ${({ theme }) => theme.components.dragAndDrop.items.font};
-  background-color: ${({ theme }) =>
-    theme.components.dragAndDrop.items.background};
-  border: 2px solid ${({ theme }) => theme.components.dragAndDrop.items.border};
-  border-radius: 10px;
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    margin-top: ${theme.spacing.semiNormal};
+    padding: 0px ${theme.spacing.smallest};
+    font-weight: bold;
+    color: ${theme.components.dragAndDrop.items.font};
+    background-color: ${theme.components.dragAndDrop.items.background};
+    border: 2px solid ${theme.components.dragAndDrop.items.border};
+    border-radius: ${theme.borderRadius.smaller};
+  `}
 `;

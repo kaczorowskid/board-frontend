@@ -1,18 +1,20 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const DragDropContainer = styled.div`
-  display: flex;
-  gap: 10px;
-  min-height: calc(100vh - 200px);
-  padding: 30px;
-
-  background-color: ${({ theme }) => theme.components.dragAndDrop.background};
-
-  border-radius: 30px;
+  ${({ theme }) => css`
+    display: flex;
+    gap: 10px;
+    min-height: calc(100vh - 200px);
+    padding: ${theme.spacing.semiLarge};
+    background-color: ${theme.components.dragAndDrop.background};
+    border-radius: ${theme.borderRadius.large};
+  `}
 `;
 
 export const DroppableColumn = styled.div<{ isDraggingOver: boolean }>`
-  width: 280px;
-  padding: 20px 10px;
-  border-radius: 10px;
+  ${({ theme }) => css`
+    width: 280px;
+    padding: ${theme.spacing.semiNormal} ${theme.spacing.smallest};
+    border-radius: ${theme.borderRadius.smaller};
+  `}
 `;

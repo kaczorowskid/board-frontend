@@ -1,7 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
-  height: 100%;
-  padding: 20px;
-  background-color: ${({ theme }) => theme.components.menu.background};
+  ${({ theme }) => css`
+    height: 100%;
+    padding: ${theme.spacing.semiNormal};
+    background-color: ${theme.components.menu.background};
+  `}
 `;

@@ -1,9 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div<{ hasGap?: boolean }>`
-  display: flex;
-  gap: ${({ hasGap }) => (hasGap ? '10px' : '')};
-  align-items: center;
-  font-size: 15px;
-  color: ${({ theme }) => theme.components.iconsActivity.font};
+  ${({ hasGap, theme }) => css`
+    display: flex;
+    gap: ${hasGap ? theme.spacing.smallest : ''};
+    align-items: center;
+    font-size: ${theme.fontSize.normal};
+    color: ${theme.components.iconsActivity.font};
+  `}
 `;

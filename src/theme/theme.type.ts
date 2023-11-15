@@ -1,3 +1,5 @@
 import { theme } from './theme';
 
-export type Theme = typeof theme;
+const myTheme = theme('light');
+
+export type Theme = typeof myTheme;

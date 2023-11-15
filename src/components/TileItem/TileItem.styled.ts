@@ -1,18 +1,23 @@
 import { Button } from 'antd';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Header = styled.div`
-  display: flex;
-  gap: 10px;
-  justify-content: flex-end;
-  margin-bottom: 10px;
+  ${({ theme }) => css`
+    display: flex;
+    gap: ${theme.spacing.smallest};
+    justify-content: flex-end;
+    margin-bottom: ${theme.spacing.smallest};
+  `}
 `;
 
 export const TileContainer = styled.div`
-  padding: 40px 30px 40px 30px;
-  margin-bottom: 30px;
-  background-color: ${({ theme }) => theme.components.tileItem.background};
-  border-radius: 30px;
+  ${({ theme: { spacing, components, borderRadius } }) => css`
+    padding: ${spacing.large} ${spacing.semiLarge} ${spacing.large}
+      ${spacing.semiLarge};
+    margin-bottom: ${spacing.semiLarge};
+    background-color: ${components.tileItem.background};
+    border-radius: ${borderRadius.large};
+  `}
 `;
 
 export const Tile = styled.div`
