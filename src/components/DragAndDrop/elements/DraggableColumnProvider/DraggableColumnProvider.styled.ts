@@ -33,8 +33,8 @@ export const FilterComponent = styled.div`
     align-items: center;
     justify-content: space-between;
     height: 60px;
-    margin-top: ${theme.spacing.semiNormal};
     padding: 0px ${theme.spacing.smallest};
+    margin-top: ${theme.spacing.semiNormal};
     font-weight: bold;
     color: ${theme.components.dragAndDrop.items.font};
     background-color: ${theme.components.dragAndDrop.items.background};
