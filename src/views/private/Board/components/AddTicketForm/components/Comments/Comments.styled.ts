@@ -1,10 +1,12 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-top: 20px;
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    gap: ${theme.spacing.semiNormal};
+    margin-top: ${theme.spacing.semiNormal};
+  `}
 `;
 
 export const CommentWrapper = styled.div`
@@ -33,16 +35,18 @@ export const AvatarDateContainer = styled.div`
 `;
 
 export const CommentContainer = styled.div`
-  display: flex;
-  grid-area: comment;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 100%;
-  padding-left: 10px;
-  border: 2px solid ${({ theme }) => theme.colors.border.boardColumn};
-  border-radius: 10px;
+  ${({ theme }) => css`
+    display: flex;
+    grid-area: comment;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%;
+    padding-left: ${theme.spacing.smallest};
+    border: 2px solid ${theme.views.board.commentsForm.border};
+    border-radius: ${theme.borderRadius.smaller};
+  `}
 `;
 
 export const DropdownContainer = styled.div`
-  padding: 0 10px;
+  padding: 0 ${({ theme }) => theme.spacing.smallest};
 `;

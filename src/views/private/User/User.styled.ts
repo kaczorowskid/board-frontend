@@ -1,11 +1,13 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const InfoContainer = styled.div`
-  box-sizing: border-box;
-  width: 40%;
-  font-size: 20px;
-  font-weight: bold;
-  color: ${({ theme }) => theme.colors.font.base};
+  ${({ theme }) => css`
+    box-sizing: border-box;
+    width: 40%;
+    font-size: ${theme.fontSize.large};
+    font-weight: bold;
+    color: ${theme.views.user.font};
+  `}
 `;
 
 export const FormContainer = styled.div`

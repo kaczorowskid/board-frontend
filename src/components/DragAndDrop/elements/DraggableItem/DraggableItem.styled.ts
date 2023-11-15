@@ -1,31 +1,39 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
-  padding: 10px 15px;
-  margin-top: 10px;
-  background-color: ${({ theme }) => theme.colors.background.tile};
-  border: 2px solid ${({ theme }) => theme.colors.border.boardColumn};
-  border-radius: 10px;
+  ${({ theme }) => css`
+    padding: ${theme.spacing.smallest} ${theme.spacing.small};
+    margin-top: ${theme.spacing.smallest};
+    background-color: ${theme.components.dragAndDrop.items.background};
+    border: 2px solid ${theme.components.dragAndDrop.items.border};
+    border-radius: ${theme.borderRadius.smaller};
+  `}
 `;
 
 export const Title = styled.div`
-  font-size: 18px;
-  font-weight: bold;
-  color: ${({ theme }) => theme.colors.font.base};
+  ${({ theme }) => css`
+    font-size: ${theme.fontSize.semiLarge};
+    font-weight: bold;
+    color: ${theme.components.dragAndDrop.items.font};
+  `}
 `;
 
 export const TitleContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-  color: ${({ theme }) => theme.colors.font.base};
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: ${theme.spacing.small};
+    color: ${theme.components.dragAndDrop.items.font};
+  `}
 `;
 
 export const DatePrioContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-  font-size: 12px;
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: ${theme.spacing.small};
+    font-size: ${theme.fontSize.small};
+  `}
 `;

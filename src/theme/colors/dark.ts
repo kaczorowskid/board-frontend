@@ -1,30 +1,101 @@
-export const dark = {
-  font: {
-    base: '#fff',
-    placeholder: '#bfbfbf',
-    menu: '#fff',
-    email: '#a2abb5',
-    blueberry: '#5d7df3'
+import { colors } from './colors';
+import { ColorsSchema } from './colorsSchema.types';
+
+export const dark: ColorsSchema = {
+  layout: {
+    app: {
+      background: colors.eerieBlack
+    },
+    auth: {
+      background: {
+        base: colors.white,
+        primary: colors.white,
+        secondary: colors.blueberry
+      }
+    }
   },
-  border: {
-    tile: '#f2f2f2',
-    boardColumn: '#8e8e8e'
+  errors: {
+    fallbackComponent: {
+      border: colors.cultured
+    },
+    page404: {
+      font: colors.black
+    }
   },
-  background: {
-    base: '#18191a',
-    tile: '#242526',
-    menu: '#242526',
-    comments: '#393939',
-    menuItem: '#425c9d',
-    blueberry: '#5d7df3'
+  views: {
+    board: {
+      commentsForm: {
+        background: colors.antiFlashWhite100,
+        border: colors.cultured
+      }
+    },
+    calendar: {
+      border: colors.blueberry
+    },
+    dashboard: {
+      calendar: {
+        border: colors.blueberry
+      },
+      dashboardItem: {
+        background: colors.raisinBlack,
+        font: colors.white
+      }
+    },
+    user: {
+      font: colors.white
+    },
+    common: {
+      font: colors.blueberry
+    }
   },
-  boardItem: '#d5d5d5',
-  cellSign: '#000',
-  hover: {
-    base: '#404040',
-    boardColumn: '#f7f7f7'
-  },
-  boxShadow: {
-    base: '0px 0px 3px 0px  rgba(255, 255, 255, 1)'
+  components: {
+    common: {
+      button: {
+        background: {
+          primary: colors.blueberry
+        },
+        font: colors.white,
+        hover: colors.royalBlue
+      }
+    },
+    dropdown: {
+      border: colors.antiFlashWhite,
+      hover: colors.black
+    },
+    dragAndDrop: {
+      background: colors.eerieBlack,
+      items: {
+        background: colors.eerieBlack,
+        border: colors.cultured,
+        font: colors.white
+      }
+    },
+    iconsActivity: {
+      font: colors.white
+    },
+    menu: {
+      background: colors.raisinBlack,
+      menuItem: {
+        active: colors.queenBlue,
+        hover: colors.queenBlue
+      },
+      font: colors.white
+    },
+    userInfo: {
+      name: {
+        font: colors.white
+      },
+      email: {
+        font: colors.silver
+      }
+    },
+    pageWrapper: {
+      font: colors.white,
+      background: colors.raisinBlack
+    },
+    tileItem: {
+      background: colors.raisinBlack,
+      font: colors.white
+    }
   }
-};
+} as const;

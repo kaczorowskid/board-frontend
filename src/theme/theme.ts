@@ -1,16 +1,34 @@
 import { ThemeOptions } from 'types';
-import { dark, light } from './colors';
+import { light, dark, colors } from './colors';
 
 export const theme = (themeOptions: ThemeOptions) => ({
-  colors: {
-    white: '#fff',
-    buttonPrimaryHover: '#4062e3',
-    ...(themeOptions === 'dark' ? dark : light)
+  ...(themeOptions === 'dark' ? dark : light),
+  colors,
+  spacing: {
+    micro: '5px',
+    mini: '8px',
+    smallest: '10px',
+    smaller: '12px',
+    small: '16px',
+    semiNormal: '20px',
+    normal: '24px',
+    semiLarge: '30px',
+    large: '40px',
+    huge: '50px'
   },
-  gapp: {
-    smaller: '8px',
+  fontSize: {
     small: '12px',
     normal: '16px',
-    large: '24px'
+    semiLarge: '18px',
+    large: '20px',
+    huge: '30px',
+    mega: '48px'
+  },
+  borderRadius: {
+    smaller: '10px',
+    small: '15px',
+    normal: '20px',
+    semiLarge: '25px',
+    large: '30px'
   }
 });

@@ -1,30 +1,101 @@
-export const light = {
-  font: {
-    base: '#000',
-    placeholder: '#bfbfbf',
-    menu: '#fff',
-    email: '#a2abb5',
-    blueberry: '#5d7df3'
+import { colors } from './colors';
+import { ColorsSchema } from './colorsSchema.types';
+
+export const light: ColorsSchema = {
+  layout: {
+    app: {
+      background: colors.ghostWhite
+    },
+    auth: {
+      background: {
+        base: colors.white,
+        primary: colors.white,
+        secondary: colors.blueberry
+      }
+    }
   },
-  border: {
-    tile: '#f2f2f2',
-    boardColumn: '#8e8e8e'
+  errors: {
+    fallbackComponent: {
+      border: colors.cultured
+    },
+    page404: {
+      font: colors.black
+    }
   },
-  background: {
-    base: '#f9fafa',
-    tile: '#fff',
-    menu: '#182545',
-    comments: '#f0f0f0',
-    menuItem: '#425c9d',
-    blueberry: '#5d7df3'
+  views: {
+    board: {
+      commentsForm: {
+        background: colors.antiFlashWhite100,
+        border: colors.cultured
+      }
+    },
+    calendar: {
+      border: colors.blueberry
+    },
+    dashboard: {
+      calendar: {
+        border: colors.blueberry
+      },
+      dashboardItem: {
+        background: colors.white,
+        font: colors.black
+      }
+    },
+    user: {
+      font: colors.black
+    },
+    common: {
+      font: colors.blueberry
+    }
   },
-  boardItem: '#d5d5d5',
-  cellSign: '#000',
-  hover: {
-    base: '#f7f7f7',
-    boardColumn: '#f7f7f7'
-  },
-  boxShadow: {
-    base: '8px 8px 24px 0px rgba(66, 68, 90, 1)'
+  components: {
+    common: {
+      button: {
+        background: {
+          primary: colors.blueberry
+        },
+        font: colors.white,
+        hover: colors.royalBlue
+      }
+    },
+    dropdown: {
+      border: colors.antiFlashWhite,
+      hover: colors.cultured
+    },
+    dragAndDrop: {
+      background: colors.white,
+      items: {
+        background: colors.white,
+        border: colors.cultured,
+        font: colors.black
+      }
+    },
+    iconsActivity: {
+      font: colors.black
+    },
+    menu: {
+      background: colors.yankeesBlue,
+      menuItem: {
+        active: colors.queenBlue,
+        hover: colors.queenBlue
+      },
+      font: colors.white
+    },
+    userInfo: {
+      name: {
+        font: colors.white
+      },
+      email: {
+        font: colors.silver
+      }
+    },
+    pageWrapper: {
+      font: colors.black,
+      background: colors.white
+    },
+    tileItem: {
+      background: colors.white,
+      font: colors.black
+    }
   }
-};
+} as const;

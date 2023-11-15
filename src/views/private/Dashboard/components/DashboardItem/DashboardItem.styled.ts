@@ -1,49 +1,62 @@
 import { Button } from 'antd';
 import { CSSProperties } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const GridContainer = styled.div<{
   gridArea: CSSProperties['gridArea'];
 }>`
-  grid-area: ${({ gridArea }) => gridArea};
-  background-color: ${({ theme }) => theme.colors.background.tile};
-  border-radius: 30px;
+  ${({ gridArea, theme }) => css`
+    grid-area: ${gridArea};
+    background-color: ${theme.views.dashboard.dashboardItem.background};
+    border-radius: ${theme.borderRadius.large};
+  `}
 `;
 
 export const Container = styled.div`
-  width: 100%;
-  height: max-content;
-  padding-bottom: 10px;
+  ${({ theme }) => css`
+    width: 100%;
+    height: max-content;
+    padding-bottom: ${theme.spacing.smallest};
+  `}
 `;
 
 export const AllButton = styled(Button)`
-  display: flex;
-  flex-direction: row-reverse;
-  gap: 10px;
-  align-items: center;
-  min-width: 0;
-  padding: 0;
-  font-weight: bold;
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: row-reverse;
+    gap: ${theme.spacing.smallest};
+    align-items: center;
+    min-width: 0;
+    padding: 0;
+    font-weight: bold;
+  `}
 `;
 
 export const Header = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 20px 10px 20px;
-  color: ${({ theme }) => theme.colors.font.base};
+  ${({ theme: { spacing, views } }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: ${spacing.semiNormal} ${spacing.semiNormal} ${spacing.smallest}
+      ${spacing.semiNormal};
+    color: ${views.dashboard.dashboardItem.font};
+  `}
 `;
 
 export const Title = styled.span`
-  font-size: 20px;
-  font-weight: bold;
+  ${({ theme }) => css`
+    font-size: ${theme.fontSize.large};
+    font-weight: bold;
+  `}
 `;
 
 export const Tile = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  padding: 0 10px 0 10px;
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 ${theme.spacing.smallest} 0 ${theme.spacing.smallest};
+  `}
 `;

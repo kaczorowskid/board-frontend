@@ -8,7 +8,7 @@ export const ItemsContainer = styled.div`
     'statisctic recent-boards calendar-info';
   grid-template-rows: auto auto auto;
   grid-template-columns: 1.5fr 1.5fr 1fr;
-
   gap: 20px;
   width: 100%;
+  height: calc(100% - 150px);
 `;

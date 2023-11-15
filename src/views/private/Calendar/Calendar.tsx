@@ -68,6 +68,7 @@ export const Calendar = () => {
         cellRender={cellRender}
         onPanelChange={handlePanelChange}
         onSelect={handleSelect}
+        style={{ borderRadius: '20px' }}
       />
       <Notes
         userId={userId}

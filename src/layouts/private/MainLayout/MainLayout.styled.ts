@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const GridContainer = styled.div`
   display: grid;
@@ -18,6 +18,8 @@ export const MenuContainer = styled.div`
 `;
 
 export const MainContainer = styled.div`
-  grid-area: main;
-  padding: 40px 50px 0px 50px;
+  ${({ theme: { spacing } }) => css`
+    grid-area: main;
+    padding: ${spacing.large} ${spacing.huge} 0px ${spacing.huge};
+  `}
 `;
