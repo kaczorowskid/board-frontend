@@ -1,4 +1,4 @@
-import { Prio } from 'components';
+import { Prio } from 'types';
 
 export interface SearchParams {
   target: 'ticket' | 'column';

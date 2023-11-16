@@ -3,7 +3,9 @@ import { AntdDrawer } from 'components';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'antd/es/form/Form';
 import { useCustomSearchParams, useFillForm } from 'hooks';
+import { useParams } from 'react-router-dom';
 import { SearchParams } from '../../Board.type';
+import { useGetBoard } from '../../hooks';
 import { priosOptions } from './Filter.schema';
 import { FilterProps } from './Filter.type';
 import { FilterInputs } from './Filter.enum';
@@ -16,16 +18,26 @@ export const Filter = ({
 }: FilterProps) => {
   const { t } = useTranslation();
   const [form] = useForm();
-
+  const { boardId } = useParams<{ boardId: string }>();
   const { params } = useCustomSearchParams<SearchParams>();
 
   useFillForm(params, form, isSidebarVisible, true);
 
+  const { refetch } = useGetBoard(
+    boardId as string,
+    params.text || null,
+    params.prio || null
+  );
+
+  const handleFilter = () => {
+    refetch();
+  };
+
   return (
     <AntdDrawer
-      hideSubmit
       open={isSidebarVisible}
       onClose={onCloseSidebar}
+      onSumbit={handleFilter}
       title='Filter'
     >
       <Form form={form} layout='vertical'>
@@ -40,7 +52,7 @@ export const Filter = ({
           />
         </Form.Item>
         <Form.Item
-          name={FilterInputs.SELECT}
+          name={FilterInputs.PRIO}
           label={t('private.board.search-by-prio')}
         >
           <Select

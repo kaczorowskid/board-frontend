@@ -3,8 +3,7 @@ import {
   Board as BoardType,
   Column,
   DragAndDrop,
-  PageWrapper,
-  Prio
+  PageWrapper
 } from 'components';
 import { useParams } from 'react-router-dom';
 import { TableOutlined } from '@ant-design/icons';
@@ -12,6 +11,7 @@ import { useCustomSearchParams } from 'hooks';
 import { useTranslation } from 'react-i18next';
 import {
   useColumnItems,
+  useControlView,
   useGetBoard,
   useRemoveColumn,
   useRemoveTicket,
@@ -22,7 +22,7 @@ import { AddColumnForm, AddTicketForm, Filter } from './components';
 import { SearchParams } from './Board.type';
 
 export const Board = () => {
-  const [open, setOpen] = useState<boolean>(false);
+  const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
   const { boardId } = useParams<{ boardId: string }>();
 
   const { t } = useTranslation();
@@ -37,6 +37,20 @@ export const Board = () => {
   const ticketDropdownItems = useTicketItems(setParams, removeTicket);
   const columnDropdownItems = useColumnItems(setParams, removeColumn);
 
+  const {
+    handleHideSideboard,
+    handleAddColumn,
+    handleSearchByText,
+    handleSearchByPrio,
+    handleOpenFilter,
+    handleCloseFilter
+  } = useControlView({
+    params,
+    setParams,
+    deleteParams,
+    setIsOpenFilter
+  });
+
   const handleDragEnd = (mappedColumn: Column[]) => {
     if (data) {
       updateBoard({
@@ -44,32 +58,6 @@ export const Board = () => {
         columns: mappedColumn
       });
     }
-  };
-
-  const hideSideboard = () => {
-    deleteParams();
-  };
-
-  const handleAddColumn = () => {
-    setParams({ target: 'column' });
-  };
-
-  const handleSearchByText = (event: any) => {
-    setParams({
-      ...params,
-      text: event.target.value
-    });
-  };
-
-  const handleSearchByPrio = (prio: any) => {
-    setParams({
-      ...params,
-      prio
-    });
-  };
-
-  const handleCloseFilter = () => {
-    setOpen(false);
   };
 
   return (
@@ -84,23 +72,21 @@ export const Board = () => {
         ticketDropdownItems={ticketDropdownItems}
         columnDropdownItems={columnDropdownItems}
         onDragEnd={handleDragEnd}
-        openFilter={() => setOpen(true)}
-        filterValue={params.text as string}
-        filterPrios={params.prio as Prio}
+        openFilter={handleOpenFilter}
       />
       <Filter
-        isSidebarVisible={open}
+        isSidebarVisible={isOpenFilter}
         onCloseSidebar={handleCloseFilter}
         onSearch={handleSearchByText}
         onChangePrios={handleSearchByPrio}
       />
       <AddColumnForm
         isSidebarVisible={params.target === 'column'}
-        onCloseSidebar={hideSideboard}
+        onCloseSidebar={handleHideSideboard}
       />
       <AddTicketForm
         isSidebarVisible={params.target === 'ticket'}
-        onCloseSidebar={hideSideboard}
+        onCloseSidebar={handleHideSideboard}
       />
     </PageWrapper>
   );

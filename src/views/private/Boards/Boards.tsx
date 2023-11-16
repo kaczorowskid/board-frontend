@@ -2,20 +2,18 @@ import { Modal, Table } from 'antd';
 import { defaultConfig, useListQuery, usePaginationHelpers } from 'hooks';
 import { PageWrapper, TileItem } from 'components';
 import { useEffect, useState } from 'react';
-import { generatePath, useNavigate } from 'react-router-dom';
-import { routesUrls } from 'routes';
 import { ExclamationCircleFilled, TableOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { BoardsForm, ShareBoardForm } from './components';
 import {
   useColumns,
+  useControlView,
   useCreateShareToken,
   useFetchBoards,
   useRemoveBoard
 } from './hooks';
 
 export const Boards = () => {
-  const navigate = useNavigate();
   const { t } = useTranslation();
 
   const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);
@@ -40,19 +38,10 @@ export const Boards = () => {
 
   const { data: boardsData, isFetching } = useFetchBoards(listQuery);
 
-  const handleEdit = (id: string) => {
-    setBoardId(id);
-    setIsSidebarVisible(true);
-  };
-
-  const handleOpenBoard = (id: string) => {
-    navigate(generatePath(routesUrls.app.board, { boardId: id }));
-  };
-
-  const handleCloseSidebar = () => {
-    setIsSidebarVisible(false);
-    setBoardId('');
-  };
+  const { handleEdit, handleOpenBoard, handleCloseSidebar } = useControlView({
+    setBoardId,
+    setIsSidebarVisible
+  });
 
   const handleShareBoard = (id: string) => {
     createToken({ board_id: id });

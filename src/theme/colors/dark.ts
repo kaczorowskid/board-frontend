@@ -66,7 +66,7 @@ export const dark: ColorsSchema = {
       background: colors.eerieBlack,
       items: {
         background: colors.eerieBlack,
-        border: colors.cultured,
+        border: colors.philippineGray,
         font: colors.white
       }
     },
