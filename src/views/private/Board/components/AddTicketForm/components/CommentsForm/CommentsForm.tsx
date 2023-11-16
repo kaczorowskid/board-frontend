@@ -35,8 +35,7 @@ export const CommentsForm = ({ ticketId, userId }: CommentsFormProps) => {
       <Form.Item name={CommentsFormInputs.TEXT}>
         <RichTextEditor
           theme='snow'
-          style={{ backgroundColor: 'white' }}
-          placeholder={'Add comment'}
+          placeholder={t('private.board.add-comment')}
           isFocus={isCommentAreaFocus}
           setIsFocus={() => setIsCommentAreaFocus(true)}
         />
