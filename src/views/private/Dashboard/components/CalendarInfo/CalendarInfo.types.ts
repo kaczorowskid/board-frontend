@@ -1,6 +1,7 @@
 export interface CalendarInfoProps {
   data?: {
-    hour: string;
+    id: string;
     note: string;
+    is_done: boolean;
   }[];
 }

@@ -10,7 +10,9 @@ import {
   GetNotesByDateRequest,
   GetNotesByDateResponse,
   RemoveNoteRequest,
-  RemoveNoteResponse
+  RemoveNoteResponse,
+  UpdateNoteStatusRequest,
+  UpdateNoteStatusResponse
 } from 'board-contracts/lib/calendar';
 
 export type {
@@ -25,5 +27,7 @@ export type {
   GetNotesByDateRequest,
   GetNotesByDateResponse,
   RemoveNoteRequest,
-  RemoveNoteResponse
+  RemoveNoteResponse,
+  UpdateNoteStatusRequest,
+  UpdateNoteStatusResponse
 };

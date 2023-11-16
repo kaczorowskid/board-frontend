@@ -22,19 +22,16 @@ export const Notes = ({
       onClose={onCloseSidebar}
       title={`${t('private.calendar.note')} - ${date}`}
     >
-      <Space direction='vertical' size={24} style={{ width: '100%' }}>
+      <Space direction='vertical' size={10} style={{ width: '100%' }}>
         <Button block onClick={() => openForm('')}>
           {t('private.calendar.add-note')}
         </Button>
-        {data?.map(({ id, note, hour }) => (
+        {data?.map(({ id, note, is_done: isDone }) => (
           <Alert
+            type={isDone ? 'success' : 'info'}
             key={id}
             message={
-              <span>
-                <strong>{hour}</strong>
-                <span>&nbsp;-&nbsp;</span>
-                <span>{note}</span>
-              </span>
+              <span>{isDone ? <s>{note}</s> : <span>{note}</span>}</span>
             }
             action={
               <AntdDropdown menu={{ items: noteDropdownItems(id) }}>

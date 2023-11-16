@@ -57,7 +57,9 @@
       "calendar": "Calendar",
       "add-note": "Add note",
       "hour": "Hour",
-      "note": "Note"
+      "note": "Note",
+      "mark-as-done": "Mark as done",
+      "mark-as-in-progress": "Mark as in progress"
     },
     "dashboard": {
       "dashboard": "Dashboard",

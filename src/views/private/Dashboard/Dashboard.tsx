@@ -56,6 +56,7 @@ export const Dashboard = () => {
           component={<RecentBoards data={recentBoards?.data} />}
         />
         <DashboardItem
+          title='Notes'
           gridArea='calendar-info'
           component={<CalendarInfo data={notesData} />}
         />
