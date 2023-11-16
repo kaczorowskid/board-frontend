@@ -25,8 +25,8 @@ export const dark: ColorsSchema = {
   views: {
     board: {
       commentsForm: {
-        background: colors.antiFlashWhite100,
-        border: colors.cultured
+        background: colors.raisinBlack,
+        border: colors.white
       }
     },
     calendar: {
@@ -90,12 +90,12 @@ export const dark: ColorsSchema = {
       }
     },
     pageWrapper: {
-      font: colors.white,
+      font: colors.darkWhite,
       background: colors.raisinBlack
     },
     tileItem: {
       background: colors.raisinBlack,
-      font: colors.white
+      font: colors.darkWhite
     }
   }
 } as const;
