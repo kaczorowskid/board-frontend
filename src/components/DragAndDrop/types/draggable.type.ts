@@ -1,4 +1,4 @@
-export type Prio = 'low' | 'medium' | 'high';
+import { Prio } from 'types';
 
 export interface Comment {
   id: string;

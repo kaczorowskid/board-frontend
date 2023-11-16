@@ -18,7 +18,7 @@ export const ColumnInfo = styled.div`
     align-items: center;
     justify-content: space-between;
     height: 60px;
-    padding: 0px ${theme.spacing.smallest};
+    padding: 0px ${theme.spacing.small};
     font-weight: bold;
     color: ${theme.components.dragAndDrop.items.font};
     background-color: ${theme.components.dragAndDrop.items.background};

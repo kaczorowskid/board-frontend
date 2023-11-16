@@ -7,7 +7,12 @@ import { useState } from 'react';
 import { useCustomSearchParams } from 'hooks';
 import { CalendarOutlined, MoreOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
-import { useGetCalendar, useNotesItems, useRemoveNote } from './hooks';
+import {
+  useControlView,
+  useGetCalendar,
+  useNotesItems,
+  useRemoveNote
+} from './hooks';
 import { SignCell } from './Calendar.styled';
 import { CellForm, Notes } from './components';
 import { SearchParams } from './Calendar.types';
@@ -24,31 +29,23 @@ export const Calendar = () => {
   const [selectedMonth, setSelectedMonth] = useState(
     dayjs().format(DATE_ONLY_MONTH)
   );
+
+  const {
+    handleSelect,
+    handleOpenForm,
+    handleCloseForm,
+    handleCloseNotes,
+    handlePanelChange
+  } = useControlView({
+    params,
+    setParams,
+    deleteParams,
+    setIsFormVisible,
+    setSelectedMonth
+  });
+
   const { data: calendarData } = useGetCalendar(userId, selectedMonth);
-
-  const handleSelect = (date: Dayjs) => {
-    setParams({ date: date.format('YYYY-MM-DD') });
-  };
-
-  const handleOpenForm = (id: string) => {
-    setIsFormVisible(true);
-    setParams({ ...params, id });
-  };
-
-  const handleCloseForm = () => {
-    setIsFormVisible(false);
-    deleteParams('id');
-  };
-
-  const handleCloseNotes = () => {
-    deleteParams('date');
-  };
-
   const noteDropdownItems = useNotesItems(handleOpenForm, removeNote);
-
-  const handlePanelChange = (date: Dayjs) => {
-    setSelectedMonth(date.format(DATE_ONLY_MONTH));
-  };
 
   const cellRender = (current: Dayjs) => {
     const dateString = current.format(DATE_FORMAT);

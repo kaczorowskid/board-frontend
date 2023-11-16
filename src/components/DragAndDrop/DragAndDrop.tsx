@@ -7,22 +7,17 @@ import {
   DraggableItemProvider
 } from './elements';
 import { reorder } from './utils';
-import { useFilter } from './hooks';
 
 export const DragAndDrop = ({
   dataSource,
   onDragEnd,
   openItem,
-  filterPrios,
-  filterValue,
   openFilter,
   ticketDropdownItems,
   columnDropdownItems
 }: DragAndDropProps) => {
   const boardId = dataSource.id;
   const { columns } = dataSource;
-
-  const filteredColumns = useFilter(columns, filterValue, filterPrios);
 
   const handleOnDragEnd = (result: DropResult) => {
     const { mappedResult } = reorder(columns, result);
@@ -35,7 +30,7 @@ export const DragAndDrop = ({
       <DragDropContainer>
         <DraggableColumnProvider
           columnDropdownItems={columnDropdownItems}
-          columnsData={filteredColumns || []}
+          columnsData={columns || []}
           boardId={boardId}
           openFilter={openFilter}
         >

@@ -44,7 +44,8 @@ export const getBoard = async (
 
   const { data } = await apiCall<GetBoardRequest, GetBoardResponse>(
     get(payload.id),
-    HttpMethod.GET
+    HttpMethod.GET,
+    payload
   );
 
   return data;

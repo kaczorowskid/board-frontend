@@ -1,8 +1,8 @@
 import { SelectProps } from 'antd';
-import { SearchProps } from 'antd/es/input';
+import { InputProps } from 'antd/lib';
 import { CommonFormProps } from 'types';
 
 export interface FilterProps extends CommonFormProps {
-  onSearch: SearchProps['onChange'];
+  onSearch: InputProps['onChange'];
   onChangePrios: SelectProps['onChange'];
 }
