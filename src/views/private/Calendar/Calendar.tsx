@@ -11,7 +11,8 @@ import {
   useControlView,
   useGetCalendar,
   useNotesItems,
-  useRemoveNote
+  useRemoveNote,
+  useTicketStatus
 } from './hooks';
 import { SignCell } from './Calendar.styled';
 import { CellForm, Notes } from './components';
@@ -45,7 +46,13 @@ export const Calendar = () => {
   });
 
   const { data: calendarData } = useGetCalendar(userId, selectedMonth);
-  const noteDropdownItems = useNotesItems(handleOpenForm, removeNote);
+  const { mutateAsync: updateNoteStatus } = useTicketStatus();
+  const noteDropdownItems = useNotesItems(
+    calendarData,
+    handleOpenForm,
+    removeNote,
+    updateNoteStatus
+  );
 
   const cellRender = (current: Dayjs) => {
     const dateString = current.format(DATE_FORMAT);

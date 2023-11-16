@@ -2,16 +2,12 @@ import { Alert, Space } from 'antd';
 import { CalendarInfoProps } from './CalendarInfo.types';
 
 export const CalendarInfo = ({ data }: CalendarInfoProps) => (
-  <Space direction='vertical' size={24} style={{ width: '100%' }}>
-    {data?.map(({ note, hour }) => (
+  <Space direction='vertical' size={10} style={{ width: '100%' }}>
+    {data?.map(({ id, note, is_done: isDone }) => (
       <Alert
-        message={
-          <span>
-            <strong>{hour}</strong>
-            <span>&nbsp;-&nbsp;</span>
-            <span>{note}</span>
-          </span>
-        }
+        key={id}
+        type={isDone ? 'success' : 'info'}
+        message={<span>{isDone ? <s>{note}</s> : <span>{note}</span>}</span>}
       />
     ))}
   </Space>

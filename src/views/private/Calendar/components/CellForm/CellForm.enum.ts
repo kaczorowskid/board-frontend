@@ -1,4 +1,3 @@
 export enum CellFormInputs {
-  NOTE = 'note',
-  HOUR = 'hour'
+  NOTE = 'note'
 }

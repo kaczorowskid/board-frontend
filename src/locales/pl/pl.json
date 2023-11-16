@@ -57,7 +57,9 @@
       "calendar": "Kalendarz",
       "add-note": "Dodaj notkę",
       "hour": "Godzina",
-      "note": "Notka"
+      "note": "Notka",
+      "mark-as-done": "Oznacz jako skończone",
+      "mark-as-in-progress": "Oznacz jako w trakcie"
     },
     "dashboard": {
       "dashboard": "Pulpit",

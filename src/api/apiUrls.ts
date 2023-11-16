@@ -64,7 +64,9 @@ export const apiUrls = {
     getNote: (id: string) =>
       `${base.calendar}/note/${generatePath(':id', { id })}`,
     removeNote: (id: string) =>
-      `${base.calendar}/note/${generatePath(':id', { id })}`
+      `${base.calendar}/note/${generatePath(':id', { id })}`,
+    updateNoteStatus: (id: string) =>
+      `${base.calendar}/note-status/${generatePath(':id', { id })}`
   },
   comment: {
     createComment: base.comment,

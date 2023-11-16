@@ -12,7 +12,9 @@ import {
   GetNotesByDateRequest,
   GetNotesByDateResponse,
   RemoveNoteRequest,
-  RemoveNoteResponse
+  RemoveNoteResponse,
+  UpdateNoteStatusRequest,
+  UpdateNoteStatusResponse
 } from 'contracts';
 
 export const getCalendar = async (
@@ -104,6 +106,21 @@ export const removeNote = async (
     remove(payload.id),
     HttpMethod.DELETE
   );
+
+  return data;
+};
+
+export const updateNoteStatus = async (
+  payload: UpdateNoteStatusRequest
+): Promise<UpdateNoteStatusResponse> => {
+  const {
+    calendar: { updateNoteStatus: update }
+  } = apiUrls;
+
+  const { data } = await apiCall<
+    UpdateNoteStatusRequest,
+    UpdateNoteStatusResponse
+  >(update(payload.id), HttpMethod.PATCH, payload);
 
   return data;
 };
