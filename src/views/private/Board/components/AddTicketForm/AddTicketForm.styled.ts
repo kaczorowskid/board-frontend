@@ -10,3 +10,9 @@ export const CommentsContainer = styled.div`
     background-color: ${theme.views.board.commentsForm.background};
   `}
 `;
+
+export const CommentsTitle = styled.h2`
+  ${({ theme }) => css`
+    color: ${theme.views.board.commentsForm.font};
+  `}
+`;

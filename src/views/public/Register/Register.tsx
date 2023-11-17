@@ -28,6 +28,24 @@ export const Register = () => {
         initialValues={initValues}
       >
         <Form.Item
+          name={RegisterFormInputs.FIRST_NAME}
+          rules={inputsRule[RegisterFormInputs.FIRST_NAME]}
+        >
+          <Input
+            name={RegisterFormInputs.FIRST_NAME}
+            placeholder={t('public.register.first-name')}
+          />
+        </Form.Item>
+        <Form.Item
+          name={RegisterFormInputs.LAST_NAME}
+          rules={inputsRule[RegisterFormInputs.LAST_NAME]}
+        >
+          <Input
+            name={RegisterFormInputs.LAST_NAME}
+            placeholder={t('public.register.last-name')}
+          />
+        </Form.Item>
+        <Form.Item
           name={RegisterFormInputs.EMAIL}
           rules={inputsRule[RegisterFormInputs.EMAIL]}
         >

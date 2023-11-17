@@ -1,4 +1,5 @@
 import { Button, Drawer, Space } from 'antd';
+import { useTranslation } from 'react-i18next';
 import { AntdDrawerProps } from './AntdDrawer.types';
 
 export const AntdDrawer = ({
@@ -9,12 +10,14 @@ export const AntdDrawer = ({
   children,
   ...props
 }: AntdDrawerProps) => {
+  const { t } = useTranslation();
+
   const extra = (
     <Space>
-      <Button onClick={onClose}>Cancel</Button>
+      <Button onClick={onClose}>{t('common.cancel')}</Button>
       {!hideSubmit ? (
         <Button onClick={onSumbit} form={formId} key='sumbit' htmlType='submit'>
-          Submit
+          {t('common.submit')}
         </Button>
       ) : null}
     </Space>

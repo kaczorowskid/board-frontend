@@ -10,13 +10,15 @@ export const Container = styled.div`
 `;
 
 export const CommentWrapper = styled.div`
-  display: grid;
-  grid-template-areas:
-    'avatar avatar-info date'
-    '. comment comment';
-  grid-template-rows: 30px auto;
-
-  grid-template-columns: 40px auto auto;
+  ${({ theme }) => css`
+    display: grid;
+    grid-template-areas:
+      'avatar avatar-info date'
+      '. comment comment';
+    grid-template-rows: 30px auto;
+    grid-template-columns: 40px auto auto;
+    color: ${theme.views.board.commentsForm.font};
+  `}
 `;
 
 export const AvatarContainer = styled.div`

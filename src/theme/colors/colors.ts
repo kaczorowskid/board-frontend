@@ -1,6 +1,7 @@
 export const colors = {
   white: '#fff',
   darkWhite: 'rgba(255, 255, 255, 0.85)',
+  lightBlack: 'rgba(0, 0, 0, 0.88)',
   argent: '#bfbfbf',
   silver: '#a2abb5',
   blueberry: '#5d7df3',

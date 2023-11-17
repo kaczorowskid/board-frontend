@@ -98,9 +98,11 @@
       "user-has-not-been-logged": "Użytkownik nie został zalogowany"
     },
     "register": {
+      "first-name": "Imię",
+      "last-name": "Nazwisko",
       "register": "Zarejestruj",
       "email": "Email",
-      "password": "Password",
+      "password": "Hasło",
       "confirm-password": "Powtórz hasło",
       "user-has-been-registered": "Użytkownik został zarejestrowany",
       "user-has-not-been-registered": "Użytkownik nie został zarejestrowany"
