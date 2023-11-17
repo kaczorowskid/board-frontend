@@ -98,6 +98,8 @@
       "user-has-not-been-logged": "User has not been logged"
     },
     "register": {
+      "first-name": "First name",
+      "last-name": "Last name",
       "register": "Register",
       "email": "Email",
       "password": "Password",

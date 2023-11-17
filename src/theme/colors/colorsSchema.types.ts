@@ -24,6 +24,7 @@ export interface ColorsSchema {
       commentsForm: {
         background: string;
         border: string;
+        font: string;
       };
     };
     calendar: {

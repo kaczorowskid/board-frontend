@@ -1,4 +1,5 @@
 import { Button, Modal, Space } from 'antd';
+import { useTranslation } from 'react-i18next';
 import { AntdModalProps } from './AntdModal.types';
 
 export const AntdModal = ({
@@ -8,9 +9,10 @@ export const AntdModal = ({
   children,
   ...props
 }: AntdModalProps) => {
+  const { t } = useTranslation();
   const footer = (
     <Space>
-      <Button onClick={onClose}>Cancel</Button>
+      <Button onClick={onClose}>{t('common.cancel')}</Button>
       <Button
         type='primary'
         onClick={onSumbit}
@@ -18,7 +20,7 @@ export const AntdModal = ({
         key='sumbit'
         htmlType='submit'
       >
-        Submit
+        {t('common.submit')}
       </Button>
     </Space>
   );

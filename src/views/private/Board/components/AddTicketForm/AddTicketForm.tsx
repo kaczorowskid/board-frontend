@@ -1,6 +1,6 @@
 import { useForm } from 'antd/es/form/Form';
 import { Divider, Form, Input, Select } from 'antd';
-import { AntdModal } from 'components';
+import { AntdDrawer } from 'components';
 import { useUserStore } from 'stores';
 import { useCustomSearchParams, useFillForm } from 'hooks';
 import ReactQuill from 'react-quill';
@@ -18,7 +18,11 @@ import { AddTicketFormProps, AddTicketFormType } from './AddTicketForm.type';
 import { AddTicketFormInputs } from './AddTicketForm.enum';
 import { initialValues, inputsRule, prioOptions } from './AddTicketForm.schema';
 import { Branch, Comments, CommentsForm } from './components';
-import { CommentsContainer, ItemsContainer } from './AddTicketForm.styled';
+import {
+  CommentsContainer,
+  ItemsContainer,
+  CommentsTitle
+} from './AddTicketForm.styled';
 
 export const AddTicketForm = ({
   isSidebarVisible,
@@ -62,7 +66,7 @@ export const AddTicketForm = ({
   };
 
   return (
-    <AntdModal
+    <AntdDrawer
       open={isSidebarVisible}
       onClose={onCloseSidebar}
       formId='ticketForm'
@@ -109,7 +113,7 @@ export const AddTicketForm = ({
         <Branch data={ticketData} />
       </ItemsContainer>
       <Divider />
-      <h2>{t('private.board.comments')}</h2>
+      <CommentsTitle>{t('private.board.comments')}</CommentsTitle>
       <CommentsContainer>
         <CommentsForm ticketId={ticketId as string} userId={userId} />
         <Comments
@@ -118,6 +122,6 @@ export const AddTicketForm = ({
           commentsDropdownIcon={<PicRightOutlined />}
         />
       </CommentsContainer>
-    </AntdModal>
+    </AntdDrawer>
   );
 };
