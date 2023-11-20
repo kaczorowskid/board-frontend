@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   Board as BoardType,
   Column,
@@ -7,7 +6,6 @@ import {
 } from 'components';
 import { useParams } from 'react-router-dom';
 import { TableOutlined } from '@ant-design/icons';
-import { useCustomSearchParams } from 'hooks';
 import { useTranslation } from 'react-i18next';
 import {
   useColumnItems,
@@ -19,10 +17,8 @@ import {
   useUpdateBoard
 } from './hooks';
 import { AddColumnForm, AddTicketForm, Filter } from './components';
-import { SearchParams } from './Board.type';
 
 export const Board = () => {
-  const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
   const { boardId } = useParams<{ boardId: string }>();
 
   const { t } = useTranslation();
@@ -31,25 +27,20 @@ export const Board = () => {
   const { mutateAsync: removeColumn } = useRemoveColumn();
   const { mutateAsync: removeTicket } = useRemoveTicket();
 
-  const { params, setParams, deleteParams } =
-    useCustomSearchParams<SearchParams>();
-
-  const ticketDropdownItems = useTicketItems(setParams, removeTicket);
-  const columnDropdownItems = useColumnItems(setParams, removeColumn);
-
   const {
+    params,
+    isOpenFilter,
+    setParams,
     handleHideSideboard,
     handleAddColumn,
     handleSearchByText,
     handleSearchByPrio,
     handleOpenFilter,
     handleCloseFilter
-  } = useControlView({
-    params,
-    setParams,
-    deleteParams,
-    setIsOpenFilter
-  });
+  } = useControlView();
+
+  const ticketDropdownItems = useTicketItems(setParams, removeTicket);
+  const columnDropdownItems = useColumnItems(setParams, removeColumn);
 
   const handleDragEnd = (mappedColumn: Column[]) => {
     if (data) {

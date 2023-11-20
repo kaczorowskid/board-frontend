@@ -1,22 +1,20 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { generatePath, useNavigate } from 'react-router-dom';
 import { routesUrls } from 'routes';
 
-interface UseControlViewProps {
-  setBoardId: Dispatch<SetStateAction<string>>;
-  setIsSidebarVisible: Dispatch<SetStateAction<boolean>>;
-}
-
 interface UseControlView {
+  isSidebarVisible: boolean;
+  boardId: string;
+  setIsSidebarVisible: Dispatch<SetStateAction<boolean>>;
   handleEdit: (id: string) => void;
   handleOpenBoard: (id: string) => void;
   handleCloseSidebar: () => void;
 }
 
-export const useControlView = ({
-  setBoardId,
-  setIsSidebarVisible
-}: UseControlViewProps): UseControlView => {
+export const useControlView = (): UseControlView => {
+  const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);
+  const [boardId, setBoardId] = useState<string>('');
+
   const navigate = useNavigate();
 
   const handleEdit = (id: string) => {
@@ -34,6 +32,9 @@ export const useControlView = ({
   };
 
   return {
+    isSidebarVisible,
+    boardId,
+    setIsSidebarVisible,
     handleEdit,
     handleOpenBoard,
     handleCloseSidebar

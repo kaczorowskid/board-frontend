@@ -1,18 +1,14 @@
 import { DATE_ONLY_MONTH } from 'constants/timeFormat';
-import { Dayjs } from 'dayjs';
-import { Dispatch, SetStateAction } from 'react';
-import { ObjectParams } from 'types';
+import dayjs, { Dayjs } from 'dayjs';
+import { Dispatch, SetStateAction, useState } from 'react';
+import { useCustomSearchParams } from 'hooks';
 import { SearchParams } from '../Calendar.types';
 
-interface UseControlViewProps {
-  params: SearchParams;
-  setParams: (data: ObjectParams) => void;
-  deleteParams: (field?: string | undefined) => void;
-  setIsFormVisible: Dispatch<SetStateAction<boolean>>;
-  setSelectedMonth: Dispatch<SetStateAction<string>>;
-}
-
 interface UseControlView {
+  params: SearchParams;
+  isFormVisible: boolean;
+  selectedMonth: string;
+  setSelectedMonth: Dispatch<SetStateAction<string>>;
   handleSelect: (date: Dayjs) => void;
   handleOpenForm: (id: string) => void;
   handleCloseForm: () => void;
@@ -20,13 +16,16 @@ interface UseControlView {
   handlePanelChange: (date: Dayjs) => void;
 }
 
-export const useControlView = ({
-  params,
-  setParams,
-  deleteParams,
-  setIsFormVisible,
-  setSelectedMonth
-}: UseControlViewProps): UseControlView => {
+export const useControlView = (): UseControlView => {
+  const [isFormVisible, setIsFormVisible] = useState<boolean>(false);
+
+  const { params, setParams, deleteParams } =
+    useCustomSearchParams<SearchParams>();
+
+  const [selectedMonth, setSelectedMonth] = useState(
+    dayjs().format(DATE_ONLY_MONTH)
+  );
+
   const handleSelect = (date: Dayjs) => {
     setParams({ date: date.format('YYYY-MM-DD') });
   };
@@ -50,6 +49,10 @@ export const useControlView = ({
   };
 
   return {
+    params,
+    isFormVisible,
+    selectedMonth,
+    setSelectedMonth,
     handleSelect,
     handleOpenForm,
     handleCloseForm,

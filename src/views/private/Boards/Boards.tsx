@@ -1,7 +1,7 @@
 import { Modal, Table } from 'antd';
 import { defaultConfig, useListQuery, usePaginationHelpers } from 'hooks';
 import { PageWrapper, TileItem } from 'components';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { ExclamationCircleFilled, TableOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { BoardsForm, ShareBoardForm } from './components';
@@ -16,10 +16,7 @@ import {
 export const Boards = () => {
   const { t } = useTranslation();
 
-  const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);
-
   const [modal, contextHolder] = Modal.useModal();
-  const [boardId, setBoardId] = useState<string>('');
   const { mutateAsync: removeBoard } = useRemoveBoard();
   const { data, mutate: createToken } = useCreateShareToken();
 
@@ -38,10 +35,14 @@ export const Boards = () => {
 
   const { data: boardsData, isFetching } = useFetchBoards(listQuery);
 
-  const { handleEdit, handleOpenBoard, handleCloseSidebar } = useControlView({
-    setBoardId,
-    setIsSidebarVisible
-  });
+  const {
+    isSidebarVisible,
+    boardId,
+    setIsSidebarVisible,
+    handleEdit,
+    handleOpenBoard,
+    handleCloseSidebar
+  } = useControlView();
 
   const handleShareBoard = (id: string) => {
     createToken({ board_id: id });

@@ -1,15 +1,12 @@
-import { ChangeEvent, Dispatch, SetStateAction } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { ObjectParams, Prio } from 'types';
+import { useCustomSearchParams } from 'hooks';
 import { SearchParams } from '../Board.type';
 
-interface UseControlViewProps {
+interface UseControlView {
+  isOpenFilter: boolean;
   params: SearchParams;
   setParams: (data: ObjectParams) => void;
-  deleteParams: (field?: string | undefined) => void;
-  setIsOpenFilter: Dispatch<SetStateAction<boolean>>;
-}
-
-interface UseControlView {
   handleHideSideboard: () => void;
   handleAddColumn: () => void;
   handleOpenFilter: () => void;
@@ -18,12 +15,11 @@ interface UseControlView {
   handleSearchByPrio: (prio: Prio) => void;
 }
 
-export const useControlView = ({
-  params,
-  setParams,
-  deleteParams,
-  setIsOpenFilter
-}: UseControlViewProps): UseControlView => {
+export const useControlView = (): UseControlView => {
+  const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
+  const { params, setParams, deleteParams } =
+    useCustomSearchParams<SearchParams>();
+
   const handleHideSideboard = () => {
     deleteParams();
   };
@@ -55,6 +51,9 @@ export const useControlView = ({
   };
 
   return {
+    isOpenFilter,
+    params,
+    setParams,
     handleHideSideboard,
     handleAddColumn,
     handleOpenFilter,
