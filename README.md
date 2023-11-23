@@ -1,6 +1,12 @@
-# Board-frontend
+# Board-contracts
 
 ![image](https://github.com/kaczorowskid/commits/assets/57078565/6264ca5f-c681-4cde-b5ff-ba8f981ed46d)
+
+It is a combination of jira and trello. The application consists of 4 subsections
+- dashboard
+- board list
+- board
+- calendar
 
 ## Dashboard
 
@@ -75,3 +81,8 @@ Your app is ready to be deployed!
 - React-router-dom
 - Antd
 
+
+# TODO
+- RWD
+- Adding tests
+- Refactoring of selected components
