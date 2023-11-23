@@ -26,8 +26,8 @@ export const light: ColorsSchema = {
     board: {
       commentsForm: {
         background: colors.antiFlashWhite100,
-        border: colors.cultured,
-        font: colors.darkWhite
+        border: colors.lightBlack,
+        font: colors.lightBlack
       }
     },
     calendar: {

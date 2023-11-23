@@ -23,9 +23,14 @@ export const Comments = ({
     {data?.map(({ id, text, created_at, user }) => (
       <CommentWrapper>
         <AvatarContainer>
-          <Avatar>{user?.first_name?.at(0)?.toUpperCase()}</Avatar>
+          <Avatar>
+            {user?.first_name?.at(0)?.toUpperCase()}&nbsp;
+            {user?.last_name?.at(0)?.toUpperCase()}
+          </Avatar>
         </AvatarContainer>
-        <AvatarInfoContainer>{user?.first_name}</AvatarInfoContainer>
+        <AvatarInfoContainer>
+          {user?.first_name}&nbsp;{user?.last_name}
+        </AvatarInfoContainer>
         <AvatarDateContainer>
           {dayjs(created_at).format('HH:mm DD.MM.YYYY')}
         </AvatarDateContainer>
