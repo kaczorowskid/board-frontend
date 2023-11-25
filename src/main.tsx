@@ -6,6 +6,14 @@ import { App } from 'App';
 import 'react-quill/dist/quill.snow.css';
 import { ErrorBoundaryProvider } from 'views';
 import { I18nextProvider } from 'react-i18next';
+import { worker } from './mocks/browser';
+
+if (
+  process.env.VITE_ENVIRONMENT === 'development' &&
+  process.env.VITE_TEST === 'true'
+) {
+  worker.start();
+}
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <I18nextProvider i18n={i18n}>

@@ -3,10 +3,11 @@ import react from '@vitejs/plugin-react';
 import checker from 'vite-plugin-checker';
 import viteTsconfigPaths from 'vite-tsconfig-paths';
 import EnvironmentPlugin from 'vite-plugin-environment';
+import reactRefresh from '@vitejs/plugin-react-refresh';
 
 export default defineConfig(({ command }) => ({
   plugins: [
-    react(),
+    reactRefresh(),
     viteTsconfigPaths(),
     EnvironmentPlugin('all'),
     command !== 'build'
@@ -23,6 +24,9 @@ export default defineConfig(({ command }) => ({
     'process.env': process.env
   },
   test: {
-    environment: 'jsdom'
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: ['/src/setupTest.ts'],
+    include: ['**/?(*.)test.ts?(x)']
   }
 }));
