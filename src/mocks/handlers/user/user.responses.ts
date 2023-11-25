@@ -1,4 +1,4 @@
-const userLogin = {
+export const userLogin = {
   id: 'ef3fdc54-0cfe-4bd8-895c-0ac4816c4ddc',
   email: 'b@b.pl',
   first_name: 'Test',

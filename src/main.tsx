@@ -6,7 +6,7 @@ import { App } from 'App';
 import 'react-quill/dist/quill.snow.css';
 import { ErrorBoundaryProvider } from 'views';
 import { I18nextProvider } from 'react-i18next';
-import { worker } from './mocks/worker';
+import { worker } from './mocks/browser';
 
 if (
   process.env.VITE_ENVIRONMENT === 'development' &&
