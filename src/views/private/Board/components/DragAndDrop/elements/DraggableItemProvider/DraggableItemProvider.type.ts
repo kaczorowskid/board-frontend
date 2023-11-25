@@ -1,6 +1,6 @@
-import { Ticket } from 'components/DragAndDrop/types';
 import { ReactElement } from 'react';
 import { DraggableProvided, DraggableStateSnapshot } from 'react-beautiful-dnd';
+import { Ticket } from '../../types';
 
 export interface DraggableItemProps {
   columnItems: Ticket[];

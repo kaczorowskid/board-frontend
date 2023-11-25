@@ -6,7 +6,8 @@ import {
   DraggableItem,
   DraggableItemProvider
 } from './elements';
-import { reorder } from './utils';
+// import { reorder } from './utils';
+import { useReorder } from './hooks';
 
 export const DragAndDrop = ({
   dataSource,
@@ -18,6 +19,7 @@ export const DragAndDrop = ({
 }: DragAndDropProps) => {
   const boardId = dataSource.id;
   const { columns } = dataSource;
+  const { reorder } = useReorder();
 
   const handleOnDragEnd = (result: DropResult) => {
     const { mappedResult } = reorder(columns, result);

@@ -1,5 +1,5 @@
 import { MenuProps } from 'antd';
-import { Ticket } from 'components/DragAndDrop/types';
+import { Ticket } from '../../types';
 
 export interface DraggableItemProps {
   columnItem: Ticket;

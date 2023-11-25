@@ -1,6 +1,6 @@
 import { MenuProps } from 'antd';
-import { Column, Ticket } from 'components/DragAndDrop/types';
 import { ReactNode } from 'react';
+import { Column, Ticket } from '../../types';
 
 export interface DraggableColumnProps {
   columnsData: Column[];
