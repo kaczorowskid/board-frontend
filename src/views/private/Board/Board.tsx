@@ -1,9 +1,4 @@
-import {
-  Board as BoardType,
-  Column,
-  DragAndDrop,
-  PageWrapper
-} from 'components';
+import { PageWrapper } from 'components';
 import { useParams } from 'react-router-dom';
 import { TableOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
@@ -16,7 +11,14 @@ import {
   useTicketItems,
   useUpdateBoard
 } from './hooks';
-import { AddColumnForm, AddTicketForm, Filter } from './components';
+import {
+  Board as BoardType,
+  AddColumnForm,
+  AddTicketForm,
+  Column,
+  DragAndDrop,
+  Filter
+} from './components';
 
 export const Board = () => {
   const { boardId } = useParams<{ boardId: string }>();
