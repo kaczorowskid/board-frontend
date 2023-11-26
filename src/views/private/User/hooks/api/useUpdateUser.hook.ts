@@ -8,7 +8,10 @@ import {
   queryClient,
   successMessagge
 } from 'utils';
-import { UpdateUserRequest, UpdateUserResponse } from 'contracts';
+import {
+  UpdateUserRequest,
+  UpdateUserResponse
+} from 'contracts/user.contracts';
 
 export const useUpdateUser = (): UseMutationResult<
   UpdateUserResponse,

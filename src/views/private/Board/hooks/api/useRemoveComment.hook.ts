@@ -8,7 +8,10 @@ import {
   queryClient,
   successMessagge
 } from 'utils';
-import { RemoveCommentRequest, RemoveCommentResponse } from 'contracts';
+import {
+  RemoveCommentRequest,
+  RemoveCommentResponse
+} from 'contracts/comment.contracts';
 
 export const useRemoveComment = (): UseMutationResult<
   RemoveCommentResponse,

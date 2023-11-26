@@ -4,7 +4,7 @@ import { confirmAccountUser } from 'api';
 import {
   ConfirmAccountUserRequest,
   ConfirmAccountUserResponse
-} from 'contracts';
+} from 'contracts/user.contracts';
 import { i18n } from 'utils';
 
 export const useConfirmAccount = (): UseMutationResult<

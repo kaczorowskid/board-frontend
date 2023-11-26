@@ -94,6 +94,7 @@
       "email": "Email",
       "password": "Password",
       "forgot-password-question": "Forgot password?",
+      "create-an-account": "Create an account!",
       "user-has-been-logged": "User has been logged",
       "user-has-not-been-logged": "User has not been logged"
     },

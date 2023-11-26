@@ -1,7 +1,7 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
 import { getNote } from 'api';
 import { QueryKeys } from 'enums';
-import { GetNoteResponse } from 'contracts';
+import { GetNoteResponse } from 'contracts/calendar.contracts';
 
 export const useGetNote = (
   id: string

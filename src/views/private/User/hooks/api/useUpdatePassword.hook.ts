@@ -8,7 +8,10 @@ import {
   queryClient,
   successMessagge
 } from 'utils';
-import { UpdatePasswordRequest, UpdatePasswordResponse } from 'contracts';
+import {
+  UpdatePasswordRequest,
+  UpdatePasswordResponse
+} from 'contracts/user.contracts';
 
 export const useUpdatePassword = (): UseMutationResult<
   UpdatePasswordResponse,

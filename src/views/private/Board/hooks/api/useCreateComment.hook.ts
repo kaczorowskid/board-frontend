@@ -8,7 +8,10 @@ import {
   queryClient,
   successMessagge
 } from 'utils';
-import { CreateCommentRequest, CreateCommentResponse } from 'contracts';
+import {
+  CreateCommentRequest,
+  CreateCommentResponse
+} from 'contracts/comment.contracts';
 
 export const useCreateComment = (): UseMutationResult<
   CreateCommentResponse,

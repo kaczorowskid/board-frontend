@@ -8,7 +8,10 @@ import {
   queryClient,
   successMessagge
 } from 'utils';
-import { RemoveColumnRequest, RemoveColumnResponse } from 'contracts';
+import {
+  RemoveColumnRequest,
+  RemoveColumnResponse
+} from 'contracts/board.contracts';
 
 export const useRemoveColumn = (): UseMutationResult<
   RemoveColumnResponse,

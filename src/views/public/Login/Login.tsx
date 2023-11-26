@@ -44,13 +44,16 @@ export const Login = () => {
           />
         </Form.Item>
 
+        <Button block htmlType='submit' type='primary'>
+          {t('public.login.login')}
+        </Button>
         <HintContainer>
           <StyledLink to={routesUrls.auth.resetPassword}>
             {t('public.login.forgot-password-question')}
           </StyledLink>
-          <Button htmlType='submit' type='primary'>
-            {t('public.login.login')}
-          </Button>
+          <StyledLink to={routesUrls.auth.register}>
+            {t('public.login.create-an-account')}
+          </StyledLink>
         </HintContainer>
       </Form>
     </Container>

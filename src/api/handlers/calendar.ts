@@ -15,7 +15,7 @@ import {
   RemoveNoteResponse,
   UpdateNoteStatusRequest,
   UpdateNoteStatusResponse
-} from 'contracts';
+} from 'contracts/calendar.contracts';
 
 export const getCalendar = async (
   payload: GetCalendarRequest

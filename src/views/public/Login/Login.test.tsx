@@ -18,12 +18,16 @@ describe('User - Login', () => {
     const forgotLink = screen.getByRole('link', {
       name: 'Forgot password?'
     });
+    const createAnAccountLink = screen.getByRole('link', {
+      name: 'Create an account!'
+    });
 
     expect(loginTitle).toBeVisible();
     expect(emailInput).toBeVisible();
     expect(passwordInput).toBeVisible();
     expect(loginButton).toBeVisible();
     expect(forgotLink).toBeVisible();
+    expect(createAnAccountLink).toBeVisible();
   });
 
   it('should displaying validation', async () => {
