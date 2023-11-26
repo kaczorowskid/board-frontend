@@ -1,7 +1,7 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
 import { getTicket } from 'api';
 import { QueryKeys } from 'enums';
-import { GetTicketResponse } from 'contracts';
+import { GetTicketResponse } from 'contracts/board.contracts';
 
 export const useGetTicket = (
   id: string

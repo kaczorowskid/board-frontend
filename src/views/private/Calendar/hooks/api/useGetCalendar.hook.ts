@@ -1,7 +1,7 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
 import { getCalendar } from 'api';
 import { QueryKeys } from 'enums';
-import { GetCalendarResponse } from 'contracts';
+import { GetCalendarResponse } from 'contracts/calendar.contracts';
 
 export const useGetCalendar = (
   user_id: string,

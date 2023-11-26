@@ -4,7 +4,7 @@ import { QueryKeys } from 'enums';
 import { usePaginationConfig } from 'hooks';
 import { ListQuery } from 'types';
 import { useUserStore } from 'stores';
-import { GetBoardsWithPaginationResponse } from 'contracts';
+import { GetBoardsWithPaginationResponse } from 'contracts/board.contracts';
 
 export const useFetchBoards = (
   listQuery: ListQuery

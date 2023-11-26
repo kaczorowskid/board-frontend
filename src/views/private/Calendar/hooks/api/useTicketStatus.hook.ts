@@ -8,7 +8,10 @@ import {
   queryClient,
   successMessagge
 } from 'utils';
-import { UpdateNoteStatusRequest, UpdateNoteStatusResponse } from 'contracts';
+import {
+  UpdateNoteStatusRequest,
+  UpdateNoteStatusResponse
+} from 'contracts/calendar.contracts';
 
 export const useTicketStatus = (): UseMutationResult<
   UpdateNoteStatusResponse,

@@ -1,6 +1,6 @@
 import { ExclamationCircleFilled } from '@ant-design/icons';
 import { MenuProps, Modal } from 'antd';
-import { GetCalendarResponse } from 'contracts';
+import { GetCalendarResponse } from 'contracts/calendar.contracts';
 import { useTranslation } from 'react-i18next';
 import { UseColumn } from 'types';
 

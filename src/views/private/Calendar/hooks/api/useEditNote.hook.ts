@@ -8,7 +8,10 @@ import {
   queryClient,
   successMessagge
 } from 'utils';
-import { EditNoteRequest, EditNoteResponse } from 'contracts';
+import {
+  EditNoteRequest,
+  EditNoteResponse
+} from 'contracts/calendar.contracts';
 
 export const useEditNote = (): UseMutationResult<
   EditNoteResponse,

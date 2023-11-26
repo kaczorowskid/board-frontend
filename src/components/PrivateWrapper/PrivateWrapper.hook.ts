@@ -4,7 +4,7 @@ import { QueryKeys } from 'enums';
 import { useNavigate } from 'react-router';
 import { routesUrls } from 'routes';
 import { useUserStore } from 'stores';
-import { AuthorizeUserResponse } from 'contracts';
+import { AuthorizeUserResponse } from 'contracts/user.contracts';
 
 export const useAuthorizeUser = (): UseQueryResult<
   AuthorizeUserResponse,

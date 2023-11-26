@@ -8,7 +8,10 @@ import {
   queryClient,
   successMessagge
 } from 'utils';
-import { RemoveNoteRequest, RemoveNoteResponse } from 'contracts';
+import {
+  RemoveNoteRequest,
+  RemoveNoteResponse
+} from 'contracts/calendar.contracts';
 
 export const useRemoveNote = (): UseMutationResult<
   RemoveNoteResponse,

@@ -3,7 +3,7 @@ import { loginUser } from 'api';
 import { useNavigate } from 'react-router-dom';
 import { useUserStore } from 'stores';
 import { routesUrls } from 'routes';
-import { LoginUserRequest, LoginUserResponse } from 'contracts';
+import { LoginUserRequest, LoginUserResponse } from 'contracts/user.contracts';
 import { message } from 'antd';
 import { i18n } from 'utils';
 

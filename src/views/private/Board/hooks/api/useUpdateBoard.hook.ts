@@ -1,6 +1,9 @@
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
 import { updateBoard } from 'api';
-import { UpdateBoardRequest, UpdateBoardResponse } from 'contracts';
+import {
+  UpdateBoardRequest,
+  UpdateBoardResponse
+} from 'contracts/board.contracts';
 import { Operation, errorMessagge, i18n, successMessagge } from 'utils';
 
 export const useUpdateBoard = (): UseMutationResult<

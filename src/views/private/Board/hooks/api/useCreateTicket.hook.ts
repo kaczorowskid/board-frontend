@@ -8,7 +8,10 @@ import {
   queryClient,
   successMessagge
 } from 'utils';
-import { CreateTicketRequest, CreateTicketResponse } from 'contracts';
+import {
+  CreateTicketRequest,
+  CreateTicketResponse
+} from 'contracts/board.contracts';
 
 export const useCreateTicket = (): UseMutationResult<
   CreateTicketResponse,

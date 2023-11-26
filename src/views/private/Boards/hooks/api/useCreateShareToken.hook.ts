@@ -8,7 +8,10 @@ import {
   queryClient,
   successMessagge
 } from 'utils';
-import { CreateShareTokenRequest, CreateShareTokenResponse } from 'contracts';
+import {
+  CreateShareTokenRequest,
+  CreateShareTokenResponse
+} from 'contracts/board.contracts';
 
 export const useCreateShareToken = (): UseMutationResult<
   CreateShareTokenResponse,

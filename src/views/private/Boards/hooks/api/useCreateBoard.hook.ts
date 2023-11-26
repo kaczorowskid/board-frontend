@@ -8,7 +8,10 @@ import {
   queryClient,
   successMessagge
 } from 'utils';
-import { CreateBoardRequest, CreateBoardResponse } from 'contracts';
+import {
+  CreateBoardRequest,
+  CreateBoardResponse
+} from 'contracts/board.contracts';
 
 export const useCreateBoard = (): UseMutationResult<
   CreateBoardResponse,

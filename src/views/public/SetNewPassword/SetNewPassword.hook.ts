@@ -4,7 +4,7 @@ import { setNewPasswordUser } from 'api';
 import {
   SetNewPasswordUserRequest,
   SetNewPasswordUserResponse
-} from 'contracts';
+} from 'contracts/user.contracts';
 import { i18n } from 'utils';
 
 export const useSetNewPassword = (): UseMutationResult<

@@ -8,7 +8,10 @@ import {
   queryClient,
   successMessagge
 } from 'utils';
-import { CreateColumnRequest, CreateColumnResponse } from 'contracts';
+import {
+  CreateColumnRequest,
+  CreateColumnResponse
+} from 'contracts/board.contracts';
 
 export const useCreateColumn = (): UseMutationResult<
   CreateColumnResponse,

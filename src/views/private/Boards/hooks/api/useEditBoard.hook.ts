@@ -8,7 +8,7 @@ import {
   queryClient,
   successMessagge
 } from 'utils';
-import { EditBoardRequest, EditBoardResponse } from 'contracts';
+import { EditBoardRequest, EditBoardResponse } from 'contracts/board.contracts';
 
 export const useEditBoard = (): UseMutationResult<
   EditBoardResponse,
