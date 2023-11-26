@@ -1,9 +1,9 @@
 import { Modal, Table } from 'antd';
-import { defaultConfig, useListQuery, usePaginationHelpers } from 'hooks';
 import { PageWrapper, TileItem } from 'components';
 import { useEffect } from 'react';
 import { ExclamationCircleFilled, TableOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
+import { usePaginationHelpers } from 'hooks/paginationHelper.hook';
 import { BoardsForm, ShareBoardForm } from './components';
 import {
   useColumns,
@@ -20,18 +20,8 @@ export const Boards = () => {
   const { mutateAsync: removeBoard } = useRemoveBoard();
   const { data, mutate: createToken } = useCreateShareToken();
 
-  const { listQuery, setListQuery } = useListQuery({
-    ...defaultConfig,
-    pagination: {
-      ...defaultConfig.pagination,
-      pageSize: 10
-    }
-  });
-
-  const { onHandleTableChange, onSearchPagination } = usePaginationHelpers(
-    listQuery,
-    setListQuery
-  );
+  const { listQuery, onHandleTableChange, onSearchPagination } =
+    usePaginationHelpers();
 
   const { data: boardsData, isFetching } = useFetchBoards(listQuery);
 
