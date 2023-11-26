@@ -1,4 +1,4 @@
-# Board-contracts
+# Board-contracts [WIP]
 
 ![image](https://github.com/kaczorowskid/commits/assets/57078565/6264ca5f-c681-4cde-b5ff-ba8f981ed46d)
 
