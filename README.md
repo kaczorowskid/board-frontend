@@ -12,10 +12,11 @@ It is a combination of jira and trello. The application consists of 4 subsection
 
 ## Dashboard
 
-| **Light theme**                                        | **Dark theme**                                        |
-| ------------------------------------------------- | ------------------------------------------------ |
-| <img width="590" alt="Light IMG Preview" src="https://github.com/kaczorowskid/commits/assets/57078565/d291c313-e81b-42b9-98d4-9514521f0027"> | <img width="590" alt="Dark IMG Preview" src="https://github.com/kaczorowskid/commits/assets/57078565/6ba83e00-70ec-483b-b83a-c86cc8bff120"> |
+### Light theme:
+![image](https://github.com/kaczorowskid/board-frontend/assets/57078565/48a35f46-283d-4754-8382-88e0a80afd4f)
 
+### Dark theme
+![image1](https://github.com/kaczorowskid/board-frontend/assets/57078565/29c926e5-0484-4476-b9d6-f64bf889b2f9)
 
 The dashboard displays all the most necessary information such as:
 - recen tickets
@@ -29,27 +30,40 @@ It gives the user the opportunity to check all the latest information.
 
 ## Boards
 
-| **Light theme**                                        | **Dark theme**                                        |
-| ------------------------------------------------- | ------------------------------------------------ |
-| <img width="590" alt="Light IMG Preview" src="https://github.com/kaczorowskid/commits/assets/57078565/b97f19f4-102e-4104-a3e6-760f67a33ce0"> | <img width="590" alt="Dark IMG Preview" src="https://github.com/kaczorowskid/commits/assets/57078565/c04e74c5-e089-45e6-88de-74db2b746d97"> |
+### Light theme
+![image](https://github.com/kaczorowskid/board-frontend/assets/57078565/c934f8c5-e403-4dd6-b1aa-74ff9bba37f3)
+
+### Dark theme
+![image1](https://github.com/kaczorowskid/board-frontend/assets/57078565/1edb5fbe-dd0d-4bee-a70a-186b0d6cd9f1)
 
 The `boards` subsection displays all the boards that the user has set up (those that he sharers with other users too). He has the ability to edit the names and also the descriptions of each board. This view includes pagination
 
 
 ## Board
 This view contains task boards, where you can move tasks between columns (drag and drop), add new tasks, edit existing tasks and also delete tasks. Each task must have a name, and a priority (a description is not required). In addition, under each task it is possible to write comments (having discussions with other users)
-| **Light theme**                                        | **Dark theme**                                        |
-| ------------------------------------------------- | ------------------------------------------------ |
-| <img width="590" alt="Light IMG Preview" src="https://github.com/kaczorowskid/commits/assets/57078565/5049e84d-6f9b-4d5c-ab02-9cd3dc58d34e"> | <img width="590](https://github.com/kaczorowskid/commits/assets/57078565/7de83f0b-d980-4e2a-9b7a-95f4a3b7b160)" alt="Dark IMG Preview" src="https://github.com/kaczorowskid/commits/assets/57078565/719b069b-33ac-44af-89c2-fb621dc728b9"> |
-| <img width="590" alt="Light IMG Preview" src="https://github.com/kaczorowskid/commits/assets/57078565/e60fdafc-e95a-4774-85cb-65e245f7143b"> | <img width="590](https://github.com/kaczorowskid/commits/assets/57078565/7de83f0b-d980-4e2a-9b7a-95f4a3b7b160)" alt="Dark IMG Preview" src="https://github.com/kaczorowskid/commits/assets/57078565/664e35cf-ed55-4ada-afd9-6be01de19cf6"> |
+
+### Light theme
+![image](https://github.com/kaczorowskid/board-frontend/assets/57078565/27a67107-d84f-4718-9418-a609c1e5ddd3)
+
+### Dark theme
+![image1](https://github.com/kaczorowskid/board-frontend/assets/57078565/c1a93e9a-cfe7-4fb9-9eb1-abb1f000d3bd)
+
+
+### Filter light theme
+![image3](https://github.com/kaczorowskid/board-frontend/assets/57078565/f4f91b17-6e03-4323-a7b8-21b8245d903e)
+
+### Filter dark theme
+![image2](https://github.com/kaczorowskid/board-frontend/assets/57078565/716881b5-8b82-46fb-86ad-ef39ec1119d4)
 
 
 ## Calendar
 In this view, it is possible to add notes to each day of the current month, edit them, delete them, and set them as done/in progress
 
-| **Light theme**                                        | **Dark theme**                                        |
-| ------------------------------------------------- | ------------------------------------------------ |
-| <img width="590" alt="Light IMG Preview" src="https://github.com/kaczorowskid/commits/assets/57078565/29a4b011-cc21-45a7-8019-ee53bbaadccf"> | <img width="590" alt="Dark IMG Preview" src="https://github.com/kaczorowskid/commits/assets/57078565/d39be511-9383-453b-b11a-ed41d3961f04"> |
+### Light theme
+![image](https://github.com/kaczorowskid/board-frontend/assets/57078565/dc9d3030-4371-4b3c-8d81-702f45a6379a)
+
+### Dark theme
+![image1](https://github.com/kaczorowskid/board-frontend/assets/57078565/a4b2388a-031c-4597-a884-fa7d96d2513d)
 
 
 # How to run
