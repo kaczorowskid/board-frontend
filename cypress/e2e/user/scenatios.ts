@@ -1,4 +1,4 @@
-import { Gherkin } from '../support/gherkin';
+import { Gherkin } from '../../support/gherkin';
 import { commands } from './commands';
 
 export const scenarios = {
