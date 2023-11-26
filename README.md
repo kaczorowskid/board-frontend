@@ -1,12 +1,14 @@
 # Board-frontend [WIP]
 
-![image](https://github.com/kaczorowskid/commits/assets/57078565/6264ca5f-c681-4cde-b5ff-ba8f981ed46d)
+
+![image](https://github.com/kaczorowskid/board-frontend/assets/57078565/d698b4be-3211-4a29-920d-3cba4f1b9d11)
 
 It is a combination of jira and trello. The application consists of 4 subsections
 - dashboard
 - board list
 - board
 - calendar
+
 
 ## Dashboard
 
@@ -24,6 +26,7 @@ The dashboard displays all the most necessary information such as:
 
 It gives the user the opportunity to check all the latest information.
 
+
 ## Boards
 
 | **Light theme**                                        | **Dark theme**                                        |
@@ -39,6 +42,7 @@ This view contains task boards, where you can move tasks between columns (drag a
 | ------------------------------------------------- | ------------------------------------------------ |
 | <img width="590" alt="Light IMG Preview" src="https://github.com/kaczorowskid/commits/assets/57078565/5049e84d-6f9b-4d5c-ab02-9cd3dc58d34e"> | <img width="590](https://github.com/kaczorowskid/commits/assets/57078565/7de83f0b-d980-4e2a-9b7a-95f4a3b7b160)" alt="Dark IMG Preview" src="https://github.com/kaczorowskid/commits/assets/57078565/719b069b-33ac-44af-89c2-fb621dc728b9"> |
 | <img width="590" alt="Light IMG Preview" src="https://github.com/kaczorowskid/commits/assets/57078565/e60fdafc-e95a-4774-85cb-65e245f7143b"> | <img width="590](https://github.com/kaczorowskid/commits/assets/57078565/7de83f0b-d980-4e2a-9b7a-95f4a3b7b160)" alt="Dark IMG Preview" src="https://github.com/kaczorowskid/commits/assets/57078565/664e35cf-ed55-4ada-afd9-6be01de19cf6"> |
+
 
 ## Calendar
 In this view, it is possible to add notes to each day of the current month, edit them, delete them, and set them as done/in progress
@@ -85,4 +89,5 @@ Your app is ready to be deployed!
 # TODO
 - RWD
 - Adding tests
+- Refactor DragAndDrop component (use ContextAPI, to avoid props drilling)
 - Refactoring of selected components
