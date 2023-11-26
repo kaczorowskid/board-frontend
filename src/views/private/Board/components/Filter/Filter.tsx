@@ -15,7 +15,7 @@ export const Filter = ({
   onCloseSidebar,
   onSearch,
   onChangePrios
-}: FilterProps) => {
+}: FilterProps): JSX.Element => {
   const { t } = useTranslation();
   const [form] = useForm();
   const { boardId } = useParams<{ boardId: string }>();
@@ -29,7 +29,7 @@ export const Filter = ({
     params.prio || null
   );
 
-  const handleFilter = () => {
+  const handleFilter = (): void => {
     refetch();
   };
 

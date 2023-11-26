@@ -17,11 +17,11 @@ export const useCustomSearchParams = <T>(): UseCustomSearchParams<T> => {
     }))
   );
 
-  const setParams = (data: ObjectParams) => {
+  const setParams = (data: ObjectParams): void => {
     setSearchParams(data);
   };
 
-  const deleteParams = (param?: string) => {
+  const deleteParams = (param?: string): void => {
     if (param) {
       setSearchParams((params) => {
         params.delete(param);

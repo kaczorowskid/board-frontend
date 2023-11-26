@@ -20,30 +20,30 @@ export const useControlView = (): UseControlView => {
   const { params, setParams, deleteParams } =
     useCustomSearchParams<SearchParams>();
 
-  const handleHideSideboard = () => {
+  const handleHideSideboard = (): void => {
     deleteParams();
   };
 
-  const handleAddColumn = () => {
+  const handleAddColumn = (): void => {
     setParams({ target: 'column' });
   };
 
-  const handleOpenFilter = () => {
+  const handleOpenFilter = (): void => {
     setIsOpenFilter(true);
   };
 
-  const handleCloseFilter = () => {
+  const handleCloseFilter = (): void => {
     setIsOpenFilter(false);
   };
 
-  const handleSearchByText = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleSearchByText = (event: ChangeEvent<HTMLInputElement>): void => {
     setParams({
       ...params,
       text: event?.target?.value
     });
   };
 
-  const handleSearchByPrio = (prio: Prio) => {
+  const handleSearchByPrio = (prio: Prio): void => {
     setParams({
       ...params,
       prio

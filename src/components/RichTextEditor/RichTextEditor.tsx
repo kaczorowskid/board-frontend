@@ -7,7 +7,7 @@ export const RichTextEditor = ({
   setIsFocus,
   placeholder,
   ...props
-}: RichTextEditrorProps) =>
+}: RichTextEditrorProps): JSX.Element =>
   isFocus ? (
     <ReactQuill placeholder={placeholder} {...props} />
   ) : (

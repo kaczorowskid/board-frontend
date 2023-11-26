@@ -7,7 +7,7 @@ import { initValues, inputsRule } from './SewNewPassword.schema';
 import { SearchParams, SetNewPasswordFormInputs } from './SetNewPassword.enum';
 import { useSetNewPassword } from './SetNewPassword.hook';
 
-export const SetNewPassword = () => {
+export const SetNewPassword = (): JSX.Element => {
   const [searchParams] = useSearchParams();
   const token = searchParams.get(SearchParams.TOKEN);
   const { t } = useTranslation();
@@ -15,7 +15,7 @@ export const SetNewPassword = () => {
   const [form] = Form.useForm<SetNewPasswordForm>();
   const { mutate: setNewPassword } = useSetNewPassword();
 
-  const handleFinish = (payload: SetNewPasswordForm) => {
+  const handleFinish = (payload: SetNewPasswordForm): void => {
     setNewPassword({ token, ...payload });
   };
 

@@ -18,7 +18,7 @@ import { ItemsContainer } from './Dashboard.styled';
 import { useGetDashboard } from './hooks';
 import { statisticsDataMapper } from './utils';
 
-export const Dashboard = () => {
+export const Dashboard = (): JSX.Element => {
   const { id: userId } = useUserStore();
   const { t } = useTranslation();
   const currentMonth = dayjs().format(DATE_FORMAT);

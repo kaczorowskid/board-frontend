@@ -5,7 +5,7 @@ export const antdMessage = ({
   type,
   content,
   duration = 3
-}: AntdMessageProps) => {
+}: AntdMessageProps): void => {
   message.open({
     type,
     content,

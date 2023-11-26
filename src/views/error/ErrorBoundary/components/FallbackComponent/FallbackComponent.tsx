@@ -24,7 +24,7 @@ export const FallbackComponent = ({
     resetErrorBoundary();
   };
 
-  const handleGoToDashboard = () => {
+  const handleGoToDashboard = (): void => {
     navigate(routesUrls.app.dashboard);
   };
 

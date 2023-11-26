@@ -27,7 +27,7 @@ import {
 export const AddTicketForm = ({
   isSidebarVisible,
   onCloseSidebar
-}: AddTicketFormProps) => {
+}: AddTicketFormProps): JSX.Element => {
   const {
     params: { columnId, ticketId }
   } = useCustomSearchParams<SearchParams>();
@@ -46,7 +46,7 @@ export const AddTicketForm = ({
 
   useFillForm(ticketData, form, isSidebarVisible, isEdit);
 
-  const handleSubmit = (values: AddTicketFormType) => {
+  const handleSubmit = (values: AddTicketFormType): void => {
     const mappedValues = { ...values };
     if (mappedValues.description.trim() === '<p><br></p>') {
       mappedValues.description = '';

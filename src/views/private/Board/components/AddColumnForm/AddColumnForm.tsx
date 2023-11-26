@@ -13,7 +13,7 @@ import { initialValues, inputRules } from './AddColumnForm.schema';
 export const AddColumnForm = ({
   isSidebarVisible,
   onCloseSidebar
-}: AddColumnFormProps) => {
+}: AddColumnFormProps): JSX.Element => {
   const { t } = useTranslation();
   const { boardId } = useParams<{ boardId: string }>();
   const {
@@ -29,7 +29,7 @@ export const AddColumnForm = ({
 
   useFillForm(columnData, form, isSidebarVisible, isEdit);
 
-  const handleSubmit = (values: AddColumnFormType) => {
+  const handleSubmit = (values: AddColumnFormType): void => {
     if (isEdit) {
       editColumn({ ...values, id: columnId as string });
     } else {

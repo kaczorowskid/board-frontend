@@ -6,7 +6,7 @@ export const useFillForm = <T extends unknown>(
   form: FormInstance,
   isSidebarVisible: boolean,
   isEdit: boolean
-) => {
+): void => {
   useEffect(() => {
     if (!isEdit) {
       form.resetFields();

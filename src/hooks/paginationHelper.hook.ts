@@ -40,7 +40,7 @@ export const usePaginationHelpers = (): UsePaginationHelpers => {
     }));
   };
 
-  const onSearchPagination = (value: string) => {
+  const onSearchPagination = (value: string): void => {
     setListQuery((prev) => ({
       ...prev,
       searchValue: value,

@@ -6,7 +6,7 @@ export const Statistics = ({
   notMerge,
   lazyUpdate,
   ...props
-}: StatisticsProps) => (
+}: StatisticsProps): JSX.Element => (
   <Container>
     <EChartsReact notMerge={true} lazyUpdate={true} {...props} />
   </Container>

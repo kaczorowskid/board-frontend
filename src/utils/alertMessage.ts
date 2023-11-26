@@ -8,7 +8,10 @@ export enum Operation {
   UPDATE = 'update'
 }
 
-export const successMessagge = (entityName: string, operation: Operation) => {
+export const successMessagge = (
+  entityName: string,
+  operation: Operation
+): void => {
   const text = {
     [Operation.ADD]: i18n.t('messages.success.add'),
     [Operation.EDIT]: i18n.t('messages.success.edit'),
@@ -19,7 +22,10 @@ export const successMessagge = (entityName: string, operation: Operation) => {
   message.success(`${entityName} ${text[operation]}`);
 };
 
-export const errorMessagge = (entityName: string, operation: Operation) => {
+export const errorMessagge = (
+  entityName: string,
+  operation: Operation
+): void => {
   const text = {
     [Operation.ADD]: i18n.t('messages.error.add'),
     [Operation.EDIT]: i18n.t('messages.error.edit'),

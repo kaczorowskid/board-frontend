@@ -6,12 +6,12 @@ import { initValues, inputsRule } from './Register.schema';
 import { RegisterForm } from './Register.type';
 import { RegisterFormInputs } from './Register.enum';
 
-export const Register = () => {
+export const Register = (): JSX.Element => {
   const [form] = Form.useForm<RegisterForm>();
   const { mutate: register } = useRegister();
   const { t } = useTranslation();
 
-  const handleFinish = (payload: RegisterForm) => {
+  const handleFinish = (payload: RegisterForm): void => {
     // eslint-disable-next-line no-param-reassign
     delete payload.confirmPassword;
 

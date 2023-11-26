@@ -5,7 +5,7 @@ import { Container } from './Menu.styled';
 import { MenuItems, UserInfo } from './elements';
 import { useLogout, useMenuItems } from './hooks';
 
-export const Menu = () => {
+export const Menu = (): JSX.Element => {
   const navigate = useNavigate();
   const { firstName, lastName, email } = useUserStore();
   const { mutateAsync: logout } = useLogout();

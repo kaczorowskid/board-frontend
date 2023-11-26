@@ -1,7 +1,8 @@
 import { ThemeOptions } from 'types';
 import { light, dark, colors } from './colors';
+import { Theme } from './theme.type';
 
-export const theme = (themeOptions: ThemeOptions) => ({
+export const theme = (themeOptions: ThemeOptions): Theme => ({
   ...(themeOptions === 'dark' ? dark : light),
   colors,
   spacing: {

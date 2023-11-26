@@ -6,7 +6,6 @@ import {
   DraggableItem,
   DraggableItemProvider
 } from './elements';
-// import { reorder } from './utils';
 import { useReorder } from './hooks';
 
 export const DragAndDrop = ({
@@ -16,12 +15,12 @@ export const DragAndDrop = ({
   openFilter,
   ticketDropdownItems,
   columnDropdownItems
-}: DragAndDropProps) => {
+}: DragAndDropProps): JSX.Element => {
   const boardId = dataSource.id;
   const { columns } = dataSource;
   const { reorder } = useReorder();
 
-  const handleOnDragEnd = (result: DropResult) => {
+  const handleOnDragEnd = (result: DropResult): void => {
     const { mappedResult } = reorder(columns, result);
 
     onDragEnd(mappedResult);

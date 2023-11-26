@@ -7,7 +7,7 @@ export const UserInfo = ({
   lastName,
   email,
   onClick
-}: UserInfoProps) => (
+}: UserInfoProps): JSX.Element => (
   <Container onClick={onClick}>
     <Avatar size={64} style={{ backgroundColor: 'gray' }}>
       {firstName?.at(0)?.toUpperCase()}

@@ -13,25 +13,25 @@ import { ChangePasswordFormInputs } from './ChangePasswordForm.enum';
 import { StyledButton } from './ChangePasswordForm.styled';
 import { ChangePasswordFormType } from './ChangePasswordForm.types';
 
-export const ChangePasswordForm = () => {
+export const ChangePasswordForm = (): JSX.Element => {
   const [form] = useForm();
   const [showButton, setShowButton] = useState<boolean>(false);
   const { mutateAsync: updateUser } = useUpdatePassword();
   const { id } = useUserStore();
   const { t } = useTranslation();
 
-  const handleValuesChange = () => {
+  const handleValuesChange = (): void => {
     if (form.isFieldsTouched(requiredFields, true)) {
       setShowButton(true);
     }
   };
 
-  const handleCancel = () => {
+  const handleCancel = (): void => {
     setShowButton(false);
     form.resetFields();
   };
 
-  const handleSubmit = (values: ChangePasswordFormType) => {
+  const handleSubmit = (values: ChangePasswordFormType): void => {
     const mappedValues = { ...values };
     delete mappedValues.repeat_password;
 

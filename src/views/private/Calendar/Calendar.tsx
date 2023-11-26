@@ -15,7 +15,7 @@ import {
 import { SignCell } from './Calendar.styled';
 import { CellForm, Notes } from './components';
 
-export const Calendar = () => {
+export const Calendar = (): JSX.Element => {
   const { id: userId } = useUserStore();
   const { mutateAsync: removeNote } = useRemoveNote();
   const { t } = useTranslation();
@@ -40,7 +40,7 @@ export const Calendar = () => {
     updateNoteStatus
   );
 
-  const cellRender = (current: Dayjs) => {
+  const cellRender = (current: Dayjs): JSX.Element | null => {
     const dateString = current.format(DATE_FORMAT);
     const shouldSign = calendarData?.find((date) =>
       dayjs(date.start_date).format(DATE_FORMAT).includes(dateString)

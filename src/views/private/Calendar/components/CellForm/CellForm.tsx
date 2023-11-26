@@ -15,7 +15,7 @@ export const CellForm = ({
   date,
   isSidebarVisible,
   onCloseSidebar
-}: CellFormProps) => {
+}: CellFormProps): JSX.Element => {
   const isEdit = Boolean(id);
   const { t } = useTranslation();
 
@@ -26,7 +26,7 @@ export const CellForm = ({
 
   useFillForm(noteData, form, isSidebarVisible, isEdit);
 
-  const handleSubmit = (values: CellFormType) => {
+  const handleSubmit = (values: CellFormType): void => {
     if (isEdit) {
       editNote({ ...values, start_date: date, id: id as string });
     } else {

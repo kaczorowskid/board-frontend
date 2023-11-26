@@ -11,7 +11,7 @@ interface UseTheme {
 export const useTheme = (): UseTheme => {
   const { appTheme, setAppTheme } = useContext(ThemeContext);
 
-  const handleChangeTheme = (theme: ThemeOptions) => {
+  const handleChangeTheme = (theme: ThemeOptions): void => {
     localStorage.setItem(THEME, theme);
     setAppTheme(theme);
   };

@@ -5,7 +5,7 @@ import { Container } from './IconsActivity.styyled';
 export const IconsActivity = ({
   description,
   comments
-}: IconsActivityProps) => (
+}: IconsActivityProps): JSX.Element => (
   <Container hasGap>
     {description && <FiAlignJustify />}
     {comments ? (

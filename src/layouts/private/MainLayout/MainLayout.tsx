@@ -7,7 +7,7 @@ import {
   MainContainer
 } from './MainLayout.styled';
 
-export const MainLayout = () => (
+export const MainLayout = (): JSX.Element => (
   <PrivateWrapper>
     <GridContainer>
       <MenuContainer>
