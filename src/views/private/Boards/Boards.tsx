@@ -13,7 +13,7 @@ import {
   useRemoveBoard
 } from './hooks';
 
-export const Boards = () => {
+export const Boards = (): JSX.Element => {
   const { t } = useTranslation();
 
   const [modal, contextHolder] = Modal.useModal();
@@ -34,7 +34,7 @@ export const Boards = () => {
     handleCloseSidebar
   } = useControlView();
 
-  const handleShareBoard = (id: string) => {
+  const handleShareBoard = (id: string): void => {
     createToken({ board_id: id });
   };
 

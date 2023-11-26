@@ -17,7 +17,7 @@ export const PageWrapper = ({
   icon,
   children,
   ...props
-}: PageWrapperProps) => (
+}: PageWrapperProps): JSX.Element => (
   <>
     <SearchWrapper>
       <TitleContainer>

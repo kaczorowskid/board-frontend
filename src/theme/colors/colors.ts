@@ -20,3 +20,5 @@ export const colors = {
   antiFlashWhite100: '#f0f0f0',
   royalBlue: '#4062e3'
 } as const;
+
+export type ColorsType = typeof colors;

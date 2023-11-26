@@ -4,7 +4,7 @@ import { RecentTicketsProps } from './RecentTickets.types';
 
 export const RecentTickets = <T extends any>({
   data
-}: RecentTicketsProps<T>) => (
+}: RecentTicketsProps<T>): JSX.Element => (
   <Table
     dataSource={data}
     columns={columns}

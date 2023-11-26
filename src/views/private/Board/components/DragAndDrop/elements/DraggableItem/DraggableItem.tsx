@@ -16,7 +16,7 @@ export const DraggableItem = forwardRef<HTMLDivElement, DraggableItemProps>(
     { columnItem: ticket, isDragging, openItem, ticketDropdownItems, ...props },
     ref
   ) => {
-    const handleOpenItem = () => {
+    const handleOpenItem = (): void => {
       openItem?.(ticket.id);
     };
 

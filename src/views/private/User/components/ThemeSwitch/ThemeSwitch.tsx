@@ -2,7 +2,7 @@ import { Switch } from 'antd';
 import { useTheme } from 'hooks';
 import { FiSun, FiMoon } from 'react-icons/fi';
 
-export const ThemeSwitch = () => {
+export const ThemeSwitch = (): JSX.Element => {
   const { appTheme, handleChangeTheme } = useTheme();
 
   return (

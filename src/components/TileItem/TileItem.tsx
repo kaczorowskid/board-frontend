@@ -8,7 +8,7 @@ export const TileItem = ({
   buttonProps,
   additionButtons,
   children
-}: TileItemProps) => (
+}: TileItemProps): JSX.Element => (
   <TileContainer>
     <Header>
       {buttonName && (

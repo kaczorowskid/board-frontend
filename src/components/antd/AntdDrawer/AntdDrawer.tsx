@@ -9,7 +9,7 @@ export const AntdDrawer = ({
   formId,
   children,
   ...props
-}: AntdDrawerProps) => {
+}: AntdDrawerProps): JSX.Element => {
   const { t } = useTranslation();
 
   const extra = (

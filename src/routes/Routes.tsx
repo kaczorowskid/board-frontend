@@ -21,7 +21,7 @@ import {
 } from 'views';
 import { routesUrls } from './routesUrls';
 
-export const Routes = () => {
+export const Routes = (): JSX.Element => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route>

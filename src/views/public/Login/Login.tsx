@@ -7,12 +7,12 @@ import { LoginForm } from './Login.type';
 import { initValues, inputsRule } from './Login.schema';
 import { LoginFormInputs } from './Login.enum';
 
-export const Login = () => {
+export const Login = (): JSX.Element => {
   const [form] = Form.useForm<LoginForm>();
   const { mutate: login } = useLogin();
   const { t } = useTranslation();
 
-  const handleFinish = (payload: LoginForm) => {
+  const handleFinish = (payload: LoginForm): void => {
     login(payload);
   };
 

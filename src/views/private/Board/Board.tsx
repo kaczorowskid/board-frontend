@@ -20,7 +20,7 @@ import {
   Filter
 } from './components';
 
-export const Board = () => {
+export const Board = (): JSX.Element => {
   const { boardId } = useParams<{ boardId: string }>();
 
   const { t } = useTranslation();
@@ -44,7 +44,7 @@ export const Board = () => {
   const ticketDropdownItems = useTicketItems(setParams, removeTicket);
   const columnDropdownItems = useColumnItems(setParams, removeColumn);
 
-  const handleDragEnd = (mappedColumn: Column[]) => {
+  const handleDragEnd = (mappedColumn: Column[]): void => {
     if (data) {
       updateBoard({
         ...data,

@@ -14,7 +14,7 @@ import {
 import { UserDetailsFormType } from './UserDetailsForm.types';
 import { StyledButton } from './UserDetailsForm.styled';
 
-export const UserDetailsForm = () => {
+export const UserDetailsForm = (): JSX.Element => {
   const [form] = useForm();
   const { id } = useUserStore();
   const { data } = useGetUser(id);
@@ -25,18 +25,18 @@ export const UserDetailsForm = () => {
 
   const [showButton, setShowButton] = useState<boolean>(false);
 
-  const handleValuesChange = () => {
+  const handleValuesChange = (): void => {
     if (form.isFieldsTouched(requiredFields, false)) {
       setShowButton(true);
     }
   };
 
-  const handleCancel = () => {
+  const handleCancel = (): void => {
     setShowButton(false);
     form.resetFields();
   };
 
-  const handleSubmit = (values: UserDetailsFormType) => {
+  const handleSubmit = (values: UserDetailsFormType): void => {
     update({ ...values, id });
     setShowButton(false);
   };

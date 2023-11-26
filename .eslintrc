@@ -1,5 +1,6 @@
 {
   "root": true,
+  "ignorePatterns": ["build/*", "node_modules/*", "*.png", "*.json"],
   "settings": {
     "react": {
       "version": "detect"
@@ -58,6 +59,12 @@
     "jsx-quotes": [
       "error",
       "prefer-single"
+    ],
+     "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      {
+        "allowExpressions": true,
+      },
     ],
     "react/require-default-props": "off",
     "no-use-before-define": "off",

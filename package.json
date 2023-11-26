@@ -9,6 +9,7 @@
     "test": "vitest",
     "preview": "vite preview",
     "prepare": "husky install",
+    "lint": "eslint ./src/**/* && tsc --noemit",
     "stylelint:css": "stylelint src/**/*.ts",
     "stylelint:fix": "stylelint ./src/**/*.ts --fix",
     "cypress:open": "cypress open"

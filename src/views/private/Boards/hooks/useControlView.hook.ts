@@ -17,16 +17,16 @@ export const useControlView = (): UseControlView => {
 
   const navigate = useNavigate();
 
-  const handleEdit = (id: string) => {
+  const handleEdit = (id: string): void => {
     setBoardId(id);
     setIsSidebarVisible(true);
   };
 
-  const handleOpenBoard = (id: string) => {
+  const handleOpenBoard = (id: string): void => {
     navigate(generatePath(routesUrls.app.board, { boardId: id }));
   };
 
-  const handleCloseSidebar = () => {
+  const handleCloseSidebar = (): void => {
     setIsSidebarVisible(false);
     setBoardId('');
   };

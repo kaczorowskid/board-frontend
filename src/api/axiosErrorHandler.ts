@@ -25,7 +25,7 @@ const errors: Errors = {
     'A conflict occurred while trying to save data. Please try again or contact us if the issue persists.'
 };
 
-export const axiosErrorHandler = (error: AxiosError) => {
+export const axiosErrorHandler = (error: AxiosError): void => {
   const { status } = error?.response || {};
 
   if (status) {

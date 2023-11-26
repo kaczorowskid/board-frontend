@@ -6,7 +6,7 @@ import { useConfirmAccount } from './ConfirmAccount.hook';
 import { SearchParams } from './ConfirmAccount.enum';
 import { initialValues } from './ConfirmAccount.schema';
 
-export const ConfirmAccount = () => {
+export const ConfirmAccount = (): JSX.Element => {
   const [searchParams] = useSearchParams();
   const token = searchParams.get(SearchParams.TOKEN);
   const { t } = useTranslation();
@@ -14,7 +14,7 @@ export const ConfirmAccount = () => {
   const [form] = Form.useForm();
   const { mutate: confirmAccount } = useConfirmAccount();
 
-  const handleFinish = () => {
+  const handleFinish = (): void => {
     confirmAccount({ token });
   };
 

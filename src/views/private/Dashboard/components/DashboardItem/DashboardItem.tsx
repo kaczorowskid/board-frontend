@@ -11,7 +11,7 @@ export const DashboardItem = ({
   title,
   gridArea,
   component
-}: TileItemProps) => (
+}: TileItemProps): JSX.Element => (
   <GridContainer gridArea={gridArea}>
     <Container>
       <Header>{title && <Title>{title}</Title>}</Header>

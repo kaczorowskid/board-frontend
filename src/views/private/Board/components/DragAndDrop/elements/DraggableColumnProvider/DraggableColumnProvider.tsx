@@ -13,7 +13,7 @@ export const DraggableColumnProvider = ({
   children,
   columnDropdownItems,
   openFilter
-}: DraggableColumnProps) => (
+}: DraggableColumnProps): JSX.Element => (
   <>
     <FilterComponent onClick={openFilter}>
       <FunnelPlotOutlined />

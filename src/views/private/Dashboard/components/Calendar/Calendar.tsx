@@ -4,8 +4,11 @@ import dayjs, { Dayjs } from 'dayjs';
 import { CalendarProps } from './Calendar.types';
 import { SignedCell } from './Calendar.styled';
 
-export const Calendar = ({ data, setSelectedDate }: CalendarProps) => {
-  const cellRender = (current: Dayjs) => {
+export const Calendar = ({
+  data,
+  setSelectedDate
+}: CalendarProps): JSX.Element => {
+  const cellRender = (current: Dayjs): JSX.Element | null => {
     const dateString = current.format(DATE_FORMAT);
     const shouldSign = data?.find((date) =>
       dayjs(date.start_date).format(DATE_FORMAT).includes(dateString)
@@ -14,7 +17,7 @@ export const Calendar = ({ data, setSelectedDate }: CalendarProps) => {
     return shouldSign ? <SignedCell /> : null;
   };
 
-  const handleSelectDate = (date: Dayjs) => {
+  const handleSelectDate = (date: Dayjs): void => {
     setSelectedDate(date.format(DATE_FORMAT));
   };
 

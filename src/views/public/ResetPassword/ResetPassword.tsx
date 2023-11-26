@@ -6,12 +6,12 @@ import { useResetPassword } from './ResetPassword.hook';
 import { initValues, inputsRule } from './ResetPassword.schema';
 import { ResetPasswordFormInputs } from './ResetPassword.enum';
 
-export const ResetPassword = () => {
+export const ResetPassword = (): JSX.Element => {
   const [form] = Form.useForm<ResetPasswordForm>();
   const { mutate: resetPassword } = useResetPassword();
   const { t } = useTranslation();
 
-  const handleFinish = (payload: ResetPasswordForm) => {
+  const handleFinish = (payload: ResetPasswordForm): void => {
     resetPassword(payload);
   };
 

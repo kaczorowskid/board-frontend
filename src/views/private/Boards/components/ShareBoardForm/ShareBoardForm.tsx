@@ -8,7 +8,7 @@ import { initialValues, overlayStyle } from './ShareBoardForm.schema';
 import { ShareBoardFormInputs } from './ShareBoardForm.enum';
 import { ShareBoardFormType } from './ShareBoardForm.types';
 
-export const ShareBoardForm = () => {
+export const ShareBoardForm = (): JSX.Element => {
   const [form] = Form.useForm();
   const { id } = useUserStore();
   const { t } = useTranslation();
@@ -16,7 +16,7 @@ export const ShareBoardForm = () => {
   const [isFormVisible, setIsFormVisible] = useState<boolean>(false);
   const { mutateAsync: confirm } = useConfirmShareToken();
 
-  const handleSubmit = (values: ShareBoardFormType) => {
+  const handleSubmit = (values: ShareBoardFormType): void => {
     confirm({ ...values, user_id: id });
     form.resetFields();
   };

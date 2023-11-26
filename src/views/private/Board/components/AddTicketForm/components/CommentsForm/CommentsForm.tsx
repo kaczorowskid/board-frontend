@@ -8,14 +8,17 @@ import { AddTicketFormType, CommentsFormProps } from './CommentsForm.types';
 import { initialValues } from './CommentsForm.schema';
 import { CommentsFormInputs } from './CommentsForm.enum';
 
-export const CommentsForm = ({ ticketId, userId }: CommentsFormProps) => {
+export const CommentsForm = ({
+  ticketId,
+  userId
+}: CommentsFormProps): JSX.Element => {
   const { t } = useTranslation();
   const [form] = useForm();
   const [isCommentAreaFocus, setIsCommentAreaFocus] = useState<boolean>(false);
 
   const { mutateAsync: createComment } = useCreateComment();
 
-  const handleSubmit = (values: AddTicketFormType) => {
+  const handleSubmit = (values: AddTicketFormType): void => {
     if (values.text.trim() === '') {
       return;
     }

@@ -2,7 +2,7 @@ import { Switch } from 'antd';
 import { i18n } from 'utils';
 import { Languages } from './Languages.enum';
 
-export const LanguageSwitch = () => (
+export const LanguageSwitch = (): JSX.Element => (
   <Switch
     checked={i18n.language === Languages.POLISH}
     unCheckedChildren={'PL'}

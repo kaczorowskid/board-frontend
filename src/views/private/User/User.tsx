@@ -10,7 +10,7 @@ import {
 import { ChangePasswordForm, ThemeSwitch, UserDetailsForm } from './components';
 import { LanguageSwitch } from './components/LanguageSwitch';
 
-export const User = () => {
+export const User = (): JSX.Element => {
   const { firstName, lastName } = useUserStore();
   const { t } = useTranslation();
 

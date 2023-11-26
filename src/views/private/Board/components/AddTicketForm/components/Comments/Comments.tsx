@@ -18,7 +18,7 @@ export const Comments = ({
   data,
   commentsDropdownItems,
   commentsDropdownIcon
-}: CommentsProps) => (
+}: CommentsProps): JSX.Element => (
   <Container>
     {data?.map(({ id, text, created_at, user }) => (
       <CommentWrapper>

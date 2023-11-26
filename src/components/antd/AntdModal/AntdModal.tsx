@@ -8,7 +8,7 @@ export const AntdModal = ({
   formId,
   children,
   ...props
-}: AntdModalProps) => {
+}: AntdModalProps): JSX.Element => {
   const { t } = useTranslation();
   const footer = (
     <Space>

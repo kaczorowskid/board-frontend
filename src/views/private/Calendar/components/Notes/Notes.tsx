@@ -12,7 +12,7 @@ export const Notes = ({
   openForm,
   noteDropdownItems,
   noteDropdownIcon
-}: NotesProps) => {
+}: NotesProps): JSX.Element => {
   const { data } = useGetNotesByDate(date, userId);
   const { t } = useTranslation();
 

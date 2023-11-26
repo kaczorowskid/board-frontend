@@ -14,7 +14,7 @@ export const BoardsForm = ({
   id,
   isSidebarVisible,
   onCloseSidebar
-}: BoardsFormProps) => {
+}: BoardsFormProps): JSX.Element => {
   const isEdit = Boolean(id);
   const [form] = useForm();
   const { t } = useTranslation();
@@ -26,7 +26,7 @@ export const BoardsForm = ({
 
   useFillForm(boardData, form, isSidebarVisible, isEdit);
 
-  const handleSubmit = (values: BoardFormType) => {
+  const handleSubmit = (values: BoardFormType): void => {
     if (isEdit) {
       editBoard({ ...values, id });
     } else {

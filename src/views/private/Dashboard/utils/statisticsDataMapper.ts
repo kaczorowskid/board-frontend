@@ -1,4 +1,7 @@
-export const statisticsDataMapper = (boards?: number, tickets?: number) => ({
+export const statisticsDataMapper = (
+  boards?: number,
+  tickets?: number
+): Record<string, any> => ({
   tooltip: {
     trigger: 'item'
   },

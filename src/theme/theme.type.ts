@@ -1,5 +1,32 @@
-import { theme } from './theme';
+import { ColorsType } from './colors';
+import { ColorsSchema } from './colors/colorsSchema.types';
 
-const myTheme = theme('light');
-
-export type Theme = typeof myTheme;
+export type Theme = ColorsSchema & { colors: ColorsType } & {
+  spacing: {
+    micro: string;
+    mini: string;
+    smallest: string;
+    smaller: string;
+    small: string;
+    semiNormal: string;
+    normal: string;
+    semiLarge: string;
+    large: string;
+    huge: string;
+  };
+  fontSize: {
+    small: string;
+    normal: string;
+    semiLarge: string;
+    large: string;
+    huge: string;
+    mega: string;
+  };
+  borderRadius: {
+    smaller: string;
+    small: string;
+    normal: string;
+    semiLarge: string;
+    large: string;
+  };
+};

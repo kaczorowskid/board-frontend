@@ -26,25 +26,25 @@ export const useControlView = (): UseControlView => {
     dayjs().format(DATE_ONLY_MONTH)
   );
 
-  const handleSelect = (date: Dayjs) => {
+  const handleSelect = (date: Dayjs): void => {
     setParams({ date: date.format('YYYY-MM-DD') });
   };
 
-  const handleOpenForm = (id: string) => {
+  const handleOpenForm = (id: string): void => {
     setIsFormVisible(true);
     setParams({ ...params, id });
   };
 
-  const handleCloseForm = () => {
+  const handleCloseForm = (): void => {
     setIsFormVisible(false);
     deleteParams('id');
   };
 
-  const handleCloseNotes = () => {
+  const handleCloseNotes = (): void => {
     deleteParams('date');
   };
 
-  const handlePanelChange = (date: Dayjs) => {
+  const handlePanelChange = (date: Dayjs): void => {
     setSelectedMonth(date.format(DATE_ONLY_MONTH));
   };
 

@@ -4,7 +4,7 @@ import { DraggableItemProps } from './DraggableItemProvider.type';
 export const DraggableItemProvider = ({
   columnItems,
   children
-}: DraggableItemProps) => (
+}: DraggableItemProps): JSX.Element => (
   <>
     {columnItems.map((columnItem, index) => (
       <Draggable key={columnItem.id} draggableId={columnItem.id} index={index}>

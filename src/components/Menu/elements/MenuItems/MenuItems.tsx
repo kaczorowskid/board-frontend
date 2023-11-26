@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { MenuItemProps } from './MenuItems.type';
 import { Container, Icon, Item, ItemName } from './MnuItems.styled';
 
-export const MenuItems = ({ items }: MenuItemProps) => {
+export const MenuItems = ({ items }: MenuItemProps): JSX.Element => {
   const { pathname } = useLocation();
   const navigation = useNavigate();
 

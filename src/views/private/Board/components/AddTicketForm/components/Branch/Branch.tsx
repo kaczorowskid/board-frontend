@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { BranchProps } from './Branch.types';
 import { StyledButton } from './Branch.styled';
 
-export const Branch = ({ data }: BranchProps) => {
+export const Branch = ({ data }: BranchProps): JSX.Element => {
   const { t } = useTranslation();
   const branch = data?.title.split(' ').join('-');
 

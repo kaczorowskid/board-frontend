@@ -5,7 +5,7 @@ import { useTheme } from 'hooks';
 import { antdTheme, theme } from 'theme';
 import { ConfigProvider } from 'antd';
 
-export const App = () => {
+export const App = (): JSX.Element => {
   const { appTheme } = useTheme();
 
   return (
