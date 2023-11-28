@@ -103,5 +103,4 @@ Your app is ready to be deployed!
 # TODO
 - RWD
 - Adding tests
-- Refactor DragAndDrop component (use ContextAPI, to avoid props drilling)
 - Refactoring of selected components
