@@ -1,7 +1,8 @@
-import { forwardRef } from 'react';
+import { forwardRef, useContext } from 'react';
 import { AntdDropdown } from 'components/antd';
 import { IconTag } from 'components/IconTag';
 import { EditOutlined } from '@ant-design/icons';
+import { DropdownContext } from '../../contexts';
 import { DraggableItemProps } from './DraggableItem.type';
 import {
   Container,
@@ -12,10 +13,9 @@ import {
 import { IconsActivity } from './components';
 
 export const DraggableItem = forwardRef<HTMLDivElement, DraggableItemProps>(
-  (
-    { columnItem: ticket, isDragging, openItem, ticketDropdownItems, ...props },
-    ref
-  ) => {
+  ({ columnItem: ticket, isDragging, openItem, ...props }, ref) => {
+    const { ticketDropdownItems } = useContext(DropdownContext); // <-- useContext here
+
     const handleOpenItem = (): void => {
       openItem?.(ticket.id);
     };

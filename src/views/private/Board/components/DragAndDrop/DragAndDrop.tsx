@@ -7,6 +7,7 @@ import {
   DraggableItemProvider
 } from './elements';
 import { useReorder } from './hooks';
+import { DropdownProvider } from './contexts';
 
 export const DragAndDrop = ({
   dataSource,
@@ -29,27 +30,27 @@ export const DragAndDrop = ({
   return (
     <DragDropContext onDragEnd={handleOnDragEnd}>
       <DragDropContainer>
-        <DraggableColumnProvider
-          columnDropdownItems={columnDropdownItems}
-          columnsData={columns || []}
-          boardId={boardId}
-          openFilter={openFilter}
-        >
-          {(columnItems) => (
-            <DraggableItemProvider columnItems={columnItems}>
-              {(columnItem, isDragging, ref, props) => (
-                <DraggableItem
-                  ticketDropdownItems={ticketDropdownItems}
-                  columnItem={columnItem}
-                  openItem={openItem}
-                  isDragging={isDragging}
-                  ref={ref}
-                  {...props}
-                />
-              )}
-            </DraggableItemProvider>
-          )}
-        </DraggableColumnProvider>
+        <DropdownProvider value={{ ticketDropdownItems, columnDropdownItems }}>
+          <DraggableColumnProvider
+            columnsData={columns || []}
+            boardId={boardId}
+            openFilter={openFilter}
+          >
+            {(columnItems) => (
+              <DraggableItemProvider columnItems={columnItems}>
+                {(columnItem, isDragging, ref, props) => (
+                  <DraggableItem
+                    columnItem={columnItem}
+                    openItem={openItem}
+                    isDragging={isDragging}
+                    ref={ref}
+                    {...props}
+                  />
+                )}
+              </DraggableItemProvider>
+            )}
+          </DraggableColumnProvider>
+        </DropdownProvider>
       </DragDropContainer>
     </DragDropContext>
   );
