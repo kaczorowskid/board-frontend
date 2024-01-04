@@ -63,10 +63,7 @@ export const Dashboard = (): JSX.Element => {
         <DashboardItem
           gridArea='calendar'
           component={
-            <Calendar
-              data={calendar as any}
-              setSelectedDate={setSelectedDate}
-            />
+            <Calendar data={calendar} setSelectedDate={setSelectedDate} />
           }
         />
       </ItemsContainer>

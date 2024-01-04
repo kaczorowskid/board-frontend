@@ -1,19 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import { getDashboard } from 'api';
+import { GetDashboardResponse } from 'board-contracts';
 import { QueryKeys } from 'enums';
 
 interface UseGetDashboard {
-  recentBoards?: {
-    // data: Record<string, string | number | Date>[];
-    data: any;
-    count: number;
-  };
-  recentTickets?: {
-    // data: Record<string, string | number | Date>[];
-    data: any;
-    count: number;
-  };
-  calendar?: Record<string, string | Date>[];
+  recentBoards?: GetDashboardResponse['recentBoards'];
+  recentTickets?: GetDashboardResponse['recentTickets'];
+  calendar?: GetDashboardResponse['calendar'];
 }
 
 export const useGetDashboard = (
