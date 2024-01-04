@@ -5,9 +5,9 @@ import TextArea from 'antd/es/input/TextArea';
 import { useFillForm } from 'hooks';
 import { useTranslation } from 'react-i18next';
 import { useCreateNote, useEditNote, useGetNote } from '../../hooks';
-import { CellFormProps, CellFormType, inputsRule } from './CellForm.types';
+import { CellFormProps, CellFormType } from './CellForm.types';
 import { CellFormInputs } from './CellForm.enum';
-import { initialValues } from './CellForm.schema';
+import { initialValues, inputsRule } from './CellForm.schema';
 
 export const CellForm = ({
   userId,

@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
+import { ConfirmShareTokenRequest } from 'board-contracts';
 import { ShareBoardFormInputs } from './ShareBoardForm.enum';
 
 export interface ShareBoardFormProps {
@@ -7,5 +8,5 @@ export interface ShareBoardFormProps {
 }
 
 export interface ShareBoardFormType {
-  [ShareBoardFormInputs.TOKEN]: string;
+  [ShareBoardFormInputs.TOKEN]: ConfirmShareTokenRequest['token'];
 }

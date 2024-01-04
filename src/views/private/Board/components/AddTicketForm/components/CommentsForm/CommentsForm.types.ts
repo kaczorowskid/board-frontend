@@ -1,3 +1,4 @@
+import { CreateCommentRequest } from 'board-contracts';
 import { CommentsFormInputs } from './CommentsForm.enum';
 
 export interface CommentsFormProps {
@@ -6,5 +7,5 @@ export interface CommentsFormProps {
 }
 
 export interface AddTicketFormType {
-  [CommentsFormInputs.TEXT]: string;
+  [CommentsFormInputs.TEXT]: CreateCommentRequest['text'];
 }

@@ -1,4 +1,5 @@
-import { CommonFormProps, InputsRule } from 'types';
+import { CommonFormProps } from 'types';
+import { CreateNoteRequest } from 'board-contracts';
 import { CellFormInputs } from './CellForm.enum';
 
 export interface CellFormProps extends CommonFormProps {
@@ -7,13 +8,5 @@ export interface CellFormProps extends CommonFormProps {
 }
 
 export interface CellFormType {
-  [CellFormInputs.NOTE]: string;
+  [CellFormInputs.NOTE]: CreateNoteRequest['note'];
 }
-
-export const inputsRule: InputsRule = {
-  [CellFormInputs.NOTE]: [
-    {
-      required: true
-    }
-  ]
-};
