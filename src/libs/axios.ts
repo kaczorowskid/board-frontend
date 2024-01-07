@@ -1,9 +1,10 @@
 import axios from 'axios';
+import { runtimeConfig } from 'utils';
 
 const baseURL =
-  process.env.VITE_ENVIRONMENT === 'development'
-    ? process.env.VITE_API_DEVELOPMENT_URL
-    : process.env.VITE_API_PROD_URL;
+  runtimeConfig.environment === 'development'
+    ? runtimeConfig.apiDevelopmentUrl
+    : runtimeConfig.apiProdUrl;
 
 const headers = {
   'Content-Type': 'application/json'

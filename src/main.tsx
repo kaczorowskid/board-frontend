@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import { QueryClientProvider } from '@tanstack/react-query';
-import { i18n, queryClient } from 'utils';
+import { i18n, queryClient, runtimeConfig } from 'utils';
 import { ThemeProvider } from 'context';
 import { App } from 'App';
 import 'react-quill/dist/quill.snow.css';
@@ -9,8 +9,8 @@ import { I18nextProvider } from 'react-i18next';
 import { worker } from './mocks/browser';
 
 if (
-  process.env.VITE_ENVIRONMENT === 'development' &&
-  process.env.VITE_TEST === 'true'
+  runtimeConfig.environment === 'development' &&
+  runtimeConfig.test === 'true'
 ) {
   worker.start();
 }
