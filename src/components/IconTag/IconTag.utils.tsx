@@ -1,11 +1,9 @@
-import { ReactNode } from 'react';
 import { FiChevronsUp, FiChevronUp, FiChevronDown } from 'react-icons/fi';
+import { Prio } from './IconTag.types';
 
-type Prios = 'high' | 'medium' | 'low';
-
-type IconMapper = Record<Prios, ReactNode>;
-type ColorMapper = Record<Prios, string>;
-type NameMapper = Record<Prios, string>;
+type IconMapper = Record<Prio, JSX.Element>;
+type ColorMapper = Record<Prio, string>;
+type NameMapper = Record<Prio, string>;
 
 export const iconMapper: IconMapper = {
   high: <FiChevronsUp />,

@@ -24,10 +24,11 @@ export const AddColumnForm = ({
   const [form] = useForm();
 
   const { data: columnData } = useGetColumn(columnId as string);
-  const { mutateAsync: createColumn } = useCreateColumn();
-  const { mutateAsync: editColumn } = useEditColumn();
 
   useFillForm(columnData, form, isSidebarVisible, isEdit);
+
+  const { mutateAsync: createColumn } = useCreateColumn();
+  const { mutateAsync: editColumn } = useEditColumn();
 
   const handleSubmit = (values: AddColumnFormType): void => {
     if (isEdit) {
